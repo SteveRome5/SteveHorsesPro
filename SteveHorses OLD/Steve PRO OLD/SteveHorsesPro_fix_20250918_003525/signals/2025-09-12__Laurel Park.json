@@ -1,0 +1,712 @@
+[
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Skittliedat",
+    "p": 0.142857,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "Ma Ma Ma My Vekoma",
+    "p": 0.142857,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "Katarzyna",
+    "p": 0.142857,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "Risk and Regret",
+    "p": 0.142857,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "Beastorburden",
+    "p": 0.142857,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Lady Meis (IRE)",
+    "p": 0.142857,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "7",
+    "horse": "Hop to It",
+    "p": 0.142857,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Kissed At Dawn",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "Nancy Mary",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "Itwillbefun",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "My Dear Antonia",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "Esroh",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Seaside Road",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Synergism",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "Notable Exchange",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "Lord's Lady",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "Claramente",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "Fitness",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Rapido Rosa",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "7",
+    "horse": "Minari",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "8",
+    "horse": "Stress Reliever",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "9",
+    "horse": "Sharmin",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Estilo Magico",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "Beach Cowboy",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "Quincannon",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "Southern Horse (ARG)",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "Woodline",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Pit Stop Man",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Yodel E. A. Who",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1A",
+    "horse": "Kerness",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "Alvy",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "General's Duty",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "Master of None",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "Midnight Renegade",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Passioned",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "7",
+    "horse": "Italian Symphony",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "8",
+    "horse": "Monster Mason",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "9",
+    "horse": "B Dawk",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "10",
+    "horse": "Bookitwithhaddad",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "11",
+    "horse": "Bodecream",
+    "p": 0.083333,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Tucker Tiki",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "Stonecoldhandsome",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "Zimba",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "Joe Class",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "Little Theodore",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Paynted Lion",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "7",
+    "horse": "Runaway Rooster",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "8",
+    "horse": "Boss Mode",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Tate's War Cry",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "Modern Master",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "Bay of Bengal",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "Nogradi",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "Brother Bobo",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Wicked Boss",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "7",
+    "horse": "Rar",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "8",
+    "horse": "Salming",
+    "p": 0.125,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Dewy's Beast",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "Benny Havens",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "Rye Diggitydog",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "Cattivo Ragazzo",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "Mister Lincoln",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Irish Hero",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "7",
+    "horse": "Knockanara",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "8",
+    "horse": "Davyjonz",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "9",
+    "horse": "Change My World",
+    "p": 0.111111,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "1",
+    "horse": "Infastuation",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "2",
+    "horse": "A P M Notion",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "3",
+    "horse": "Bella Cattiva",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "4",
+    "horse": "Map to the Moon",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "5",
+    "horse": "South Pacific",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  },
+  {
+    "race": "",
+    "program": "6",
+    "horse": "Tesoro Rossa",
+    "p": 0.166667,
+    "used": true,
+    "wager": 0.0,
+    "flags": [],
+    "why": "TRAIN prior"
+  }
+]

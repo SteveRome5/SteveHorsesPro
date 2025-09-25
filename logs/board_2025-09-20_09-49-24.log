@@ -1,0 +1,6 @@
+[ENV] RUN_DATE=2025-09-20 FAST=1 α=1.30 sharp=1
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 422
+    (('—' if r['mkt'] is None else f'{r['mkt']*100:.1f}%'))
+                                           ^
+SyntaxError: f-string: f-string: unmatched '['
+[OK] board: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/latest-board.html

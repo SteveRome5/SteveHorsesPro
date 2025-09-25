@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 268
+    f"<td class='right mono'>{'' if k<=0 else f'{k*100:0.1f}%'}{'' if k<=0 else ' (cap)'}"</td>"
+                                                                                           ^
+SyntaxError: invalid syntax

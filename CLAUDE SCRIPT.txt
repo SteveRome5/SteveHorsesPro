@@ -1,0 +1,856 @@
+#!/usr/bin/env python3
+"""
+Enhanced Steve Horses Pro System
+Key improvements and optimizations for your racing analysis system
+"""
+
+import os
+import sys
+import json
+import time
+import logging
+import asyncio
+import aiohttp
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+from dataclasses import dataclass, asdict
+import pickle
+import warnings
+warnings.filterwarnings('ignore')
+
+# Enhanced logging with performance metrics
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(asctime)s] [%(name)s] %(message)s',
+    datefmt='%H:%M:%S'
+)
+logger = logging.getLogger('STEVE_PRO')
+
+@dataclass
+class HorseData:
+    """Structured horse data for better type safety"""
+    name: str
+    number: int
+    speed_rating: float = 75.0
+    form: str = ""
+    class_rating: float = 50.0
+    bias_score: float = 0.5
+    pace_score: float = 0.5
+    pro_plus_score: float = 0.5
+    ml_odds: float = 10.0
+    races: List = None
+    
+    def __post_init__(self):
+        if self.races is None:
+            self.races = []
+
+class EnhancedQuickAPI:
+    """Async API client with connection pooling and better error handling"""
+    
+    def __init__(self):
+        self.base_url = "https://api.theracingapi.com"
+        self.auth = aiohttp.BasicAuth(
+            os.getenv('RACINGAPI_USER', ''),
+            os.getenv('RACINGAPI_PASS', '')
+        )
+        self.session = None
+        self.cache_dir = Path('data/cache')
+        self.cache_dir.mkdir(exist_ok=True, parents=True)
+    
+    async def __aenter__(self):
+        """Async context manager entry"""
+        connector = aiohttp.TCPConnector(
+            limit=10,
+            limit_per_host=5,
+            ttl_dns_cache=300,
+            use_dns_cache=True
+        )
+        timeout = aiohttp.ClientTimeout(total=10, connect=5)
+        self.session = aiohttp.ClientSession(
+            connector=connector,
+            timeout=timeout,
+            auth=self.auth
+        )
+        return self
+    
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        """Async context manager exit"""
+        if self.session:
+            await self.session.close()
+    
+    async def get_today_races(self) -> Optional[Dict]:
+        """Get today's races with smart caching"""
+        cache_file = self.cache_dir / f"races_{datetime.now().strftime('%Y-%m-%d')}.json"
+        
+        # Check cache freshness (30 minutes for race cards)
+        if cache_file.exists():
+            mod_time = cache_file.stat().st_mtime
+            if (time.time() - mod_time) < 1800:  # 30 minutes
+                try:
+                    with open(cache_file, 'r') as f:
+                        return json.load(f)
+                except (json.JSONDecodeError, IOError):
+                    logger.warning("Corrupted cache file, fetching fresh data")
+        
+        # Fetch from API
+        try:
+            async with self.session.get(f"{self.base_url}/v1/racecards/today") as response:
+                if response.status == 200:
+                    data = await response.json()
+                    # Cache it
+                    with open(cache_file, 'w') as f:
+                        json.dump(data, f, indent=2)
+                    logger.info(f"Fetched fresh race data: {len(data.get('tracks', []))} tracks")
+                    return data
+                else:
+                    logger.error(f"API returned status {response.status}")
+        except Exception as e:
+            logger.error(f"Failed to fetch races: {e}")
+        
+        return None
+    
+    async def get_live_odds_batch(self, race_requests: List[Tuple[str, int]]) -> Dict:
+        """Fetch live odds for multiple races concurrently"""
+        tasks = []
+        for track, race_num in race_requests:
+            task = self._get_single_odds(track, race_num)
+            tasks.append(task)
+        
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        odds_data = {}
+        for i, result in enumerate(results):
+            track, race_num = race_requests[i]
+            key = f"{track}_{race_num}"
+            if isinstance(result, dict):
+                odds_data[key] = result
+            else:
+                logger.warning(f"Failed to get odds for {track} R{race_num}: {result}")
+                odds_data[key] = {}
+        
+        return odds_data
+    
+    async def _get_single_odds(self, track: str, race_num: int) -> Dict:
+        """Get odds for a single race"""
+        try:
+            async with self.session.get(f"{self.base_url}/v1/odds/{track}/{race_num}") as response:
+                if response.status == 200:
+                    return await response.json()
+        except Exception as e:
+            logger.debug(f"Odds fetch failed for {track} R{race_num}: {e}")
+        return {}
+
+class OptimizedDataLoader:
+    """Optimized data loading with better caching and indexing"""
+    
+    def __init__(self):
+        self.base_path = Path.cwd()
+        self.data_path = self.base_path / 'data'
+        self.models_path = self.base_path / 'models'
+        
+        # Lazy loading - only load when needed
+        self._model_weights = None
+        self._signals = None
+        self._horse_index = None
+        
+        # Performance tracking
+        self.load_times = {}
+    
+    @property
+    def model_weights(self) -> Dict:
+        """Lazy load model weights"""
+        if self._model_weights is None:
+            start = time.time()
+            self._model_weights = self._load_model_weights()
+            self.load_times['model_weights'] = time.time() - start
+            logger.debug(f"Model weights loaded in {self.load_times['model_weights']:.3f}s")
+        return self._model_weights
+    
+    @property
+    def signals(self) -> Dict:
+        """Lazy load today's signals"""
+        if self._signals is None:
+            start = time.time()
+            self._signals = self._load_today_signals()
+            self.load_times['signals'] = time.time() - start
+            logger.debug(f"Signals loaded in {self.load_times['signals']:.3f}s")
+        return self._signals
+    
+    @property
+    def horse_index(self) -> Dict:
+        """Lazy load horse index"""
+        if self._horse_index is None:
+            start = time.time()
+            self._horse_index = self._load_horse_index()
+            self.load_times['horse_index'] = time.time() - start
+            logger.debug(f"Horse index loaded in {self.load_times['horse_index']:.3f}s")
+        return self._horse_index
+    
+    def _load_model_weights(self) -> Dict:
+        """Load pre-trained model weights with fallback"""
+        weights_file = self.models_path / 'model.json'
+        
+        default_weights = {
+            'speed_weight': 0.25,
+            'form_weight': 0.20,
+            'class_weight': 0.20,
+            'bias_weight': 0.15,
+            'pace_weight': 0.10,
+            'other_weight': 0.10
+        }
+        
+        if weights_file.exists():
+            try:
+                with open(weights_file, 'r') as f:
+                    weights = json.load(f)
+                    # Validate weights sum to 1.0
+                    total = sum(weights.values())
+                    if abs(total - 1.0) > 0.01:
+                        logger.warning(f"Model weights sum to {total:.3f}, normalizing")
+                        weights = {k: v/total for k, v in weights.items()}
+                    return weights
+            except (json.JSONDecodeError, KeyError) as e:
+                logger.warning(f"Invalid model weights file: {e}, using defaults")
+        
+        return default_weights
+    
+    def _load_today_signals(self) -> Dict:
+        """Load today's signals with better error handling"""
+        signals = {}
+        today = datetime.now().strftime('%Y-%m-%d')
+        signals_dir = self.data_path / 'signals'
+        
+        if not signals_dir.exists():
+            logger.info("No signals directory found")
+            return signals
+        
+        signal_files = list(signals_dir.glob(f"{today}__*.json"))
+        logger.info(f"Found {len(signal_files)} signal files for today")
+        
+        for signal_file in signal_files:
+            try:
+                with open(signal_file, 'r') as f:
+                    track_signals = json.load(f)
+                    track = track_signals.get('track', '')
+                    if track:
+                        signals[track] = track_signals
+                        logger.debug(f"Loaded signals for {track}")
+            except (json.JSONDecodeError, KeyError) as e:
+                logger.warning(f"Invalid signal file {signal_file.name}: {e}")
+        
+        return signals
+    
+    def _load_horse_index(self) -> Dict:
+        """Load horse database index with validation"""
+        index = {}
+        db_dir = self.data_path / 'db'
+        
+        if not db_dir.exists():
+            logger.info("No database directory found")
+            return index
+        
+        index_file = db_dir / 'index.json'
+        if index_file.exists():
+            try:
+                with open(index_file, 'r') as f:
+                    index = json.load(f)
+                    logger.info(f"Loaded horse index with {len(index)} entries")
+            except (json.JSONDecodeError, KeyError) as e:
+                logger.warning(f"Invalid index file: {e}")
+        
+        return index
+    
+    def get_horse_data(self, track: str, horse_name: str) -> HorseData:
+        """Enhanced horse data retrieval with structured output"""
+        # Check signals first
+        if track in self.signals:
+            track_data = self.signals[track]
+            for race_data in track_data.get('horses', {}).values():
+                if race_data.get('name') == horse_name:
+                    return HorseData(**{k: v for k, v in race_data.items() 
+                                     if k in HorseData.__dataclass_fields__})
+        
+        # Check database
+        safe_name = "".join(c for c in horse_name if c.isalnum() or c in (' ', '-')).rstrip()
+        db_file = self.data_path / 'db' / f"{track}_{safe_name}.json"
+        
+        if db_file.exists():
+            try:
+                with open(db_file, 'r') as f:
+                    data = json.load(f)
+                    return HorseData(**{k: v for k, v in data.items() 
+                                     if k in HorseData.__dataclass_fields__})
+            except (json.JSONDecodeError, KeyError) as e:
+                logger.warning(f"Invalid horse data file {db_file.name}: {e}")
+        
+        # Return default data
+        return HorseData(name=horse_name, number=0)
+
+class ImprovedWinProbability:
+    """Enhanced win probability calculation with better normalization"""
+    
+    def __init__(self, weights: Dict):
+        self.weights = weights
+        self.component_cache = {}  # Cache component calculations
+    
+    def calculate_batch(self, race_horses: List[HorseData]) -> List[Tuple[float, List[str]]]:
+        """Calculate probabilities for all horses in a race at once"""
+        if not race_horses:
+            return []
+        
+        # Pre-calculate field statistics
+        field_stats = self._calculate_field_stats(race_horses)
+        
+        results = []
+        for horse in race_horses:
+            prob, components = self._calculate_single(horse, field_stats, race_horses)
+            results.append((prob, components))
+        
+        # Normalize probabilities to sum to ~1.0 (accounting for takeout)
+        probs = [r[0] for r in results]
+        total_prob = sum(probs)
+        if total_prob > 0:
+            normalization_factor = 0.85 / total_prob  # 85% payout typical
+            results = [(prob * normalization_factor, components) 
+                      for (prob, components) in results]
+        
+        return results
+    
+    def _calculate_field_stats(self, horses: List[HorseData]) -> Dict:
+        """Pre-calculate field statistics for relative comparisons"""
+        speeds = [h.speed_rating for h in horses if h.speed_rating > 0]
+        classes = [h.class_rating for h in horses if h.class_rating > 0]
+        
+        return {
+            'avg_speed': np.mean(speeds) if speeds else 75.0,
+            'std_speed': np.std(speeds) if len(speeds) > 1 else 10.0,
+            'avg_class': np.mean(classes) if classes else 50.0,
+            'std_class': np.std(classes) if len(classes) > 1 else 20.0,
+            'field_size': len(horses)
+        }
+    
+    def _calculate_single(self, horse: HorseData, field_stats: Dict, 
+                         all_horses: List[HorseData]) -> Tuple[float, List[str]]:
+        """Calculate probability for a single horse"""
+        components = []
+        score = 0
+        
+        # Speed component (improved normalization)
+        if horse.speed_rating > 0:
+            speed_z = (horse.speed_rating - field_stats['avg_speed']) / field_stats['std_speed']
+            speed_score = 0.5 + (speed_z * 0.15)  # More conservative scaling
+            speed_score = max(0.05, min(0.95, speed_score))
+            score += speed_score * self.weights['speed_weight']
+            if speed_score > 0.6:
+                components.append('SPD')
+        
+        # Form component (enhanced)
+        if horse.form:
+            form_score = self._enhanced_form_score(horse.form)
+            score += form_score * self.weights['form_weight']
+            if form_score > 0.6:
+                components.append('FRM')
+        
+        # Class component (relative to field)
+        if horse.class_rating > 0:
+            class_z = (horse.class_rating - field_stats['avg_class']) / field_stats['std_class']
+            class_score = 0.5 + (class_z * 0.2)
+            class_score = max(0.05, min(0.95, class_score))
+            score += class_score * self.weights['class_weight']
+            if class_score > 0.6:
+                components.append('CLS')
+        
+        # Other components (bias, pace, pro_plus)
+        for attr, weight_key, flag in [
+            ('bias_score', 'bias_weight', 'BIAS'),
+            ('pace_score', 'pace_weight', 'PACE'),
+            ('pro_plus_score', 'other_weight', 'PRO+')
+        ]:
+            value = getattr(horse, attr, 0.5)
+            score += value * self.weights[weight_key]
+            if value > 0.6:
+                components.append(flag)
+        
+        # Field size adjustment
+        field_adjustment = 1.0 - (field_stats['field_size'] - 8) * 0.01
+        field_adjustment = max(0.8, min(1.2, field_adjustment))
+        score *= field_adjustment
+        
+        # Ensure reasonable probability range
+        win_prob = max(0.01, min(0.80, score))
+        
+        return win_prob, components
+    
+    def _enhanced_form_score(self, form: str) -> float:
+        """Enhanced form analysis with recency weighting"""
+        if not form:
+            return 0.5
+        
+        parts = form.replace('x', '15').split('-')[:5]  # Last 5 races, treat 'x' as 15th
+        if not parts:
+            return 0.5
+        
+        score = 0
+        weights = [0.4, 0.25, 0.15, 0.1, 0.1]  # Heavily weight recent form
+        
+        for i, pos_str in enumerate(parts):
+            try:
+                pos = int(pos_str)
+                if pos == 1:
+                    score += weights[i] * 1.0
+                elif pos <= 3:
+                    score += weights[i] * 0.6
+                elif pos <= 5:
+                    score += weights[i] * 0.3
+                elif pos <= 10:
+                    score += weights[i] * 0.1
+                # Worse than 10th gets 0 points
+            except (ValueError, IndexError):
+                # Invalid position, slight penalty
+                score += weights[i] * 0.2
+        
+        return min(1.0, score)
+
+class AdvancedHTMLGenerator:
+    """Enhanced HTML generation with better styling and features"""
+    
+    def __init__(self):
+        self.prime_threshold = 0.15  # Lowered slightly for more plays
+        self.action_threshold = 0.08
+    
+    def generate(self, races: List[Dict], output_file: Path) -> None:
+        """Generate enhanced HTML report"""
+        # Collect plays for boards
+        prime_plays, action_plays = self._collect_plays(races)
+        
+        # Generate comprehensive HTML
+        html = self._build_enhanced_html(races, prime_plays, action_plays)
+        
+        output_file.parent.mkdir(exist_ok=True, parents=True)
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(html)
+        
+        logger.info(f"Generated HTML: {len(prime_plays)} prime, {len(action_plays)} action plays")
+    
+    def _collect_plays(self, races: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
+        """Collect plays with better filtering and sorting"""
+        prime_plays = []
+        action_plays = []
+        
+        for race in races:
+            for horse in race['horses']:
+                if horse.get('scratched', False):
+                    continue
+                
+                edge = horse.get('edge_pct', 0)
+                win_pct = horse.get('win_pct', 0)
+                
+                # Quality filters
+                if win_pct < 5:  # Skip very low probability horses
+                    continue
+                
+                play_data = {
+                    **horse,
+                    'track': race['track'],
+                    'race_num': race['race_number'],
+                    'post_time': race.get('post_time', ''),
+                    'surface': race.get('surface', ''),
+                    'distance': race.get('distance', '')
+                }
+                
+                if edge >= self.prime_threshold:
+                    prime_plays.append(play_data)
+                elif edge >= self.action_threshold:
+                    action_plays.append(play_data)
+        
+        # Sort by edge percentage (descending)
+        prime_plays.sort(key=lambda x: x['edge_pct'], reverse=True)
+        action_plays.sort(key=lambda x: x['edge_pct'], reverse=True)
+        
+        return prime_plays, action_plays
+    
+    def _build_enhanced_html(self, races: List[Dict], prime: List[Dict], 
+                           action: List[Dict]) -> str:
+        """Build enhanced HTML with better responsive design"""
+        current_time = datetime.now()
+        
+        return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏇 Steve Horses Pro - {current_time.strftime('%Y-%m-%d %H:%M')}</title>
+    <meta http-equiv="refresh" content="45">
+    <style>
+        {self._get_enhanced_css()}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1>🏇 Steve Horses Pro</h1>
+            <div class="header-info">
+                <div class="timestamp">Last Update: {current_time.strftime('%I:%M:%S %p')}</div>
+                <div class="refresh-info">Auto-refresh: 45s</div>
+                <div class="summary">
+                    {len(prime)} Prime • {len(action)} Action • {len(races)} Races
+                </div>
+            </div>
+        </header>
+        
+        <div class="boards-section">
+            {self._build_enhanced_boards(prime, action)}
+        </div>
+        
+        <div class="races-section">
+            <h2>📊 All Races</h2>
+            {self._build_enhanced_race_cards(races)}
+        </div>
+        
+        <footer class="main-footer">
+            <p>Steve Horses Pro • Generated at {current_time.strftime('%Y-%m-%d %H:%M:%S')}</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Add some basic interactivity
+        document.addEventListener('DOMContentLoaded', function() {{
+            // Highlight plays when hovering
+            const playItems = document.querySelectorAll('.play-item');
+            playItems.forEach(item => {{
+                item.addEventListener('mouseenter', function() {{
+                    this.style.transform = 'translateX(8px) scale(1.02)';
+                }});
+                item.addEventListener('mouseleave', function() {{
+                    this.style.transform = 'translateX(0) scale(1)';
+                }});
+            }});
+            
+            // Add click-to-copy functionality for horse names
+            const horseNames = document.querySelectorAll('.horse-name');
+            horseNames.forEach(name => {{
+                name.addEventListener('click', function() {{
+                    navigator.clipboard.writeText(this.textContent);
+                    this.style.background = '#00b894';
+                    this.style.color = 'white';
+                    setTimeout(() => {{
+                        this.style.background = '';
+                        this.style.color = '';
+                    }}, 500);
+                }});
+            }});
+        }});
+    </script>
+</body>
+</html>"""
+    
+    def _get_enhanced_css(self) -> str:
+        """Enhanced CSS with modern design and better mobile support"""
+        return """
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                         'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .main-header {
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+        }
+        
+        .main-header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+        
+        .boards-section {
+            padding: 25px;
+        }
+        
+        .boards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .boards {
+                grid-template-columns: 1fr;
+            }
+            .header-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        .board {
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .board::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: brightness(1.1);
+            z-index: -1;
+        }
+        
+        .prime-board {
+            background: linear-gradient(135deg, #00b894, #00cec9, #81ecec);
+            color: white;
+        }
+        
+        .action-board {
+            background: linear-gradient(135deg, #fdcb6e, #e17055, #fd79a8);
+            color: white;
+        }
+        
+        .board h2 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+        
+        .play-item {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 45px 1fr 70px 70px 85px;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .play-item:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateX(5px);
+        }
+        
+        .play-num {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-horse {
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        
+        .play-track {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+        
+        .play-win, .play-market, .play-edge {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .races-section {
+            background: #f8f9fa;
+            padding: 25px;
+        }
+        
+        .races-section h2 {
+            color: #2d3436;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .race-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .race-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .race-header {
+            background: linear-gradient(90deg, #2d3436, #636e72);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: #f1f3f4;
+            padding: 12px 10px;
+            text-align: left;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #2d3436;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: top;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .horse-name {
+            font-weight: 600;
+            cursor: pointer;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .horse-name:hover {
+            background: #e3f2fd;
+        }
+        
+        .horse-stats {
+            font-size: 0.75em;
+            color: #636e72;
+            margin-top: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        
+        .win-pct {
+            font-weight: bold;
+            color: #00b894;
+            font-size: 1.1em;
+        }
+        
+        .edge-pos { 
+            color: #00b894; 
+            font-weight: bold; 
+        }
+        
+        .edge-neg { 
+            color: #d63031; 
+        }
+        
+        .scratched { 
+            opacity: 0.5; 
+            text-decoration: line-through; 
+        }
+        
+        .flags {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        
+        .flag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .flag.speed { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .flag.form { background: linear-gradient(135deg, #27ae60, #229954); }
+        .flag.class { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .flag.bias { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .flag.pace { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        
+        .main-footer {
+            background: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .board-empty {
+            text-align: center;
+            opacity: 0.8;
+            margin: 40px 0;
+            font-size: 1.1em;
+        }
+        
+        /* Performance indicators */
+        .perf-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+        
+        .perf-good { background: #00b894; }
+        .perf-ok { background: #fdcb6e; }
+        .perf-poor { background: #e17055; }
+        """

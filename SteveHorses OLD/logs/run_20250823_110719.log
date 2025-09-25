@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorses/steve_horses_board.py", line 77
+    }
+    ^
+SyntaxError: unmatched '}'

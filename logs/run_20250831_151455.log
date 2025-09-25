@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 504, in <module>
+    main()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 500, in main
+    cards, chosen = fetch_cards_today()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 358, in fetch_cards_today
+    idxes = recent_results_index([c["meet_id"] for c in chosen], LOOKBACK_DAYS)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 167, in recent_results_index
+    for r in rs.get("races",[]):
+TypeError: 'NoneType' object is not iterable

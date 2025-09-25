@@ -1,0 +1,5 @@
+[ENV] RUN_DATE=2025-09-20 FAST=1 α=1.30 sharp=1
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 369
+    a1=("↑" if x["sf"]>0 else ("→" if abs(x["sf"])<1e-6 else "↓")), p1=x["sf_pct"],
+IndentationError: unexpected indent
+[OK] board: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/latest-board.html

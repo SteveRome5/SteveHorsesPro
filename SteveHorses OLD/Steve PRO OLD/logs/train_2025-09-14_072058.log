@@ -1,0 +1,4 @@
+[cwd] /Users/stephenjerome/Desktop/SteveHorsesPro
+[python] /usr/bin/python3
+[RUN] TRAIN start — Sun Sep 14 07:20:58 PDT 2025  harvest_days_back=1  train_days_back=365  all_tracks=0  min_rows=160
+[OK] TRAIN finished — Sun Sep 14 07:20:59 PDT 2025  duration=1s

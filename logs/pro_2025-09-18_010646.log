@@ -1,0 +1,4 @@
+[jockey-form] db=/Users/stephenjerome/Desktop/SteveHorsesPro/data/tj.sqlite
+[jockey-form] window_days=365  cutoff>=2024-09-18
+[jockey-form] migrating legacy tj_rollup_combo schema → (trainer,jockey)
+[jockey-form] sqlite error: no such column: updated_at

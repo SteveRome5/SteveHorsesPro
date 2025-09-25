@@ -1,0 +1,14 @@
+[jockey-form] db=/Users/steverome5/Desktop/SteveHorsesPro/data/tj.sqlite
+[jockey-form] window_days=365  cutoff>=2024-09-18
+[jockey-form] tj_daily has zero wins; falling back to combos
+[jockey-form] rows combo=19025  jockey=1826
+  • id trn na alias abrams ronald b first name ronald first name initial r last name abrams middle name b type te | id jky na alias hernandez first name andy first name initial last name hernandez middle name type je | Parx Racing|dirt|unk | 14 | 100 | 14.0%
+  • id trn na alias abrams ronald b first name ronald first name initial r last name abrams middle name b type te | id jky na alias lopez p first name paco first name initial p last name lopez middle name type je | Parx Racing|dirt|unk | 14 | 100 | 14.0%
+  • id trn na alias abrams ronald b first name ronald first name initial r last name abrams middle name b type te | id jky na alias martinez f first name francisco first name initial f last name martinez middle name type je | Parx Racing|dirt|unk | 14 | 100 | 14.0%
+  • id trn na alias abrams ronald b first name ronald first name initial r last name abrams middle name b type te | id jky na alias ruiz e first name eliseo first name initial e last name ruiz middle name type je | Parx Racing|dirt|unk | 14 | 100 | 14.0%
+  • id trn na alias abrams ronald b first name ronald first name initial r last name abrams middle name b type te | id jky na alias wolfsont first name andrew first name initial last name wolfsont middle name type je | Parx Racing|dirt|unk | 14 | 100 | 14.0%
+  • id jky na alias vasquez m first name miguel first name initial m last name vasquez middle name angel type je | Gulfstream Park|dirt|unk | 1792 | 12800 | 14.0%
+  • id jky na alias reyes l first name leonel first name initial l last name reyes middle name type je | Gulfstream Park|dirt|unk | 1764 | 12600 | 14.0%
+  • id jky na alias morelos j e first name jose first name initial j last name morelos middle name e type je | Gulfstream Park|dirt|unk | 1722 | 12300 | 14.0%
+  • id jky na alias gonzalez e first name edwin first name initial e last name gonzalez middle name type je | Gulfstream Park|dirt|unk | 1428 | 10200 | 14.0%
+  • id jky na alias marin s first name samuel first name initial s last name marin middle name type je | Tampa Bay Downs|dirt|unk | 1386 | 9900 | 14.0%

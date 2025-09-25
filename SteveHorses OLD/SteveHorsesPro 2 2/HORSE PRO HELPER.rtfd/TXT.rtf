@@ -1,0 +1,429 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .SFNS-Regular;\f1\fnil\fcharset0 HelveticaNeue-Bold;\f2\fnil\fcharset0 .SFNS-Semibold;
+\f3\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;\f4\fnil\fcharset0 HelveticaNeue;\f5\froman\fcharset0 TimesNewRomanPSMT;
+\f6\fnil\fcharset0 .SFNS-RegularItalic;\f7\fswiss\fcharset0 Helvetica;\f8\fnil\fcharset0 LucidaGrande-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red14\green14\blue14;\red0\green0\blue0;\red181\green0\blue19;
+\red50\green91\blue97;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c6700\c6700\c6700;\csgray\c0;\cssrgb\c76863\c10196\c8627;
+\cssrgb\c24706\c43137\c45490;\cspthree\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tqr\tx100\tx260\li260\fi-260\sl324\slmult1\sb240\partightenfactor0
+
+\f0\fs28 \cf2 cd "$HOME/Desktop/SteveHorsesPro"\
+/usr/bin/python3 ledger_reconcile.py\
+\
+	\'95	
+\f1\b Backfill 120 days and train
+\f0\b0  (major tracks only):
+\f2\b\fs30 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+\cf2 cd "$HOME/Desktop/SteveHorsesPro" && \\\
+/usr/bin/python3 steve_horses_train.py --days-back 120\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f1\fs28 \cf2 Harvest only (no training yet)
+\f0\b0 :\
+/usr/bin/python3 "$HOME/Desktop/SteveHorsesPro/steve_horses_train.py" \\\
+  --harvest-dates 2025-06-01 2025-06-02 --harvest-only\
+\
+
+\f1\b Train using already-harvested last 120 days
+\f0\b0 :\
+cd "$HOME/Desktop/SteveHorsesPro"\
+/usr/bin/python3 steve_horses_train.py --train-only --days-back 120\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf3 echo \cf4 "export RACINGAPI_USER='WQaKSMwgmG8GnbkHgvRRCT0V'"\cf3  >> ~/.zshrc\
+echo \cf4 "export RACINGAPI_PASS='McYBoQViXSPvlNcvxQi1Z1py'"\cf3  >> ~/.zshrc\
+source ~/.zshrc\
+echo \cf5 $RACINGAPI_USER
+\f2\b\fs30 \cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f1\fs28 \cf2 check how much \'93history\'94 your model already has
+\f2\fs30 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+\cf2 cd "$HOME/Desktop/SteveHorsesPro"\
+python3 check_overlap.py\
+\
+Harvest and Train the last 7 days (recommended daily run)
+\f4\b0\fs28 \cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 cd ~/Desktop/SteveHorsesPro\
+/usr/bin/python3 steve_horses_train.py --days-back 0 --backfill 7 --min-rows 300\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f1\b \cf2 120-day harvest
+\f0\b0  with your trainer
+\f4 \cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 cd "$HOME/Desktop/SteveHorsesPro" && \\\
+/usr/bin/python3 steve_horses_train.py \\\
+  --days-back 120 \\\
+  --harvest-only \\\
+  --all-tracks \\\
+  --min-rows 50\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f2\b\fs30 \cf2 After harvesting
+\f4\b0\fs28 \cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 cd "$HOME/Desktop/SteveHorsesPro" && \\\
+/usr/bin/python3 steve_horses_train.py \\\
+  --train-only\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f2\b\fs30 \cf2 Harvest only (no training)
+\f4\b0\fs28 \cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 cd ~/Desktop/SteveHorsesPro\
+/usr/bin/python3 steve_horses_train.py --days-back 90 --backfill 90 --harvest-only\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f2\b\fs30 \cf2 Train only (skip harvesting, use existing CSVs)\
+cd ~/Desktop/SteveHorsesPro\
+/usr/bin/python3 steve_horses_train.py --train-only --min-rows 500\
+\
+Harvest specific dates\
+cd ~/Desktop/SteveHorsesPro\
+/usr/bin/python3 steve_horses_train.py --harvest-dates 2025-09-01,2025-09-02,2025-09-03
+\f4\b0\fs28 \cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 \
+\
+\
+\
+/usr/bin/python3 "$HOME/Desktop/SteveHorsesPro/steve_horses_train.py" --harvest-dates 2025-09-08 --days-back 120\
+\
+/usr/bin/python3 "$BASE/steve_horses_train.py" --days-back 7 --train-only\
+\
+export PRO_MODE=1\
+\
+tail -n 120 "$HOME/Desktop/SteveHorsesPro/logs/run.log"\
+\
+\
+cp ~/Desktop/SteveHorsesPro/steve_horses_pro.py.bak_propatch \\\
+   ~/Desktop/SteveHorsesPro/steve_horses_pro.py\
+\
+\pard\tqr\tx100\tx260\li260\fi-260\sl324\slmult1\sb240\partightenfactor0
+
+\f0 \cf2 	\'95	
+\f3 --log-today
+\f0  to write a clean predictions CSV for today (no HTML, fast)\
+	\'95	
+\f3 --audit-today
+\f0  to fetch results, merge with those predictions, and write an audit HTML (calibration & simple ROI)
+\f4 \cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 {{\NeXTGraphic Screenshot 2025-09-09 at 5.05.22â€¯PM.png \width21360 \height7940 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f2\b\fs44 \cf2 What this program is (for Dad)
+\f0\b0\fs28 \
+\
+This is a professional, automated handicapping system for horse racing. It does three big things:\
+\pard\tqr\tx260\tx420\li420\fi-420\sl324\slmult1\sb240\partightenfactor0
+
+\f5 \cf2 	1.	
+\f1\b Pulls official race data from a paid racing API
+\f0\b0 \
+Each day it asks the API for today\'92s tracks, races, and runners (speed/pace/class, trainer & jockey stats, surfaces, distances, scratches, odds, etc.). Think of this as getting the \'93official scorebook\'94 straight from the source.\
+
+\f5 	2.	
+\f1\b Builds an objective model to estimate each horse\'92s true win chances
+\f0\b0 \
+\pard\tqr\tx500\tx660\li660\fi-660\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	It uses a 
+\f1\b statistical model
+\f0\b0  (regularized logistic regression) that\'92s trained on past results.\
+	\'95	It groups races by 
+\f6\i track + surface (dirt/turf/synthetic) + distance bucket
+\f0\i0  so the model \'93knows\'94 different tracks/distances play differently.\
+	\'95	It also trains a 
+\f1\b global fallback
+\f0\b0  in case a specific bucket doesn\'92t have enough data.\
+	\'95	Predictions are 
+\f1\b calibrated
+\f0\b0  (so \'9322%\'94 in the report actually behaves like ~22% long-term).\
+	\'95	The training runs separately in its own script, saving a 
+\f3 model.json
+\f0 . The daily \'93Pro\'94 report just 
+\f1\b loads
+\f0\b0  that file\'97so training never slows down the daily run.\
+\pard\tqr\tx260\tx420\li420\fi-420\sl324\slmult1\sb240\partightenfactor0
+
+\f5 \cf2 	3.	
+\f1\b Turns those win chances into actionable, risk-controlled bets
+\f0\b0 \
+\pard\tqr\tx500\tx660\li660\fi-660\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	It computes \'93fair\'94 prices and 
+\f1\b minimum acceptable prices
+\f0\b0  (adds padding for takeout, field size, and conditions).\
+	\'95	It compares your model\'92s chance to the market\'92s implied chance (from live odds & will-pays), looking for 
+\f1\b overlays
+\f0\b0  (value).\
+	\'95	Bet sizing uses a 
+\f1\b conservative Kelly variant
+\f0\b0  with caps (per-horse, per-day) to keep risk controlled.\
+	\'95	It can \'93
+\f1\b dutch
+\f0\b0 \'94 across more than one horse when there are multiple value plays in the same race.\
+	\'95	It tags higher-quality plays as 
+\f1\b PRIME
+\f0\b0  and smaller opportunistic ones as 
+\f1\b ACTION
+\f0\b0 , with additional 
+\f1\b confidence flags
+\f0\b0 .\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f1\b \cf2 Separation of concerns (important, Dad):
+\f0\b0 \
+\pard\tqr\tx100\tx260\li260\fi-260\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	The 
+\f1\b Pro
+\f0\b0  script is the daily runner. It\'92s fast and reads the already-trained model from disk.\
+	\'95	The 
+\f1\b Train
+\f0\b0  script is for downtime; it harvests history and retrains the model. Pro does not wait for it and doesn\'92t slow down.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f1\b \cf2 Operational polish:
+\f0\b0 \
+\pard\tqr\tx100\tx260\li260\fi-260\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	All logs to 
+\f3 logs/
+\f0 .\
+	\'95	Atomic saves so you never get a half-written model file.\
+	\'95	Sensible fallbacks (e.g., if today\'92s data is broken, it can open the last good report so you\'92re never stuck empty-handed).\
+	\'95	Configurable limits for bankroll scaling and risk controls.\
+\
+Bottom line: this is not a toy. It\'92s designed like a proper analytics pipeline with clean separation, calibration, guardrails, and repeatability.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f7\fs24 \cf0 \
+
+\f0 \uc0\u11835 
+\f7 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f2\b\fs44 \cf2 How to read the HTML report (every column, plain English)
+\f0\b0\fs28 \
+\
+At the top you may see a 
+\f1\b Scratch Report
+\f0\b0  (what was removed and how) and two summary boards (
+\f1\b PRIME
+\f0\b0  and 
+\f1\b ACTION
+\f0\b0 ). Below that are the 
+\f1\b race-by-race tables
+\f0\b0 .\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf2 PRIME / ACTION Boards
+\f0\b0\fs28 \
+\
+These are the \'93shortlists\'94:\
+\pard\tqr\tx100\tx260\li260\fi-260\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	
+\f1\b Race
+\f0\b0  \'96 Which race at that track.\
+	\'95	
+\f1\b #
+\f0\b0  \'96 Program number (saddlecloth number).\
+	\'95	
+\f1\b Horse
+\f0\b0  \'96 Name.\
+	\'95	
+\f1\b Win%
+\f0\b0  \'96 Model\'92s final estimated chance to win 
+\f1\b after
+\f0\b0  blending with the market (more stable).\
+	\'95	
+\f1\b Market%
+\f0\b0  \'96 Market\'92s implied chance (from odds / will-pays).\
+	\'95	
+\f1\b Edge
+\f0\b0  \'96 Difference between Model Win% and Market%. Positive = value.\
+	\'95	
+\f1\b Fair
+\f0\b0  \'96 \'93True\'94 price implied by the model\'92s Win%.\
+	\'95	
+\f1\b Min Price
+\f0\b0  \'96 The minimum price you should demand to bet (adds padding for takeout/field size/conditions).\
+	\'95	
+\f1\b Market
+\f0\b0  \'96 Current market price (decimal).\
+	\'95	
+\f1\b Bet
+\f0\b0  \'96 Suggested stake (dollar amount), after daily caps and dutching logic.\
+	\'95	
+\f1\b Flags
+\f0\b0  \'96 Quick notes:\
+\pard\tqr\tx500\tx660\li660\fi-660\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	
+\f1\b PRIME
+\f0\b0 /
+\f1\b ACTION
+\f0\b0  labels (quality tier)\
+	\'95	Confidence notes (e.g., HIGH/MED/LOW, CAP if capped, 
+\f1\b DUTCH2
+\f0\b0  if 2-horse dutch)\
+	\'95	Pace/context hints (e.g., 
+\f1\b LoneE
+\f0\b0  for a lone early speed horse, 
+\f1\b RailWide
+\f0\b0  on wide-rail turf, etc.)\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf2 Full Race Tables (per race)
+\f0\b0\fs28 \
+\
+Columns are similar but show 
+\f1\b all
+\f0\b0  horses:\
+\pard\tqr\tx100\tx260\li260\fi-260\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	
+\f1\b #
+\f0\b0  \'96 Program number.\
+	\'95	
+\f1\b Horse
+\f0\b0  \'96 Horse name. The little tag next to it (e.g., 
+\f1\b Spd
+\f8 \uc0\u8593 
+\f0\b0 , 
+\f1\b Cls
+\f8 \uc0\u8593 
+\f0\b0 , 
+\f1\b Trn
+\f8 \uc0\u8593 
+\f0\b0 , 
+\f1\b Jky
+\f8 \uc0\u8593 
+\f0\b0 , 
+\f1\b TJ
+\f8 \uc0\u8593 
+\f0\b0 , E/EP/P/S) summarizes standout factors and pace style (Early / Early-Presser / Presser / Sustained).\
+	\'95	
+\f1\b Win% (Final)
+\f0\b0  \'96 Model\'92s final win probability 
+\f1\b after blending
+\f0\b0  with market info (makes it less jumpy).\
+	\'95	
+\f1\b Market%
+\f0\b0  \'96 Market implied probability.\
+	\'95	
+\f1\b Edge
+\f0\b0  \'96 (Win% \uc0\u8722  Market%). Positive = overlay/value.\
+	\'95	
+\f1\b Fair
+\f0\b0  \'96 Decimal odds that match the Model Win% (no edge).\
+	\'95	
+\f1\b Min Price
+\f0\b0  \'96 The 
+\f1\b lowest
+\f0\b0  price you should accept (fair + safety pad).\
+	\'95	
+\f1\b Market
+\f0\b0  \'96 Current market price (decimal).\
+	\'95	
+\f1\b Flags
+\f0\b0  \'96 Same quick notes as above.\
+	\'95	
+\f1\b Bet
+\f0\b0  \'96 Suggested stake if it qualifies (otherwise \'93\'97\'94).\
+\
+You\'92ll also see a gray line beneath each horse like:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f1\b \cf2 SpeedForm 
+\f8 \uc0\u8593 
+\f1  (68 pct), Class\uc0\u916  
+\f8 \uc0\u8594 
+\f1  (49 pct), Bias 
+\f8 \uc0\u8600 
+\f1  (35 pct)
+\f0\b0 \
+Hovering shows the exact z-scores (that\'92s the advanced numeric detail). This line breaks down three composite signals:\
+\pard\tqr\tx100\tx260\li260\fi-260\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	
+\f1\b SpeedForm
+\f0\b0  \'96 Recent speed + form relative to the race\'92s typical \'93par\'94 (bucket-aware).\
+	\'95	
+\f1\b Class\uc0\u916 
+\f0\b0  \'96 How this horse\'92s class stacks relative to par.\
+	\'95	
+\f1\b Bias
+\f0\b0  \'96 Small positional/surface/distance bias from post and setup.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f1\b \cf2 Color shading:
+\f0\b0 \
+Rows may lightly tint green if the 
+\f1\b Edge
+\f0\b0  is positive\'97darker = bigger value.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f7\fs24 \cf0 \
+
+\f0 \uc0\u11835 
+\f7 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f2\b\fs44 \cf2 FAQ for Dad
+\f0\b0\fs28 \
+\pard\tqr\tx100\tx260\li260\fi-260\sl324\slmult1\sb240\partightenfactor0
+\cf2 	\'95	
+\f1\b Does it bet automatically?
+\f0\b0 \
+No. It 
+\f1\b recommends
+\f0\b0  bets and sizes. You can choose what to place.\
+	\'95	
+\f1\b Why blend with the market\'97doesn\'92t that \'93copy\'94 odds?
+\f0\b0 \
+The model is the anchor. The blend prevents overreacting to sparse data and stabilizes close-to-post predictions. We still only bet if our price is 
+\f1\b better
+\f0\b0  than the model\'92s 
+\f1\b Min Price
+\f0\b0 .\
+	\'95	
+\f1\b How does it avoid blow-ups?
+\f0\b0 \
+Conservative Kelly, per-horse caps, per-day exposure caps, and PRIME/ACTION gates (with confidence scoring).\
+	\'95	
+\f1\b Is it really learning?
+\f0\b0 \
+Yes\'97when the 
+\f1\b Train
+\f0\b0  script runs, it harvests results and retrains the per-bucket and global models, recalibrates probabilities, and saves 
+\f3 models/model.json
+\f0 . Next time \'93Pro\'94 runs, it automatically benefits from the improved model.\
+	\'95	
+\f1\b What if the API hiccups?
+\f0\b0 \
+It logs failures, avoids crashing the daily run, and can show the last good report if today\'92s build fails.}

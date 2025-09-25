@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 176
+    name = f\"#{clean(h['num'])} {clean(h['name'])}\"
+                                                    ^
+SyntaxError: unexpected character after line continuation character

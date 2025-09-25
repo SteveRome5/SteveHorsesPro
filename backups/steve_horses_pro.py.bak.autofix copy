@@ -1,0 +1,457 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os, json, math, statistics, datetime as dt
+from pathlib import Path
+from urllib.parse import urlencode
+import urllib.request, urllib.error
+
+# ---------------------------- Locations & knobs -----------------------------
+BASE  = Path(os.environ.get("BASE", str(Path.home() / "Desktop" / "SteveHorsesPro")))
+OUT   = BASE / "outputs"
+DATA  = BASE / "data"
+SIGS  = DATA / "signals"
+LOGS  = BASE / "logs"
+
+OUT.mkdir(parents=True, exist_ok=True)
+LOGS.mkdir(parents=True, exist_ok=True)
+
+MAJORS = []
+majraw = os.environ.get("MAJOR_TRACKS_ONLY", "")
+if majraw.strip():
+    MAJORS = [t.strip() for t in majraw.split(",") if t.strip()]
+
+TODAY = os.environ.get("DAY") or dt.date.today().isoformat()
+
+FAST         = int(os.environ.get("FAST", "1"))
+ALPHA        = float(os.environ.get("PRO_ALPHA", "1.30"))
+NO_AUDIT     = int(os.environ.get("PRO_NO_AUDIT", "1"))
+USE_SHARP    = int(os.environ.get("PRO_USE_SHARP", "1"))
+
+BANKROLL     = float(os.environ.get("BANKROLL", "20000"))
+KELLY_CAP    = float(os.environ.get("KELLY_CAP", "0.12"))
+MAX_BET      = float(os.environ.get("MAX_BET_PER_HORSE", "1500"))
+MIN_STAKE    = float(os.environ.get("MIN_STAKE", "50"))
+
+API_BASE     = os.environ.get("RACING_API_BASE", "https://api.theracingapi.com").rstrip("/")
+API_USER     = os.environ.get("RACINGAPI_USER", "")
+API_PASS     = os.environ.get("RACINGAPI_PASS", "")
+
+# ----------------------------- Small helpers --------------------------------
+def log(msg): print(f"[pro] {msg}")
+
+def _z(a):
+    try:
+        m, s = statistics.fmean(a), statistics.pstdev(a)
+        return [(x - m) / s if s > 1e-9 else 0.0 for x in a]
+    except Exception:
+        return [0.0 for _ in a]
+
+def softmax(z, temp=ALPHA):
+    if not z: return []
+    m = max(z)
+    ex = [math.exp((x - m) / max(1e-9, temp)) for x in z]
+    s = sum(ex) or 1.0
+    return [x / s for x in ex]
+
+def money_from_prob(p):
+    """Return (fair_frac, fair_frac, min_frac, min_frac) – min is 80% of fair."""
+    p = max(1e-4, min(0.9999, float(p)))
+    fair_frac = 1.0 / p
+    min_frac  = fair_frac * 0.80
+    return fair_frac, f"${fair_frac:0.2f}", min_frac, f"${min_frac:0.2f}"
+
+def parse_odds(s):
+    """Very forgiving odds parser: '7/2', '3-1', '9‑5', 2.5 (dec), '$8.40' etc."""
+    if s is None: return None
+    if isinstance(s, (int, float)):  # decimal price
+        if s <= 0: return None
+        return 1.0 / float(s)
+    ss = str(s).strip().lower().replace(" ", "")
+    ss = ss.replace("$", "")
+    # money line like 5/2 or 5-2
+    for sep in ("/", "-"):
+        if sep in ss:
+            a, b = ss.split(sep, 1)
+            try:
+                num = float(a)
+                den = float(b)
+                dec = (num / den) + 1.0
+                return 1.0 / dec
+            except Exception:
+                pass
+    # decimal or price dollars
+    try:
+        dec = float(ss)
+        if dec > 0: return 1.0 / dec
+    except Exception:
+        pass
+    return None
+
+def html_escape(s):
+    return (str(s)
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;"))
+
+def get(url, params=None, timeout=12):
+    """Simple GET with basic auth. Returns (status, text) or (None, '') on failure."""
+    try:
+        if params:
+            url = f"{url}?{urlencode(params)}"
+        req = urllib.request.Request(url)
+        if API_USER or API_PASS:
+            import base64
+            tok = base64.b64encode(f"{API_USER}:{API_PASS}".encode()).decode()
+            req.add_header("Authorization", f"Basic {tok}")
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, r.read().decode("utf-8", errors="ignore")
+    except Exception as e:
+        return None, ""
+
+def json_safe(text, default=None):
+    try:
+        return json.loads(text)
+    except Exception:
+        return default
+
+# -------------------- Loaders: signals, DB, API odds/cards -------------------
+def signals_for_day(track, day=TODAY):
+    """Look for signals JSON like data/signals/YYYY-MM-DD__Track.json"""
+    p = SIGS / f"{day}__{track}.json"
+    if p.exists():
+        try:
+            j = json.loads(p.read_text(encoding="utf-8"))
+            return j
+        except Exception:
+            return None
+    return None
+
+def db_cache(track):
+    """Optional DB cache: data/db/Track.json -> { (race,pgm): {sf,class,bias,...} }"""
+    p = DATA / "db" / f"{track}.json"
+    if p.exists():
+        try:
+            return json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+def api_live_odds(track, day, race_no):
+    """Try a few common endpoints; return {pgm or name -> prob} or None."""
+    # We keep this very defensive because the upstream has been unreliable
+    # We’ll interpret anything that looks like price -> prob
+    paths = [
+        "/v2/race/odds",
+        "/v1/race/odds",
+        "/v1/north-america/odds",
+        "/v1/odds",
+    ]
+    for p in paths:
+        status, text = get(API_BASE + p, {
+            "date": day, "track": track, "race": race_no
+        })
+        if status and 200 <= status < 300:
+            j = json_safe(text, {})
+            # broad, forgiving extraction
+            out = {}
+            # look like {"runners":[{"pgm":"3","name":"Foo","price":"5/2"}...]}
+            for k in ("runners","entries","horses"):
+                if k in j and isinstance(j[k], list):
+                    for h in j[k]:
+                        pgm = str(h.get("pgm") or h.get("program") or h.get("num") or "").strip()
+                        name = (h.get("name") or h.get("horse") or "").strip()
+                        price = h.get("live") or h.get("odds") or h.get("price") or h.get("mkt")
+                        prob = parse_odds(price)
+                        key = pgm or name
+                        if key and prob:
+                            out[key] = prob
+            if out:
+                # normalize to prob
+                s = sum(out.values()) or 1.0
+                return {k: v/s for k, v in out.items()}
+    return None
+
+def api_morning_line(track, day, race_no):
+    """Fallback ML odds -> prob dict or None."""
+    paths = [
+        "/v1/race/morning-line",
+        "/v1/morning-line",
+        "/v1/north-america/ml",
+    ]
+    for p in paths:
+        status, text = get(API_BASE + p, {
+            "date": day, "track": track, "race": race_no
+        })
+        if status and 200 <= status < 300:
+            j = json_safe(text, {})
+            out = {}
+            for k in ("runners","entries","horses"):
+                if k in j and isinstance(j[k], list):
+                    for h in j[k]:
+                        pgm = str(h.get("pgm") or h.get("program") or h.get("num") or "").strip()
+                        name = (h.get("name") or h.get("horse") or "").strip()
+                        price = h.get("ml") or h.get("morning_line")
+                        prob = parse_odds(price)
+                        key = pgm or name
+                        if key and prob:
+                            out[key] = prob
+            if out:
+                s = sum(out.values()) or 1.0
+                return {k: v/s for k, v in out.items()}
+    return None
+
+# --------------------------- Race assembly -----------------------------------
+def assemble_from_signals(track, day):
+    """Return [{race_no, horses:[{pgm,name,sf,cd,bias,ml,scr}...]}] or []"""
+    j = signals_for_day(track, day)
+    if not j: return []
+    # very forgiving extraction across past shapes
+    races = []
+    rr = j if isinstance(j, list) else (j.get("races") or j.get("cards") or j.get("data") or [])
+    for r in rr:
+        rno = r.get("race") or r.get("race_no") or r.get("rno") or r.get("number")
+        try: rno = int(str(rno).strip())
+        except Exception: continue
+        horses = []
+        hh = r.get("horses") or r.get("entries") or r.get("runners") or []
+        for h in hh:
+            pgm  = str(h.get("pgm") or h.get("program") or h.get("num") or "").strip()
+            name = (h.get("name") or h.get("horse") or h.get("runner") or "").strip()
+            if not (pgm and name):  # must have both
+                continue
+            sf   = float(h.get("sf") or h.get("speedform") or 0.0)
+            cd   = float(h.get("class_delta") or h.get("class") or 0.0)
+            bias = float(h.get("bias") or 0.0)
+            ml   = h.get("ml") or h.get("morning_line")
+            scr  = bool(h.get("scratched") or h.get("scratch") or False)
+            horses.append({"pgm":pgm, "name":name, "sf":sf, "cd":cd, "bias":bias, "ml":ml, "scr":scr})
+        if horses:
+            races.append({"race": rno, "horses": horses})
+    return races
+
+# -------------------------- Scoring & Win% -----------------------------------
+def combine_sources(track, race_no, runners, db):
+    """
+    Compute per-horse SF/ClassΔ/Bias using:
+    - DB cache when present,
+    - signals values if present,
+    - neutral 0 otherwise.
+    Return enriched entries and an independent Win% vector.
+    """
+    out = []
+    sf_l, cd_l, bs_l = [], [], []
+    for r in runners:
+        key1 = (str(race_no), str(r["pgm"]))
+        key2 = (str(race_no), r["name"])
+        row  = dict(r)
+        dbv  = db.get("|".join(key1)) or db.get("|".join(key2)) or {}
+        sf   = row.get("sf", 0.0)    if row.get("sf", None)    is not None else float(dbv.get("sf", 0.0))
+        cd   = row.get("cd", 0.0)    if row.get("cd", None)    is not None else float(dbv.get("class", 0.0))
+        bias = row.get("bias", 0.0)  if row.get("bias", None)  is not None else float(dbv.get("bias", 0.0))
+        row["sf"], row["cd"], row["bias"] = sf, cd, bias
+        out.append(row)
+        sf_l.append(sf); cd_l.append(cd); bs_l.append(bias)
+
+    # normalize features and combine
+    sfz, cdz, bsz = _z(sf_l), _z(cd_l), _z(bs_l)
+    w_sf, w_cd, w_bs = (0.60, 0.30, 0.10) if USE_SHARP else (0.50, 0.30, 0.20)
+    raw = [w_sf*s + w_cd*c + w_bs*b for s, c, b in zip(sfz, cdz, bsz)]
+    p   = softmax(raw, temp=max(0.6, ALPHA if FAST else ALPHA*0.9))
+    for i, row in enumerate(out):
+        row["p"] = p[i]
+        # friendly note string
+        row["note"] = f"SpeedForm {row['sf']:+0.2f} • ClassΔ {row['cd']:+0.2f} • Bias {row['bias']:+0.2f}"
+        row["source"] = "PRO"  # upgraded to PRO+TRAIN+DB below when evidence exists
+    return out
+
+# ---------------------------- Edge / Market ----------------------------------
+def attach_market(track, day, race_no, horses):
+    # live first
+    live = api_live_odds(track, day, race_no) or {}
+    ml   = api_morning_line(track, day, race_no) or {}
+
+    for h in horses:
+        key = h["pgm"] if h["pgm"] in live else h["name"]
+        mkt = live.get(key)
+        if mkt is None:
+            key = h["pgm"] if h["pgm"] in ml else h["name"]
+            mkt = ml.get(key)
+        h["mkt"] = mkt  # None allowed
+
+        # edge in percentage points when both sides exist
+        h["edge_pp"] = None if mkt is None else (h["p"] - mkt) * 100.0
+
+        # fair and min money prices from our Win%
+        fair_frac, fair_d, min_frac, min_d = money_from_prob(h["p"])
+        h["fair_frac"], h["fair_d"], h["min_frac"], h["min_d"] = fair_frac, fair_d, min_frac, min_d
+
+# ------------------------------- Bets ----------------------------------------
+def kelly_stake(p, mkt, bankroll=BANKROLL, cap=KELLY_CAP):
+    """Return stake (float) using fractional Kelly. We use 80% of fair as price."""
+    if mkt is None: return 0.0
+    # Convert market prob to decimal price
+    price = 1.0 / max(1e-6, mkt)
+    edge  = p*price - 1.0
+    denom = price - 1.0
+    if denom <= 0: return 0.0
+    f = max(0.0, edge/denom)
+    f = min(f, cap)
+    return bankroll * f
+
+def qualify_bet(row):
+    if row["mkt"] is None: return 0.0
+    stake = kelly_stake(row["p"], row["mkt"])
+    stake = min(stake, MAX_BET)
+    if stake >= MIN_STAKE and (row["edge_pp"] or 0.0) >= 2.0:
+        return round(stake, -1)  # nearest $10
+    return 0.0
+
+# ------------------------------ HTML -----------------------------------------
+CSS = (
+    "<style>body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}"
+    "h1{margin:0 0 8px 0}.small{font-size:12px;color:#666}"
+    "table{border-collapse:collapse;width:100%;margin:12px 0}"
+    "th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;font-size:14px}"
+    "th{background:#f3f3f3}.yes{background:#e7f7ea}.no{background:#f7e7e7}.mono{font-variant-numeric:tabular-nums}"
+    "tr.scratch td{color:#999;text-decoration:line-through}"
+    "td.sub{color:#666;font-size:12px;padding-top:0}"
+    "</style>"
+)
+
+def render_meet(track, races):
+    out = []
+    out.append(f"<h2>{html_escape(track)}</h2>")
+    for r in sorted(races, key=lambda x: x["race"]):
+        out.append(f"<h3>{html_escape(track)} — Race {r['race']}</h3>")
+        out.append("<table><thead><tr>"
+                   "<th>#</th><th>Horse<br><span class='small'>SpeedForm / ClassΔ / Bias</span></th>"
+                   "<th>Win% (Final)</th><th>Market%</th><th>Edge</th>"
+                   "<th>Fair</th><th>Min Price</th><th>Market</th><th>Notes</th><th>Source</th><th>Bet</th>"
+                   "</tr></thead><tbody>")
+        for h in r["horses"]:
+            cls = "scratch" if h.get("scr") else ""
+            winpct = f"{h['p']*100.0:0.2f}%"
+            mktpct = "—" if h["mkt"] is None else f"{h['mkt']*100.0:0.2f}%"
+            edge   = "—" if h["edge_pp"] is None else f"{h['edge_pp']:+0.1f} pp"
+            fair   = h["fair_d"]
+            minp   = h["min_d"]
+            market = "—"  # leave text column; numeric % shown already
+            # source badge
+            src = h.get("source", "PRO")
+            if h.get("used_train") and h.get("used_db"):
+                src = "PRO+TRAIN+DB"
+            elif h.get("used_train"):
+                src = "PRO+TRAIN"
+            elif h.get("used_db"):
+                src = "PRO+DB"
+
+            bet_amt = qualify_bet(h)
+            bet_cell = f"${int(bet_amt):,}" if bet_amt > 0 else "—"
+
+            out.append(
+                "<tr class='{}'>".format(cls) +
+                "<td class='mono'>{}</td>".format(html_escape(h['pgm'])) +
+                "<td><div>{}</div><div class='sub'>SF {:+0.2f} • ClassΔ {:+0.2f} • Bias {:+0.2f}</div></td>".format(
+                    html_escape(h['name']), h['sf'], h['cd'], h['bias']) +
+                "<td class='mono'>{}</td>".format(winpct) +
+                "<td class='mono'>{}</td>".format(mktpct) +
+                "<td class='mono'>{}</td>".format(edge) +
+                "<td class='mono'>{}</td>".format(fair) +
+                "<td class='mono'>{}</td>".format(minp) +
+                "<td class='mono'>{}</td>".format(market) +
+                "<td>{}</td>".format(html_escape(h.get('note', ''))) +
+                "<td class='mono'>{}</td>".format(src) +
+                "<td class='mono'>{}</td>".format(bet_cell) +
+                "</tr>"
+            )
+        out.append("</tbody></table>")
+    return "\n".join(out)
+
+def render_board(title):
+    return f"<h2>{html_escape(title)}</h2><p class='small'>No plays today.</p>"
+
+def render_header(day):
+    return (
+        f"<h1>PF-35 Mach++ v4 — PRO <span class='small'>(independent Win% + ML fallback)</span> "
+        f"<span class='small'>({html_escape(day)})</span></h1>"
+        "<p class='small'>Scratches → auto; majors only; ML fallback enabled; DB nudges active.</p>"
+    )
+
+# ------------------------------- Build flow ----------------------------------
+def build_day(day):
+    meets = {}
+    # discover tracks from signals present for the day; filter by majors if requested
+    for p in sorted(SIGS.glob(f"{day}__*.json")):
+        track = p.name.split("__",1)[1].rsplit(".",1)[0]
+        if MAJORS and track not in MAJORS:
+            continue
+        races = assemble_from_signals(track, day)
+        if not races:  # nothing useful
+            continue
+
+        db = db_cache(track)
+        final = []
+        for r in races:
+            # drop scratches & empty names
+            runners = [x for x in r["horses"] if x.get("name") and not x.get("scr")]
+            if not runners:
+                continue
+            runners = combine_sources(track, r["race"], runners, db)
+            attach_market(track, day, r["race"], runners)
+
+            # mark source escalation if we actually found DB rows
+            used_db = False
+            for x in runners:
+                key1 = "|".join((str(r["race"]), str(x["pgm"])))
+                key2 = "|".join((str(r["race"]), x["name"]))
+                if key1 in db or key2 in db:
+                    x["used_db"] = True
+                    used_db = True
+            # (TRAIN signals marker: if signals contained a non-neutral value we count it)
+            any_train = any(abs(x.get("sf",0)) + abs(x.get("cd",0)) + abs(x.get("bias",0)) > 0.001 for x in runners)
+            for x in runners:
+                x["used_train"] = any_train
+
+            # final race bundle
+            final.append({"race": r["race"], "horses": runners})
+        if final:
+            meets[track] = final
+    return meets
+
+# ---------------------------------- Main -------------------------------------
+def main():
+    day = TODAY
+    meets = build_day(day)
+
+    # Write HTML
+    html = [
+        "<!doctype html><meta charset='utf-8'>",
+        "<title>PF-35 Mach++ v4 — PRO</title>",
+        CSS,
+        render_header(day),
+        render_board("PRIME Board"),
+        render_board("ACTION Board"),
+    ]
+    for t, races in sorted(meets.items()):
+        html.append(render_meet(t, races))
+
+    # footer
+    footer = (
+        f"<p class='small'>Generated {dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} "
+        f"• α={ALPHA} • sharp={'True' if USE_SHARP else 'False'} "
+        f"• majors_only={'yes' if MAJORS else 'no'}</p>"
+    )
+    html.append(footer)
+
+    out = OUT / f"{day}_horses_targets+full.html"
+    out.write_text("\n".join(html), encoding="utf-8")
+    log(f"wrote -> {out}")
+    print(str(out))
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        (LOGS / "pro.err.log").write_text(f"{e}\n", encoding="utf-8")
+        raise

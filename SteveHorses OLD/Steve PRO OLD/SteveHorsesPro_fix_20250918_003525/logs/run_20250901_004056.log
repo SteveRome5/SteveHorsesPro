@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 210
+    if SHOW_NUMBERS and h.get("program"): nm = f\"#{h['program']} {nm}\"
+                                                                       ^
+SyntaxError: unexpected character after line continuation character

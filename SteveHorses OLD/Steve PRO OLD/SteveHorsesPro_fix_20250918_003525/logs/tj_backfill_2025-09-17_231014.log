@@ -1,0 +1,601 @@
+[23:10:14] date 2024-11-22
+[2024-11-22] races=44 upserts=840 combos_upserted=420
+[23:10:20] date 2024-11-23
+[2024-11-23] races=60 upserts=1192 combos_upserted=596
+[23:10:32] date 2024-11-24
+[2024-11-24] races=48 upserts=876 combos_upserted=438
+[23:10:38] date 2024-11-25
+[2024-11-25] races=10 upserts=196 combos_upserted=98
+[23:10:40] date 2024-11-26
+[2024-11-26] races=10 upserts=186 combos_upserted=93
+[23:10:42] date 2024-11-27
+[2024-11-27] races=29 upserts=528 combos_upserted=264
+[23:10:46] date 2024-11-28
+[2024-11-28] races=38 upserts=768 combos_upserted=384
+[23:10:51] date 2024-11-29
+[2024-11-29] races=65 upserts=1210 combos_upserted=605
+[23:10:59] date 2024-11-30
+[2024-11-30] races=60 upserts=1242 combos_upserted=621
+[23:11:07] date 2024-12-01
+[2024-12-01] races=43 upserts=772 combos_upserted=386
+[23:11:12] date 2024-12-02
+[2024-12-02] races=10 upserts=162 combos_upserted=81
+[23:11:14] date 2024-12-03
+[2024-12-03] races=8 upserts=130 combos_upserted=65
+[23:11:16] date 2024-12-04
+[2024-12-04] races=17 upserts=292 combos_upserted=146
+[23:11:19] date 2024-12-05
+[2024-12-05] races=27 upserts=436 combos_upserted=218
+[23:11:23] date 2024-12-06
+[2024-12-06] races=45 upserts=810 combos_upserted=405
+[23:11:29] date 2024-12-07
+[2024-12-07] races=49 upserts=952 combos_upserted=476
+[23:11:36] date 2024-12-08
+[2024-12-08] races=29 upserts=530 combos_upserted=265
+[23:11:40] date 2024-12-09
+[2024-12-09] races=10 upserts=168 combos_upserted=84
+[23:11:42] date 2024-12-10
+[2024-12-10] races=10 upserts=138 combos_upserted=69
+[23:11:44] date 2024-12-11
+[2024-12-11] races=19 upserts=346 combos_upserted=173
+[23:11:47] date 2024-12-12
+[2024-12-12] races=28 upserts=454 combos_upserted=227
+[23:11:50] date 2024-12-13
+[2024-12-13] races=46 upserts=878 combos_upserted=439
+[23:11:57] date 2024-12-14
+[2024-12-14] races=52 upserts=1006 combos_upserted=503
+[23:12:05] date 2024-12-15
+[2024-12-15] races=40 upserts=758 combos_upserted=379
+[23:12:11] date 2024-12-16
+[2024-12-16] races=18 upserts=282 combos_upserted=141
+[23:12:13] date 2024-12-17
+[2024-12-17] races=10 upserts=170 combos_upserted=85
+[23:12:15] date 2024-12-18
+[2024-12-18] races=19 upserts=384 combos_upserted=192
+[23:12:19] date 2024-12-19
+[2024-12-19] races=18 upserts=286 combos_upserted=143
+[23:12:21] date 2024-12-20
+[2024-12-20] races=37 upserts=674 combos_upserted=337
+[23:12:26] date 2024-12-21
+[2024-12-21] races=43 upserts=814 combos_upserted=407
+[23:12:32] date 2024-12-22
+[2024-12-22] races=37 upserts=728 combos_upserted=364
+[23:12:38] date 2024-12-23
+[2024-12-23] races=10 upserts=168 combos_upserted=84
+[23:12:39] date 2024-12-24
+[2024-12-24] races=19 upserts=414 combos_upserted=207
+[23:12:42] date 2024-12-25
+[2024-12-25] races=0 upserts=0 combos_upserted=0
+[23:12:43] date 2024-12-26
+[2024-12-26] races=32 upserts=634 combos_upserted=317
+[23:12:47] date 2024-12-27
+[2024-12-27] races=46 upserts=848 combos_upserted=424
+[23:12:55] date 2024-12-28
+[2024-12-28] races=60 upserts=1212 combos_upserted=606
+[23:13:03] date 2024-12-29
+[2024-12-29] races=45 upserts=846 combos_upserted=423
+[23:13:09] date 2024-12-30
+[2024-12-30] races=10 upserts=208 combos_upserted=104
+[23:13:11] date 2024-12-31
+[2024-12-31] races=10 upserts=206 combos_upserted=103
+[23:13:13] date 2025-01-01
+[2025-01-01] races=47 upserts=850 combos_upserted=425
+[23:13:19] date 2025-01-02
+[2025-01-02] races=18 upserts=300 combos_upserted=150
+[23:13:22] date 2025-01-03
+[2025-01-03] races=45 upserts=822 combos_upserted=411
+[23:13:28] date 2025-01-04
+[2025-01-04] races=49 upserts=998 combos_upserted=499
+[23:13:35] date 2025-01-05
+[2025-01-05] races=47 upserts=936 combos_upserted=468
+[23:13:42] date 2025-01-06
+[2025-01-06] races=11 upserts=232 combos_upserted=116
+[23:13:44] date 2025-01-07
+[2025-01-07] races=11 upserts=196 combos_upserted=98
+[23:13:46] date 2025-01-08
+[2025-01-08] races=29 upserts=530 combos_upserted=265
+[23:13:50] date 2025-01-09
+[2025-01-09] races=19 upserts=304 combos_upserted=152
+[23:13:53] date 2025-01-10
+[2025-01-10] races=46 upserts=884 combos_upserted=442
+[23:13:59] date 2025-01-11
+[2025-01-11] races=51 upserts=1020 combos_upserted=510
+[23:14:05] date 2025-01-12
+[2025-01-12] races=46 upserts=862 combos_upserted=431
+[23:14:11] date 2025-01-13
+[2025-01-13] races=11 upserts=202 combos_upserted=101
+[23:14:14] date 2025-01-14
+[2025-01-14] races=11 upserts=240 combos_upserted=120
+[23:14:15] date 2025-01-15
+[2025-01-15] races=29 upserts=550 combos_upserted=275
+[23:14:20] date 2025-01-16
+[2025-01-16] races=28 upserts=484 combos_upserted=242
+[23:14:24] date 2025-01-17
+[2025-01-17] races=44 upserts=864 combos_upserted=432
+[23:14:31] date 2025-01-18
+[2025-01-18] races=53 upserts=1144 combos_upserted=572
+[23:14:38] date 2025-01-19
+[2025-01-19] races=48 upserts=940 combos_upserted=470
+[23:14:44] date 2025-01-20
+[2025-01-20] races=40 upserts=812 combos_upserted=406
+[23:14:49] date 2025-01-21
+[2025-01-21] races=10 upserts=200 combos_upserted=100
+[23:14:51] date 2025-01-22
+[2025-01-22] races=28 upserts=456 combos_upserted=228
+[23:14:55] date 2025-01-23
+[2025-01-23] races=37 upserts=700 combos_upserted=350
+[23:15:00] date 2025-01-24
+[2025-01-24] races=46 upserts=870 combos_upserted=435
+[23:15:07] date 2025-01-25
+[2025-01-25] races=54 upserts=1124 combos_upserted=562
+[23:15:18] date 2025-01-26
+[2025-01-26] races=48 upserts=916 combos_upserted=458
+[23:15:25] date 2025-01-27
+[2025-01-27] races=19 upserts=388 combos_upserted=194
+[23:15:28] date 2025-01-28
+[2025-01-28] races=10 upserts=232 combos_upserted=116
+[23:15:30] date 2025-01-29
+[2025-01-29] races=28 upserts=538 combos_upserted=269
+[23:15:35] date 2025-01-30
+[2025-01-30] races=37 upserts=644 combos_upserted=322
+[23:15:40] date 2025-01-31
+[2025-01-31] races=45 upserts=794 combos_upserted=397
+[23:15:46] date 2025-02-01
+[2025-02-01] races=51 upserts=1002 combos_upserted=501
+[23:15:53] date 2025-02-02
+[2025-02-02] races=46 upserts=896 combos_upserted=448
+[23:16:01] date 2025-02-03
+[2025-02-03] races=19 upserts=362 combos_upserted=181
+[23:16:04] date 2025-02-04
+[2025-02-04] races=10 upserts=144 combos_upserted=72
+[23:16:06] date 2025-02-05
+[2025-02-05] races=28 upserts=484 combos_upserted=242
+[23:16:09] date 2025-02-06
+[2025-02-06] races=18 upserts=304 combos_upserted=152
+[23:16:13] date 2025-02-07
+[2025-02-07] races=45 upserts=812 combos_upserted=406
+[23:16:19] date 2025-02-08
+[2025-02-08] races=52 upserts=998 combos_upserted=499
+[23:16:27] date 2025-02-09
+[2025-02-09] races=28 upserts=514 combos_upserted=257
+[23:16:31] date 2025-02-10
+[2025-02-10] races=10 upserts=166 combos_upserted=83
+[23:16:32] date 2025-02-11
+[2025-02-11] races=10 upserts=142 combos_upserted=71
+[23:16:34] date 2025-02-12
+[2025-02-12] races=27 upserts=472 combos_upserted=236
+[23:16:38] date 2025-02-13
+[2025-02-13] races=18 upserts=334 combos_upserted=167
+[23:16:41] date 2025-02-14
+[2025-02-14] races=44 upserts=818 combos_upserted=409
+[23:16:47] date 2025-02-15
+[2025-02-15] races=55 upserts=1066 combos_upserted=533
+[23:16:54] date 2025-02-16
+[2025-02-16] races=46 upserts=890 combos_upserted=445
+[23:17:00] date 2025-02-17
+[2025-02-17] races=39 upserts=728 combos_upserted=364
+[23:17:06] date 2025-02-18
+[2025-02-18] races=10 upserts=164 combos_upserted=82
+[23:17:08] date 2025-02-19
+[2025-02-19] races=28 upserts=476 combos_upserted=238
+[23:17:12] date 2025-02-20
+[2025-02-20] races=19 upserts=334 combos_upserted=167
+[23:17:15] date 2025-02-21
+[2025-02-21] races=45 upserts=850 combos_upserted=425
+[23:17:21] date 2025-02-22
+[2025-02-22] races=51 upserts=994 combos_upserted=497
+[23:17:28] date 2025-02-23
+[2025-02-23] races=50 upserts=1054 combos_upserted=527
+[23:17:35] date 2025-02-24
+[2025-02-24] races=20 upserts=368 combos_upserted=184
+[23:17:37] date 2025-02-25
+[2025-02-25] races=10 upserts=196 combos_upserted=98
+[23:17:39] date 2025-02-26
+[2025-02-26] races=28 upserts=558 combos_upserted=279
+[23:17:44] date 2025-02-27
+[2025-02-27] races=28 upserts=512 combos_upserted=256
+[23:17:47] date 2025-02-28
+[2025-02-28] races=46 upserts=898 combos_upserted=449
+[23:17:54] date 2025-03-01
+[2025-03-01] races=56 upserts=1094 combos_upserted=547
+[23:18:04] date 2025-03-02
+[2025-03-02] races=41 upserts=788 combos_upserted=394
+[23:18:11] date 2025-03-03
+[2025-03-03] races=18 upserts=290 combos_upserted=145
+[23:18:14] date 2025-03-04
+[2025-03-04] races=19 upserts=324 combos_upserted=162
+[23:18:16] date 2025-03-05
+[2025-03-05] races=28 upserts=520 combos_upserted=260
+[23:18:20] date 2025-03-06
+[2025-03-06] races=19 upserts=358 combos_upserted=179
+[23:18:23] date 2025-03-07
+[2025-03-07] races=45 upserts=846 combos_upserted=423
+[23:18:29] date 2025-03-08
+[2025-03-08] races=54 upserts=1064 combos_upserted=532
+[23:18:37] date 2025-03-09
+[2025-03-09] races=49 upserts=900 combos_upserted=450
+[23:18:44] date 2025-03-10
+[2025-03-10] races=9 upserts=138 combos_upserted=69
+[23:18:45] date 2025-03-11
+[2025-03-11] races=10 upserts=142 combos_upserted=71
+[23:18:47] date 2025-03-12
+[2025-03-12] races=36 upserts=642 combos_upserted=321
+[23:18:52] date 2025-03-13
+[2025-03-13] races=19 upserts=360 combos_upserted=180
+[23:18:55] date 2025-03-14
+[2025-03-14] races=46 upserts=854 combos_upserted=427
+[23:19:01] date 2025-03-15
+[2025-03-15] races=51 upserts=996 combos_upserted=498
+[23:19:08] date 2025-03-16
+[2025-03-16] races=46 upserts=854 combos_upserted=427
+[23:19:14] date 2025-03-17
+[2025-03-17] races=18 upserts=258 combos_upserted=129
+[23:19:17] date 2025-03-18
+[2025-03-18] races=19 upserts=352 combos_upserted=176
+[23:19:19] date 2025-03-19
+[2025-03-19] races=36 upserts=602 combos_upserted=301
+[23:19:24] date 2025-03-20
+[2025-03-20] races=18 upserts=338 combos_upserted=169
+[23:19:27] date 2025-03-21
+[2025-03-21] races=45 upserts=854 combos_upserted=427
+[23:19:34] date 2025-03-22
+[2025-03-22] races=52 upserts=1040 combos_upserted=520
+[23:19:41] date 2025-03-23
+[2025-03-23] races=49 upserts=978 combos_upserted=489
+[23:19:48] date 2025-03-24
+[2025-03-24] races=9 upserts=130 combos_upserted=65
+[23:19:49] date 2025-03-25
+[2025-03-25] races=10 upserts=148 combos_upserted=74
+[23:19:51] date 2025-03-26
+[2025-03-26] races=28 upserts=480 combos_upserted=240
+[23:19:55] date 2025-03-27
+[2025-03-27] races=9 upserts=144 combos_upserted=72
+[23:19:56] date 2025-03-28
+[2025-03-28] races=38 upserts=704 combos_upserted=352
+[23:20:02] date 2025-03-29
+[2025-03-29] races=47 upserts=936 combos_upserted=468
+[23:20:09] date 2025-03-30
+[2025-03-30] races=43 upserts=858 combos_upserted=429
+[23:20:15] date 2025-03-31
+[2025-03-31] races=10 upserts=158 combos_upserted=79
+[23:20:17] date 2025-04-01
+[2025-04-01] races=10 upserts=172 combos_upserted=86
+[23:20:19] date 2025-04-02
+[2025-04-02] races=21 upserts=354 combos_upserted=177
+[23:20:22] date 2025-04-03
+[2025-04-03] races=8 upserts=128 combos_upserted=64
+[23:20:24] date 2025-04-04
+[2025-04-04] races=48 upserts=922 combos_upserted=461
+[23:20:30] date 2025-04-05
+[2025-04-05] races=53 upserts=1056 combos_upserted=528
+[23:20:37] date 2025-04-06
+[2025-04-06] races=53 upserts=1016 combos_upserted=508
+[23:20:43] date 2025-04-07
+[2025-04-07] races=20 upserts=400 combos_upserted=200
+[23:20:46] date 2025-04-08
+[2025-04-08] races=21 upserts=386 combos_upserted=193
+[23:20:49] date 2025-04-09
+[2025-04-09] races=26 upserts=462 combos_upserted=231
+[23:20:53] date 2025-04-10
+[2025-04-10] races=18 upserts=380 combos_upserted=190
+[23:20:57] date 2025-04-11
+[2025-04-11] races=38 upserts=738 combos_upserted=369
+[23:21:02] date 2025-04-12
+[2025-04-12] races=42 upserts=860 combos_upserted=430
+[23:21:09] date 2025-04-13
+[2025-04-13] races=37 upserts=742 combos_upserted=371
+[23:21:15] date 2025-04-14
+[2025-04-14] races=10 upserts=166 combos_upserted=83
+[23:21:17] date 2025-04-15
+[2025-04-15] races=10 upserts=184 combos_upserted=92
+[23:21:19] date 2025-04-16
+[2025-04-16] races=27 upserts=512 combos_upserted=256
+[23:21:23] date 2025-04-17
+[2025-04-17] races=17 upserts=334 combos_upserted=167
+[23:21:26] date 2025-04-18
+[2025-04-18] races=47 upserts=898 combos_upserted=449
+[23:21:33] date 2025-04-19
+[2025-04-19] races=53 upserts=998 combos_upserted=499
+[23:21:40] date 2025-04-20
+[2025-04-20] races=20 upserts=356 combos_upserted=178
+[23:21:43] date 2025-04-21
+[2025-04-21] races=10 upserts=186 combos_upserted=93
+[23:21:45] date 2025-04-22
+[2025-04-22] races=10 upserts=158 combos_upserted=79
+[23:21:47] date 2025-04-23
+[2025-04-23] races=27 upserts=518 combos_upserted=259
+[23:21:52] date 2025-04-24
+[2025-04-24] races=26 upserts=544 combos_upserted=272
+[23:21:56] date 2025-04-25
+[2025-04-25] races=47 upserts=902 combos_upserted=451
+[23:22:03] date 2025-04-26
+[2025-04-26] races=61 upserts=1122 combos_upserted=561
+[23:22:11] date 2025-04-27
+[2025-04-27] races=48 upserts=844 combos_upserted=422
+[23:22:16] date 2025-04-28
+[2025-04-28] races=10 upserts=152 combos_upserted=76
+[23:22:18] date 2025-04-29
+[2025-04-29] races=19 upserts=360 combos_upserted=180
+[23:22:21] date 2025-04-30
+[2025-04-30] races=19 upserts=392 combos_upserted=196
+[23:22:24] date 2025-05-01
+[2025-05-01] races=38 upserts=748 combos_upserted=374
+[23:22:29] date 2025-05-02
+[2025-05-02] races=61 upserts=1146 combos_upserted=573
+[23:22:37] date 2025-05-03
+[2025-05-03] races=36 upserts=740 combos_upserted=370
+[23:22:41] date 2025-05-04
+[2025-05-04] races=47 upserts=808 combos_upserted=404
+[23:22:47] date 2025-05-05
+[2025-05-05] races=10 upserts=158 combos_upserted=79
+[23:22:49] date 2025-05-06
+[2025-05-06] races=10 upserts=142 combos_upserted=71
+[23:22:51] date 2025-05-07
+[2025-05-07] races=10 upserts=164 combos_upserted=82
+[23:22:53] date 2025-05-08
+[2025-05-08] races=25 upserts=448 combos_upserted=224
+[23:22:56] date 2025-05-09
+[2025-05-09] races=36 upserts=588 combos_upserted=294
+[23:23:02] date 2025-05-10
+[2025-05-10] races=51 upserts=964 combos_upserted=482
+[23:23:09] date 2025-05-11
+[2025-05-11] races=57 upserts=934 combos_upserted=467
+[23:23:16] date 2025-05-12
+[2025-05-12] races=10 upserts=150 combos_upserted=75
+[23:23:18] date 2025-05-13
+[2025-05-13] races=10 upserts=132 combos_upserted=66
+[23:23:19] date 2025-05-14
+[2025-05-14] races=0 upserts=0 combos_upserted=0
+[23:23:20] date 2025-05-15
+[2025-05-15] races=25 upserts=466 combos_upserted=233
+[23:23:24] date 2025-05-16
+[2025-05-16] races=44 upserts=694 combos_upserted=347
+[23:23:31] date 2025-05-17
+[2025-05-17] races=42 upserts=776 combos_upserted=388
+[23:23:37] date 2025-05-18
+[2025-05-18] races=56 upserts=1052 combos_upserted=526
+[23:23:45] date 2025-05-19
+[2025-05-19] races=10 upserts=142 combos_upserted=71
+[23:23:46] date 2025-05-20
+[2025-05-20] races=8 upserts=116 combos_upserted=58
+[23:23:48] date 2025-05-21
+[2025-05-21] races=11 upserts=160 combos_upserted=80
+[23:23:50] date 2025-05-22
+[2025-05-22] races=24 upserts=386 combos_upserted=193
+[23:23:54] date 2025-05-23
+[2025-05-23] races=43 upserts=682 combos_upserted=341
+[23:24:00] date 2025-05-24
+[2025-05-24] races=42 upserts=760 combos_upserted=380
+[23:24:05] date 2025-05-25
+[2025-05-25] races=58 upserts=1064 combos_upserted=532
+[23:24:13] date 2025-05-26
+[2025-05-26] races=46 upserts=846 combos_upserted=423
+[23:24:20] date 2025-05-27
+[2025-05-27] races=9 upserts=118 combos_upserted=59
+[23:24:22] date 2025-05-28
+[2025-05-28] races=10 upserts=146 combos_upserted=73
+[23:24:23] date 2025-05-29
+[2025-05-29] races=25 upserts=406 combos_upserted=203
+[23:24:27] date 2025-05-30
+[2025-05-30] races=35 upserts=602 combos_upserted=301
+[23:24:32] date 2025-05-31
+[2025-05-31] races=33 upserts=594 combos_upserted=297
+[23:24:37] date 2025-06-01
+[2025-06-01] races=49 upserts=816 combos_upserted=408
+[23:24:43] date 2025-06-02
+[2025-06-02] races=10 upserts=150 combos_upserted=75
+[23:24:45] date 2025-06-03
+[2025-06-03] races=8 upserts=106 combos_upserted=53
+[23:24:46] date 2025-06-04
+[2025-06-04] races=19 upserts=378 combos_upserted=189
+[23:24:49] date 2025-06-05
+[2025-06-05] races=34 upserts=608 combos_upserted=304
+[23:24:54] date 2025-06-06
+[2025-06-06] races=48 upserts=880 combos_upserted=440
+[23:24:59] date 2025-06-07
+[2025-06-07] races=31 upserts=580 combos_upserted=290
+[23:25:04] date 2025-06-08
+[2025-06-08] races=59 upserts=1048 combos_upserted=524
+[23:25:13] date 2025-06-09
+[2025-06-09] races=9 upserts=124 combos_upserted=62
+[23:25:14] date 2025-06-10
+[2025-06-10] races=9 upserts=112 combos_upserted=56
+[23:25:16] date 2025-06-11
+[2025-06-11] races=9 upserts=154 combos_upserted=77
+[23:25:17] date 2025-06-12
+[2025-06-12] races=41 upserts=632 combos_upserted=316
+[23:25:24] date 2025-06-13
+[2025-06-13] races=46 upserts=754 combos_upserted=377
+[23:25:30] date 2025-06-14
+[2025-06-14] races=31 upserts=556 combos_upserted=278
+[23:25:35] date 2025-06-15
+[2025-06-15] races=39 upserts=746 combos_upserted=373
+[23:25:41] date 2025-06-16
+[2025-06-16] races=9 upserts=138 combos_upserted=69
+[23:25:42] date 2025-06-17
+[2025-06-17] races=9 upserts=134 combos_upserted=67
+[23:25:44] date 2025-06-18
+[2025-06-18] races=18 upserts=276 combos_upserted=138
+[23:25:47] date 2025-06-19
+[2025-06-19] races=33 upserts=542 combos_upserted=271
+[23:25:52] date 2025-06-20
+[2025-06-20] races=43 upserts=744 combos_upserted=372
+[23:25:58] date 2025-06-21
+[2025-06-21] races=42 upserts=782 combos_upserted=391
+[23:26:03] date 2025-06-22
+[2025-06-22] races=47 upserts=784 combos_upserted=392
+[23:26:09] date 2025-06-23
+[2025-06-23] races=9 upserts=130 combos_upserted=65
+[23:26:11] date 2025-06-24
+[2025-06-24] races=9 upserts=124 combos_upserted=62
+[23:26:12] date 2025-06-25
+[2025-06-25] races=18 upserts=318 combos_upserted=159
+[23:26:15] date 2025-06-26
+[2025-06-26] races=32 upserts=536 combos_upserted=268
+[23:26:20] date 2025-06-27
+[2025-06-27] races=45 upserts=804 combos_upserted=402
+[23:26:26] date 2025-06-28
+[2025-06-28] races=43 upserts=790 combos_upserted=395
+[23:26:32] date 2025-06-29
+[2025-06-29] races=49 upserts=872 combos_upserted=436
+[23:26:37] date 2025-06-30
+[2025-06-30] races=10 upserts=164 combos_upserted=82
+[23:26:39] date 2025-07-01
+[2025-07-01] races=10 upserts=172 combos_upserted=86
+[23:26:41] date 2025-07-02
+[2025-07-02] races=10 upserts=158 combos_upserted=79
+[23:26:43] date 2025-07-03
+[2025-07-03] races=19 upserts=334 combos_upserted=167
+[23:26:45] date 2025-07-04
+[2025-07-04] races=36 upserts=590 combos_upserted=295
+[23:26:50] date 2025-07-05
+[2025-07-05] races=20 upserts=344 combos_upserted=172
+[23:26:54] date 2025-07-06
+[2025-07-06] races=39 upserts=676 combos_upserted=338
+[23:26:59] date 2025-07-07
+[2025-07-07] races=10 upserts=166 combos_upserted=83
+[23:27:01] date 2025-07-08
+[2025-07-08] races=10 upserts=174 combos_upserted=87
+[23:27:02] date 2025-07-09
+[2025-07-09] races=10 upserts=150 combos_upserted=75
+[23:27:04] date 2025-07-10
+[2025-07-10] races=18 upserts=314 combos_upserted=157
+[23:27:07] date 2025-07-11
+[2025-07-11] races=35 upserts=592 combos_upserted=296
+[23:27:12] date 2025-07-12
+[2025-07-12] races=20 upserts=370 combos_upserted=185
+[23:27:15] date 2025-07-13
+[2025-07-13] races=40 upserts=724 combos_upserted=362
+[23:27:22] date 2025-07-14
+[2025-07-14] races=9 upserts=126 combos_upserted=63
+[23:27:24] date 2025-07-15
+[2025-07-15] races=9 upserts=124 combos_upserted=62
+[23:27:26] date 2025-07-16
+[2025-07-16] races=18 upserts=292 combos_upserted=146
+[23:27:29] date 2025-07-17
+[2025-07-17] races=18 upserts=336 combos_upserted=168
+[23:27:32] date 2025-07-18
+[2025-07-18] races=45 upserts=824 combos_upserted=412
+[23:27:39] date 2025-07-19
+[2025-07-19] races=57 upserts=1092 combos_upserted=546
+[23:27:46] date 2025-07-20
+[2025-07-20] races=51 upserts=932 combos_upserted=466
+[23:27:53] date 2025-07-21
+[2025-07-21] races=9 upserts=158 combos_upserted=79
+[23:27:56] date 2025-07-22
+[2025-07-22] races=10 upserts=150 combos_upserted=75
+[23:27:57] date 2025-07-23
+[2025-07-23] races=19 upserts=312 combos_upserted=156
+[23:28:01] date 2025-07-24
+[2025-07-24] races=36 upserts=608 combos_upserted=304
+[23:28:06] date 2025-07-25
+[2025-07-25] races=44 upserts=760 combos_upserted=380
+[23:28:12] date 2025-07-26
+[2025-07-26] races=42 upserts=778 combos_upserted=389
+[23:28:18] date 2025-07-27
+[2025-07-27] races=49 upserts=844 combos_upserted=422
+[23:28:24] date 2025-07-28
+[2025-07-28] races=0 upserts=0 combos_upserted=0
+[23:28:25] date 2025-07-29
+[2025-07-29] races=0 upserts=0 combos_upserted=0
+[23:28:26] date 2025-07-30
+[2025-07-30] races=9 upserts=170 combos_upserted=85
+[23:28:28] date 2025-07-31
+[2025-07-31] races=26 upserts=548 combos_upserted=274
+[23:28:32] date 2025-08-01
+[2025-08-01] races=44 upserts=802 combos_upserted=401
+[23:28:38] date 2025-08-02
+[2025-08-02] races=54 upserts=1082 combos_upserted=541
+[23:28:45] date 2025-08-03
+[2025-08-03] races=50 upserts=916 combos_upserted=458
+[23:28:52] date 2025-08-04
+[2025-08-04] races=0 upserts=0 combos_upserted=0
+[23:28:52] date 2025-08-05
+[2025-08-05] races=0 upserts=0 combos_upserted=0
+[23:28:53] date 2025-08-06
+[2025-08-06] races=9 upserts=168 combos_upserted=84
+[23:28:55] date 2025-08-07
+[2025-08-07] races=26 upserts=494 combos_upserted=247
+[23:29:01] date 2025-08-08
+[2025-08-08] races=43 upserts=720 combos_upserted=360
+[23:29:08] date 2025-08-09
+[2025-08-09] races=42 upserts=760 combos_upserted=380
+[23:29:14] date 2025-08-10
+[2025-08-10] races=48 upserts=838 combos_upserted=419
+[23:29:20] date 2025-08-11
+[2025-08-11] races=0 upserts=0 combos_upserted=0
+[23:29:21] date 2025-08-12
+[2025-08-12] races=0 upserts=0 combos_upserted=0
+[23:29:22] date 2025-08-13
+[2025-08-13] races=9 upserts=170 combos_upserted=85
+[23:29:23] date 2025-08-14
+[2025-08-14] races=18 upserts=344 combos_upserted=172
+[23:29:27] date 2025-08-15
+[2025-08-15] races=43 upserts=790 combos_upserted=395
+[23:29:33] date 2025-08-16
+[2025-08-16] races=42 upserts=762 combos_upserted=381
+[23:29:38] date 2025-08-17
+[2025-08-17] races=47 upserts=852 combos_upserted=426
+[23:29:45] date 2025-08-18
+[2025-08-18] races=12 upserts=326 combos_upserted=163
+[23:29:47] date 2025-08-19
+[2025-08-19] races=12 upserts=236 combos_upserted=118
+[23:29:49] date 2025-08-20
+[2025-08-20] races=19 upserts=314 combos_upserted=157
+[23:29:51] date 2025-08-21
+[2025-08-21] races=25 upserts=448 combos_upserted=224
+[23:29:56] date 2025-08-22
+[2025-08-22] races=43 upserts=786 combos_upserted=393
+[23:30:04] date 2025-08-23
+[2025-08-23] races=55 upserts=978 combos_upserted=489
+[23:30:17] date 2025-08-24
+[2025-08-24] races=51 upserts=974 combos_upserted=487
+[23:30:24] date 2025-08-25
+[2025-08-25] races=9 upserts=116 combos_upserted=58
+[23:30:26] date 2025-08-26
+[2025-08-26] races=9 upserts=136 combos_upserted=68
+[23:30:27] date 2025-08-27
+[2025-08-27] races=18 upserts=282 combos_upserted=141
+[23:30:31] date 2025-08-28
+[2025-08-28] races=30 upserts=684 combos_upserted=342
+[23:30:35] date 2025-08-29
+[2025-08-29] races=37 upserts=686 combos_upserted=343
+[23:30:42] date 2025-08-30
+[2025-08-30] races=56 upserts=1160 combos_upserted=580
+[23:30:50] date 2025-08-31
+[2025-08-31] races=65 upserts=1334 combos_upserted=667
+[23:30:58] date 2025-09-01
+[2025-09-01] races=48 upserts=874 combos_upserted=437
+[23:31:05] date 2025-09-02
+[2025-09-02] races=9 upserts=138 combos_upserted=69
+[23:31:06] date 2025-09-03
+[2025-09-03] races=9 upserts=120 combos_upserted=60
+[23:31:08] date 2025-09-04
+[2025-09-04] races=18 upserts=414 combos_upserted=207
+[23:31:11] date 2025-09-05
+[2025-09-05] races=25 upserts=434 combos_upserted=217
+[23:31:15] date 2025-09-06
+[2025-09-06] races=54 upserts=1078 combos_upserted=539
+[23:31:23] date 2025-09-07
+[2025-09-07] races=51 upserts=1054 combos_upserted=527
+[23:31:30] date 2025-09-08
+[2025-09-08] races=9 upserts=120 combos_upserted=60
+[23:31:31] date 2025-09-09
+[2025-09-09] races=10 upserts=132 combos_upserted=66
+[23:31:33] date 2025-09-10
+[2025-09-10] races=20 upserts=446 combos_upserted=223
+[23:31:36] date 2025-09-11
+[2025-09-11] races=23 upserts=450 combos_upserted=225
+[23:31:40] date 2025-09-12
+[2025-09-12] races=35 upserts=654 combos_upserted=327
+[23:31:46] date 2025-09-13
+[2025-09-13] races=55 upserts=1026 combos_upserted=513
+[23:31:53] date 2025-09-14
+[2025-09-14] races=48 upserts=872 combos_upserted=436
+[23:31:59] date 2025-09-15
+[2025-09-15] races=10 upserts=138 combos_upserted=69
+[23:32:01] date 2025-09-16
+[2025-09-16] races=10 upserts=140 combos_upserted=70
+[23:32:03] date 2025-09-17
+[2025-09-17] races=9 upserts=192 combos_upserted=96
+TOTAL races=8837 upserts=162876 combos_upserted=81438

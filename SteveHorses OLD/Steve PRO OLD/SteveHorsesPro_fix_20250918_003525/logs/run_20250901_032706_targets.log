@@ -1,0 +1,5 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 194
+    dec = r["min_dec"]; frac_s = frac(dec); pay2 = f\"${dec*2:0.2f}\"
+                                                                    ^
+SyntaxError: unexpected character after line continuation character
+No HTML path returned; opening log…

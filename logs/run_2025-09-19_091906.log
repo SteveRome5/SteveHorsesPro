@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1876
+    f"<td class='mono">{('$' + format(int(round(b['bet'])), ',d')) if (b.get('bet') and b['bet'] > 0) else '—'}</td>"
+                                                                                                                ^
+SyntaxError: invalid syntax

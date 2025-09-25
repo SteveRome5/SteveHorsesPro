@@ -1,0 +1,435 @@
+[2025-09-09 05:32:26] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[run] Tue Sep  9 05:33:47 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 05:33:47] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 05:34:25] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 05:34:25] trainer: trained buckets=10, global_n=28270
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 05:34:27 PDT 2025 done
+[run] Tue Sep  9 05:35:21 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 05:35:21] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 05:35:59] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 05:35:59] trainer: trained buckets=10, global_n=28270
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 05:36:01 PDT 2025 done
+[2025-09-09 05:44:28] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 05:44:28] trainer: trained buckets=10, global_n=28270
+[run] Tue Sep  9 05:49:12 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 05:49:12] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 05:49:49] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 05:49:49] trainer: trained buckets=10, global_n=28270
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 05:49:51 PDT 2025 done
+[run] Tue Sep  9 05:52:52 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 05:52:52] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 05:53:30] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 05:53:30] trainer: trained buckets=10, global_n=28270
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 05:53:32 PDT 2025 done
+[2025-09-09 05:59:37] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 06:00:13] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 06:00:13] trainer: trained buckets=10, global_n=28270
+[2025-09-09 06:01:12] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 06:01:49] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 06:01:49] trainer: trained buckets=10, global_n=28270
+[run] Tue Sep  9 06:07:29 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 06:07:29] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 06:08:06] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 06:08:06] trainer: trained buckets=10, global_n=28270
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 06:08:08 PDT 2025 done
+[run] Tue Sep  9 09:57:01 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 09:57:01] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 09:57:38] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 09:57:38] trainer: trained buckets=10, global_n=28270
+[2025-09-09 09:57:41] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 09:57:41 PDT 2025 done
+[run] Tue Sep  9 10:04:55 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 10:04:55] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 10:05:34] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 10:05:34] trainer: trained buckets=10, global_n=28270
+[2025-09-09 10:05:36] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 10:05:36 PDT 2025 done
+[run] Tue Sep  9 10:12:25 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 10:12:25] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 10:13:02] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 10:13:02] trainer: trained buckets=10, global_n=28270
+[2025-09-09 10:13:05] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 10:13:05 PDT 2025 done
+[run] Tue Sep  9 10:47:51 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 814
+    def compute_confidence(p, dec, late_slope_max, odds_var_mean, minutes_to_post):
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 10:50:24 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 814
+    def compute_confidence(p, dec, late_slope_max, odds_var_mean, minutes_to_post):
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 10:51:23 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 815
+    def compute_confidence(p, dec, late_slope_max, odds_var_mean, minutes_to_post):
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 10:51:40 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 815
+    def compute_confidence(p, dec, late_slope_max, odds_var_mean, minutes_to_post):
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 10:53:30 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 815
+    def compute_confidence(p, dec, late_slope_max, odds_var_mean, minutes_to_post):
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 10:56:53 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 10:56:53] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 10:57:31] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 10:57:31] trainer: trained buckets=10, global_n=28270
+[2025-09-09 10:57:32] Entries fetch failed for Finger Lakes: name 'SCR_FLAG_VALUES' is not defined
+[2025-09-09 10:57:33] Entries fetch failed for Louisiana Downs: name 'SCR_FLAG_VALUES' is not defined
+[2025-09-09 10:57:33] Entries fetch failed for Parx Racing: name 'SCR_FLAG_VALUES' is not defined
+[2025-09-09 10:57:33] PRO_MODE=1: enabling PRO overrides (market synth, few-shot, confidence, dutch corr)
+[2025-09-09 10:57:33] PRO patch loaded: memoized fetch_*, few-shot predict, market synthesis, conf-Kelly, dutch corr
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 10:57:34 PDT 2025 done
+[2025-09-09 10:58:17] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 10:58:54] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 10:58:54] trainer: trained buckets=10, global_n=28270
+[2025-09-09 10:58:55] Entries fetch failed for Finger Lakes: name 'SCR_FLAG_VALUES' is not defined
+[2025-09-09 10:58:55] Entries fetch failed for Louisiana Downs: name 'SCR_FLAG_VALUES' is not defined
+[2025-09-09 10:58:56] Entries fetch failed for Parx Racing: name 'SCR_FLAG_VALUES' is not defined
+[run] Tue Sep  9 11:11:11 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 11:11:11] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 11:11:48] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 11:11:48] trainer: trained buckets=10, global_n=28270
+[2025-09-09 11:11:51] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 11:11:51] build report failed: '>=' not supported between instances of 'tuple' and 'float'
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1519, in <module>
+    html_out = build_report(cards, iso_today, scr_summary, auto_summary, scr_details)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1330, in build_report
+    stakes = dutch_overlays(
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 932, in dutch_overlays
+    action_ok = (p >= ACTION_PCT_FLOOR) and (edge_pp is not None and edge_pp >= EDGE_PP_MIN_ACTION) and (conf >= CONF_THRESH_ACTION)
+TypeError: '>=' not supported between instances of 'tuple' and 'float'
+[run] Tue Sep  9 11:15:49 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 11:15:49] script: version='PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite'
+[2025-09-09 11:16:27] model saved -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-09 11:16:27] trainer: trained buckets=10, global_n=28270
+[2025-09-09 11:16:30] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 11:16:30] build report failed: name 'kelly_damped' is not defined
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1562, in <module>
+    html_out = build_report(cards, iso_today, scr_summary, auto_summary, scr_details)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1373, in build_report
+    stakes = dutch_overlays(
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 900, in dutch_overlays
+    f = kelly_damped(p, dec, field_size, late_slope_max, odds_var_mean, m2p)
+NameError: name 'kelly_damped' is not defined
+[run] Tue Sep  9 11:20:18 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1902
+    """
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 11:28:36 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1902
+    """
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 11:31:56 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1902
+    """
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 11:34:49 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1903
+    Kelly fraction with some conservative dampers for volatility/market instability.
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 11:43:31 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1681
+    Returns f in [0, 1].
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 11:46:03 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1982
+    def kelly_damped(p, dec, field_size, late_slope_max, odds_var_mean, minutes_to_post):
+IndentationError: expected an indented block
+[run] Tue Sep  9 11:50:22 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1045
+    body{{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}}
+        ^
+SyntaxError: invalid syntax
+[run] Tue Sep  9 11:56:08 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1045
+    body{{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}}
+        ^
+SyntaxError: invalid syntax
+[run] Tue Sep  9 12:00:01 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1902
+    """
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 12:00:21 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1902
+    """
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 12:03:10 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1902
+    """
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 12:05:29 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1903
+    Kelly fraction with some conservative dampers for volatility/market instability.
+          ^
+SyntaxError: invalid syntax
+[run] Tue Sep  9 12:06:21 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 2355
+    
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 12:21:06 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1537
+    if __name__ == "__main__":
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 12:27:20 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1537
+    if __name__ == "__main__":
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 12:40:48 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1504
+    from pathlib import Path
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 12:46:30 PDT 2025 starting steve_horses_pro.py
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1504
+    from pathlib import Path
+    ^
+IndentationError: expected an indented block
+[run] Tue Sep  9 12:51:34 PDT 2025 starting steve_horses_pro.py
+[FATAL] build report failed: 'method_descriptor' object has no attribute 'today'
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1594, in <module>
+    iso_today = datetime.date.today().isoformat()
+AttributeError: 'method_descriptor' object has no attribute 'today'
+[run] Tue Sep  9 12:54:45 PDT 2025 starting steve_horses_pro.py
+[FATAL] build report failed: name 'fetch_cards' is not defined
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1806, in <module>
+    cards = fetch_cards(iso_today)
+NameError: name 'fetch_cards' is not defined
+[run] Tue Sep  9 13:04:30 PDT 2025 starting steve_horses_pro.py
+[FATAL] build report failed: name 'fetch_cards' is not defined
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1806, in <module>
+    cards = fetch_cards(iso_today)
+NameError: name 'fetch_cards' is not defined
+[run] Tue Sep  9 13:08:00 PDT 2025 starting steve_horses_pro.py
+[FATAL] build report failed: name 'fetch_cards' is not defined
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1806, in <module>
+    cards = fetch_cards(iso_today)
+NameError: name 'fetch_cards' is not defined
+[run] Tue Sep  9 13:36:21 PDT 2025 starting steve_horses_pro.py
+[FATAL] build report failed: Missing required functions: fetch_cards, build_report
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1743, in <module>
+    raise RuntimeError(f"Missing required functions: {', '.join(missing)}")
+RuntimeError: Missing required functions: fetch_cards, build_report
+[run] Tue Sep  9 13:44:52 PDT 2025 starting steve_horses_pro.py
+[fallback] Opened last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-08_horses_targets+full.html
+[FATAL] build report failed: Missing required functions: fetch_cards, build_report
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1718, in <module>
+    raise RuntimeError(f"Missing required functions: {', '.join(missing)}")
+RuntimeError: Missing required functions: fetch_cards, build_report
+[run] Tue Sep  9 13:45:12 PDT 2025 starting steve_horses_pro.py
+[fallback] Opened last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-08_horses_targets+full.html
+[FATAL] build report failed: Missing required functions: fetch_cards, build_report
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1718, in <module>
+    raise RuntimeError(f"Missing required functions: {', '.join(missing)}")
+RuntimeError: Missing required functions: fetch_cards, build_report
+[run] Tue Sep  9 13:46:33 PDT 2025 starting steve_horses_pro.py
+[fallback] Opened last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-08_horses_targets+full.html
+[FATAL] build report failed: Missing required functions: fetch_cards, build_report
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1718, in <module>
+    raise RuntimeError(f"Missing required functions: {', '.join(missing)}")
+RuntimeError: Missing required functions: fetch_cards, build_report
+[run] Tue Sep  9 13:49:53 PDT 2025 starting steve_horses_pro.py
+[fallback] Opened last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-08_horses_targets+full.html
+[FATAL] build report failed: Missing required functions: fetch_cards, build_report
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1718, in <module>
+    raise RuntimeError(f"Missing required functions: {', '.join(missing)}")
+RuntimeError: Missing required functions: fetch_cards, build_report
+[run] Tue Sep  9 13:51:01 PDT 2025 starting steve_horses_pro.py
+[fallback] Opened last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-08_horses_targets+full.html
+[FATAL] build report failed: Missing required functions: fetch_cards, build_report
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1718, in <module>
+    raise RuntimeError(f"Missing required functions: {', '.join(missing)}")
+RuntimeError: Missing required functions: fetch_cards, build_report
+[warn] python run failed; will use fallback HTML.
+[ok] Opened /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 13:51:01 PDT 2025 done
+[run] Tue Sep  9 13:53:26 PDT 2025 starting steve_horses_pro.py
+[fallback] Opened last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-08_horses_targets+full.html
+[FATAL] build report failed: Missing required functions: fetch_cards, build_report
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1718, in <module>
+    raise RuntimeError(f"Missing required functions: {', '.join(missing)}")
+RuntimeError: Missing required functions: fetch_cards, build_report
+[warn] python run failed; will use fallback HTML.
+[ok] Opened /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[run] Tue Sep  9 13:53:26 PDT 2025 done
+[run] Tue Sep  9 14:02:23 PDT 2025 starting steve_horses_pro.py
+[fallback] Opened last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-08_horses_targets+full.html
+[FATAL] build report failed: Missing required functions: fetch_cards, build_report
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1718, in <module>
+    raise RuntimeError(f"Missing required functions: {', '.join(missing)}")
+RuntimeError: Missing required functions: fetch_cards, build_report
+[warn] python run failed; will use fallback HTML.
+[fallback] Today's report missing or too small (1075B < 50000). Using last good.
+[run] Tue Sep  9 15:14:47 PDT 2025 starting steve_horses_pro.py
+[run] Tue Sep  9 15:15:28 PDT 2025 starting steve_horses_pro.py
+[run] Tue Sep  9 15:16:28 PDT 2025 starting steve_horses_pro.py
+[2025-09-09 15:32:46] [FATAL] build report failed: name 'build_cards_and_scratches' is not defined
+[2025-09-09 15:58:50] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 15:58:51] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 16:11:43] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 16:11:43] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 16:20:28] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 16:20:28] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 16:30:33] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 16:30:33] [FATAL] build report failed: name 'MODEL' is not defined
+[2025-09-09 16:33:20] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 16:33:20] [FATAL] build report failed: name 'MODEL' is not defined
+[2025-09-09 17:01:39] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 17:01:39] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 17:23:22] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 17:23:22] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 17:30:21] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 17:30:21] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 17:32:38] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 17:32:38] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 18:47:50] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 18:47:50] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 19:25:11] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 19:25:11] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 20:30:24] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 20:30:24] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-09 20:40:07] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-09.txt
+[2025-09-09 20:40:07] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+[2025-09-10 07:59:55] Created manual scratches template -> /Users/stephenjerome/Desktop/SteveHorsesPro/data/scratches/2025-09-10.txt
+[2025-09-10 07:59:55] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 08:10:41] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 08:10:41] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 09:13:51] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 09:13:51] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 09:23:24] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 09:23:24] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 09:28:12] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 09:28:12] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 09:35:36] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 09:35:36] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 09:38:08] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 09:38:08] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 09:39:07] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 09:39:07] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 10:02:30] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 10:02:30] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 10:07:52] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 10:07:52] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 10:15:56] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 10:15:56] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 10:24:26] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 10:24:26] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 10:27:46] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 10:27:46] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 10:43:44] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 10:43:44] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 10:55:40] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 10:55:40] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 10:58:53] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 10:58:53] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 11:16:02] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 11:16:02] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 11:19:20] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 11:19:20] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 11:24:27] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 11:24:27] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 11:34:11] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 11:34:11] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 11:42:48] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 11:42:48] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 11:50:30] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 11:50:30] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 11:54:15] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 11:54:15] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 12:02:23] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 12:02:23] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 12:06:50] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 12:06:50] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 12:24:14] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 12:24:14] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 12:31:08] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 12:31:08] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 12:35:23] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 12:35:23] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 12:40:51] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 12:40:51] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 12:47:37] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 12:47:37] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 12:55:59] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 12:55:59] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:00:46] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:00:46] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:08:52] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:08:52] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:09:55] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:09:55] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:18:17] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:18:17] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:22:45] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:22:45] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:26:02] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:26:02] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:30:22] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:30:22] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:34:59] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:34:59] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:48:46] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:48:46] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:50:33] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:50:33] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:54:45] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:54:45] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 13:59:30] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 13:59:30] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 14:06:33] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 14:06:33] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 14:17:55] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 14:17:55] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 14:30:57] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 14:30:57] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 14:50:14] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 14:50:14] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 15:01:46] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 15:01:46] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 15:06:19] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 15:06:19] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 15:10:51] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 15:10:51] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 15:15:37] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 15:15:37] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html
+[2025-09-10 15:24:13] wrote auto scratches -> /Users/stephenjerome/Desktop/SteveHorsesPro/inputs/scratches_AUTO_2025-09-10.txt
+[2025-09-10 15:24:13] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-10_horses_targets+full.html

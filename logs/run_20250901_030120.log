@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 189
+    horse = (f\"#{r['prog']} \" if r.get('prog') else \"\") + html.escape(str(r['horse']))
+                                                                                         ^
+SyntaxError: unexpected character after line continuation character

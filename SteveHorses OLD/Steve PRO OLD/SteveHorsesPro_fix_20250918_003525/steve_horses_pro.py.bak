@@ -1,0 +1,244 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import os, ssl, json, math, re, base64, html, webbrowser
+from pathlib import Path
+from datetime import date
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode
+
+# Paths
+BASE = Path.home()/"Desktop"/"SteveHorsesPro"
+OUT  = BASE/"outputs"; OUT.mkdir(parents=True, exist_ok=True)
+CACHE= BASE/"cache";   CACHE.mkdir(parents=True, exist_ok=True)
+
+# Tracks order and IDs
+TRACK_ORDER = ["Del Mar","Saratoga","Santa Anita Park","Gulfstream Park","Keeneland","Parx Racing","Finger Lakes"]
+TRACK_IDS   = {"DMR","SAR","SA","GP","KEE","PRX","FL"}
+
+# Knobs
+MIN_PRICE_PAD = float(os.getenv("MIN_PRICE_PAD","0.20"))   # 20% premium over fair
+OUTPUT_MODE   = os.getenv("OUTPUT_MODE","targets")         # "targets" or "full"
+
+# API auth
+RACING_USER = os.getenv("RACING_API_USER","").strip()
+RACING_PASS = os.getenv("RACING_API_PASS","").strip()
+USE_API = bool(RACING_USER and RACING_PASS)
+
+# HTTP
+CTX = ssl.create_default_context()
+def _req(url:str):
+    req = Request(url, headers={"User-Agent":"Mozilla/5.0"})
+    if USE_API:
+        tok = base64.b64encode(f"{RACING_USER}:{RACING_PASS}".encode()).decode()
+        req.add_header("Authorization","Basic "+tok)
+    with urlopen(req, timeout=30, context=CTX) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+def _get_cached(path:Path, fetcher):
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    data = fetcher()
+    path.write_text(json.dumps(data), encoding="utf-8")
+    return data
+
+# Odds parsing
+def parse_odds(s):
+    if not s: return (None,None)
+    t = str(s).strip().lower()
+    if t in ("evs","even","evens"): return (2.0, 0.5)
+    m = re.fullmatch(r'(\d+)\s*[/\-:]\s*(\d+)', t)  # 5/2 or 3-1
+    if m:
+        num, den = float(m.group(1)), float(m.group(2))
+        if den>0:
+            dec = 1.0 + num/den
+            return (dec, 1.0/dec)
+    if re.fullmatch(r'[+-]?\d+', t):               # American
+        a = int(t); dec = 1 + a/100 if a>0 else 1 + 100/abs(a)
+        return (dec, 1.0/dec)
+    try:
+        dec = float(t)
+        if dec>1.0: return (dec, 1.0/dec)
+    except: pass
+    return (None,None)
+
+def dec_to_frac(dec):
+    if not dec or dec<=1.0: return "—"
+    v = dec-1.0; best=(9e9,"—")
+    for den in (1,2,3,4,5,6,7,8,10,12,14,16,20):
+        num = round(v*den); err = abs(v - num/den)
+        if err<best[0]: best=(err, f"{int(num)}-{int(den)}")
+    return best[1]
+
+def min_price_block(dec):
+    return f"{dec_to_frac(dec)} / ${2*dec:0.2f} / {dec:0.2f}d"
+
+# Normalization
+def race_no(r, idx):
+    for k in ("race_number","raceNo","number","rno","race","index"):
+        v = r.get(k)
+        if isinstance(v,int): return v
+        if isinstance(v,str):
+            m = re.search(r'\d+', v)
+            if m: return int(m.group())
+    name = r.get("name") or r.get("race_name") or ""
+    m = re.search(r'\b(\d+)\b', str(name))
+    return int(m.group(1)) if m else idx+1
+
+def ml_string(rr):
+    keys = ["morning_line_odds","morning_line","morningLine","ml","program_odds","odds","forecast","line"]
+    for k in keys:
+        v = rr.get(k)
+        if v:
+            if isinstance(v, dict):
+                if "numerator" in v and "denominator" in v:
+                    return f"{v['numerator']}-{v['denominator']}"
+                for kk in ("fraction","frac","text","display","value"):
+                    if v.get(kk): return str(v[kk])
+                nums = [str(x) for x in v.values() if str(x).isdigit()]
+                if len(nums)==2: return f"{nums[0]}-{nums[1]}"
+            return str(v)
+    return ""
+
+def is_scratched(rr):
+    for k in ("scratched","is_scratched","scratch","status"):
+        s = str(rr.get(k,"")).strip().lower()
+        if s in ("true","1","yes","y","scratched","scratch","s","scr"): return True
+    return False
+
+def track_sort_key(trk):
+    try:  return (TRACK_ORDER.index(trk), trk)
+    except ValueError: return (len(TRACK_ORDER), trk)
+
+def blended_probs(runners):
+    n=len(runners)
+    if n==0: return []
+    prior=[1.0/n]*n
+    ml_imps=[(r["ml_imp"] or 0.0) for r in runners]
+    if sum(ml_imps)>0:
+        s=sum(ml_imps)
+        ml_norm=[x/s for x in ml_imps]
+        w_prior=0.6; w_ml=0.4
+        p=[w_prior*prior[i]+w_ml*ml_norm[i] for i in range(n)]
+    else:
+        p=prior[:]
+    s=sum(p) or 1.0
+    return [x/s for x in p]
+
+# Fetch cards with per‑day snapshot
+def fetch_cards(day):
+    base="https://api.theracingapi.com"
+    meets_path = CACHE/f"{day}_meets.json"
+    meets=_get_cached(meets_path, lambda: _req(base + "/v1/north-america/meets?" + urlencode({"start_date":day,"end_date":day})))
+    chosen=[]
+    for m in meets.get("meets",[]):
+        trk = m.get("track_name") or m.get("track") or m.get("meeting") or m.get("course") or ""
+        tid = m.get("track_id") or ""
+        if trk in TRACK_ORDER or tid in TRACK_IDS or any(t.lower() in trk.lower() for t in TRACK_ORDER):
+            chosen.append({"track":trk,"tid":tid,"meet_id":m.get("meet_id")})
+    cards=[]
+    for c in chosen:
+        entries_path=CACHE/f"{day}_{c['meet_id']}_entries.json"
+        js=_get_cached(entries_path, lambda: _req(base + f"/v1/north-america/meets/{c['meet_id']}/entries"))
+        races = js.get("races") or js.get("entries") or []
+        for idx, r in enumerate(races):
+            rno = race_no(r, idx)
+            runners_raw = r.get("runners") or r.get("entries") or []
+            runners=[]
+            for rr in runners_raw:
+                if is_scratched(rr): 
+                    continue
+                ml = ml_string(rr)
+                dec, imp = parse_odds(ml)
+                name = rr.get("name") or rr.get("horse_name") or rr.get("runner_name") or rr.get("horse") or "?"
+                runners.append({"name":str(name),"ml":ml,"ml_dec":dec,"ml_imp":imp})
+            if runners:
+                cards.append({"track":c["track"],"race_no":rno,"runners":runners})
+    return cards, chosen
+
+# HTML
+CSS = """
+<style>
+:root{--bg:#0f2027;--fg:#e6f1f5;--muted:#87a0ab;--row:#122a33;--play:#34d399}
+body{background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:24px}
+h1{margin:0 0 8px;font-weight:800}.sub{color:#9fb9c4;margin:0 0 12px}
+.badge{display:inline-block;padding:2px 6px;border:1px solid #2a4c58;border-radius:6px;color:#9fb9c4;font-size:12px;margin:2px 6px 2px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th,td{padding:10px 8px;text-align:left}
+th{color:#a3c0cb;border-bottom:1px solid #23424d;font-weight:600}
+tbody tr:nth-child(odd){background:var(--row)}
+.right{text-align:right}.mono{font-variant-numeric:tabular-nums}.play{color:var(--play);font-weight:700}
+.track{margin-top:20px;font-weight:700;color:#bfe4f2}
+</style>
+"""
+
+def build_html(day, cards, chosen):
+    title=f"Steve’s Horses Pro — {day}"
+    parts=[f"<!doctype html><meta charset='utf-8'><title>{html.escape(title)}</title>", CSS, f"<h1>{html.escape(title)}</h1>"]
+    chosen_tracks = ", ".join(sorted({c["track"] for c in chosen}, key=track_sort_key)) or "—"
+    parts.append(f"<div class='sub'><span class='badge'>Tracks: {', '.join(TRACK_ORDER)}</span>"
+                 f"<span class='badge'>chosen={html.escape(chosen_tracks)}</span>"
+                 f"<span class='badge'>Min price = frac/$2/dec</span>"
+                 f"<span class='badge'>mode={html.escape(OUTPUT_MODE)}</span></div>")
+
+    # Top targets by track (one per race where ML coverage >= 50%)
+    picks_by_track={}
+    for card in cards:
+        probs=blended_probs(card["runners"])
+        ml_cov=sum(1 for r in card["runners"] if r["ml_imp"])/max(1,len(card["runners"]))
+        if ml_cov < 0.5:
+            continue
+        best = max(range(len(probs)), key=lambda i: probs[i])
+        p = probs[best]; fair=1.0/p; min_dec=fair*(1.0+MIN_PRICE_PAD)
+        row={"race_no":card["race_no"], "name":card["runners"][best]["name"], "p":p, "min_block":min_price_block(min_dec)}
+        picks_by_track.setdefault(card["track"], []).append(row)
+
+    parts.append("<div class='track'>Top Win Targets by Track</div>")
+    tracks = sorted(picks_by_track.keys(), key=track_sort_key)
+    if not tracks:
+        parts.append("<p class='sub'>No model targets with sufficient ML coverage. Switch OUTPUT_MODE=full for all races.</p>")
+    for trk in tracks:
+        parts.append(f"<table><thead><tr><th colspan='4' style='text-align:left'>{html.escape(trk)}</th></tr>"
+                     "<tr><th>Race</th><th>Horse</th><th class='right'>Model Win%</th><th class='right'>Min (frac/$2/dec)</th></tr></thead><tbody>")
+        for row in sorted(picks_by_track[trk], key=lambda r: r["race_no"]):
+            parts.append("<tr>"
+                         f"<td class='mono'>{row['race_no']}</td>"
+                         f"<td class='play'>{html.escape(row['name'])}</td>"
+                         f"<td class='right mono'>{row['p']*100:0.1f}%</td>"
+                         f"<td class='right mono'>{html.escape(row['min_block'])}</td></tr>")
+        parts.append("</tbody></table>")
+
+    if OUTPUT_MODE=="full":
+        parts.append("<div class='track'>Full Races</div>")
+        for trk in sorted({c["track"] for c in cards}, key=track_sort_key):
+            parts.append(f"<div class='track'>{html.escape(trk)}</div>")
+            for card in sorted([c for c in cards if c["track"]==trk], key=lambda c:c["race_no"]):
+                probs=blended_probs(card["runners"])
+                parts.append(f"<div class='sub'>Race {card['race_no']}</div>")
+                parts.append("<table><thead><tr><th>Horse</th><th class='right'>ML</th>"
+                             "<th class='right'>Model Win%</th><th class='right'>Fair (dec)</th>"
+                             "<th class='right'>Min (dec)</th></tr></thead><tbody>")
+                for r,p in sorted(zip(card["runners"], probs), key=lambda t:t[1], reverse=True):
+                    fair=1.0/p if p>0 else None
+                    mind=fair*(1.0+MIN_PRICE_PAD) if fair else None
+                    parts.append("<tr>"
+                        f"<td>{html.escape(r['name'])}</td>"
+                        f"<td class='right mono'>{html.escape(r['ml'] or '—')}</td>"
+                        f"<td class='right mono'>{p*100:0.1f}%</td>"
+                        f"<td class='right mono'>{fair:0.2f}d</td>"
+                        f"<td class='right mono'>{mind:0.2f}d</td></tr>")
+                parts.append("</tbody></table>")
+
+    out = OUT/f"{day}_horses_pro.html"
+    out.write_text("".join(parts), encoding="utf-8")
+    try: webbrowser.open(f"file://{out}")
+    except Exception: pass
+    print(out)
+    return out
+
+def main():
+    day = os.getenv("FORCE_DAY") or date.today().isoformat()
+    cards, chosen = fetch_cards(day)
+    build_html(day, cards, chosen)
+
+if __name__=="__main__":
+    main()

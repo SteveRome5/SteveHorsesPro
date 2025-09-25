@@ -1,0 +1,5 @@
+[ENV] FAST=1 PRO_NO_AUDIT=1 PRO_FAST_TTL=60 RUN_DATE=2025-09-20
+[ENV] MAJOR_TRACKS_ONLY=Aqueduct Racetrack,Belmont Park,Saratoga Race Course,Churchill Downs,Keeneland,Gulfstream Park,Santa Anita Park,Del Mar,Oaklawn Park,Fair Grounds,Parx Racing,Woodbine,Monmouth Park,Tampa Bay Downs ALLOW_MINOR_TRACKS=0
+[ENV] PRO_ALPHA=1.30 PRO_USE_SHARP=1
+[ok] Wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-20_horses_targets+full.html
+[OK] board: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-20_board.html

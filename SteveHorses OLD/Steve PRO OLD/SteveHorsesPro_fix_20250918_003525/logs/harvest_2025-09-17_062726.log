@@ -1,0 +1,6 @@
+[horse-db] schema OK
+[train] start
+GET fail /v1/north-america/meets: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[harvest] no meets 2025-09-16
+[harvest] 2025-09-17 -> 877 rows
+[train] harvest-only done

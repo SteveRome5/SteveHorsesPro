@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 409, in <module>
+    main()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 405, in main
+    cards, chosen, meets_count = fetch_cards_today()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 303, in fetch_cards_today
+    score = score_from_feats(feats, p_ml)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 255, in score_from_feats
+    base = math.log(1/max(8.0,1.0)-1.0)  # ~field prior
+ValueError: math domain error

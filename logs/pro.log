@@ -1,0 +1,130 @@
+[2025-09-22 02:26:39] [run] starting PRO for 2025-09-22
+[2025-09-22 02:26:42] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[2025-09-22 05:01:03] [ext] using pro_winprob for winprob if available
+[2025-09-22 05:01:03] [run] PRO start 2025-09-22
+[2025-09-22 05:01:06] Tracks: 1  Races: 9
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '1', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '1', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '2', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '2', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '3', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '3', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '4', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '4', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '5', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '5', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '6', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '6', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '7', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '7', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '8', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '8', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] GET fail /v1/north-america/races/{'race_number': '9', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '9', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:01:06] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[2025-09-22 05:11:51] [ext] using pro_winprob for winprob if available
+[2025-09-22 05:11:51] [run] PRO start 2025-09-22
+[2025-09-22 05:11:54] Tracks: 1  Races: 9
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '1', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '1', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '2', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '2', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '3', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '3', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '4', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '4', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '5', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '5', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '6', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '6', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '7', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '7', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '8', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '8', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] GET fail /v1/north-america/races/{'race_number': '9', 'day_evening': 'D'}/willpays: URL can't contain control characters. "/v1/north-america/races/{'race_number': '9', 'day_evening': 'D'}/willpays" (found at least ' ')
+[2025-09-22 05:11:54] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+2025-09-22 11:35:35 start PRO (v4 ML fallback)
+2025-09-22 11:35:36 tracks fetch failed: 404 Client Error: Not Found for url: https://api.theracingapi.com/v1/tracks?date=2025-09-22
+2025-09-22 11:35:36 wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[2025-09-23 01:38:21] [pro] start PRO (v4)
+[2025-09-23 01:38:21] [model] loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:23] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:24] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:24] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:24] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:24] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:25] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:25] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:25] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:25] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:26] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:26] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:26] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:26] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:27] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:27] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:28] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:28] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:29] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:29] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 01:38:29] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 01:38:29] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-23_horses_targets+full.html
+[2025-09-23 02:24:33] [pro] start PRO (v4)
+[2025-09-23 02:24:33] [model] loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:35] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:36] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:36] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:36] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:36] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:37] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:37] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:37] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:37] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:38] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:38] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:38] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:38] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:39] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:39] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:39] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:39] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:40] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:40] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:24:40] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:24:40] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-23_horses_targets+full.html
+[2025-09-23 02:31:43] [pro] start PRO (v4)
+[2025-09-23 02:31:43] [model] loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:46] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:47] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:47] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:48] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:48] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:48] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:48] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:49] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:49] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:50] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:50] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:51] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:51] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:52] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:52] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:52] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:52] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:53] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:53] [horse-db] Parx Racing R? alpha=0.2 bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000
+[2025-09-23 02:31:53] [http] GET fail /v1/north-america/races//condition : HTTP Error 404: Not Found
+[2025-09-23 02:31:53] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-23_horses_targets+full.html

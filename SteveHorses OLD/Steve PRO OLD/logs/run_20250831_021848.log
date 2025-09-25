@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 268
+    )
+    ^
+SyntaxError: f-string expression part cannot include a backslash

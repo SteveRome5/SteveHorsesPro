@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 391
+    ('' if r['edge'] is None else f'{100*r['edge']:0.1f}%')
+                                            ^
+SyntaxError: f-string: f-string: unmatched '['

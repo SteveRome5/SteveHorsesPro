@@ -1,0 +1,14 @@
+[RUN] Train — Fri Sep 12 18:06:19 PDT 2025
+[train] start
+[harvest] 2025-09-05 -> 279 rows
+[harvest] 2025-09-06 -> 601 rows
+[harvest] 2025-09-07 -> 519 rows
+[harvest] 2025-09-08 -> 173 rows
+[harvest] 2025-09-09 -> 189 rows
+[harvest] 2025-09-10 -> 350 rows
+[harvest] 2025-09-11 -> 225 rows
+[harvest] 2025-09-12 -> 398 rows
+[load] rows=2734 from 367 file(s)
+[registry] saved model_20250912-180736.json; metrics={'brier': 0.0028294939745818364, 'logloss': 0.054659995392554554, 'auc': 0.5, 'n': 2734}
+[registry] best tag -> 20250912-171638; updated model.json
+[train] done

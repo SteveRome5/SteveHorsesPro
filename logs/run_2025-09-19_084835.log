@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1583
+    ('' if row['market'] is None else f'{row['market']:.2f}')
+                                              ^
+SyntaxError: f-string: f-string: unmatched '['

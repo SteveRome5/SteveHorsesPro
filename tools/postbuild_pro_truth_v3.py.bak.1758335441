@@ -1,0 +1,341 @@
+# tools/postbuild_pro_truth_v3.py
+import re, json, sqlite3, html, os
+from pathlib import Path
+from statistics import fmean
+
+# ---------- knobs ----------
+PRIME_WIN_MIN = float(os.getenv("PRO_PRIME_WIN_MIN", "18.0"))
+PRIME_EDGE_PP = float(os.getenv("PRO_PRIME_EDGE_PP", "1.5"))
+ACTION_WIN_MIN = float(os.getenv("PRO_ACTION_WIN_MIN", "12.0"))
+ACTION_EDGE_PP = float(os.getenv("PRO_ACTION_EDGE_PP", "0.5"))
+EXACTA_MAX = int(os.getenv("PRO_EXACTA_MAX", "3"))
+
+WHITELIST = {s.strip() for s in os.getenv("PRO_TRACKS_WHITELIST",
+    "Gulfstream Park;Woodbine;Parx Racing;Churchill Downs").split(";") if s.strip()}
+
+def esc(x): return html.escape("" if x is None else str(x))
+def pctf(s):
+    try: return float(str(s).strip().rstrip("%"))
+    except: return None
+
+def open_runs_db(base: Path):
+    db = base / "data" / "horses.db"
+    if not db.exists(): return None, None, None, None, None
+    conn = sqlite3.connect(str(db))
+    cur = conn.cursor()
+    cur.execute("PRAGMA table_info(runs)")
+    cols = [c[1] for c in cur.fetchall()]
+    L = [c.lower() for c in cols]
+    def pick(*keys):
+        for k in keys:
+            for i,c in enumerate(L):
+                if k in c: return cols[i]
+        return None
+    horse_col = pick("horse","name")
+    speed_col = pick("speed")
+    class_col = pick("class")
+    date_col  = pick("date")
+    return conn, horse_col, speed_col, class_col, date_col
+
+def map_db_counts(conn, horse_col):
+    if not conn or not horse_col: return {}
+    cur = conn.cursor()
+    cur.execute(f"SELECT LOWER(TRIM({horse_col})), COUNT(*) FROM runs GROUP BY LOWER(TRIM({horse_col}))")
+    return { (r[0] or "").strip(): int(r[1] or 0) for r in cur.fetchall() }
+
+def recent_metrics(conn, horse_col, speed_col, class_col, date_col, horse_name, k=6):
+    if not conn or not horse_col: return None, None
+    key = (horse_name or "").lower().strip()
+    cur = conn.cursor()
+    if not speed_col and not class_col: return None, None
+    order = f" ORDER BY {date_col} DESC" if date_col else ""
+    cols = []
+    if speed_col: cols.append(speed_col)
+    if class_col: cols.append(class_col)
+    q = f"SELECT {', '.join(cols)} FROM runs WHERE LOWER(TRIM({horse_col}))=?{order} LIMIT {k}"
+    try:
+        cur.execute(q,(key,))
+        speeds, classes = [], []
+        for row in cur.fetchall():
+            idx=0
+            if speed_col:
+                try: speeds.append(float(row[idx])); 
+                except: pass
+                idx += 1
+            if class_col:
+                try: classes.append(float(row[idx]))
+                except: pass
+        sf = fmean(speeds) if speeds else None
+        if classes:
+            half = max(1, len(classes)//2)
+            cd = fmean(classes[:half]) - fmean(classes[half:]) if len(classes)>=2 else 0.0
+        else:
+            cd = None
+        return sf, cd
+    except Exception:
+        return None, None
+
+def load_train_map(base: Path, track: str, ymd: str):
+    p = base / "data" / "signals" / f"{track}|{ymd}.json"
+    if not p.exists(): return {}
+    try:
+        obj = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    # flatten into keys: ("rp", race, program) and ("nm", lower_name)
+    out = {}
+    if isinstance(obj, list):
+        items = obj
+    elif isinstance(obj, dict):
+        items = obj.get("signals") if isinstance(obj.get("signals"), list) else []
+        if not items:
+            for v in obj.values():
+                if isinstance(v, list): items.extend(v)
+    else:
+        items = []
+    for r in items:
+        race = str(r.get("race") or r.get("Race") or "").strip()
+        pgm  = str(r.get("program") or r.get("Program") or r.get("pgm") or "").strip()
+        name = str(r.get("horse") or r.get("Horse") or r.get("name") or "").strip().lower()
+        if race and pgm: out[("rp",race,pgm)] = True
+        if name: out[("nm",name)] = True
+    return out
+
+def exacta(programs, probs, anchor=None, k=3):
+    if not programs or not probs: return []
+    if anchor and anchor in programs:
+        i = programs.index(anchor)
+    else:
+        i = max(range(len(probs)), key=lambda j: probs[j])
+    picks=[]
+    for j in range(len(probs)):
+        if j==i: continue
+        pij = probs[i]*probs[j]*(1.0 - probs[i])  # crude order factor
+        picks.append((i,j,pij))
+    picks.sort(key=lambda t: t[2], reverse=True)
+    out=[]
+    for a,b,pij in picks[:k]:
+        out.append(f"{programs[a]}-{programs[b]} ({100.0*pij:.1f}%)")
+    return out
+
+def annotate(base: Path, in_path: Path, out_path: Path):
+    html_text = in_path.read_text(encoding="utf-8")
+
+    # detect date tag in filename
+    mdate = re.search(r"(\d{4}-\d{2}-\d{2})_horses_targets\+full(?:\+ANN)?\.html$", str(in_path))
+    ymd = mdate.group(1) if mdate else None
+
+    # Normalize to pro-stable shell if this is display-lite
+    if "<h2>Top 20 PRIME Plays" in html_text:
+        # steal the "Full Races" section and rebuild standard headings
+        full = re.split(r"<hr><h2>Full Races</h2>", html_text, 1)
+        races_html = full[1] if len(full)==2 else html_text
+        head = "<h2>PRIME Board</h2><p class='small'>No plays today.</p>\n" \
+               "<h2>ACTION Board</h2><p class='small'>No plays today.</p>\n" \
+               "<p class='small'>Scratches — auto races: 0, manual races: 0 • Daily cap: $2,400</p>\n"
+        html_text = re.sub(r"(?s)<h2>Top 20 PRIME Plays.*$", head + races_html, html_text)
+        # Now we have the same outer headings as pro-stable.  (This matches your desired layout.)
+
+    # Enforce track whitelist by deleting whole sections not in whitelist
+    def section_title(txt):
+        m = re.search(r"<h2>([^<]+) — Race \d+</h2>", txt)
+        return m.group(1) if m else None
+    def drop_unwanted_tracks(txt):
+        def repl(m):
+            block = m.group(0)
+            track = section_title(block)
+            return "" if track and track not in WHITELIST else block
+        return re.sub(r"(?s)<h2>[^<]+ — Race \d+</h2>\s*<table>.*?</table>", repl, txt)
+    html_text = drop_unwanted_tracks(html_text)
+
+    # DB + metrics
+    conn, horse_col, speed_col, class_col, date_col = open_runs_db(base)
+    counts = map_db_counts(conn, horse_col) if conn else {}
+
+    # TRAIN
+    train_cache = {}
+
+    # We’ll patch each table body row and build PRIME/ACTION lists
+    prime_items, action_items = [], []
+
+    # Two possible table schemas. We’ll parse them by header.
+    def process_table(match):
+        table_html = match.group(0)
+        # identify columns
+        thead = re.search(r"(?s)<thead>.*?</thead>", table_html)
+        cols = re.findall(r"<th[^>]*>(.*?)</th>", thead.group(0), flags=re.S) if thead else []
+        norm = [re.sub(r"<.*?>","",c).strip().lower() for c in cols]
+        # try to locate key columns by name (works for both templates)
+        idx = {k: None for k in ["track","race","#","horse","win","market","edge","bet","flags","source"]}
+        for i,c in enumerate(norm):
+            if "track" in c: idx["track"]=i
+            if c=="race" or c.startswith("race"): idx["race"]=i
+            if c in ("#","no.","program","#."): idx["#"]=i
+            if "horse" in c: idx["horse"]=i
+            if c.startswith("win%"): idx["win"]=i
+            if c.startswith("market%"): idx["market"]=i
+            if c=="edge": idx["edge"]=i
+            if c=="bet": idx["bet"]=i
+            if c=="flags": idx["flags"]=i
+            if "source" in c: idx["source"]=i
+
+        # patch rows
+        def patch_row(mr):
+            row = mr.group(0)
+            tds = re.findall(r"(?s)<td[^>]*>.*?</td>", row)
+            if not tds: 
+                return row
+
+            def txt(i):
+                try:
+                    return html.unescape(re.sub(r"<[^>]+>","",tds[i],flags=re.S)).strip()
+                except:
+                    return ""
+
+            track = txt(idx["track"]) if idx["track"] is not None else ""
+            race  = txt(idx["race"]) if idx["race"] is not None else ""
+            pgm   = txt(idx["#"])    if idx["#"]    is not None else ""
+            horse = txt(idx["horse"]) if idx["horse"] is not None else ""
+            w     = pctf(txt(idx["win"])) if idx["win"] is not None else None
+            edge_v= txt(idx["edge"]) if idx["edge"] is not None else ""
+            try: edgef = float(edge_v.replace("pp","").strip())
+            except: edgef = None
+
+            # TRAIN check (memoized per track)
+            used_train = False
+            if ymd and track:
+                key = (track, ymd)
+                if key not in train_cache:
+                    train_cache[key] = load_train_map(base, track, ymd)
+                tmap = train_cache[key]
+                rec = tmap.get(("rp",race,pgm)) or tmap.get(("nm",(horse or "").lower()))
+                used_train = bool(rec)
+
+            # Build Flags: DB, SF, ΔC
+            flags = []
+            dbruns = counts.get((horse or "").lower().strip())
+            if dbruns: flags.append(f"DB{dbruns}")
+            if horse and (speed_col or class_col):
+                sf, cd = recent_metrics(conn, horse_col, speed_col, class_col, date_col, horse, k=6)
+                if sf is not None: flags.append(f"SF:{sf:.1f}")
+                if cd is not None: flags.append(f"ΔC:{cd:+.1f}")
+            # write flags cell (never overwrite a “Bet” marker into Flags)
+            if idx["flags"] is not None:
+                tds[idx["flags"]] = f"<td>{' '.join(f'<span class=\"badge\">{esc(t)}</span>' for t in flags) if flags else '—'}</td>"
+
+            # Source: +TRAIN only if real
+            if idx["source"] is not None and used_train:
+                shtml = tds[idx["source"]]
+                if "+TRAIN" not in shtml:
+                    shtml = re.sub(r"(>PRO(?:\+LOGIC)?)(<)", r"\1+TRAIN\2", shtml)
+                tds[idx["source"]] = shtml
+
+            # Row classification for boards if Bet column blank
+            is_prime = False
+            is_action= False
+            bet_txt = txt(idx["bet"]) if idx["bet"] is not None else ""
+            if not bet_txt or bet_txt == "—":
+                if w is not None and edgef is not None:
+                    if w >= PRIME_WIN_MIN and edgef >= PRIME_EDGE_PP: is_prime = True
+                    elif w >= ACTION_WIN_MIN and edgef >= ACTION_EDGE_PP: is_action = True
+
+            if is_prime:
+                row_cls = "row-prime"
+            elif is_action:
+                row_cls = "row-action"
+            else:
+                row_cls = None
+
+            if row_cls:
+                # insert/replace class on <tr>
+                if "class=" in row[:60]:
+                    row = re.sub(r"<tr([^>]*)class=['\"][^'\"]*['\"]", lambda mm: "<tr"+mm.group(1).replace(mm.group(0).split("class=")[1].split()[0],"")+f" class='{row_cls}'", row, 1)
+                else:
+                    row = row.replace("<tr", f"<tr class='{row_cls}'", 1)
+
+            # Rebuild row
+            def emit_td(i):
+                return tds[i]
+            return re.sub(r"(?s)<td[^>]*>.*?</td>", lambda _: tds.pop(0), row)
+
+        tbody_new = re.sub(r"(?s)<tr[^>]*>.*?</tr>", patch_row, table_html)
+        return tbody_new
+
+    # Patch all tables
+    html_text = re.sub(r"(?s)<table>.*?</table>", process_table, html_text)
+
+    # Build boards from row classes
+    prime_rows = re.findall(r"(?s)<tr[^>]*class=['\"][^'\"]*row-prime[^'\"]*['\"][^>]*>.*?</tr>", html_text)
+    action_rows= re.findall(r"(?s)<tr[^>]*class=['\"][^'\"]*row-action[^'\"]*['\"][^>]*>.*?</tr>", html_text)
+
+    def board_lines(rows):
+        out=[]
+        for r in rows:
+            tds = re.findall(r"(?s)<td[^>]*>(.*?)</td>", r)
+            if not tds: continue
+            # try to guess schema: pro-stable has Track, Race, #, Horse...
+            if len(tds)>=4 and "— Race " not in tds[0]:
+                track = re.sub(r"<.*?>","",tds[0]).strip()
+                race  = re.sub(r"<.*?>","",tds[1]).strip()
+                pgm   = re.sub(r"<.*?>","",tds[2]).strip()
+                horse = re.sub(r"<.*?>","",tds[3]).strip()
+            else:
+                # display-lite full card schema: #, Horse, Win%, ...
+                track, race, pgm, horse = "?", "?", re.sub(r"<.*?>","",tds[0]).strip(), re.sub(r"<.*?>","",tds[1]).strip()
+            winp = None
+            for cell in tds:
+                m=pctf(re.sub(r"<.*?>","",cell))
+                if m is not None:
+                    winp = m; break
+            edge_cell = next((c for c in tds if "pp" in c), "")
+            edge_txt = re.sub(r"<.*?>","",edge_cell)
+            out.append(f"<div class='small'><span class='badge pro'>{esc(track)} R{esc(race)}</span> "
+                       f"#{esc(pgm)} {esc(horse)} • {winp:.2f}% • {esc(edge_txt)}</div>")
+        return "<p class='small'>No plays today.</p>" if not out else "\n".join(out)
+
+    def replace_board(title, content):
+        pat = re.compile(rf"(<h2>{re.escape(title)}</h2>)(.*?)(?=<h2>|$)", re.S)
+        return pat.sub(lambda m: m.group(1)+"\n"+content+"\n", html_text)
+
+    html_text = replace_board("PRIME Board",  board_lines(prime_rows))
+    html_text = replace_board("ACTION Board", board_lines(action_rows))
+
+    # Add tiny exacta helper per race header
+    def add_exacta(m):
+        block = m.group(0)
+        # collect programs and win%
+        tds = re.findall(r"(?s)<tr[^>]*>.*?</tr>", block)
+        progs=[]; probs=[]
+        for tr in tds:
+            cells = re.findall(r"(?s)<td[^>]*>(.*?)</td>", tr)
+            if not cells: continue
+            # try program in 3rd cell (pro-stable) or 1st cell (display-lite)
+            pgm = re.sub(r"<.*?>","",cells[2 if "Track" in block[:100] else 0]).strip()
+            # find first % cell
+            p=None
+            for c in cells:
+                pc = pctf(re.sub(r"<.*?>","",c))
+                if pc is not None: p = pc/100.0; break
+            if pgm and p is not None:
+                progs.append(pgm); probs.append(p)
+        if not progs: return block
+        picks = exacta(progs, probs, anchor=progs[0], k=min(EXACTA_MAX, len(progs)-1))
+        if not picks: return block
+        hint = ", ".join(picks)
+        return re.sub(r"(</h2>)", r"\1\n<div class='small'>Exacta helper: "+esc(hint)+"</div>", block, 1)
+
+    html_text = re.sub(r"(?s)<h2>[^<]+ — Race \d+</h2>\s*<table>.*?</table>", add_exacta, html_text)
+
+    out_path.write_text(html_text, encoding="utf-8")
+    if conn: conn.close()
+    print("[ok] wrote", out_path)
+
+if __name__ == "__main__":
+    import sys
+    base = Path.cwd()
+    if len(sys.argv) != 2:
+        print("usage: python tools/postbuild_pro_truth_v3.py outputs/YYYY-MM-DD_horses_targets+full.html")
+        raise SystemExit(2)
+    inp = Path(sys.argv[1]).resolve()
+    out = inp.with_name(inp.stem + "+PRO.html")
+    annotate(base, inp, out)

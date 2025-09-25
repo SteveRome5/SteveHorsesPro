@@ -1,0 +1,301 @@
+# pro_overlays.py
+# Pluggable overlays: trainer/jockey, layoff cycle, pace pressure sim,
+# day/track bias, shipper normalization, ensemble mixer.
+# All nudges are gentle, bounded, and env-tunable.
+
+from __future__ import annotations
+import os, math, statistics, re
+from typing import List, Dict, Tuple, Optional, Any
+
+# ----------- Helpers -----------
+def _to_float(v, default=None):
+    try:
+        if v in (None, ""): return default
+        return float(v)
+    except: return default
+
+def _clamp01(x: float) -> float:
+    return max(1e-6, min(0.999, x))
+
+def _renorm(ps: List[float]) -> List[float]:
+    s = sum(ps)
+    return [p/s for p in ps] if s > 0 else ps
+
+def _flag(flags: List[str], *xs: str) -> None:
+    for x in xs:
+        if x and x not in flags:
+            flags.append(x)
+
+def _pct(x: float) -> str:
+    try: return "{:.0f}pct".format(100.0*x)
+    except: return ""
+
+def _mean(xs):
+    try: return statistics.mean(xs) if xs else 0.0
+    except: return 0.0
+
+# ============================================================
+# Overlay 1: Trainer/Jockey  (robust keys + Hot/Cold labels)
+# ============================================================
+def _pct_field(r: dict, *keys: str) -> float:
+    """
+    Read a percentage-like field as fraction [0..1].
+    Accepts multiple alias keys; handles both snake_case and camelCase.
+    Examples we handle:
+      trainer_win_pct, trainerWinPct
+      jockey_win_pct,  jockeyWinPct
+      tj_win,          combo_win
+    """
+    for k in keys:
+        if k in r and r[k] not in (None, ""):
+            v = _to_float(r[k], None)
+            if v is not None:
+                # treat 0..1 as fraction already; 1..100 as percent
+                return v if 0.0 <= v <= 1.0 else (v / 100.0)
+    return 0.0
+
+def overlay_trainer_jockey(runners: List[dict], p: List[float]) -> Tuple[List[float], List[str]]:
+    if not runners: return p, ["" for _ in p]
+
+    # strength/caps
+    alpha     = _to_float(os.getenv("TJ_ALPHA", "0.12"), 0.12)
+    boost_max = _to_float(os.getenv("TJ_BOOST_MAX", "0.18"), 0.18)
+
+    # tunable thresholds (fraction, not percent)
+    hot_floor  = _to_float(os.getenv("TJ_HOT_FLOOR",  "0.18"), 0.18)  # e.g., >=18% is "Hot"
+    cold_ceil  = _to_float(os.getenv("TJ_COLD_CEIL",  "0.08"), 0.08)  # e.g., <=8%  is "Cold"
+
+    out = list(p); flags = []
+    for i, r in enumerate(runners):
+        tw = _pct_field(r, "trainer_win_pct", "trainerWinPct", "trainerWin", "trainer_win")
+        jw = _pct_field(r, "jockey_win_pct",  "jockeyWinPct",  "jockeyWin",  "jockey_win")
+        tj = _pct_field(r, "tj_win",          "combo_win",     "tjWinPct",   "trainerJockeyWinPct")
+
+        # skill proxy
+        base = max(tw, jw, tj)
+
+        labs = []
+        if tw >= hot_floor: labs.append("HotTrn")
+        if jw >= hot_floor: labs.append("HotJky")
+        if tj >= hot_floor: labs.append("HotTJ")
+
+        if 0.0 < tw <= cold_ceil: labs.append("ColdTrn")
+        if 0.0 < jw <= cold_ceil: labs.append("ColdJky")
+
+        bump = 0.0
+        if any(x.startswith("Hot") for x in labs):
+            bump = min(boost_max, 0.50 * base)   # mild positive bump
+        elif any(x.startswith("Cold") for x in labs):
+            # gentle negative bump, scaled by how cold vs threshold
+            short = min(tw if tw>0 else cold_ceil, jw if jw>0 else cold_ceil)
+            bump = -min(0.12, 0.40 * (cold_ceil - short))
+
+        mult = 1.0 + alpha * bump
+        out[i] = _clamp01(out[i] * mult)
+        flags.append(" ".join(labs))
+
+    return _renorm(out), flags
+
+# =========================================
+# Overlay 2: Layoff / Cycle
+# =========================================
+def _days_since(r):
+    for k in ("days_since", "dsl", "daysSince", "layoffDays", "last_start_days"):
+        v = r.get(k)
+        f = _to_float(v, None)
+        if f is not None: return f
+    return None
+
+def overlay_cycle(runners: List[dict], p: List[float]) -> Tuple[List[float], List[str]]:
+    alpha = _to_float(os.getenv("CYCLE_ALPHA", "0.10"), 0.10)
+    out = list(p); flags = []
+
+    for i, r in enumerate(runners):
+        d = _days_since(r) or 0.0
+        n_since = _to_float(r.get("start_since_layoff"), None)
+
+        bump = 0.0; label = ""
+        if d >= 150 and (not n_since or n_since <= 1):
+            bump = -0.10; label = "1stOffLongLayoff"
+        elif n_since in (2, 3):
+            bump = 0.08; label = f"{int(n_since)}ndOffLayoff" if int(n_since)==2 else "3rdOffLayoff"
+        elif 21 <= d <= 60:
+            bump = 0.03; label = "Fresh"
+        mult = 1.0 + alpha * bump
+        out[i] = _clamp01(out[i] * mult)
+        flags.append(label)
+    return _renorm(out), flags
+
+# =========================================
+# Overlay 3: Pace Pressure Simulation
+# =========================================
+def _ep(r):  # early pace proxy
+    for k in ("pace","ep","early_pace","earlyPace","quirin","runstyle","style"):
+        v = r.get(k)
+        f = _to_float(v, None)
+        if f is not None: return f
+    return 0.0
+
+def overlay_pace_pressure(runners: List[dict], p: List[float]) -> Tuple[List[float], List[str], dict]:
+    if not runners: return p, ["" for _ in p], {"pressure": 0.0, "meltdown": 0.0}
+    alpha = _to_float(os.getenv("PACE_ALPHA", "0.12"), 0.12)
+
+    eps = [_ep(r) for r in runners]
+    m = _mean(eps); sd = statistics.pstdev(eps) if len(eps)>1 else 0.0
+    count_fast = sum(1 for x in eps if x >= m + (sd if sd>0 else 5.0))
+    pressure = min(2.0, count_fast / max(1.0, len(eps)/2.5))  # 0..~2
+    meltdown = 1.0 if pressure >= 1.3 else (0.0 if pressure <= 0.5 else 0.5)
+
+    out = list(p); flags = []
+    for i, r in enumerate(runners):
+        ep = _ep(r)
+        lp = _to_float(r.get("lp"), 0.0)
+        style = "E" if ep - lp >= 8 else ("EP" if ep - lp >= 3 else ("S" if lp - ep >= 5 else "P"))
+
+        bump = 0.0; tag = ""
+        if pressure >= 1.2:
+            if style == "S":    bump = 0.08; tag = "Closer+Meltdown"
+            elif style == "E":  bump = -0.07; tag = "SpeedDuel"
+        elif pressure <= 0.3:
+            if style in ("E", "EP"): bump = 0.07; tag = "SoftPace+Speed"
+        mult = 1.0 + alpha * bump
+        out[i] = _clamp01(out[i] * mult)
+        flags.append(tag)
+
+    ctx = {"pressure": pressure, "meltdown": meltdown}
+    return _renorm(out), flags, ctx
+
+# =========================================
+# Overlay 4: Day/Track Bias (simple heuristic)
+# =========================================
+def overlay_bias(track: str, surface: str, rail: float, runners: List[dict], p: List[float]) -> Tuple[List[float], List[str]]:
+    alpha = _to_float(os.getenv("BIAS_ALPHA", "0.08"), 0.08)
+    out = list(p); flags = []
+    is_turf = "turf" in (surface or "").lower()
+    for i, r in enumerate(runners):
+        post = 0
+        for k in ("program_number","program","pp","post_position","saddle","saddle_number"):
+            v = r.get(k)
+            if v is not None:
+                try:
+                    post = int(re.sub(r"\D","", str(v)))
+                except: pass
+                break
+        bump = 0.0; tag = ""
+        if is_turf and rail and rail >= 20.0 and post >= 9:
+            bump = 0.05; tag = "RailWideBias"
+        elif (not is_turf) and post in (1,2):
+            bump = 0.02; tag = "InsideBias?"
+        mult = 1.0 + alpha * bump
+        out[i] = _clamp01(out[i] * mult)
+        flags.append(tag)
+    return _renorm(out), flags
+
+# =========================================
+# Overlay 5: Shipper normalization
+# =========================================
+def overlay_shipper(runners: List[dict], p: List[float]) -> Tuple[List[float], List[str]]:
+    alpha = _to_float(os.getenv("SHIP_ALPHA", "0.06"), 0.06)
+    out = list(p); flags = []
+    small = {"finger lakes","charlestown","mountaineer","penn national","canterbury","evangeline","lone star"}
+    big   = {"saratoga","del mar","belmont","aqueduct","churchill downs","keeneland","gulfstream"}
+    for i, r in enumerate(runners):
+        last_track = (r.get("last_track") or r.get("prev_track") or "").lower()
+        this_track = (r.get("track") or "").lower()
+        bump = 0.0; tag = ""
+        if last_track in small and this_track in big:
+            bump = -0.05; tag = "UpClassShip"
+        elif last_track in big and this_track in small:
+            bump = 0.04; tag = "DownClassShip"
+        mult = 1.0 + alpha * bump
+        out[i] = _clamp01(out[i] * mult)
+        flags.append(tag)
+    return _renorm(out), flags
+
+# =========================================
+# Overlay 6: Ensemble weight mixer
+# =========================================
+def ensemble_mix(base: List[float], pieces: List[List[float]], weights: Optional[List[float]]=None) -> List[float]:
+    # geometric blend to be robust to outliers
+    if not pieces: return base
+    ws = weights or [1.0/len(pieces)]*len(pieces)
+    ws = [max(0.0, w) for w in ws]
+    if sum(ws) <= 0: ws = [1.0/len(pieces)]*len(pieces)
+
+    g = base[:]
+    for j, comp in enumerate(pieces):
+        if not comp or len(comp) != len(base): continue
+        w = ws[j]
+        g = [ _clamp01((b**(1.0-w)) * (c**w)) for b, c in zip(g, comp) ]
+        g  = _renorm(g)
+    return g
+
+# =========================================
+# Entry point: apply_all_overlays
+# =========================================
+def apply_all_overlays(
+    track: str,
+    surface: str,
+    rail: float,
+    runners: List[dict],
+    p_after_horse_db: List[float],
+) -> Tuple[List[float], List[str], dict]:
+    """
+    Returns:
+      probs, flags_per_runner, ctx (pace diagnostics)
+    """
+    # Always start from horse-DB adjusted probs supplied by caller
+    base = list(p_after_horse_db)
+    n = len(base)
+
+    # 1) trainer/jockey
+    if os.getenv("TJ_ENABLE", "1") == "1":
+        pj, fj = overlay_trainer_jockey(runners, base)
+    else:
+        pj, fj = base, ["" for _ in base]
+
+    # 2) cycle
+    if os.getenv("CYCLE_ENABLE", "1") == "1":
+        pc, fc = overlay_cycle(runners, base)
+    else:
+        pc, fc = base, [""]*n
+
+    # 3) pace pressure
+    if os.getenv("PACE_ENABLE", "1") == "1":
+        pp, fp, ctx = overlay_pace_pressure(runners, base)
+    else:
+        pp, fp, ctx = base, [""]*n, {"pressure": 0.0, "meltdown": 0.0}
+
+    # 4) bias
+    if os.getenv("BIAS_ENABLE", "1") == "1":
+        pb, fb = overlay_bias(track, surface, rail, runners, base)
+    else:
+        pb, fb = base, [""]*n
+
+    # 5) shipper
+    if os.getenv("SHIP_ENABLE", "1") == "1":
+        ps, fs = overlay_shipper(runners, base)
+    else:
+        ps, fs = base, [""]*n
+
+    # 6) ensemble mix (weights are env-tunable)
+    wj = _to_float(os.getenv("W_TJ",   "0.20"), 0.20)
+    wc = _to_float(os.getenv("W_CYCLE","0.15"), 0.15)
+    wp = _to_float(os.getenv("W_PACE", "0.25"), 0.25)
+    wb = _to_float(os.getenv("W_BIAS", "0.10"), 0.10)
+    ws = _to_float(os.getenv("W_SHIP", "0.10"), 0.10)
+
+    probs = ensemble_mix(base, [pj, pc, pp, pb, ps], weights=[wj, wc, wp, wb, ws])
+
+    # flatten flags (one string per runner)
+    flags = []
+    for i in range(n):
+        f = []
+        for chunk in (fj, fc, fp, fb, fs):
+            lab = chunk[i] if i < len(chunk) else ""
+            if lab: f.append(lab)
+        flags.append(" ".join([x for x in f if x]))
+    return probs, flags, ctx
+
+def overlay_trainer_jockey_pulse(runners, p):
+    return overlay_trainer_jockey(runners, p)

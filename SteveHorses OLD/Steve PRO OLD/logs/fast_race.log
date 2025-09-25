@@ -1,0 +1,32 @@
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/stephenjerome/Desktop/SteveHorsesPro/race_fast.py': [Errno 2] No such file or directory
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/stephenjerome/Desktop/SteveHorsesPro/race_fast.py': [Errno 2] No such file or directory
+
+Select a Track:
+ 1) Saratoga
+ 2) Del Mar
+ 3) Santa Anita
+ 4) Gulfstream Park
+ 5) Keeneland
+ 6) Parx Racing
+ 7) Finger Lakes
+ 8) Kentucky Downs
+ 9) Woodbine
+ 10) Laurel Park
+ 11) Louisiana Downs
+
+Enter Track # (e.g. 1 for Saratoga): Enter Race # (default 1): [fast] Race 1 not found at Finger Lakes today
+
+Select a Track:
+ 1) Saratoga
+ 2) Del Mar
+ 3) Santa Anita
+ 4) Gulfstream Park
+ 5) Keeneland
+ 6) Parx Racing
+ 7) Finger Lakes
+ 8) Kentucky Downs
+ 9) Woodbine
+ 10) Laurel Park
+ 11) Louisiana Downs
+
+Enter Track # (e.g. 1 for Saratoga): Enter Race # (default 1): [fast] Race 1 not found at Finger Lakes today

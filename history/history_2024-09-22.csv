@@ -1,0 +1,482 @@
+track,date,race,program,horse,win,ml_dec,live_dec,minutes_to_post,field_size,surface,prev_surface,distance_yards,rail,speed,ep,lp,class,trainer_win,jockey_win,combo_win,weight,last_days,equip_blinker,equip_lasix
+Belmont at the Big A,2024-09-22,1,1,With the Angels,0,,,-999.0,5,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,1,2,Trail of Gold,0,,,-999.0,5,,,,0,,,,,,,,120.0,,1,0
+Belmont at the Big A,2024-09-22,1,3,Valtellina,0,,,-999.0,5,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,1,4,Carmen's Candy Jar,0,,,-999.0,5,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,1,5,She's Our Tiz,0,,,-999.0,5,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,2,,Just Music,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,2,1A,Spring Magic,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,2,2,Smokin' Hot Kitty,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Belmont at the Big A,2024-09-22,2,3,Sedona,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Belmont at the Big A,2024-09-22,2,4,Amity Island,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,2,5,I'm Buzzy,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,2,6,Fade to Grey,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,3,1,Sacrosanct,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,3,2,Oath of Omerta,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Belmont at the Big A,2024-09-22,3,3,Pay the Juice,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,3,4,Manhattan Twist,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,3,5,Smilensaycheese,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,3,6,Buttah,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,3,7,McDiesel,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,4,1,Four Eyes,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Belmont at the Big A,2024-09-22,4,2,Triple Word Score,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,4,3,War Chrome,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Belmont at the Big A,2024-09-22,4,4,Slow Down Big Andy,0,,,-999.0,10,,,,0,,,,,,,,113.0,,0,0
+Belmont at the Big A,2024-09-22,4,5,Stanley Rough,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,4,6,Kilkerran,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,4,7,Berning Beauty,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,4,8,Big Ego,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,4,9,Albedo,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,4,10,Janssen,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,5,,Bella Voce,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,5,,Mytown Myrules,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,5,,Waridi Candy,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,5,,Diamond Status,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,5,,Union Suit,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,5,,Pam Pam,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,5,1,Wish List,0,,,-999.0,16,,,,0,,,,,,,,124.0,,0,0
+Belmont at the Big A,2024-09-22,5,2,Supers Lucky Lady,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,5,3,Artemis Girl,0,,,-999.0,16,,,,0,,,,,,,,118.0,,1,0
+Belmont at the Big A,2024-09-22,5,4,Bertrille,0,,,-999.0,16,,,,0,,,,,,,,118.0,,0,0
+Belmont at the Big A,2024-09-22,5,5,Downtown Channel,0,,,-999.0,16,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,5,6,Highway Harmony,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,5,7,Miscreant,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,5,8,Alley's Song,0,,,-999.0,16,,,,0,,,,,,,,113.0,,0,0
+Belmont at the Big A,2024-09-22,5,9,Gram,0,,,-999.0,16,,,,0,,,,,,,,118.0,,0,0
+Belmont at the Big A,2024-09-22,5,10,Alette d'Oro,0,,,-999.0,16,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,6,,Calling Card,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,6,,Real Savvy,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,6,,Powered by Coal,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,6,,Man of Mischief,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,6,1,Miles and Miles,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,6,2,Powmissio,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,6,3,Jack and Jim,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,6,4,Sky Masterson,0,,,-999.0,16,,,,0,,,,,,,,119.0,,1,0
+Belmont at the Big A,2024-09-22,6,5,Daytona Moonshine,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,6,6,Pretrial Statement,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,6,7,I'm Solo N in Love,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,6,8,Just Licorice,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,6,9,Resistance Futile,0,,,-999.0,16,,,,0,,,,,,,,112.0,,0,0
+Belmont at the Big A,2024-09-22,6,10,Nonno Joe,0,,,-999.0,16,,,,0,,,,,,,,119.0,,1,0
+Belmont at the Big A,2024-09-22,6,11,Leon Blue,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,6,12,Solo Mio,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,1,Hit the Post,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,2,Skytown,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,3,Romeo Void,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,4,Twohonestmischief,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,5,Resilient Hero,0,,,-999.0,11,,,,0,,,,,,,,119.0,,1,0
+Belmont at the Big A,2024-09-22,7,6,Magni,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,7,Daytona Gold,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,8,Bold Fortune,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,9,We Miss Neil,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,10,Beach Invasion,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,7,11,Just Clarity,0,,,-999.0,11,,,,0,,,,,,,,119.0,,0,0
+Belmont at the Big A,2024-09-22,8,,Street Jam,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,8,,Mosienko,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,8,,On the Payroll,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,8,,Cecile,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,8,,Sweetest Princess,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,8,,Rachel's Rock,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,8,1,Isabel Alexandra (IRE),0,,,-999.0,14,,,,0,,,,,,,,121.0,,0,0
+Belmont at the Big A,2024-09-22,8,2,Quarrel,0,,,-999.0,14,,,,0,,,,,,,,121.0,,0,0
+Belmont at the Big A,2024-09-22,8,3,Off Ramp,0,,,-999.0,14,,,,0,,,,,,,,123.0,,0,0
+Belmont at the Big A,2024-09-22,8,5,Ever So Sweet (IRE),0,,,-999.0,14,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,8,6,Union Dolly,0,,,-999.0,14,,,,0,,,,,,,,123.0,,0,0
+Belmont at the Big A,2024-09-22,8,7,Feather Boa (SAF),0,,,-999.0,14,,,,0,,,,,,,,121.0,,0,0
+Belmont at the Big A,2024-09-22,8,8,Glitter Up,0,,,-999.0,14,,,,0,,,,,,,,121.0,,0,0
+Belmont at the Big A,2024-09-22,8,10,Miss Bonnie T,0,,,-999.0,14,,,,0,,,,,,,,121.0,,0,0
+Belmont at the Big A,2024-09-22,9,,Miss City Girl,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,9,,Island Fox,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,9,,Midnight Concerto,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,9,,Chasing Daylight,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Belmont at the Big A,2024-09-22,9,1,Being Betty,0,,,-999.0,16,,,,0,,,,,,,,118.0,,0,0
+Belmont at the Big A,2024-09-22,9,2,Lady of Thoroton,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,9,3,Spirit of Esther,0,,,-999.0,16,,,,0,,,,,,,,111.0,,0,0
+Belmont at the Big A,2024-09-22,9,4,Roagna,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,9,5,Bunny Honey,0,,,-999.0,16,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,9,6,My Cara Mia Mine,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,9,7,Bossy Jeans,0,,,-999.0,16,,,,0,,,,,,,,118.0,,0,0
+Belmont at the Big A,2024-09-22,9,8,Starts Now,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Belmont at the Big A,2024-09-22,9,9,Boxed Wine,0,,,-999.0,16,,,,0,,,,,,,,120.0,,0,0
+Belmont at the Big A,2024-09-22,9,10,Red Burgundy,0,,,-999.0,16,,,,0,,,,,,,,118.0,,0,0
+Belmont at the Big A,2024-09-22,9,11,North End Lady,0,,,-999.0,16,,,,0,,,,,,,,124.0,,0,0
+Belmont at the Big A,2024-09-22,9,12,Summer Whirl,0,,,-999.0,16,,,,0,,,,,,,,120.0,,0,0
+Churchill Downs,2024-09-22,1,1,Cawkab,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,1,2,Express Cruiser,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Churchill Downs,2024-09-22,1,3,Lucency,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,1,4,Jay Vee Bee,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,1,5,Cashmeup,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,1,6,First Strike,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,1,7,Ethereal Road,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,2,1,Hey Eugene,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,2,2,Circle Back Jack,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,2,3,Fitzpatrick,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,2,4,Robo Man,0,,,-999.0,6,,,,0,,,,,,,,121.0,,1,0
+Churchill Downs,2024-09-22,2,5,Knicks Story,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,2,6,W W Crazy,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,3,1,Luckyasiwonswas,0,,,-999.0,11,,,,0,,,,,,,,124.0,,0,0
+Churchill Downs,2024-09-22,3,2,Latta,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,3,3,Cowboy Luke,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,3,4,Starscape,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,3,5,Diamond Lord,0,,,-999.0,11,,,,0,,,,,,,,121.0,,1,0
+Churchill Downs,2024-09-22,3,6,Phenomenal Dream,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,3,7,Puckster,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,3,8,Rope a Dope,0,,,-999.0,11,,,,0,,,,,,,,114.0,,0,0
+Churchill Downs,2024-09-22,3,9,Major Mack,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,3,10,Good News Rocket,0,,,-999.0,11,,,,0,,,,,,,,124.0,,0,0
+Churchill Downs,2024-09-22,3,11,J J's Ranger,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,4,1,Furious Anger,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,4,2,Saint in the City,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,4,3,I'm Your Man,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Churchill Downs,2024-09-22,4,4,The Prince's Spur,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,4,5,Black Powder,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,4,6,Onthestage,0,,,-999.0,7,,,,0,,,,,,,,117.0,,0,0
+Churchill Downs,2024-09-22,4,7,Our Dream Rye'd,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,5,1,Morally,0,,,-999.0,10,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,5,2,Haunted Flame,0,,,-999.0,10,,,,0,,,,,,,,112.0,,0,0
+Churchill Downs,2024-09-22,5,3,Penei,0,,,-999.0,10,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,5,4,Sunny Magic,0,,,-999.0,10,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,5,5,Lord Baranof,0,,,-999.0,10,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,5,6,Modern Master,0,,,-999.0,10,,,,0,,,,,,,,119.0,,1,0
+Churchill Downs,2024-09-22,5,7,Righteous Star,0,,,-999.0,10,,,,0,,,,,,,,119.0,,1,0
+Churchill Downs,2024-09-22,5,8,Capo Luca,0,,,-999.0,10,,,,0,,,,,,,,119.0,,1,0
+Churchill Downs,2024-09-22,5,9,Skip Factor,0,,,-999.0,10,,,,0,,,,,,,,119.0,,1,0
+Churchill Downs,2024-09-22,5,10,Skater,0,,,-999.0,10,,,,0,,,,,,,,114.0,,0,0
+Churchill Downs,2024-09-22,6,1,Proverb,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,6,2,River in Egypt,0,,,-999.0,10,,,,0,,,,,,,,122.0,,1,0
+Churchill Downs,2024-09-22,6,3,Nepal Up,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,6,4,Rocket Hotshot,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,6,5,Hoodlum,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,6,6,On a Spree,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,6,7,Indian Gulch,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,6,8,Pace,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,6,9,Forge in Fire,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Churchill Downs,2024-09-22,6,10,Right Tone,0,,,-999.0,10,,,,0,,,,,,,,117.0,,0,0
+Churchill Downs,2024-09-22,7,1,Minnesota Munny,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,2,Claire's Charm,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,3,Me and Molly McGee,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,4,Hereforagoodtime,0,,,-999.0,13,,,,0,,,,,,,,119.0,,1,0
+Churchill Downs,2024-09-22,7,5,California Sunset,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,6,Buriana,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,7,Girl Math,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,8,Formaggio,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,9,Princess of Omaha,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,10,My Shot,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,11,Queen Jubilee,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,12,Crimson Sun,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,7,13,Golden Gamble,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Churchill Downs,2024-09-22,8,1,Epic Battle,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Churchill Downs,2024-09-22,8,2,On My Honor,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Churchill Downs,2024-09-22,8,3,Peek,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,8,4,Bebedouro,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Churchill Downs,2024-09-22,8,5,Gettysburg Address,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Churchill Downs,2024-09-22,8,6,Coulditbemajic,0,,,-999.0,7,,,,0,,,,,,,,111.0,,0,0
+Churchill Downs,2024-09-22,8,7,Unworkable,0,,,-999.0,7,,,,0,,,,,,,,113.0,,0,0
+Churchill Downs,2024-09-22,9,1,Midnight Escape,0,,,-999.0,12,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,9,2,Deer District,0,,,-999.0,12,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,9,3,Goodasiwonswas,0,,,-999.0,12,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,9,4,Condemn,0,,,-999.0,12,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,9,5,Fort Warren,0,,,-999.0,12,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,9,6,Gold Luck,0,,,-999.0,12,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,9,7,Sahalat,0,,,-999.0,12,,,,0,,,,,,,,123.0,,0,0
+Churchill Downs,2024-09-22,9,8,Not Normal,0,,,-999.0,12,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,9,9,Gilmore,0,,,-999.0,12,,,,0,,,,,,,,121.0,,1,0
+Churchill Downs,2024-09-22,9,10,Miacomet,0,,,-999.0,12,,,,0,,,,,,,,123.0,,0,0
+Churchill Downs,2024-09-22,9,11,Vittorio,0,,,-999.0,12,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,9,12,Billy Jack,0,,,-999.0,12,,,,0,,,,,,,,123.0,,0,0
+Churchill Downs,2024-09-22,10,1,Good Lord,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,10,2,I'm McDreamy,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,10,3,Senior Officer,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,10,4,Blue Line,0,,,-999.0,15,,,,0,,,,,,,,116.0,,0,0
+Churchill Downs,2024-09-22,10,5,Snook,0,,,-999.0,15,,,,0,,,,,,,,114.0,,0,0
+Churchill Downs,2024-09-22,10,6,Trust Issues,0,,,-999.0,15,,,,0,,,,,,,,121.0,,1,0
+Churchill Downs,2024-09-22,10,7,Fly J's Funtastic,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,10,8,Rowdy Riot,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,10,9,Uncle William,0,,,-999.0,15,,,,0,,,,,,,,124.0,,0,0
+Churchill Downs,2024-09-22,10,10,Shortstop,0,,,-999.0,15,,,,0,,,,,,,,124.0,,0,0
+Churchill Downs,2024-09-22,10,11,Halfway Joking,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,10,12,Du Monde,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,10,13,Nyquist Frequency,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Churchill Downs,2024-09-22,10,14,Skyler,0,,,-999.0,15,,,,0,,,,,,,,124.0,,0,0
+Churchill Downs,2024-09-22,10,15,Braven,0,,,-999.0,15,,,,0,,,,,,,,121.0,,0,0
+Gulfstream Park,2024-09-22,1,,Miggi,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,1,,Beautiful Astray,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,1,,Fortune Dreams,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,1,2,Starship Radiance,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,1,3,Star Performance,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,1,4,Little Carley,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,1,5,Azure Lady,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,1,6,Kickstart Crew,0,,,-999.0,13,,,,0,,,,,,,,112.0,,0,0
+Gulfstream Park,2024-09-22,1,7,Chica Music,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,1,8,Miss Athletic,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,1,9,Did I Dazzle You,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,1,10,Queen Tatiana,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,1,13,Starship Spectacle,0,,,-999.0,13,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,2,,Hits Different,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,2,,Gullfaxi,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,2,1,Mywifeknowsitall,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,2,3,Foggy Note,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2024-09-22,2,4,Capisci,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,2,5,Now Showing,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2024-09-22,2,6,Heir to the Roar,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2024-09-22,3,1,Last Run,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,3,2,Iconic Rock,0,,,-999.0,8,,,,0,,,,,,,,118.0,,1,0
+Gulfstream Park,2024-09-22,3,3,Front Traffic,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,3,4,Prince David,0,,,-999.0,8,,,,0,,,,,,,,118.0,,1,0
+Gulfstream Park,2024-09-22,3,5,Decisive Pride,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Gulfstream Park,2024-09-22,3,6,Gentleman Caller,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,3,7,Builder Jak,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,3,8,Atomico,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,4,1,Our Fortune Cookie,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Gulfstream Park,2024-09-22,4,2,Summer Gold,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Gulfstream Park,2024-09-22,4,3,Smart Jenny,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,4,4,Red Hot Spark,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,4,5,Siljim,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,4,6,Moonshining,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Gulfstream Park,2024-09-22,4,7,Moonlight Vision,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Gulfstream Park,2024-09-22,4,8,Spirit of Victory,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,4,9,Starship Legend,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Gulfstream Park,2024-09-22,5,,Make It Big,0,,,-999.0,9,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,5,,Ocala Dream,0,,,-999.0,9,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,5,1,Treasure King,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,5,3,Grand David,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,5,4,American Speed,0,,,-999.0,9,,,,0,,,,,,,,123.0,,0,0
+Gulfstream Park,2024-09-22,5,5,Yes This Time,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,5,6,The Mar,0,,,-999.0,9,,,,0,,,,,,,,123.0,,0,0
+Gulfstream Park,2024-09-22,5,7,You Talkin to Me,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,5,8,Mr Crowley,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,6,,Hockey,0,,,-999.0,9,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,6,1,Star of Saturn,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,6,2,Princess Miss Emil,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,6,3,Look Like It,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,6,4,D'lightful Summer,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,6,5,Refugiada,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,6,7,Puckered,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,6,8,On the Nile,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,6,9,Jayana,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,7,,Divining Stone,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,7,,Mr Ramirez,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,7,,Line Astray,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,7,,Changeordersonny,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,7,2,Grand Tower,0,,,-999.0,13,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,7,3,Las Olas,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,7,5,Motivo,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,7,6,Tuddenham Mill (IRE),0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,7,7,Chacharero,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2024-09-22,7,9,Last U Turn,0,,,-999.0,13,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,7,10,Old Flag (IRE),0,,,-999.0,13,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,7,11,Karaoke,0,,,-999.0,13,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2024-09-22,7,12,Immense Faith,0,,,-999.0,13,,,,0,,,,,,,,125.0,,1,0
+Gulfstream Park,2024-09-22,8,,Tap Manuka,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,8,1,Five Eyes Onmichel,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,8,2,Imelda's Saver,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,8,4,Lady Rosette,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Gulfstream Park,2024-09-22,8,5,Crystal Reign,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,8,6,Here's the Kicker,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,8,7,Cajunette,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Gulfstream Park,2024-09-22,9,,Vladislav,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,9,,Lightning Tones,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,9,,Power Humor,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,9,1,Chrome Ghost,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Gulfstream Park,2024-09-22,9,2,Zydeceaux,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Gulfstream Park,2024-09-22,9,5,Jades Jay,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,9,7,King Cab,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Gulfstream Park,2024-09-22,10,,Super Sailor,0,,,-999.0,10,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,10,,Oasis Prince,0,,,-999.0,10,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,10,,Gonna Pick Domenic,0,,,-999.0,10,,,,0,,,,,,,,,,0,0
+Gulfstream Park,2024-09-22,10,1,Country Slew,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,10,2,Georgeisimportant,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,10,3,Premiado,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,10,5,Overachiever,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,10,6,Always True,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,10,7,Formulate,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2024-09-22,10,10,Library,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,1,,Harmonizing,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,,Bunny Hop,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,,Hazelmoor Beach,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,,Attached,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,,Mollie Tapper,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,,Instparty,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,,Nuwanda,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,,Cora's Choice,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,,Levisa,0,,,-999.0,14,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,1,1,Meliponini Bee,0,,,-999.0,14,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,1,4,Molly of Stratford,0,,,-999.0,14,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,1,9,Little Josie Wales,0,,,-999.0,14,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,1,10,Love to Eat,0,,,-999.0,14,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,1,12,Faith and Liberty,0,,,-999.0,14,,,,0,,,,,,,,113.0,,0,0
+Laurel Park,2024-09-22,2,1,Ecliptical Zip,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,2,2,Lucky Day,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,2,3,Caped Crusader,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,2,4,Flashy Dude,0,,,-999.0,7,,,,0,,,,,,,,122.0,,1,0
+Laurel Park,2024-09-22,2,5,Risk and Regret,0,,,-999.0,7,,,,0,,,,,,,,114.0,,0,0
+Laurel Park,2024-09-22,2,6,Blackthorne Brusca,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,2,7,Fear Nothing,0,,,-999.0,7,,,,0,,,,,,,,122.0,,1,0
+Laurel Park,2024-09-22,3,,Romantic Story,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,3,,Afterneath,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,3,,Call the Question,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,3,,Concrete Faze,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,3,,Lenamagnetta,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,3,1,Lady Mosler,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,3,3,Determined Blue,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,3,4,Wait for Tomorrow,0,,,-999.0,16,,,,0,,,,,,,,113.0,,0,0
+Laurel Park,2024-09-22,3,5,Kapatude,0,,,-999.0,16,,,,0,,,,,,,,113.0,,0,0
+Laurel Park,2024-09-22,3,6,Monster Summer,0,,,-999.0,16,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,3,7,Fondre,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,3,8,White Heat,0,,,-999.0,16,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,3,9,Any Fools Gold,0,,,-999.0,16,,,,0,,,,,,,,115.0,,0,0
+Laurel Park,2024-09-22,3,10,Sunny Sunshine,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,3,12,Carolina Sun,0,,,-999.0,16,,,,0,,,,,,,,126.0,,0,0
+Laurel Park,2024-09-22,3,13,Police Woman,0,,,-999.0,16,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,4,,How Sweet She Is,0,,,-999.0,8,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,4,2,Bailintin,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,4,3,E B Zoom Baby,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,4,4,Hateful,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,4,5,Vino From Ernies,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,4,6,Midsummers Eve,0,,,-999.0,8,,,,0,,,,,,,,126.0,,1,0
+Laurel Park,2024-09-22,4,7,Stormy Midnight,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,4,8,Hot Dance,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,5,1,Beaver State,0,,,-999.0,11,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,5,2,Virginia City,0,,,-999.0,11,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,5,3,Mile High Miracle,0,,,-999.0,11,,,,0,,,,,,,,115.0,,0,0
+Laurel Park,2024-09-22,5,4,Superlastingsecret,0,,,-999.0,11,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,5,5,Lake Superior,0,,,-999.0,11,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,5,6,Mine the Gold,0,,,-999.0,11,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,5,7,Pilote Comete,0,,,-999.0,11,,,,0,,,,,,,,126.0,,0,0
+Laurel Park,2024-09-22,5,8,Jasiel,0,,,-999.0,11,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,5,9,Lord of Mischief,0,,,-999.0,11,,,,0,,,,,,,,126.0,,0,0
+Laurel Park,2024-09-22,5,10,Burden of Proof,0,,,-999.0,11,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,5,11,Natty Bumppo,0,,,-999.0,11,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,6,,Countryclub Couple,0,,,-999.0,10,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,6,,Lovely Charm,0,,,-999.0,10,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,6,1,Kilo Road,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,6,2,Old Bay,0,,,-999.0,10,,,,0,,,,,,,,119.0,,0,0
+Laurel Park,2024-09-22,6,3,Sheilahs Warcloud,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,6,4,Buckin' Lucky,0,,,-999.0,10,,,,0,,,,,,,,119.0,,0,0
+Laurel Park,2024-09-22,6,5,Overly Dramatic,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,6,6,Sultry Sally H,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Laurel Park,2024-09-22,6,8,Go Sherry Go,0,,,-999.0,10,,,,0,,,,,,,,119.0,,0,0
+Laurel Park,2024-09-22,6,9,Summer Odds,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Laurel Park,2024-09-22,7,,Eldest Son,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,Prowling Tiger,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,No One to Blame,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,Matta,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,Assume Nothing,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,Ruddy Buddy,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,Wow Whata Summer,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,Uninvited Guest,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,Possiblemente,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,St. John's,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,,Smooth Flyin Mike,0,,,-999.0,16,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,7,4,Storm the Court,0,,,-999.0,16,,,,0,,,,,,,,123.0,,0,0
+Laurel Park,2024-09-22,7,7,Band Camp,0,,,-999.0,16,,,,0,,,,,,,,123.0,,0,0
+Laurel Park,2024-09-22,7,8,Search Engine,0,,,-999.0,16,,,,0,,,,,,,,123.0,,0,0
+Laurel Park,2024-09-22,7,9,Tee At One,0,,,-999.0,16,,,,0,,,,,,,,123.0,,0,0
+Laurel Park,2024-09-22,7,12,Goodbye Note,0,,,-999.0,16,,,,0,,,,,,,,119.0,,0,0
+Laurel Park,2024-09-22,8,,Popover Gal,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,8,,Miss Harriett,0,,,-999.0,13,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,8,1,Runaway Diva,0,,,-999.0,13,,,,0,,,,,,,,120.0,,0,0
+Laurel Park,2024-09-22,8,2,Roanan Goddess,0,,,-999.0,13,,,,0,,,,,,,,124.0,,0,0
+Laurel Park,2024-09-22,8,4,Carmelina,0,,,-999.0,13,,,,0,,,,,,,,124.0,,0,0
+Laurel Park,2024-09-22,8,5,Brookmesa,0,,,-999.0,13,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,8,6,Irish Maxima,0,,,-999.0,13,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,8,7,Discreet Ops,0,,,-999.0,13,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,8,8,Vincey Girl,0,,,-999.0,13,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,8,9,Dewey Doit,0,,,-999.0,13,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,8,10,Cap Classique,0,,,-999.0,13,,,,0,,,,,,,,124.0,,0,0
+Laurel Park,2024-09-22,8,12,Yellow Feathers,0,,,-999.0,13,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,8,13,Youalmosthadme,0,,,-999.0,13,,,,0,,,,,,,,124.0,,0,0
+Laurel Park,2024-09-22,9,,Saddle Up Jessie,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,9,,Miss Justify,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,9,2,Continentalcongres,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Laurel Park,2024-09-22,9,3,Miss New York,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Laurel Park,2024-09-22,9,5,Princess Indy,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Laurel Park,2024-09-22,9,6,Reclusive,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Laurel Park,2024-09-22,9,7,Mystic Pleasure,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Laurel Park,2024-09-22,10,,Bearly Working,0,,,-999.0,10,,,,0,,,,,,,,,,0,0
+Laurel Park,2024-09-22,10,1A,Bond's Belle,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,10,2,Sweet Honey Bee,0,,,-999.0,10,,,,0,,,,,,,,115.0,,0,0
+Laurel Park,2024-09-22,10,3,Style and Profile,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,10,4,Lance's Smile,0,,,-999.0,10,,,,0,,,,,,,,126.0,,1,0
+Laurel Park,2024-09-22,10,5,Sippin' Time,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,10,6,Zippy Do Da Day,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Laurel Park,2024-09-22,10,7,Heavenly Ciella,0,,,-999.0,10,,,,0,,,,,,,,115.0,,0,0
+Laurel Park,2024-09-22,10,8,Stormy Irish Lass,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Laurel Park,2024-09-22,10,9,Storm Creed,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Woodbine,2024-09-22,1,1,Souper Cop,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,1,2,Just On Time,0,,,-999.0,6,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,1,3,Master Aragorn,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,1,4,Not a Lost Cause,0,,,-999.0,6,,,,0,,,,,,,,120.0,,1,0
+Woodbine,2024-09-22,1,5,Crimson Nights,0,,,-999.0,6,,,,0,,,,,,,,125.0,,0,0
+Woodbine,2024-09-22,1,6,Mitole Power,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,2,,Contrivance,0,,,-999.0,9,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,2,1,Dryden,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Woodbine,2024-09-22,2,2,Happy Quad,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Woodbine,2024-09-22,2,3,Clive Cross,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Woodbine,2024-09-22,2,5,Big Lew,0,,,-999.0,9,,,,0,,,,,,,,120.0,,1,0
+Woodbine,2024-09-22,2,6,Sehr Schoen,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Woodbine,2024-09-22,2,7,Paradise Perfect,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Woodbine,2024-09-22,2,8,Demba,0,,,-999.0,9,,,,0,,,,,,,,119.0,,0,0
+Woodbine,2024-09-22,2,9,Its Just Money,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Woodbine,2024-09-22,3,,Ready to Collect,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,3,,Criminal Intent,0,,,-999.0,7,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,3,1,Summer Commander,0,,,-999.0,7,,,,0,,,,,,,,119.0,,1,0
+Woodbine,2024-09-22,3,3,Glasweigian,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,3,4,Fifty B M G,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Woodbine,2024-09-22,3,5,Dream Jereem,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Woodbine,2024-09-22,3,6,Reason to Dream,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Woodbine,2024-09-22,4,1,Highland Blue,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,4,2,Pin Boy,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,4,3,Bee Me,0,,,-999.0,8,,,,0,,,,,,,,115.0,,0,0
+Woodbine,2024-09-22,4,4,Tutti Contenti,0,,,-999.0,8,,,,0,,,,,,,,120.0,,1,0
+Woodbine,2024-09-22,4,5,Lumberyard,0,,,-999.0,8,,,,0,,,,,,,,115.0,,0,0
+Woodbine,2024-09-22,4,6,Fracen Macho,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,4,7,May and June,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,4,8,Speedeeman,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,5,1,Bourbononaholiday,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Woodbine,2024-09-22,5,2,Egbert Justice,0,,,-999.0,8,,,,0,,,,,,,,113.0,,0,0
+Woodbine,2024-09-22,5,3,Heard a Ghost,0,,,-999.0,8,,,,0,,,,,,,,118.0,,1,0
+Woodbine,2024-09-22,5,4,Zone Control,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Woodbine,2024-09-22,5,5,Good to Be Lucky,0,,,-999.0,8,,,,0,,,,,,,,121.0,,1,0
+Woodbine,2024-09-22,5,6,Dark Thoughts,0,,,-999.0,8,,,,0,,,,,,,,121.0,,1,0
+Woodbine,2024-09-22,5,7,Three O Eight,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Woodbine,2024-09-22,5,8,Bet On White,0,,,-999.0,8,,,,0,,,,,,,,118.0,,1,0
+Woodbine,2024-09-22,6,,Small Talk,0,,,-999.0,9,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,6,,Guns n' Rojas,0,,,-999.0,9,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,6,2,Tiz Romantic,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Woodbine,2024-09-22,6,4,Warp Ride,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,6,5,Retained,0,,,-999.0,9,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,6,6,Bold Reload,0,,,-999.0,9,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,6,7,Galvaston,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,6,8,Mad Dog N Joe,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,6,9,Souper Dormy,0,,,-999.0,9,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,7,,Silent Reserve,0,,,-999.0,8,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,7,,Daddy Send Money,0,,,-999.0,8,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,7,1,Pine Knoll,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,7,2,Sooner Lunar,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,7,3,Masseto (GB),0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,7,4,Air Combat,0,,,-999.0,8,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,7,6,Bankingonamiracle,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,7,8,Rock to Fame,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Woodbine,2024-09-22,8,,Rat Portage,0,,,-999.0,6,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,8,1,Red River Rebel,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,8,2,Crumlin Lad,0,,,-999.0,6,,,,0,,,,,,,,125.0,,0,0
+Woodbine,2024-09-22,8,3,Scoot Daddy,0,,,-999.0,6,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,8,5,Light the Lamp,0,,,-999.0,6,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,8,6,Poulin in O T,0,,,-999.0,6,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,9,1,Rapid Grey,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,9,2,Roi Soleil,0,,,-999.0,6,,,,0,,,,,,,,119.0,,0,0
+Woodbine,2024-09-22,9,3,King Elvis,0,,,-999.0,6,,,,0,,,,,,,,122.0,,0,0
+Woodbine,2024-09-22,9,4,Have It My Way,0,,,-999.0,6,,,,0,,,,,,,,119.0,,0,0
+Woodbine,2024-09-22,9,5,Western Whirl,0,,,-999.0,6,,,,0,,,,,,,,119.0,,0,0
+Woodbine,2024-09-22,9,6,Roar of the Crowd,0,,,-999.0,6,,,,0,,,,,,,,119.0,,0,0
+Woodbine,2024-09-22,10,,Take Charge Sousi,0,,,-999.0,10,,,,0,,,,,,,,,,0,0
+Woodbine,2024-09-22,10,1,Ry Pie,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,10,2,Coherence,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Woodbine,2024-09-22,10,3,Canadian Avro,0,,,-999.0,10,,,,0,,,,,,,,120.0,,0,0
+Woodbine,2024-09-22,10,4,Fairway to Heaven,0,,,-999.0,10,,,,0,,,,,,,,120.0,,1,0
+Woodbine,2024-09-22,10,5,Today,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Woodbine,2024-09-22,10,6,Secret Storm,0,,,-999.0,10,,,,0,,,,,,,,116.0,,0,0
+Woodbine,2024-09-22,10,8,Very Debonaire,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Woodbine,2024-09-22,10,9,Fast and Ready,0,,,-999.0,10,,,,0,,,,,,,,122.0,,1,0
+Woodbine,2024-09-22,10,10,If You Insist,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0

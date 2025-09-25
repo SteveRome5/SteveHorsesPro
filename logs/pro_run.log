@@ -1,0 +1,892 @@
+[2025-09-20 21:43:46] [run] start 2025-09-20
+[2025-09-20 21:43:46] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 21:47:03] [run] start 2025-09-20
+[2025-09-20 21:47:03] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 21:57:34] [run] start 2025-09-20
+[2025-09-20 21:57:34] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 22:41:36] [run] start 2025-09-20
+[2025-09-20 22:41:36] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 22:41:43] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=7
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R5: runners=12 used_train=0 used_db=12
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=11
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R7: runners=12 used_train=0 used_db=12
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R8: runners=11 used_train=0 used_db=11
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R9: runners=10 used_train=0 used_db=10
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R10: runners=12 used_train=0 used_db=12
+[2025-09-20 22:41:44] PLUMB Belmont at the Big A R11: runners=16 used_train=0 used_db=16
+[2025-09-20 22:41:44] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-20 22:41:44] PLUMB Churchill Downs R2: runners=6 used_train=0 used_db=6
+[2025-09-20 22:41:44] PLUMB Churchill Downs R3: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Churchill Downs R4: runners=7 used_train=0 used_db=7
+[2025-09-20 22:41:44] PLUMB Churchill Downs R5: runners=15 used_train=0 used_db=15
+[2025-09-20 22:41:44] PLUMB Churchill Downs R6: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Churchill Downs R7: runners=6 used_train=0 used_db=6
+[2025-09-20 22:41:44] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-20 22:41:44] PLUMB Churchill Downs R9: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Churchill Downs R10: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Churchill Downs R11: runners=15 used_train=0 used_db=15
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R1: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R2: runners=10 used_train=0 used_db=10
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R3: runners=6 used_train=0 used_db=6
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R4: runners=9 used_train=0 used_db=9
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R5: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R7: runners=12 used_train=0 used_db=12
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R8: runners=9 used_train=0 used_db=9
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R10: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Gulfstream Park R11: runners=10 used_train=0 used_db=10
+[2025-09-20 22:41:44] PLUMB Parx Racing R1: runners=12 used_train=0 used_db=12
+[2025-09-20 22:41:44] PLUMB Parx Racing R2: runners=10 used_train=0 used_db=10
+[2025-09-20 22:41:44] PLUMB Parx Racing R3: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Parx Racing R4: runners=10 used_train=0 used_db=10
+[2025-09-20 22:41:44] PLUMB Parx Racing R5: runners=13 used_train=0 used_db=13
+[2025-09-20 22:41:44] PLUMB Parx Racing R6: runners=9 used_train=0 used_db=9
+[2025-09-20 22:41:44] PLUMB Parx Racing R7: runners=10 used_train=0 used_db=10
+[2025-09-20 22:41:44] PLUMB Parx Racing R8: runners=9 used_train=0 used_db=9
+[2025-09-20 22:41:44] PLUMB Parx Racing R9: runners=7 used_train=0 used_db=7
+[2025-09-20 22:41:44] PLUMB Parx Racing R10: runners=11 used_train=0 used_db=11
+[2025-09-20 22:41:44] PLUMB Parx Racing R11: runners=9 used_train=0 used_db=9
+[2025-09-20 22:41:44] PLUMB Parx Racing R12: runners=10 used_train=0 used_db=10
+[2025-09-20 22:41:44] PLUMB Parx Racing R13: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Parx Racing R14: runners=10 used_train=0 used_db=10
+[2025-09-20 22:41:44] PLUMB Parx Racing R15: runners=13 used_train=0 used_db=13
+[2025-09-20 22:41:44] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-20 22:41:44] PLUMB Woodbine R2: runners=6 used_train=0 used_db=6
+[2025-09-20 22:41:44] PLUMB Woodbine R3: runners=6 used_train=0 used_db=6
+[2025-09-20 22:41:44] PLUMB Woodbine R4: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Woodbine R5: runners=6 used_train=0 used_db=6
+[2025-09-20 22:41:44] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Woodbine R7: runners=7 used_train=0 used_db=7
+[2025-09-20 22:41:44] PLUMB Woodbine R8: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Woodbine R9: runners=8 used_train=0 used_db=8
+[2025-09-20 22:41:44] PLUMB Woodbine R10: runners=9 used_train=0 used_db=9
+[2025-09-20 22:41:44] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-20_horses_targets+full.html
+[2025-09-20 22:49:19] [run] start 2025-09-20
+[2025-09-20 22:49:19] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=7
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R5: runners=12 used_train=0 used_db=12
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=11
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R7: runners=12 used_train=0 used_db=12
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R8: runners=11 used_train=0 used_db=11
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R9: runners=10 used_train=0 used_db=10
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R10: runners=12 used_train=0 used_db=12
+[2025-09-20 22:49:26] PLUMB Belmont at the Big A R11: runners=16 used_train=0 used_db=16
+[2025-09-20 22:49:26] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-20 22:49:26] PLUMB Churchill Downs R2: runners=6 used_train=0 used_db=6
+[2025-09-20 22:49:26] PLUMB Churchill Downs R3: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:26] PLUMB Churchill Downs R4: runners=7 used_train=0 used_db=7
+[2025-09-20 22:49:26] PLUMB Churchill Downs R5: runners=15 used_train=0 used_db=15
+[2025-09-20 22:49:26] PLUMB Churchill Downs R6: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Churchill Downs R7: runners=6 used_train=0 used_db=6
+[2025-09-20 22:49:27] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-20 22:49:27] PLUMB Churchill Downs R9: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Churchill Downs R10: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Churchill Downs R11: runners=15 used_train=0 used_db=15
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R1: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R2: runners=10 used_train=0 used_db=10
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R3: runners=6 used_train=0 used_db=6
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R4: runners=9 used_train=0 used_db=9
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R5: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R7: runners=12 used_train=0 used_db=12
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R8: runners=9 used_train=0 used_db=9
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R10: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Gulfstream Park R11: runners=10 used_train=0 used_db=10
+[2025-09-20 22:49:27] PLUMB Parx Racing R1: runners=12 used_train=0 used_db=12
+[2025-09-20 22:49:27] PLUMB Parx Racing R2: runners=10 used_train=0 used_db=10
+[2025-09-20 22:49:27] PLUMB Parx Racing R3: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Parx Racing R4: runners=10 used_train=0 used_db=10
+[2025-09-20 22:49:27] PLUMB Parx Racing R5: runners=13 used_train=0 used_db=13
+[2025-09-20 22:49:27] PLUMB Parx Racing R6: runners=9 used_train=0 used_db=9
+[2025-09-20 22:49:27] PLUMB Parx Racing R7: runners=10 used_train=0 used_db=10
+[2025-09-20 22:49:27] PLUMB Parx Racing R8: runners=9 used_train=0 used_db=9
+[2025-09-20 22:49:27] PLUMB Parx Racing R9: runners=7 used_train=0 used_db=7
+[2025-09-20 22:49:27] PLUMB Parx Racing R10: runners=11 used_train=0 used_db=11
+[2025-09-20 22:49:27] PLUMB Parx Racing R11: runners=9 used_train=0 used_db=9
+[2025-09-20 22:49:27] PLUMB Parx Racing R12: runners=10 used_train=0 used_db=10
+[2025-09-20 22:49:27] PLUMB Parx Racing R13: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Parx Racing R14: runners=10 used_train=0 used_db=10
+[2025-09-20 22:49:27] PLUMB Parx Racing R15: runners=13 used_train=0 used_db=13
+[2025-09-20 22:49:27] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-20 22:49:27] PLUMB Woodbine R2: runners=6 used_train=0 used_db=6
+[2025-09-20 22:49:27] PLUMB Woodbine R3: runners=6 used_train=0 used_db=6
+[2025-09-20 22:49:27] PLUMB Woodbine R4: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Woodbine R5: runners=6 used_train=0 used_db=6
+[2025-09-20 22:49:27] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Woodbine R7: runners=7 used_train=0 used_db=7
+[2025-09-20 22:49:27] PLUMB Woodbine R8: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Woodbine R9: runners=8 used_train=0 used_db=8
+[2025-09-20 22:49:27] PLUMB Woodbine R10: runners=9 used_train=0 used_db=9
+[2025-09-20 22:49:27] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-20_horses_targets+full.html
+[2025-09-20 22:50:55] [run] start 2025-09-20
+[2025-09-20 22:50:55] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=7
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R5: runners=12 used_train=0 used_db=12
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=11
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R7: runners=12 used_train=0 used_db=12
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R8: runners=11 used_train=0 used_db=11
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R9: runners=10 used_train=0 used_db=10
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R10: runners=12 used_train=0 used_db=12
+[2025-09-20 22:51:02] PLUMB Belmont at the Big A R11: runners=16 used_train=0 used_db=16
+[2025-09-20 22:51:02] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-20 22:51:02] PLUMB Churchill Downs R2: runners=6 used_train=0 used_db=6
+[2025-09-20 22:51:02] PLUMB Churchill Downs R3: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Churchill Downs R4: runners=7 used_train=0 used_db=7
+[2025-09-20 22:51:02] PLUMB Churchill Downs R5: runners=15 used_train=0 used_db=15
+[2025-09-20 22:51:02] PLUMB Churchill Downs R6: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Churchill Downs R7: runners=6 used_train=0 used_db=6
+[2025-09-20 22:51:02] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-20 22:51:02] PLUMB Churchill Downs R9: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Churchill Downs R10: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Churchill Downs R11: runners=15 used_train=0 used_db=15
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R1: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R2: runners=10 used_train=0 used_db=10
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R3: runners=6 used_train=0 used_db=6
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R4: runners=9 used_train=0 used_db=9
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R5: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R7: runners=12 used_train=0 used_db=12
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R8: runners=9 used_train=0 used_db=9
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R10: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Gulfstream Park R11: runners=10 used_train=0 used_db=10
+[2025-09-20 22:51:02] PLUMB Parx Racing R1: runners=12 used_train=0 used_db=12
+[2025-09-20 22:51:02] PLUMB Parx Racing R2: runners=10 used_train=0 used_db=10
+[2025-09-20 22:51:02] PLUMB Parx Racing R3: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Parx Racing R4: runners=10 used_train=0 used_db=10
+[2025-09-20 22:51:02] PLUMB Parx Racing R5: runners=13 used_train=0 used_db=13
+[2025-09-20 22:51:02] PLUMB Parx Racing R6: runners=9 used_train=0 used_db=9
+[2025-09-20 22:51:02] PLUMB Parx Racing R7: runners=10 used_train=0 used_db=10
+[2025-09-20 22:51:02] PLUMB Parx Racing R8: runners=9 used_train=0 used_db=9
+[2025-09-20 22:51:02] PLUMB Parx Racing R9: runners=7 used_train=0 used_db=7
+[2025-09-20 22:51:02] PLUMB Parx Racing R10: runners=11 used_train=0 used_db=11
+[2025-09-20 22:51:02] PLUMB Parx Racing R11: runners=9 used_train=0 used_db=9
+[2025-09-20 22:51:02] PLUMB Parx Racing R12: runners=10 used_train=0 used_db=10
+[2025-09-20 22:51:02] PLUMB Parx Racing R13: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Parx Racing R14: runners=10 used_train=0 used_db=10
+[2025-09-20 22:51:02] PLUMB Parx Racing R15: runners=13 used_train=0 used_db=13
+[2025-09-20 22:51:02] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-20 22:51:02] PLUMB Woodbine R2: runners=6 used_train=0 used_db=6
+[2025-09-20 22:51:02] PLUMB Woodbine R3: runners=6 used_train=0 used_db=6
+[2025-09-20 22:51:02] PLUMB Woodbine R4: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Woodbine R5: runners=6 used_train=0 used_db=6
+[2025-09-20 22:51:02] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Woodbine R7: runners=7 used_train=0 used_db=7
+[2025-09-20 22:51:02] PLUMB Woodbine R8: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Woodbine R9: runners=8 used_train=0 used_db=8
+[2025-09-20 22:51:02] PLUMB Woodbine R10: runners=9 used_train=0 used_db=9
+[2025-09-20 22:51:02] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-20_horses_targets+full.html
+[2025-09-20 23:04:38] [run] start 2025-09-20
+[2025-09-20 23:04:38] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 23:04:45] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-20 23:04:45] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=7
+[2025-09-20 23:04:45] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-20 23:04:45] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-20 23:04:45] PLUMB Belmont at the Big A R5: runners=12 used_train=0 used_db=12
+[2025-09-20 23:04:45] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=11
+[2025-09-20 23:04:46] PLUMB Belmont at the Big A R7: runners=12 used_train=0 used_db=12
+[2025-09-20 23:04:46] PLUMB Belmont at the Big A R8: runners=11 used_train=0 used_db=11
+[2025-09-20 23:04:46] PLUMB Belmont at the Big A R9: runners=10 used_train=0 used_db=10
+[2025-09-20 23:04:46] PLUMB Belmont at the Big A R10: runners=12 used_train=0 used_db=12
+[2025-09-20 23:04:46] PLUMB Belmont at the Big A R11: runners=16 used_train=0 used_db=16
+[2025-09-20 23:04:46] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-20 23:04:46] PLUMB Churchill Downs R2: runners=6 used_train=0 used_db=6
+[2025-09-20 23:04:46] PLUMB Churchill Downs R3: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Churchill Downs R4: runners=7 used_train=0 used_db=7
+[2025-09-20 23:04:46] PLUMB Churchill Downs R5: runners=15 used_train=0 used_db=15
+[2025-09-20 23:04:46] PLUMB Churchill Downs R6: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Churchill Downs R7: runners=6 used_train=0 used_db=6
+[2025-09-20 23:04:46] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-20 23:04:46] PLUMB Churchill Downs R9: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Churchill Downs R10: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Churchill Downs R11: runners=15 used_train=0 used_db=15
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R1: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R2: runners=10 used_train=0 used_db=10
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R3: runners=6 used_train=0 used_db=6
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R4: runners=9 used_train=0 used_db=9
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R5: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R7: runners=12 used_train=0 used_db=12
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R8: runners=9 used_train=0 used_db=9
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R10: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Gulfstream Park R11: runners=10 used_train=0 used_db=10
+[2025-09-20 23:04:46] PLUMB Parx Racing R1: runners=12 used_train=0 used_db=12
+[2025-09-20 23:04:46] PLUMB Parx Racing R2: runners=10 used_train=0 used_db=10
+[2025-09-20 23:04:46] PLUMB Parx Racing R3: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Parx Racing R4: runners=10 used_train=0 used_db=10
+[2025-09-20 23:04:46] PLUMB Parx Racing R5: runners=13 used_train=0 used_db=13
+[2025-09-20 23:04:46] PLUMB Parx Racing R6: runners=9 used_train=0 used_db=9
+[2025-09-20 23:04:46] PLUMB Parx Racing R7: runners=10 used_train=0 used_db=10
+[2025-09-20 23:04:46] PLUMB Parx Racing R8: runners=9 used_train=0 used_db=9
+[2025-09-20 23:04:46] PLUMB Parx Racing R9: runners=7 used_train=0 used_db=7
+[2025-09-20 23:04:46] PLUMB Parx Racing R10: runners=11 used_train=0 used_db=11
+[2025-09-20 23:04:46] PLUMB Parx Racing R11: runners=9 used_train=0 used_db=9
+[2025-09-20 23:04:46] PLUMB Parx Racing R12: runners=10 used_train=0 used_db=10
+[2025-09-20 23:04:46] PLUMB Parx Racing R13: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Parx Racing R14: runners=10 used_train=0 used_db=10
+[2025-09-20 23:04:46] PLUMB Parx Racing R15: runners=13 used_train=0 used_db=13
+[2025-09-20 23:04:46] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-20 23:04:46] PLUMB Woodbine R2: runners=6 used_train=0 used_db=6
+[2025-09-20 23:04:46] PLUMB Woodbine R3: runners=6 used_train=0 used_db=6
+[2025-09-20 23:04:46] PLUMB Woodbine R4: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Woodbine R5: runners=6 used_train=0 used_db=6
+[2025-09-20 23:04:46] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Woodbine R7: runners=7 used_train=0 used_db=7
+[2025-09-20 23:04:46] PLUMB Woodbine R8: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Woodbine R9: runners=8 used_train=0 used_db=8
+[2025-09-20 23:04:46] PLUMB Woodbine R10: runners=9 used_train=0 used_db=9
+[2025-09-20 23:04:46] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-20_horses_targets+full.html
+[2025-09-20 23:21:41] [run] start 2025-09-20
+[2025-09-20 23:21:41] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 23:21:48] [FATAL] 'font-family'
+[2025-09-20 23:22:15] [run] start 2025-09-20
+[2025-09-20 23:22:15] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 23:22:22] [FATAL] 'font-family'
+[2025-09-20 23:34:11] [run] start 2025-09-20
+[2025-09-20 23:34:11] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-20 23:34:18] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 00:10:09] [run] start 2025-09-21
+[2025-09-21 00:10:09] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-21 00:26:53] [run] start 2025-09-21
+[2025-09-21 00:26:53] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=6
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R5: runners=13 used_train=0 used_db=10
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R7: runners=8 used_train=0 used_db=8
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R8: runners=13 used_train=0 used_db=13
+[2025-09-21 00:26:58] PLUMB Belmont at the Big A R9: runners=16 used_train=0 used_db=13
+[2025-09-21 00:26:58] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Churchill Downs R2: runners=7 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Churchill Downs R3: runners=14 used_train=0 used_db=12
+[2025-09-21 00:26:58] PLUMB Churchill Downs R4: runners=15 used_train=0 used_db=12
+[2025-09-21 00:26:58] PLUMB Churchill Downs R5: runners=8 used_train=0 used_db=8
+[2025-09-21 00:26:58] PLUMB Churchill Downs R6: runners=11 used_train=0 used_db=9
+[2025-09-21 00:26:58] PLUMB Churchill Downs R7: runners=10 used_train=0 used_db=9
+[2025-09-21 00:26:58] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Churchill Downs R9: runners=11 used_train=0 used_db=11
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R1: runners=7 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R2: runners=9 used_train=0 used_db=8
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R3: runners=8 used_train=0 used_db=8
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R4: runners=7 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R5: runners=9 used_train=0 used_db=9
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R7: runners=9 used_train=0 used_db=5
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R8: runners=8 used_train=0 used_db=8
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-21 00:26:58] PLUMB Gulfstream Park R10: runners=9 used_train=0 used_db=8
+[2025-09-21 00:26:58] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-21 00:26:58] PLUMB Woodbine R2: runners=7 used_train=0 used_db=7
+[2025-09-21 00:26:58] PLUMB Woodbine R3: runners=6 used_train=0 used_db=2
+[2025-09-21 00:26:58] PLUMB Woodbine R4: runners=6 used_train=0 used_db=5
+[2025-09-21 00:26:58] PLUMB Woodbine R5: runners=7 used_train=0 used_db=1
+[2025-09-21 00:26:58] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-21 00:26:58] PLUMB Woodbine R7: runners=6 used_train=0 used_db=6
+[2025-09-21 00:26:58] PLUMB Woodbine R8: runners=6 used_train=0 used_db=6
+[2025-09-21 00:26:58] PLUMB Woodbine R9: runners=10 used_train=0 used_db=10
+[2025-09-21 00:26:58] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+[2025-09-21 00:45:20] [run] start 2025-09-21
+[2025-09-21 00:45:20] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-21 00:45:26] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-21 00:45:27] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=6
+[2025-09-21 00:45:27] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-21 00:45:27] PLUMB Belmont at the Big A R5: runners=13 used_train=0 used_db=10
+[2025-09-21 00:45:27] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Belmont at the Big A R7: runners=8 used_train=0 used_db=8
+[2025-09-21 00:45:27] PLUMB Belmont at the Big A R8: runners=13 used_train=0 used_db=13
+[2025-09-21 00:45:27] PLUMB Belmont at the Big A R9: runners=16 used_train=0 used_db=13
+[2025-09-21 00:45:27] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Churchill Downs R2: runners=7 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Churchill Downs R3: runners=14 used_train=0 used_db=12
+[2025-09-21 00:45:27] PLUMB Churchill Downs R4: runners=15 used_train=0 used_db=12
+[2025-09-21 00:45:27] PLUMB Churchill Downs R5: runners=8 used_train=0 used_db=8
+[2025-09-21 00:45:27] PLUMB Churchill Downs R6: runners=11 used_train=0 used_db=9
+[2025-09-21 00:45:27] PLUMB Churchill Downs R7: runners=10 used_train=0 used_db=9
+[2025-09-21 00:45:27] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Churchill Downs R9: runners=11 used_train=0 used_db=11
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R1: runners=7 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R2: runners=9 used_train=0 used_db=8
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R3: runners=8 used_train=0 used_db=8
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R4: runners=7 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R5: runners=9 used_train=0 used_db=9
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R7: runners=9 used_train=0 used_db=5
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R8: runners=8 used_train=0 used_db=8
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-21 00:45:27] PLUMB Gulfstream Park R10: runners=9 used_train=0 used_db=8
+[2025-09-21 00:45:27] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-21 00:45:27] PLUMB Woodbine R2: runners=7 used_train=0 used_db=7
+[2025-09-21 00:45:27] PLUMB Woodbine R3: runners=6 used_train=0 used_db=2
+[2025-09-21 00:45:27] PLUMB Woodbine R4: runners=6 used_train=0 used_db=5
+[2025-09-21 00:45:27] PLUMB Woodbine R5: runners=7 used_train=0 used_db=1
+[2025-09-21 00:45:27] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-21 00:45:27] PLUMB Woodbine R7: runners=6 used_train=0 used_db=6
+[2025-09-21 00:45:27] PLUMB Woodbine R8: runners=6 used_train=0 used_db=6
+[2025-09-21 00:45:27] PLUMB Woodbine R9: runners=10 used_train=0 used_db=10
+[2025-09-21 00:45:27] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+[2025-09-21 01:03:57] model loaded -> /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[2025-09-21 01:04:03] GET fail /v1/north-america/races//condition: HTTP Error 404: Not Found
+[2025-09-21 01:04:04] GET fail /v1/north-america/races//odds_history: HTTP Error 404: Not Found
+[2025-09-21 01:04:04] GET fail /v1/north-america/races//willpays: HTTP Error 404: Not Found
+[2025-09-21 01:04:04] [FATAL] name 'r' is not defined
+[2025-09-21 01:23:31] [run] start 2025-09-21
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R5: runners=13 used_train=0 used_db=13
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=11
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R7: runners=8 used_train=0 used_db=8
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R8: runners=13 used_train=0 used_db=13
+[2025-09-21 01:23:35] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Belmont at the Big A R9: runners=16 used_train=0 used_db=16
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R2: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R3: runners=14 used_train=0 used_db=14
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R4: runners=15 used_train=0 used_db=15
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R5: runners=8 used_train=0 used_db=8
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R6: runners=11 used_train=0 used_db=11
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R7: runners=10 used_train=0 used_db=10
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Churchill Downs R9: runners=11 used_train=0 used_db=11
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R1: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R2: runners=9 used_train=0 used_db=9
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R3: runners=8 used_train=0 used_db=8
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R4: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R5: runners=9 used_train=0 used_db=9
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R7: runners=9 used_train=0 used_db=9
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R8: runners=8 used_train=0 used_db=8
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-21 01:23:35] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Gulfstream Park R10: runners=9 used_train=0 used_db=9
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R2: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R3: runners=6 used_train=0 used_db=6
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R4: runners=6 used_train=0 used_db=6
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R5: runners=7 used_train=0 used_db=7
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R7: runners=6 used_train=0 used_db=6
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R8: runners=6 used_train=0 used_db=6
+[2025-09-21 01:23:35] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 01:23:35] PLUMB Woodbine R9: runners=10 used_train=0 used_db=10
+[2025-09-21 01:23:35] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+[2025-09-21 09:29:48] [run] start 2025-09-21
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R5: runners=13 used_train=0 used_db=13
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=11
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R7: runners=8 used_train=0 used_db=8
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R8: runners=13 used_train=0 used_db=13
+[2025-09-21 09:29:53] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Belmont at the Big A R9: runners=16 used_train=0 used_db=16
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R3: runners=14 used_train=0 used_db=14
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R4: runners=15 used_train=0 used_db=15
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R5: runners=8 used_train=0 used_db=8
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R6: runners=11 used_train=0 used_db=11
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R7: runners=10 used_train=0 used_db=10
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Churchill Downs R9: runners=11 used_train=0 used_db=11
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R1: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R2: runners=9 used_train=0 used_db=9
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R3: runners=8 used_train=0 used_db=8
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R4: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R5: runners=9 used_train=0 used_db=9
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R7: runners=9 used_train=0 used_db=9
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R8: runners=8 used_train=0 used_db=8
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-21 09:29:53] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Gulfstream Park R10: runners=9 used_train=0 used_db=9
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R3: runners=6 used_train=0 used_db=6
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R4: runners=6 used_train=0 used_db=6
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R5: runners=7 used_train=0 used_db=7
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R7: runners=6 used_train=0 used_db=6
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R8: runners=6 used_train=0 used_db=6
+[2025-09-21 09:29:53] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:29:53] PLUMB Woodbine R9: runners=10 used_train=0 used_db=10
+[2025-09-21 09:29:53] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+[2025-09-21 09:42:08] [run] start 2025-09-21
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R5: runners=13 used_train=0 used_db=13
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=11
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R7: runners=8 used_train=0 used_db=8
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R8: runners=13 used_train=0 used_db=13
+[2025-09-21 09:42:13] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Belmont at the Big A R9: runners=16 used_train=0 used_db=16
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R3: runners=14 used_train=0 used_db=14
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R4: runners=15 used_train=0 used_db=15
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R5: runners=8 used_train=0 used_db=8
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R6: runners=11 used_train=0 used_db=11
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R7: runners=10 used_train=0 used_db=10
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Churchill Downs R9: runners=11 used_train=0 used_db=11
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R1: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R2: runners=9 used_train=0 used_db=9
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R3: runners=8 used_train=0 used_db=8
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R4: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R5: runners=9 used_train=0 used_db=9
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R7: runners=9 used_train=0 used_db=9
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R8: runners=8 used_train=0 used_db=8
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-21 09:42:13] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Gulfstream Park R10: runners=9 used_train=0 used_db=9
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R3: runners=6 used_train=0 used_db=6
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R4: runners=6 used_train=0 used_db=6
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R5: runners=7 used_train=0 used_db=7
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R7: runners=6 used_train=0 used_db=6
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R8: runners=6 used_train=0 used_db=6
+[2025-09-21 09:42:13] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:42:13] PLUMB Woodbine R9: runners=10 used_train=0 used_db=10
+[2025-09-21 09:42:13] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+[2025-09-21 09:47:24] [run] start 2025-09-21
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R1: runners=6 used_train=0 used_db=6
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R3: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R4: runners=9 used_train=0 used_db=9
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R5: runners=13 used_train=0 used_db=13
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R6: runners=11 used_train=0 used_db=11
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R7: runners=8 used_train=0 used_db=8
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R8: runners=13 used_train=0 used_db=13
+[2025-09-21 09:47:30] [horse-db] Belmont at the Big A R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Belmont at the Big A R9: runners=16 used_train=0 used_db=16
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R1: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R3: runners=14 used_train=0 used_db=14
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R4: runners=15 used_train=0 used_db=15
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R5: runners=8 used_train=0 used_db=8
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R6: runners=11 used_train=0 used_db=11
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R7: runners=10 used_train=0 used_db=10
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R8: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Churchill Downs R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Churchill Downs R9: runners=11 used_train=0 used_db=11
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R1: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R2: runners=9 used_train=0 used_db=9
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R3: runners=8 used_train=0 used_db=8
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R4: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R5: runners=9 used_train=0 used_db=9
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R6: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R7: runners=9 used_train=0 used_db=9
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R8: runners=8 used_train=0 used_db=8
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R9: runners=9 used_train=0 used_db=9
+[2025-09-21 09:47:30] [horse-db] Gulfstream Park R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Gulfstream Park R10: runners=9 used_train=0 used_db=9
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R1: runners=6 used_train=0 used_db=6
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R2: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R3: runners=6 used_train=0 used_db=6
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R4: runners=6 used_train=0 used_db=6
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R5: runners=7 used_train=0 used_db=7
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R6: runners=8 used_train=0 used_db=8
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R7: runners=6 used_train=0 used_db=6
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R8: runners=6 used_train=0 used_db=6
+[2025-09-21 09:47:30] [horse-db] Woodbine R? bumps=1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000 alpha=0.2
+[2025-09-21 09:47:30] PLUMB Woodbine R9: runners=10 used_train=0 used_db=10
+[2025-09-21 09:47:30] [ok] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 567
+    vendor_rid_like = ('|' not in rid) and (len(str(rid)) < 64)not in rid) and (len(str(rid)) < 64)nd ("|" not in rid)
+                                                                         ^
+SyntaxError: unmatched ')'
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 3
+    cd "$BASE" || exit 1
+       ^
+SyntaxError: invalid syntax
+[OK] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[OK] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[OK] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[OK] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[OK] wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+/Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+/Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 482
+    fair$, min$ = money_from_prob(p)
+        ^
+SyntaxError: invalid syntax
+[OK] PRO wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[pro] start PRO (v4 ML fallback)
+[pro] tracks fetch failed: 404 Client Error: Not Found for url: https://api.theracingapi.com/v1/tracks?date=2025-09-22
+[pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+/Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ERROR -> see /Users/stephenjerome/Desktop/SteveHorsesPro/logs/pro.err.log
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 379, in <module>
+    main()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 337, in main
+    cards = api.racecards_for_date(TODAY) or []
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 87, in racecards_for_date
+    data = self.get(f"/v1/racecards", params={"date": iso_date}) or []
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 75, in get
+    r.raise_for_status()
+  File "/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 422 Client Error: Unprocessable Entity for url: https://api.theracingapi.com/v1/racecards?date=2025-09-22
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1257, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1303, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1012, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 952, in send
+    self.connect()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1419, in connect
+    super().connect()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 923, in connect
+    self.sock = self._create_connection(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 822, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 953, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 836, in <module>
+    cards, scr_summary, auto_summary, scr_details = build_cards(iso_today)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 611, in build_cards
+    meets = fetch_meets(iso_date).get("meets", [])
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 605, in fetch_meets
+    return safe_get(EP_MEETS, {"start_date": iso_date, "end_date": iso_date}, default={"meets":[]})
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 94, in safe_get
+    return _get(path, params)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 89, in _get
+    with urlopen(req, timeout=30, context=CTX) as r:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+KeyboardInterrupt
+/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 547, in <module>
+    main()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 537, in main
+    meets = build_meets(day_iso)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 443, in build_meets
+    cards = fetch_cards(day_iso)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 201, in fetch_cards
+    cards = get_json(url, TTL_CARDS)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 125, in get_json
+    r.raise_for_status()
+  File "/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://api.theracingapi.com/v1/cards?date=2025-09-22
+/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[2025-09-22 13:23:12] [http] fail https://api.theracingapi.com/v1/racecards: HTTP 422 for https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[2025-09-22 13:23:13] [http] fail https://api.theracingapi.com/v1/cards: HTTP 404 for https://api.theracingapi.com/v1/cards?date=2025-09-22
+[2025-09-22 13:23:14] [http] fail https://api.theracingapi.com/cards: HTTP 404 for https://api.theracingapi.com/cards?date=2025-09-22
+/Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[2025-09-22 13:24:12] [http] fail https://api.theracingapi.com/v1/racecards: HTTP 422 for https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[2025-09-22 13:24:13] [http] fail https://api.theracingapi.com/v1/cards: HTTP 404 for https://api.theracingapi.com/v1/cards?date=2025-09-22
+[2025-09-22 13:24:13] [http] fail https://api.theracingapi.com/cards: HTTP 404 for https://api.theracingapi.com/cards?date=2025-09-22
+/Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[pro] pro_winprob loaded
+[pro] overlays: pro_overlays.py
+[http] fail: 422 Unprocessable Entity https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[http] fail: 404 Not Found https://api.theracingapi.com/v1/cards?date=2025-09-22
+[pro] cards received: 0
+[pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html  (1.28s)
+/Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[2025-09-22 15:50:50] [opt] pro_winprob import fail: 'NoneType' object has no attribute '__dict__'
+[2025-09-22 15:50:50] [pro] start PRO (safe) 2025-09-22
+[2025-09-22 15:50:52] http 404 https://api.theracingapi.com/v2/racecards?date=2025-09-22
+[2025-09-22 15:50:52] http 422 https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[2025-09-22 15:50:53] http 404 https://api.theracingapi.com/v1/cards?date=2025-09-22
+[2025-09-22 15:50:53] [cards] API empty; switching to signals fallback
+[2025-09-22 15:50:53] [pro] no meets built (API down and no local signals)
+[2025-09-22 15:50:53] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 469
+    fair$, min$ = money_from_prob(p)  # noqa: E225 (we keep the dollar names for readability in this block)
+        ^
+SyntaxError: invalid syntax
+[2025-09-22 16:10:55] [opt] pro_winprob import ok
+[2025-09-22 16:10:55] [pro] start PRO (safe) 2025-09-22
+[http 404] https://api.theracingapi.com/v2/racecards?date=2025-09-22
+[http 404] https://api.theracingapi.com/v2/racecards?date=20250922
+[http 422] https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[http 422] https://api.theracingapi.com/v1/racecards?date=20250922
+[http 404] https://api.theracingapi.com/v1/cards?date=2025-09-22
+[http 404] https://api.theracingapi.com/v1/cards?date=20250922
+[http 404] https://api.theracingapi.com/racecards?date=2025-09-22
+[http 404] https://api.theracingapi.com/racecards?date=20250922
+[http 404] https://api.theracingapi.com/cards?date=2025-09-22
+[http 404] https://api.theracingapi.com/cards?date=20250922
+[http 404] https://api.theracingapi.com/v1/tracks?date=2025-09-22
+[http 404] https://api.theracingapi.com/v1/tracks?date=20250922
+[pro] no meets built (API down and no cache)
+[pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[2025-09-22 16:57:29] [opt] pro_winprob import fail: AttributeError("'NoneType' object has no attribute '__dict__'")
+[2025-09-22 16:57:29] [pro] start PRO (safe) 2025-09-22
+[2025-09-22 16:57:30] [http 404] https://api.theracingapi.com/v2/racecards?date=2025-09-22
+[2025-09-22 16:57:31] [http 404] https://api.theracingapi.com/v2/racecards?date=20250922
+[2025-09-22 16:57:31] [http 422] https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[2025-09-22 16:57:32] [http 422] https://api.theracingapi.com/v1/racecards?date=20250922
+[2025-09-22 16:57:32] [http 404] https://api.theracingapi.com/v1/cards?date=2025-09-22
+[2025-09-22 16:57:33] [http 404] https://api.theracingapi.com/v1/cards?date=20250922
+[2025-09-22 16:57:33] [http 404] https://api.theracingapi.com/racecards?date=2025-09-22
+[2025-09-22 16:57:34] [http 404] https://api.theracingapi.com/cards?date=2025-09-22
+[2025-09-22 16:57:34] [cards] API empty; switching to signals fallback
+[2025-09-22 16:57:34] [pro] no meets built (API down and no cache/signals)
+[2025-09-22 16:57:34] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+[2025-09-22 16:57:44] [opt] pro_winprob import fail: AttributeError("'NoneType' object has no attribute '__dict__'")
+[2025-09-22 16:57:44] [pro] start PRO (safe) 2025-09-22
+[2025-09-22 16:57:45] [http 404] https://api.theracingapi.com/v2/racecards?date=2025-09-22
+[2025-09-22 16:57:46] [http 404] https://api.theracingapi.com/v2/racecards?date=20250922
+[2025-09-22 16:57:46] [http 422] https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[2025-09-22 16:57:47] [http 422] https://api.theracingapi.com/v1/racecards?date=20250922
+[2025-09-22 16:57:48] [http 404] https://api.theracingapi.com/v1/cards?date=2025-09-22
+[2025-09-22 16:57:49] [http 404] https://api.theracingapi.com/v1/cards?date=20250922
+[2025-09-22 16:57:49] [http 404] https://api.theracingapi.com/racecards?date=2025-09-22
+[2025-09-22 16:57:50] [http 404] https://api.theracingapi.com/cards?date=2025-09-22
+[2025-09-22 16:57:50] [cards] API empty; switching to signals fallback
+[2025-09-22 16:57:50] [pro] no meets built (API down and no cache/signals)
+[2025-09-22 16:57:50] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 320
+    fair$, min$ = money_from_prob(p[i])
+        ^
+SyntaxError: invalid syntax
+[2025-09-22 21:14:19] [opt] pro_winprob import ok
+[2025-09-22 21:14:19] [pro] start PRO (safe) 2025-09-22
+[2025-09-22 21:14:20] [http 404] https://api.theracingapi.com/v2/racecards?date=2025-09-22
+[2025-09-22 21:14:20] [http 422] https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[2025-09-22 21:14:20] [http 404] https://api.theracingapi.com/v1/cards?date=2025-09-22
+[2025-09-22 21:14:20] [http 404] https://api.theracingapi.com/racecards?date=2025-09-22
+[2025-09-22 21:14:21] [http 404] https://api.theracingapi.com/cards?date=2025-09-22
+[2025-09-22 21:14:21] [http 404] https://api.theracingapi.com/v2/racecards?date=20250922
+[2025-09-22 21:14:21] [http 422] https://api.theracingapi.com/v1/racecards?date=20250922
+[2025-09-22 21:14:21] [http 404] https://api.theracingapi.com/v1/cards?date=20250922
+[2025-09-22 21:14:22] [http 404] https://api.theracingapi.com/racecards?date=20250922
+[2025-09-22 21:14:22] [http 404] https://api.theracingapi.com/cards?date=20250922
+[2025-09-22 21:14:22] [pro] API empty; switching to signals fallback
+[2025-09-22 21:14:22] [pro] built from signals (latest=2025-09-21)
+[2025-09-22 21:14:22] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+/Users/stephenjerome/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[2025-09-22 21:14:33] [opt] pro_winprob import ok
+[2025-09-22 21:14:33] [pro] start PRO (safe) 2025-09-22
+[2025-09-22 21:14:34] [http 404] https://api.theracingapi.com/v2/racecards?date=2025-09-22
+[2025-09-22 21:14:34] [http 422] https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[2025-09-22 21:14:34] [http 404] https://api.theracingapi.com/v1/cards?date=2025-09-22
+[2025-09-22 21:14:34] [http 404] https://api.theracingapi.com/racecards?date=2025-09-22
+[2025-09-22 21:14:35] [http 404] https://api.theracingapi.com/cards?date=2025-09-22
+[2025-09-22 21:14:35] [http 404] https://api.theracingapi.com/v2/racecards?date=20250922
+[2025-09-22 21:14:35] [http 422] https://api.theracingapi.com/v1/racecards?date=20250922
+[2025-09-22 21:14:35] [http 404] https://api.theracingapi.com/v1/cards?date=20250922
+[2025-09-22 21:14:36] [http 404] https://api.theracingapi.com/racecards?date=20250922
+[2025-09-22 21:14:36] [http 404] https://api.theracingapi.com/cards?date=20250922
+[2025-09-22 21:14:36] [pro] API empty; switching to signals fallback
+[2025-09-22 21:14:36] [pro] built from signals (latest=2025-09-21)
+[2025-09-22 21:14:36] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+[2025-09-22 21:14:33] [opt] pro_winprob import ok
+[2025-09-22 21:14:33] [pro] start PRO (safe) 2025-09-22
+[2025-09-22 21:14:34] [http 404] https://api.theracingapi.com/v2/racecards?date=2025-09-22
+[2025-09-22 21:14:34] [http 422] https://api.theracingapi.com/v1/racecards?date=2025-09-22
+[2025-09-22 21:14:34] [http 404] https://api.theracingapi.com/v1/cards?date=2025-09-22
+[2025-09-22 21:14:34] [http 404] https://api.theracingapi.com/racecards?date=2025-09-22
+[2025-09-22 21:14:35] [http 404] https://api.theracingapi.com/cards?date=2025-09-22
+[2025-09-22 21:14:35] [http 404] https://api.theracingapi.com/v2/racecards?date=20250922
+[2025-09-22 21:14:35] [http 422] https://api.theracingapi.com/v1/racecards?date=20250922
+[2025-09-22 21:14:35] [http 404] https://api.theracingapi.com/v1/cards?date=20250922
+[2025-09-22 21:14:36] [http 404] https://api.theracingapi.com/racecards?date=20250922
+[2025-09-22 21:14:36] [http 404] https://api.theracingapi.com/cards?date=20250922
+[2025-09-22 21:14:36] [pro] API empty; switching to signals fallback
+[2025-09-22 21:14:36] [pro] built from signals (latest=2025-09-21)
+[2025-09-22 21:14:36] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+/Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-21_horses_targets+full.html
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 376
+    def anti_flat(p: List[float], runners: List[dict], track: str, rc: dict]) -> List[float]:
+                                                                           ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '('
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 376
+    def anti_flat(p: List[float], runners: List[dict], track: str, rc: dict]) -> List[float]:
+                                                                           ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '('
+/Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-22_horses_targets+full.html

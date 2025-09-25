@@ -1,0 +1,1612 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite (no ML column)
+
+from __future__ import annotations
+import os, ssl, json, html, base64, re, math, sys, subprocess, csv, statistics, hashlib
+from pathlib import Path
+from datetime import date, datetime, timedelta
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode
+from collections import defaultdict
+
+PRO_ON = os.getenv('PRO_MODE', '0') == '1'
+# Confidence gates (only used when PRO_ON)
+CONF_THRESH_PRIME = 0.58
+CONF_THRESH_ACTION = 0.50
+RACE_SPEND_CAP_MULT = 1.00  # 1.00 = keep as-is; you can lower later
+VERSION = "PF-35 Mach++ v3.8-handicap++learn (WHY) — display-lite"
+
+# ---------- Paths ----------
+HOME = Path.home()
+BASE = HOME / "Desktop" / "SteveHorsesPro"
+OUT_DIR = BASE / "outputs"; LOG_DIR = BASE / "logs"; IN_DIR = BASE / "inputs"
+HIST_DIR = BASE / "history"; MODEL_DIR = BASE / "models"
+DATA_DIR = BASE / "data"; SCR_DIR = DATA_DIR / "scratches"
+for d in (BASE, OUT_DIR, LOG_DIR, IN_DIR, HIST_DIR, MODEL_DIR, DATA_DIR, SCR_DIR):
+    d.mkdir(parents=True, exist_ok=True)
+
+def log(msg: str) -> None:
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        (LOG_DIR / "run.log").open("a", encoding="utf-8").write(f"[{ts}] {msg}\n")
+    except Exception:
+        pass
+
+# ---------- API ----------
+RUSER = 'WQaKSMwgmG8GnbkHgvRRCT0V'
+RPASS = 'McYBoQViXSPvlNcvxQi1Z1py'
+API_BASE = os.getenv("RACING_API_BASE", "https://api.theracingapi.com")
+CTX = ssl.create_default_context()
+
+EP_MEETS = "/v1/north-america/meets"
+EP_ENTRIES_BY_MEET = "/v1/north-america/meets/{meet_id}/entries"
+EP_RESULTS_BY_MEET = "/v1/north-america/meets/{meet_id}/results"
+EP_RESULTS_BY_RACE = "/v1/north-america/races/{race_id}/results"
+EP_CONDITION_BY_RACE = "/v1/north-america/races/{race_id}/condition"
+EP_ODDS_HISTORY     = "/v1/north-america/races/{race_id}/odds_history"
+EP_WILLPAYS         = "/v1/north-america/races/{race_id}/willpays"
+EP_EQUIPMENT        = "/v1/north-america/races/{race_id}/equipment"
+EP_FRACTIONS        = "/v1/north-america/races/{race_id}/fractions"
+EP_DOUBLES          = "/v1/north-america/races/{race_id}/doubles_probables"
+EP_PICK3            = "/v1/north-america/races/{race_id}/pick3_probables"
+
+def _get(path, params=None):
+    url = API_BASE + path + ("?" + urlencode(params) if params else "")
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    tok = base64.b64encode(f"{RUSER}:{RPASS}".encode()).decode()
+    req.add_header("Authorization", "Basic " + tok)
+    with urlopen(req, timeout=30, context=CTX) as r:
+        raw = r.read().decode("utf-8","replace")
+        return json.loads(raw)
+
+def safe_get(path, params=None, default=None):
+    try:
+        return _get(path, params)
+    except Exception as e:
+        log(f"GET fail {path}: {e}")
+        return default
+
+# ---------- Policy ----------
+BANKROLL = float(os.getenv("BANKROLL", "20000"))
+USE_LIVE = os.getenv("LIVE_ODDS", "1") == "1"
+
+EDGE_WIN_PCT_FLOOR = 0.20
+ACTION_PCT_FLOOR   = 0.13
+EDGE_PP_MIN_PRIME  = 3.0
+EDGE_PP_MIN_ACTION = 5.0
+
+KELLY_CAP = 0.15
+MAX_BET_PER_HORSE = 1500.0
+MIN_STAKE = 50.0
+DAILY_EXPOSURE_CAP = float(os.getenv("DAILY_EXPOSURE_CAP", "0.12"))
+BASE_MIN_PAD = float(os.getenv("MIN_PAD", "0.22"))
+ACTION_MAX_PER = 400.0
+
+MAJOR_TRACKS = {
+    "Saratoga","Del Mar","Santa Anita","Santa Anita Park","Gulfstream Park",
+    "Keeneland","Parx Racing","Finger Lakes","Kentucky Downs",
+    "Woodbine","Laurel Park","Louisiana Downs"
+}
+
+# ---------- Utilities ----------
+def g(d:dict,*ks,default=None):
+    for k in ks:
+        if isinstance(d,dict) and k in d and d[k] not in (None,""):
+            return d[k]
+    return default
+
+def _to_float(v, default=None):
+    try:
+        if v in (None,""): return default
+        if isinstance(v,(int,float)): return float(v)
+        s=str(v).strip()
+        m=re.fullmatch(r"(\d+)\s*[/\-:]\s*(\d+)", s)
+        if m:
+            num, den = float(m.group(1)), float(m.group(2))
+            if den!=0: return num/den
+        return float(s)
+    except: 
+        return default
+
+def parse_frac_or_dec(s):
+    if s is None: return (None,None)
+    t=str(s).strip().lower()
+    if t in ("evs","even","evens"): return (2.0,0.5)
+    m=re.fullmatch(r"(\d+)\s*[/\-:]\s*(\d+)", t)
+    if m:
+        num,den=float(m.group(1)),float(m.group(2))
+        if den>0: return (1.0+num/den, 1.0/den)
+    try:
+        dec=float(t)
+        if dec>1.0: return (dec,1.0/dec)
+    except: pass
+    return (None,None)
+
+def _to_dec_odds(v, default=None):
+    if v in (None,""): return default
+    if isinstance(v,(int,float)):
+        f=float(v); return f if f>1 else default
+    dec,_=parse_frac_or_dec(v); return dec if dec and dec>1 else default
+
+def implied_from_dec(dec):
+    if not dec or dec<=1: return None
+    return 1.0/dec
+
+def odds_formats(dec: float) -> str:
+    if not dec or dec<=1: return "—"
+    v=dec-1.0; best="—"; err=9e9
+    for den in (1,2,3,4,5,6,8,10,12,16,20,32):
+        num=round(v*den); e=abs(v-num/den)
+        if e<err: err, best = e, f"{int(num)}/{int(den)}"
+    payout = math.floor((2*dec)*100)/100.0
+    return f"{best} • ${payout:0.2f} • {dec:.2f}"
+
+def prg_num(r): 
+    return str(g(r,"program_number","program","number","pp","post_position","horse_number","saddle","saddle_number") or "")
+
+def horse_name(r): 
+    return g(r,"horse_name","name","runner_name","runner","horse","horseName") or "Unknown"
+
+def race_num(rc, idx): 
+    return g(rc,"race_number","raceNo","race_num","number","race","rno") or idx
+
+def live_decimal(r): 
+    return _to_dec_odds(g(r,"live_odds","odds","currentOdds","liveOdds"))
+
+def get_surface(rc): 
+    return str(g(rc,"surface","track_surface","course","courseType","trackSurface","surf") or "").lower()
+
+def _surface_key(s: str) -> str:
+    s = (s or "").lower()
+    if "turf" in s: return "turf"
+    if "synt" in s or "tapeta" in s or "poly" in s: return "synt"
+    return "dirt"
+
+def get_prev_surface(r): 
+    return str(g(r,"prev_surface","last_surface","lastSurface","last_surface_type") or "").lower()
+
+def get_distance_y(rc):
+    d=g(rc,"distance_yards","distance","dist_yards","yards","distanceYards","distance_y")
+    if d is not None:
+        try: return int(float(d))
+        except: pass
+    m=g(rc,"distance_meters","meters","distanceMeters")
+    if m is not None:
+        try: return int(float(m)*1.09361)
+        except: pass
+    return None
+
+def _dist_bucket_yards(yards: int|None) -> str:
+    if not yards: return "unk"
+    if yards < 1320:  return "<6f"
+    if yards < 1540:  return "6f"
+    if yards < 1760:  return "7f"
+    if yards < 1980:  return "1mi"
+    if yards < 2200:  return "8.5f"
+    if yards < 2420:  return "9f"
+    return "10f+"
+
+def build_bucket_key(track: str, surface: str, yards: int|None) -> str:
+    return f"{track}|{_surface_key(surface)}|{_dist_bucket_yards(yards)}"
+
+def get_rail(rc): 
+    return _to_float(g(rc,"rail","rail_setting","railDistance","rail_distance","turf_rail"), default=0.0)
+
+def get_field_size(rc): 
+    return int(g(rc,"field_size","fieldSize","num_runners","entriesCount") or 0) or None
+
+def get_minutes_to_post(rc): 
+    return _to_float(g(rc,"minutes_to_post","mtp","minutesToPost"), default=None)
+
+def get_speed(r): 
+    return _to_float(g(r,"speed","spd","last_speed","lastSpeed","best_speed","bestSpeed","fig","speed_fig","brz","beyer"), default=None)
+
+def get_early_pace(r): 
+    return _to_float(g(r,"pace","ep","early_pace","earlyPace","runstyle","style","quirin"), default=None)
+
+def get_late_pace(r): 
+    return _to_float(g(r,"lp","late_pace","closer","finishing_kick","lateSpeed"), default=None)
+
+def get_class(r): 
+    return _to_float(g(r,"class","cls","class_rating","classRating","par_class","parClass"), default=None)
+
+def get_trainer_win(r):
+    t=g(r,"trainer","trainerStats","trainer_stats","trainerInfo") or {}
+    if isinstance(t,dict):
+        x=g(t,"win_pct","winPct","win","w","trainerWinPct","trainer_win_pct")
+        if x is not None: return _to_float(x, default=None)
+    return _to_float(g(r,"trainer_win_pct","trainerWinPct"), default=None)
+
+def get_jockey_win(r):
+    j=g(r,"jockey","jockeyStats","jockey_stats","jockeyInfo") or {}
+    if isinstance(j,dict):
+        x=g(j,"win_pct","winPct","win","w","jockeyWinPct","jockey_win_pct")
+        if x is not None: return _to_float(x, default=None)
+    return _to_float(g(r,"jockey_win_pct","jockeyWinPct"), default=None)
+
+def get_combo_win(r):
+    c=g(r,"trainer_jockey_combo","combo","tj","trainerJockey") or {}
+    if isinstance(c,dict):
+        x=g(c,"win_pct","winPct","win","w")
+        if x is not None: return _to_float(x, default=None)
+    return None
+
+# ---------- Odds/Willpays/Fractions/Equipment/Exotics ----------
+def fetch_condition(race_id):
+    d=safe_get(EP_CONDITION_BY_RACE.format(race_id=race_id), default={}) or {}
+    return {"cond": g(d,"condition","track_condition","dirt_condition","surface_condition") or g(d,"turf_condition","turfCondition") or "",
+            "takeout": _to_float(g(d,"takeout","win_takeout","takeout_win"), default=None)}
+
+def fetch_willpays(race_id):
+    d=safe_get(EP_WILLPAYS.format(race_id=race_id), default={}) or {}
+    prob={}
+    for it in g(d,"win_probables","probables","win","willpays") or []:
+        pr=str(g(it,"program","number","pp","saddle") or "")
+        p=_to_float(g(it,"impl_win","prob","p"), None)
+        if pr and p: prob[pr]=max(0.01,min(0.99,p))
+    pool=_to_float(g(d,"pool","win","win_pool","winPool"), default=None)
+    return {"impl": prob, "win_pool": pool}
+
+def fetch_fractions(race_id):
+    d=safe_get(EP_FRACTIONS.format(race_id=race_id), default={}) or {}
+    fr=g(d,"fractions","sectionals","splits") or []
+    q=_to_float(next((g(x,"time","t") for x in fr if "1/4" in str(g(x,"call","c")).lower()), None), None)
+    h=_to_float(next((g(x,"time","t") for x in fr if "1/2" in str(g(x,"call","c")).lower()), None), None)
+    pressure=0.0; meltdown=0.0
+    if q and h:
+        pressure=max(0.0, (22.8-q)*0.6 + (46.0-h)*0.4); pressure=min(2.0, pressure)
+    if pressure>=1.0: meltdown=min(0.4, 0.15 + 0.10*(pressure-1.0))
+    return {"pressure":pressure,"meltdown":meltdown}
+
+def fetch_equipment(race_id):
+    d=safe_get(EP_EQUIPMENT.format(race_id=race_id), default={}) or {}
+    out=defaultdict(lambda: {"bl_on":0,"bl_off":0,"bar":0,"lasix":0})
+    rows=g(d,"list","equipment","runners") or []
+    for it in rows:
+        pr=str(g(it,"program","number","pp","saddle") or "")
+        if not pr: continue
+        if bool(g(it,"blinkers_on","bl_on","blinkersOn")): out[pr]["bl_on"]=1
+        if bool(g(it,"blinkers_off","bl_off","blinkersOff")): out[pr]["bl_off"]=1
+        if bool(g(it,"bar_shoes","bar","barShoes")): out[pr]["bar"]=1
+        if bool(g(it,"lasix","l","med","L","lasixOn")): out[pr]["lasix"]=1
+    return out
+
+def fetch_odds_history(race_id):
+    d=safe_get(EP_ODDS_HISTORY.format(race_id=race_id), default={}) or {}
+    tl=g(d,"timeline","odds","history") or []
+    per=defaultdict(lambda: {"last":None,"slope10":0.0,"var":0.0})
+    if not isinstance(tl,list): return per
+    bins=defaultdict(list)
+    for x in tl:
+        pr=str(g(x,"program","number","pp","saddle","saddle_number") or "")
+        dec=_to_dec_odds(g(x,"dec","decimal","odds","price"), None)
+        ts=g(x,"ts","time","timestamp") or ""
+        if pr and dec and dec>1: bins[pr].append((ts,dec))
+    for pr, seq in bins.items():
+        seq.sort(key=lambda z:z[0])
+        last = seq[-1][1] if seq else None
+        slope = 0.0; var=0.0
+        if len(seq)>=3:
+            a,b,c = seq[-3][1], seq[-2][1], seq[-1][1]
+            slope = max(-1.0, min(1.0, (a - c) / max(2.0, a)))
+        if len(seq)>=5:
+            try: var = statistics.pvariance([v for _,v in seq[-5:]])
+            except: var = 0.0
+        per[pr] = {"last": last, "slope10": slope, "var": var}
+    return per
+
+def fetch_exotic_signal(race_id, runners):
+    if not race_id or not runners: return {}
+    def _json(path):
+        try: return safe_get(path, default={}) or {}
+        except: return {}
+    dubs = _json(EP_DOUBLES.format(race_id=race_id))
+    p3   = _json(EP_PICK3.format(race_id=race_id))
+
+    def _extract_impl(blob):
+        if not isinstance(blob, dict): return {}
+        to = g(blob, "to", "target", "leg", "runners", "entries") or []
+        res = {}
+        for it in to:
+            pr = str(g(it,"program","number","pp","saddle","saddle_number") or "")
+            p  = _to_float(g(it,"prob","impl","implied","p"), None)
+            if not p:
+                dec = _to_dec_odds(g(it,"price","odds","decimal_odds"), None)
+                if dec and dec>1: p = 1.0/dec
+            if pr and p and 0 < p < 1:
+                res[pr] = p
+        return res
+
+    d_impl = _extract_impl(dubs); p_impl = _extract_impl(p3)
+    win_prior = {}
+    for r in runners:
+        pr = prg_num(r) or ""
+        dec = (live_decimal(r) if USE_LIVE else None)
+        if dec and dec>1: win_prior[pr] = 1.0/dec
+    if not d_impl and not p_impl: return {}
+    out = {}
+    for r in runners:
+        pr = prg_num(r) or ""
+        if not pr: continue
+        wp = max(1e-6, min(0.999, win_prior.get(pr, 0.0)))
+        d  = d_impl.get(pr, None); p3v = p_impl.get(pr, None)
+        rD = (d/wp) if (d and wp>0) else 1.0
+        rP = (p3v/wp) if (p3v and wp>0) else 1.0
+        def squash(x): return max(0.0, min(1.0, 0.5 + 0.25*(x-1.0)))
+        sigD = squash(rD); sigP = squash(rP)
+        sigs = [sig for sig in (sigD, sigP) if sig is not None]
+        sig  = sum(sigs)/len(sigs) if sigs else 0.5
+        out[pr] = {"sig": sig, "detail": f"D:{rD:.2f} • P3:{rP:.2f}"}
+    return out
+
+# ---------- History harvest ----------
+def fetch_meets(iso_date): 
+    return safe_get(EP_MEETS, {"start_date": iso_date, "end_date": iso_date}, default={"meets":[]})
+
+def fetch_entries(meet_id): 
+    return safe_get(EP_ENTRIES_BY_MEET.format(meet_id=meet_id), default={"races":[]})
+
+def try_fetch_results_by_meet(meet_id): 
+    return safe_get(EP_RESULTS_BY_MEET.format(meet_id=meet_id))
+
+def try_fetch_results_by_race(race_id): 
+    return safe_get(EP_RESULTS_BY_RACE.format(race_id=race_id))
+
+def harvest_history(iso_date: str):
+    meets = fetch_meets(iso_date).get("meets", [])
+    if not meets: return None
+    out_csv = HIST_DIR / f"history_{iso_date}.csv"
+    with out_csv.open("w", newline="", encoding="utf-8") as fout:
+        wr = csv.writer(fout)
+        wr.writerow(["track","date","race","program","horse","win",
+                     "ml_dec","live_dec","minutes_to_post","field_size",
+                     "surface","prev_surface","distance_yards","rail",
+                     "speed","ep","lp","class","trainer_win","jockey_win","combo_win",
+                     "weight","last_days"])
+        for m in meets:
+            track = g(m,"track_name","track","name") or "Track"
+            if track not in MAJOR_TRACKS: continue
+            mid = g(m,"meet_id","id","meetId")
+            if not mid: continue
+            entries = fetch_entries(mid)
+            races = entries.get("races") or entries.get("entries") or []
+            by_meet = try_fetch_results_by_meet(mid) or {}
+            idx_map={}
+            for rr in by_meet.get("races", by_meet.get("results", [])):
+                rid=str(g(rr,"race_id","id","raceId") or ""); 
+                if rid: idx_map[rid]=rr
+            for r_idx, rc in enumerate(races,1):
+                rid=str(g(rc,"race_id","id","raceId","raceID") or "")
+                res = idx_map.get(rid) if rid and rid in idx_map else (try_fetch_results_by_race(rid) if rid else None)
+                winners=set(); off_odds={}
+                if res:
+                    fins = res.get("finishers") or res.get("results") or res.get("runners") or []
+                    for it in fins:
+                        prog=str(g(it,"program_number","program","number","pp","saddle","saddle_number") or "")
+                        pos=_to_float(g(it,"finish_position","position","pos","finish","rank"), None)
+                        lodds=_to_dec_odds(g(it,"final_odds","off_odds","odds","price","decimal_odds"), None)
+                        if prog:
+                            if pos==1: winners.add(prog)
+                            if lodds: off_odds[prog]=lodds
+                field_size=len(rc.get("runners") or rc.get("entries") or [])
+                for ent in rc.get("runners") or rc.get("entries") or []:
+                    prog=prg_num(ent) or ""; ml=None; lv=off_odds.get(prog)
+                    wr.writerow([track, iso_date, str(race_num(rc,r_idx)), prog, horse_name(ent),
+                                 1 if prog in winners else 0,
+                                 ml or "", lv or "", get_minutes_to_post(rc) or 0, field_size or "",
+                                 get_surface(rc) or "", get_prev_surface(ent) or "", get_distance_y(rc) or "", get_rail(rc) or 0.0,
+                                 _to_float(g(ent,"speed","spd","last_speed"),None) or "",
+                                 _to_float(g(ent,"pace","ep"),None) or "",
+                                 _to_float(g(ent,"lp","late_pace"),None) or "",
+                                 _to_float(g(ent,"class","cls"),None) or "",
+                                 _to_float(g(ent,"trainer_win_pct","trainerWinPct"),None) or "",
+                                 _to_float(g(ent,"jockey_win_pct","jockeyWinPct"),None) or "",
+                                 _to_float(g(ent,"tj_win","combo_win"),None) or "",
+                                 _to_float(g(ent,"weight","carried_weight","assigned_weight","wt","weight_lbs"),None) or "",
+                                 _to_float(g(ent,"days_since","dsl","daysSince","layoffDays","last_start_days"),None) or ""])
+    return out_csv
+
+# ---------- Learned model + Calibration + Pars ----------
+MODEL = {"buckets":{}, "global":{}, "pars":{}, "calib":{}, "meta":{"version":"1"}}
+
+def model_path(): return MODEL_DIR / "model.json"
+
+def save_model():
+    try:
+        model_path().write_text(json.dumps(MODEL, indent=2), encoding="utf-8")
+        log(f"model saved -> {model_path()}")
+    except Exception as e:
+        log(f"model save fail: {e}")
+
+def load_model():
+    global MODEL
+    p = model_path()
+    if not p.exists(): return False
+    try:
+        MODEL = json.loads(p.read_text(encoding="utf-8"))
+        return True
+    except Exception as e:
+        log(f"model load fail: {e}")
+        return False
+
+FEATS = [
+    "speed","ep","lp","class","trainer_win","jockey_win","combo_win",
+    "field_size","rail","ml_dec","live_dec","minutes_to_post","last_days","weight",
+    "post_bias","surface_switch","equip_blinker","equip_lasix","pace_fit","class_par_delta"
+]
+
+def _sigmoid(z):
+    z = max(-50.0, min(50.0, z))
+    return 1.0 / (1.0 + math.exp(-z))
+
+def _standardize_fit(X):
+    if not X: return {"mu":[0.0]*len(FEATS),"sd":[1.0]*len(FEATS)}
+    d=len(X[0]); mu=[0.0]*d; sd=[1.0]*d
+    for j in range(d):
+        col=[x[j] for x in X]
+        m=statistics.mean(col)
+        s=statistics.pstdev(col) if len(col)>1 else 1.0
+        if s < 1e-6: s = 1.0
+        mu[j]=m; sd[j]=s
+    return {"mu":mu,"sd":sd}
+
+def _apply_standardize(x, stat):
+    mu,sd=stat["mu"],stat["sd"]
+    return [(xi - mu[j])/sd[j] for j,xi in enumerate(x)]
+
+def _train_logistic(X, y, l2=0.5, iters=260, lr=0.07):
+    if not X: return {"w":[0.0]*len(FEATS),"b":0.0}
+    n=len(X); d=len(X[0]); w=[0.0]*d; b=0.0
+    for _ in range(iters):
+        gb=0.0; gw=[0.0]*d
+        for i in range(n):
+            zi=b+sum(w[j]*X[i][j] for j in range(d)); pi=_sigmoid(zi); di=(pi-y[i])
+            gb+=di
+            for j in range(d): gw[j]+=di*X[i][j]
+        for j in range(d): gw[j]+=l2*w[j]
+        b-=lr*gb/n
+        for j in range(d): w[j]-=lr*gw[j]/n
+    return {"w":w, "b":b}
+
+def _surface_distance_key(row):
+    return build_bucket_key(row.get("track") or "",
+                            row.get("surface") or "",
+                            _to_float(row.get("distance_yards") or "", None))
+
+def _post_bias(track, surface, yards, post_str):
+    try: 
+        pp=int(re.sub(r"\D","", str(post_str) or ""))
+    except: 
+        pp=None
+    surf=_surface_key(surface); dist=_dist_bucket_yards(yards if yards else None)
+    base = 0.0
+    if surf=="turf" and pp and pp>=10: base -= 0.02
+    if surf=="dirt" and pp and pp<=2: base += 0.01
+    return base
+
+def _equip_flags(equip_text):
+    bl = 1.0 if "bl_on" in str(equip_text or "").lower() else 0.0
+    lx = 1.0 if "lasix" in str(equip_text or "").lower() else 0.0
+    return bl, lx
+
+def _pace_fit_feature(ep, lp, race_pressure):
+    sty = (ep or 0.0) - (lp or 0.0)
+    if race_pressure is None: return 0.0
+    if race_pressure < 0.3:
+        return 0.05 if sty>4 else (-0.02 if sty<-3 else 0.0)
+    if race_pressure > 1.2:
+        return 0.06 if sty<-5 else (-0.02 if sty>6 else 0.0)
+    return 0.0
+
+def compute_class_pars(rows):
+    buckets=defaultdict(list)
+    for r in rows:
+        if str(r.get("win","0"))!="1": continue
+        key=_surface_distance_key(r)
+        sp=_to_float(r.get("speed") or "", None)
+        cl=_to_float(r.get("class") or "", None)
+        if sp is not None and cl is not None:
+            buckets[key].append((sp,cl))
+    pars={}
+    for k,arr in buckets.items():
+        if len(arr)>=15:
+            sp_med=statistics.median([s for s,_ in arr])
+            cl_med=statistics.median([c for _,c in arr])
+            pars[k]={"spd":sp_med,"cls":cl_med}
+    return pars
+
+def build_feature_row(row, pars, pace_prior=0.0):
+    f=lambda k: _to_float(row.get(k) or "", None)
+    speed=(f("speed") or 0.0)
+    ep   =(f("ep") or 0.0)
+    lp   =(f("lp") or 0.0)
+    cls  =(f("class") or 0.0)
+    tr   =(f("trainer_win") or 0.0)
+    jk   =(f("jockey_win") or 0.0)
+    tj   =(f("combo_win") or 0.0)
+    fs   =(f("field_size") or 8.0)
+    rail =(f("rail") or 0.0)
+    ml   =0.0  # no ML column in display; keep as numeric feature for history compatibility
+    live =(f("live_dec") or 0.0)
+    mtp  =(f("minutes_to_post") or 15.0)
+    dsl  =(f("last_days") or 25.0)
+    wt   =(f("weight") or 120.0)
+
+    key=_surface_distance_key(row)
+    par=pars.get(key, {"spd":80.0,"cls":70.0})
+    class_par_delta = (cls - par["cls"])/20.0 + (speed - par["spd"])/25.0
+
+    post = row.get("program") or row.get("post") or row.get("number")
+    pbias=_post_bias(row.get("track"), row.get("surface"), _to_float(row.get("distance_yards") or "", None), post)
+    surf_switch = 1.0 if str(row.get("prev_surface") or "").lower() and str(row.get("surface") or "").lower() and (row.get("prev_surface")!=row.get("surface")) else 0.0
+    bl,lx=_equip_flags("")  # history lacks equip detail; zeros are fine
+    pace_fit=_pace_fit_feature(ep, lp, pace_prior)
+
+    def S(x,a): return (x or 0.0)/a
+    return [
+        S(speed,100.0), S(ep,120.0), S(lp,120.0), S(cls,100.0),
+        S(tr,100.0), S(jk,100.0), S(tj,100.0),
+        S(fs,12.0), S(rail,30.0), S(ml,10.0), S(live,10.0), S(mtp,30.0), S(dsl,60.0), S(wt,130.0),
+        pbias, surf_switch, bl, lx, pace_fit, class_par_delta
+    ]
+
+def reliability_curve(y_true, p_pred, bins=10):
+    if not p_pred: return []
+    pairs=sorted(zip(p_pred, y_true), key=lambda t:t[0])
+    n=len(pairs); out=[]
+    for b in range(bins):
+        lo=int(b*n/bins); hi=int((b+1)*n/bins)
+        if hi<=lo: continue
+        chunk=pairs[lo:hi]
+        x=statistics.mean([p for p,_ in chunk])
+        y=sum(t for _,t in chunk)/len(chunk)
+        out.append([x,y])
+    for i in range(1,len(out)):
+        if out[i][1] < out[i-1][1]:
+            out[i][1] = out[i-1][1]
+    return out
+
+def apply_reliability(p, curve):
+    if not curve: return p
+    xs=[c[0] for c in curve]; ys=[c[1] for c in curve]
+    if p<=xs[0]: 
+        return ys[0]*(p/max(1e-6,xs[0]))
+    if p>=xs[-1]:
+        return ys[-1] + (p - xs[-1])*(ys[-1]-ys[-2])/max(1e-6,(xs[-1]-xs[-2]))
+    for i in range(1,len(xs)):
+        if p<=xs[i]:
+            w=(p - xs[i-1])/max(1e-6,(xs[i]-xs[i-1]))
+            return ys[i-1]*(1-w) + ys[i]*w
+    return p
+
+def train_models_from_history(days_back=120, min_rows=160):
+    files=list(HIST_DIR.glob("history_*.csv"))
+    if not files:
+        log("trainer: no history files"); return 0
+    cutoff = date.today() - timedelta(days=days_back)
+    rows=[]
+    for p in files:
+        try: ds = p.stem.split("_")[1]; d  = datetime.strptime(ds, "%Y-%m-%d").date()
+        except: d = None
+        if d and d < cutoff: continue
+        try:
+            with p.open("r", encoding="utf-8") as f:
+                rdr=csv.DictReader(f)
+                for r in rdr: rows.append(r)
+        except Exception as e:
+            log(f"trainer: read {p.name} fail {e}")
+    if not rows:
+        log("trainer: no recent rows"); return 0
+
+    pace_prior_by_key=defaultdict(list)
+    for r in rows:
+        key=_surface_distance_key(r)
+        ep=_to_float(r.get("ep") or "", None)
+        if ep is not None: pace_prior_by_key[key].append(ep)
+    pace_prior={k:(statistics.mean(v)-92.0)/20.0 if v else 0.0 for k,v in pace_prior_by_key.items()}
+    pars = compute_class_pars(rows)
+
+    buckets=defaultdict(list); global_rows=[]
+    for r in rows:
+        track=(r.get("track") or "").strip()
+        if not track or track not in MAJOR_TRACKS: continue
+        key=_surface_distance_key(r)
+        y=1 if str(r.get("win") or "0").strip()=="1" else 0
+        x=build_feature_row(r, pars, pace_prior.get(key,0.0))
+        buckets[key].append((x,y))
+        global_rows.append((x,y))
+
+    trained=0
+    MODEL["buckets"]={}; MODEL["calib"]={}; MODEL["pars"]=pars
+    for key, arr in buckets.items():
+        if len(arr) < min_rows: 
+            continue
+        X=[x for x,_ in arr]; y=[y for _,y in arr]
+        stat=_standardize_fit(X)
+        Xs=[_apply_standardize(x, stat) for x in X]
+        mdl=_train_logistic(Xs,y,l2=0.55,iters=280,lr=0.07)
+        p_hat=[_sigmoid(mdl["b"]+sum(wj*xj for wj,xj in zip(mdl["w"], xs))) for xs in Xs]
+        curve=reliability_curve(y, p_hat, bins=10)
+        MODEL["buckets"][key]={"w":mdl["w"],"b":mdl["b"],"stat":stat,"n":len(arr)}
+        MODEL["calib"][key]=curve
+        trained+=1
+
+    if len(global_rows) >= max(min_rows, 600):
+        Xg=[x for x,_ in global_rows]; yg=[y for _,y in global_rows]
+        stat=_standardize_fit(Xg)
+        Xgs=[_apply_standardize(x, stat) for x in Xg]
+        mdl=_train_logistic(Xgs, yg, l2=0.5, iters=260, lr=0.07)
+        ph=[_sigmoid(mdl["b"]+sum(wj*xj for wj,xj in zip(mdl["w"], xs))) for xs in Xgs]
+        curve=reliability_curve(yg, ph, bins=10)
+        MODEL["global"]={"w":mdl["w"],"b":mdl["b"],"stat":stat,"n":len(global_rows)}
+        MODEL["calib"]["__global__"]=curve
+    else:
+        MODEL["global"]={"w":[0.0]*len(FEATS),"b":0.0,"stat":{"mu":[0.0]*len(FEATS),"sd":[1.0]*len(FEATS)},"n":0}
+        MODEL["calib"]["__global__"]=[]
+
+    save_model()
+    log(f"trainer: trained buckets={trained}, global_n={MODEL['global'].get('n',0)}")
+    return trained
+
+def predict_bucket_prob(track: str, rc: dict, r: dict) -> float|None:
+    surf = get_surface(rc); yards = get_distance_y(rc)
+    key  = build_bucket_key(track, surf, yards)
+    entry= MODEL.get("buckets",{}).get(key) or MODEL.get("global")
+    if not entry or not entry.get("w"): return None
+
+    row = {
+        "track": track, "surface": surf, "distance_yards": yards,
+        "speed": get_speed(r), "ep": get_early_pace(r), "lp": get_late_pace(r),
+        "class": get_class(r), "trainer_win": get_trainer_win(r), "jockey_win": get_jockey_win(r),
+        "combo_win": get_combo_win(r),
+        "field_size": get_field_size(rc) or (len(rc.get("runners") or rc.get("entries") or [])),
+        "rail": get_rail(rc),
+        "ml_dec": 0.0,  # ML not displayed
+        "live_dec": (live_decimal(r) if USE_LIVE else 0.0) or 0.0,
+        "minutes_to_post": get_minutes_to_post(rc) or 15.0,
+        "last_days": _to_float(g(r,"days_since","dsl","daysSince","layoffDays","last_start_days"), None),
+        "weight": _to_float(g(r,"weight","carried_weight","assigned_weight","wt","weight_lbs"), None),
+        "prev_surface": get_prev_surface(r),
+        "program": prg_num(r)
+    }
+    runners=(rc.get("runners") or rc.get("entries") or [])
+    eps=[get_early_pace(x) or 0.0 for x in runners]
+    pace_prior=(statistics.mean(eps)-92.0)/20.0 if eps else 0.0
+
+    pars = MODEL.get("pars", {})
+    x = build_feature_row(row, pars, pace_prior)
+    xs = _apply_standardize(x, entry.get("stat", {"mu":[0.0]*len(FEATS),"sd":[1.0]*len(FEATS)}))
+    z = entry["b"] + sum(wj*xj for wj,xj in zip(entry["w"], xs))
+    p_raw = _sigmoid(z)
+    curve = MODEL.get("calib",{}).get(key) or MODEL.get("calib",{}).get("__global__", [])
+    return max(1e-6, min(0.999, apply_reliability(p_raw, curve)))
+
+# ---------- Pace/shape & fallback ----------
+def pace_style(r):
+    ep = get_early_pace(r) or 0.0
+    lp = get_late_pace(r)  or 0.0
+    if ep - lp >= 8:   return "E"
+    if ep - lp >= 3:   return "EP"
+    if lp - ep >= 5:   return "S"
+    return "P"
+
+def pseudo_pace(runners):
+    ep = [get_early_pace(r) or 0.0 for r in runners]
+    if not ep: return {"pressure":0.0,"meltdown":0.0}
+    m = statistics.mean(ep); s = statistics.pstdev(ep) if len(ep)>1 else 0.0
+    pressure = max(0.0, (m-92.0)/20.0 + (s-6.0)/10.0)
+    pressure = min(2.0, pressure)
+    meltdown = min(0.4, 0.1 + 0.1*max(0.0, pressure-1.0))
+    return {"pressure":pressure,"meltdown":meltdown}
+
+def race_shape_adjust(runners, sect, rail, surface):
+    ps = [pace_style(r) for r in runners]
+    nE = ps.count("E"); nEP = ps.count("EP")
+    pressure = float(sect.get("pressure") or 0.0)
+    rail_wide = (rail or 0.0) >= 20.0
+    adj = [0.0]*len(runners)
+    for i,_ in enumerate(runners):
+        sty = ps[i]
+        if sty == "E":
+            lone = 0.10 if nE==1 and nEP<=1 else 0.0
+            herd = -0.08 if nE>=3 else 0.0
+            rail_eff = (-0.04 if ("turf" in surface and rail_wide) else 0.0)
+            adj[i] += lone + herd + rail_eff
+            if pressure <= 0.2: adj[i] += 0.05
+        elif sty == "EP":
+            if pressure <= 0.2: adj[i] += 0.03
+            if nE>=2: adj[i] -= 0.02
+        elif sty == "S":
+            adj[i] += 0.10*max(0.0, (sect.get("meltdown") or 0.0))
+    return adj
+
+def handcrafted_scores(track, rc, runners, extras=None):
+    sect  = (extras or {}).get("sect") or {"pressure":0.0,"meltdown":0.0}
+    rail  = get_rail(rc) or 0.0
+    surface = get_surface(rc)
+    spd=[get_speed(r) or 0.0 for r in runners]
+    ep =[get_early_pace(r) or 0.0 for r in runners]
+    lp =[get_late_pace(r) or 0.0 for r in runners]
+    cls=[get_class(r) or 0.0 for r in runners]
+
+    def z(xs):
+        if not xs: return []
+        m=statistics.mean(xs); s=statistics.pstdev(xs) if len(xs)>1 else 1.0
+        if s<1e-6: s=1.0
+        return [(x-m)/s for x in xs]
+
+    spdZ,epZ,lpZ,clsZ=z(spd),z(ep),z(lp),z(cls)
+    w_spd,w_ep,w_lp,w_cls=1.0,0.55,0.30,0.45
+    trR=[(get_trainer_win(r) or 0.0)/100.0 for r in runners]
+    jkR=[(get_jockey_win(r)  or 0.0)/100.0 for r in runners]
+    tjR=[(get_combo_win(r)   or 0.0)/100.0 for r in runners]
+    shape_adj=race_shape_adjust(runners, sect, rail, surface)
+    scores=[]
+    for i,r in enumerate(runners):
+        s=w_spd*spdZ[i] + w_ep*epZ[i] + w_lp*lpZ[i] + w_cls*clsZ[i] + 0.25*trR[i] + 0.18*jkR[i] + 0.10*tjR[i]
+        s+=shape_adj[i]
+        s+=((get_surface(rc)!=(get_prev_surface(r) or "")) and -0.01) or 0.0
+        seed=f"{track}|{race_num(rc,0)}|{prg_num(r)}|{horse_name(r)}"
+        h=hashlib.sha1(seed.encode()).hexdigest()
+        s+=(int(h[:6],16)/0xFFFFFF - 0.5)*0.03
+        scores.append(s)
+    return scores
+
+def field_temp(len_field):
+    if len_field>=12: return 0.80
+    if len_field>=10: return 0.72
+    if len_field>=8:  return 0.66
+    return 0.60
+
+def softmax(zs, temp):
+    if not zs: return []
+    m=max(zs); exps=[math.exp((z-m)/max(1e-6,temp)) for z in zs]; s=sum(exps)
+    return [e/s for e in exps] if s>0 else [1.0/len(zs)]*len(zs)
+
+def probabilities_from_model_only(track, rc, runners, extras=None):
+    ps=[]
+    ok=True
+    for r in runners:
+        p = predict_bucket_prob(track, rc, r)
+        if p is None: ok=False; break
+        ps.append(max(1e-6,min(0.999,p)))
+    if ok and ps:
+        s=sum(ps)
+        return [p/s for p in ps] if s>0 else [1.0/len(ps)]*len(ps)
+    zs = handcrafted_scores(track, rc, runners, extras=extras)
+    t = field_temp(len(runners))
+    ps = softmax(zs, temp=t)
+    if len(ps) >= 12:
+        ps=[max(0.003,p) for p in ps]; s=sum(ps); ps=[p/s for p in ps]
+    return ps
+
+def blend_with_market_if_present(p_model, p_market, minutes_to_post):
+    if not p_market or all(x is None for x in p_market): return p_model
+    pm = [0.0 if (x is None or x <= 0) else float(x) for x in p_market]
+    sm = sum(pm); pm = [x/sm if sm > 0 else 0.0 for x in pm]
+    alpha = 0.93 if minutes_to_post >= 20 else (0.88 if minutes_to_post >= 8 else 0.80)
+    blended=[(max(1e-9,m)**alpha)*(max(1e-9,mk)**(1.0-alpha)) for m,mk in zip(p_model, pm)]
+    s=sum(blended)
+    return [b/s for b in blended] if s>0 else p_model
+
+# ---------- Pricing / Kelly ----------
+def fair_and_minprice(p, field=None, takeout=None, cond=""):
+    p=max(1e-6, min(0.999999, p))
+    fair = 1.0/p
+    fs=field or 8
+    size_adj = 0.012*max(0,fs-8)
+    to=(takeout or 0.16)
+    cond_adj=0.0
+    c=(cond or "").lower()
+    if c in ("sloppy","muddy","yielding","soft"): cond_adj += 0.02
+    pad=BASE_MIN_PAD + size_adj + 0.5*to + cond_adj
+    min_odds = fair*(1.0+pad)
+    return fair, min_odds
+
+def kelly_fraction(p, dec):
+    if not dec or dec <= 1: return 0.0
+    b = dec - 1.0; q = 1.0 - p
+    f = (p*b - q) / b
+    return max(0.0, f)
+
+def compute_confidence(p, dec, late_slope_max, odds_var_mean, minutes_to_post):
+#    """
+#    Returns (score, label) in [0..1], High/Med/Low.
+#    Higher = more trustworthy edge.
+#    """
+    conf = 1.0
+
+    # Market stability: if odds history is noisy, reduce confidence
+    if odds_var_mean and odds_var_mean > 3.5:
+        conf *= 0.75
+
+    # Late slope: if odds are moving hard late, reduce confidence
+    if late_slope_max and late_slope_max > 0.18:
+        conf *= 0.7
+
+    # Minutes-to-post weighting: more stable closer to post
+    if minutes_to_post is not None:
+        if minutes_to_post > 20:
+            conf *= 0.85
+        elif minutes_to_post < 5:
+            conf *= 0.9
+
+    # Price reasonableness: extreme longshots get downweighted
+    if p is not None and p < 0.05:
+        conf *= 0.8
+
+    score = max(0.0, min(1.0, conf))
+
+    if score >= 0.65:
+        label = "HIGH"
+    elif score >= 0.50:
+        label = "MED"
+    else:
+        label = "LOW"
+
+    return score, label
+def overlay_edge(p, dec):
+    imp = implied_from_dec(dec)
+    if imp is None: return None
+    return p - imp
+def dutch_overlays(enriched, bankroll, field_size, late_slope_max, odds_var_mean, m2p,
+                   kelly_cap, max_per, min_stake, daily_room, flags_out):
+#    """
+#    Win-bet allocator.
+#
+#    When PRO_MODE is False: behaves like the old version.
+#    When PRO_MODE is True: applies confidence gates (PRIME/ACTION) and scales Kelly by confidence.
+#    """
+    PRO_ON = (os.getenv("PRO_MODE", "") == "1")
+    # Confidence thresholds (env overrides optional)
+    CONF_THRESH_PRIME  = float(os.getenv("CONF_THRESH_PRIME",  "0.58"))
+    CONF_THRESH_ACTION = float(os.getenv("CONF_THRESH_ACTION", "0.50"))
+
+    cand = []
+    for i, it in enumerate(enriched):
+        p    = it["p_final"]
+        dec  = it["market"]
+        minp = it["minp"]
+
+        ed = overlay_edge(p, dec) if dec else None
+        it["edge"] = ed
+
+        # basic filters (unchanged)
+        if not dec or dec < minp or not ed or ed <= 0:
+            continue
+        if p < EDGE_WIN_PCT_FLOOR:
+            continue
+
+        imp = it.get("imp", None)
+        edge_pp = (p - (imp or 0.0)) * 100.0 if imp is not None else None
+        if edge_pp is None or edge_pp < EDGE_PP_MIN_PRIME:
+            continue
+
+        # confidence (NEW): unpack (score, label)
+        if PRO_ON:
+            conf_score, conf_label = compute_confidence(p, dec, late_slope_max, odds_var_mean, m2p)
+            it["conf"] = (conf_score, conf_label)
+            # gates (both must pass to be eligible)
+            prime_ok  = (p >= EDGE_WIN_PCT_FLOOR) and (edge_pp >= EDGE_PP_MIN_PRIME)  and (conf_score >= CONF_THRESH_PRIME)
+            action_ok = (p >= ACTION_PCT_FLOOR)   and (edge_pp >= EDGE_PP_MIN_ACTION) and (conf_score >= CONF_THRESH_ACTION)
+            if not (prime_ok or action_ok):
+                continue
+        else:
+            # legacy (no confidence)
+            conf_score, conf_label = 1.0, "HIGH"
+
+        # Kelly fraction with damping (existing)
+        f = kelly_damped(p, dec, field_size, late_slope_max, odds_var_mean, m2p)
+        if f <= 0:
+            continue
+
+        # scale Kelly by confidence in PRO mode
+        if PRO_ON:
+            f *= max(0.25, min(1.0, conf_score))
+
+        w = (f ** 1.25) * max(0.01, ed)
+        cand.append((i, f, w, p, conf_label))
+
+    if not cand:
+        return []
+
+    w_sum = sum(w for _, _, w, _, _ in cand)
+    stakes = []
+    for i, f, w, p, conf_label in cand:
+        frac  = (w / max(1e-9, w_sum)) * kelly_cap
+        stake = bankroll * frac
+        if stake >= min_stake:
+            stakes.append((i, min(max_per, stake)))
+            # write lightweight flag so you can see confidence in the table
+            flags_out[i] = (flags_out.get(i, "").strip() + ("" if not flags_out.get(i) else " ") + conf_label).strip()
+
+    if not stakes:
+        return []
+
+    planned = sum(st for _, st in stakes)
+    room    = max(0.0, daily_room)
+    capped  = False
+
+    if planned > room and room > 0:
+        scale = room / planned
+        scaled = [(i, st * scale) for i, st in stakes if st * scale >= min_stake]
+        if scaled:
+            stakes = scaled
+            capped = True
+        else:
+            # if everything too small after scale, keep a single min bet on top p
+            top_i = max(cand, key=lambda t: t[3])[0]
+            stakes = [(top_i, min(room, min_stake))]
+            capped = True
+
+    # annotate CAP / DUTCH flags
+    if capped:
+        for i, _ in stakes:
+            flags_out[i] = (flags_out.get(i, "") + (" CAP" if "CAP" not in flags_out.get(i, "") else "")).strip()
+    if len(stakes) >= 2:
+        for i, _ in stakes:
+            flags_out[i] = (flags_out.get(i, "") + f" DUTCH{len(stakes)}").strip()
+
+    return stakes
+
+    # PRO path
+    cand=[]
+    for i,it in enumerate(enriched):
+        p  = it["p_final"]
+        dec= it["market"]
+        minp=it["minp"]
+        ed = overlay_edge(p, dec) if dec else None
+        it["edge"]=ed
+
+        if not dec or dec < minp or not ed or ed <= 0:
+            continue
+
+        # Confidence from market stability; minutes-to-post is m2p (race level)
+        conf = compute_confidence(p, dec, late_slope_max, odds_var_mean, m2p)
+        it["_conf"] = conf
+
+        imp = it.get("imp", None)
+        edge_pp = (p - (imp or 0.0))*100.0 if imp is not None else None
+
+        # PRIME gate: higher prob & confidence
+        prime_ok = (p >= EDGE_WIN_PCT_FLOOR) and (edge_pp is not None and edge_pp >= EDGE_PP_MIN_PRIME) and (conf >= CONF_THRESH_PRIME)
+        # ACTION gate: looser prob/conf, still need positive edge_pp
+        action_ok = (p >= ACTION_PCT_FLOOR) and (edge_pp is not None and edge_pp >= EDGE_PP_MIN_ACTION) and (conf >= CONF_THRESH_ACTION)
+
+        if not (prime_ok or action_ok):
+            continue
+
+        f0 = kelly_damped(p, dec, field_size, late_slope_max, odds_var_mean, m2p)
+        f  = f0 * conf  # scale Kelly by confidence
+        if f <= 0:
+            continue
+
+        # Weight tilts prefer more confident + higher edge
+        w = (f ** 1.25) * max(0.01, ed) * (0.80 + 0.40*conf)
+        cand.append((i, f, w, p, prime_ok, action_ok))
+
+    if not cand:
+        return []
+
+    # Build stakes with dutching
+    w_sum = sum(w for _,_,w,_,_,_ in cand)
+    stakes=[]
+    for i,f,w,p,prime_ok,action_ok in cand:
+        frac  = (w / w_sum) * kelly_cap
+        stake = bankroll * frac
+        if stake >= min_stake:
+            stakes.append((i, min(max_per, stake)))
+
+    if not stakes:
+        return []
+
+    # Race-level cap (multiplicative on the existing daily_room)
+    planned = sum(st for _,st in stakes)
+    room    = max(0.0, daily_room) * RACE_SPEND_CAP_MULT
+    capped  = False
+    if planned > room and room > 0:
+        scale = room / planned
+        scaled=[(i, st*scale) for i,st in stakes if st*scale >= min_stake]
+        if scaled:
+            stakes = scaled; capped = True
+        else:
+            # pick the most confident highest-p candidate
+            top_i = max(cand, key=lambda t: (t[4], t[3], t[1]))[0]  # (prime_ok, p, f)
+            stakes = [(top_i, min(room, min_stake))]
+            capped = True
+
+    # Flags
+    if capped:
+        for i,_ in stakes:
+            flags_out[i] = (flags_out.get(i,"") + (" CAP" if "CAP" not in flags_out.get(i,"") else "")).strip()
+
+    if len(stakes) >= 2:
+        for i,_ in stakes:
+            flags_out[i] = (flags_out.get(i,"") + f" DUTCH{len(stakes)}").strip()
+
+    return stakes
+
+# -------------------- SCRATCHES (constants + helpers) --------------------
+# Safe re-defines: will only set if not already present elsewhere.
+if 'SCR_FLAG_VALUES' not in globals():
+    SCR_FLAG_VALUES = {"scr", "scratched", "scratch", "wd", "withdrawn", "dns", "dnp", "dq"}
+
+if 'SCR_BOOL_KEYS' not in globals():
+    SCR_BOOL_KEYS = (
+        "is_scratched", "isScratched", "scratched_flag", "scratchedFlag", "withdrawn", "scr"
+    )
+
+def is_scratched_runner(r):
+#    """Return True if runner is scratched based on multiple provider fields."""
+#    status = str(g(r, "status", "runnerStatus", "entry_status", "entryStatus", "condition") or "").lower().strip()
+#    if status in SCR_FLAG_VALUES:
+#        return True
+#    for k in SCR_BOOL_KEYS:
+#        v = g(r, k)
+#        if isinstance(v, bool) and v:
+#            return True
+#        if isinstance(v, str) and v.lower().strip() in ("1", "true", "yes", "y"):
+#            return True
+#    tag = str(g(r, "scratch_indicator", "scratchIndicator") or "").lower().strip()
+#    if tag in ("1", "true", "yes", "y", "scr"):
+#        return True
+#    return False
+#
+#def _scr_path_for(date_iso: str) -> Path:
+#    return SCR_DIR / f"{date_iso}.txt"
+#
+#def save_scratch_template(date_iso: str, cards_map: dict) -> Path:
+#    path = _scr_path_for(date_iso)
+#    if path.exists():
+#        return path
+#    lines = [
+#        f"# Manual scratches for {date_iso}",
+#        "# Format: Track Name|RaceNumber|prog,prog",
+#        "# Example: Del Mar|2|4,7",
+#    ]
+#    for track, races in cards_map.items():
+#        for rc in races:
+#            rno = g(rc, "race_number", "race", "number", "raceNo") or ""
+#            try:
+#                rno = int(re.sub(r"[^\d]", "", str(rno)))
+#            except Exception:
+#                continue
+#            lines.append(f"{track}|{rno}|")
+#    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+#    log(f"Created manual scratches template -> {path}")
+#    return path
+## -------------------------------------------------------------------------
+#def load_manual_scratches(date_iso: str) -> dict:
+#    path = _scr_path_for(date_iso)
+#    out = {}
+#    if not path.exists(): return out
+#    for raw in path.read_text(encoding="utf-8").splitlines():
+#        line = raw.strip()
+#        if not line or line.startswith("#"): continue
+#        try:
+#            track, race_s, progs = [x.strip() for x in line.split("|", 3)[:3]]
+#            rno = int(re.sub(r"[^\d]","", race_s))
+#            lst = [p.strip() for p in re.split(r"[,\s]+", progs) if p.strip()]
+#            if lst:
+#                out.setdefault(track, {}).setdefault(rno, set()).update(lst)
+#        except: 
+#            pass
+#    return out
+#
+#def apply_scratches(cards_map: dict, auto_scr: dict, manual_scr: dict):
+#    auto_races = 0
+#    manual_races = 0
+#    details = []
+#    def _prog_sort_key(z: str) -> int:
+#        d = re.sub(r"\D","", z or "")
+#        try: return int(d) if d else 0
+#        except: return 0
+#    for track, races in cards_map.items():
+#        a = auto_scr.get(track, {})
+#        m = manual_scr.get(track, {})
+#        for rc in races:
+#            rno_raw = g(rc,"race_number","race","number","raceNo")
+#            try: rno = int(re.sub(r"[^\d]","", str(rno_raw)))
+#            except: continue
+#            set_auto = set(a.get(rno, set()))
+#            set_man  = set(m.get(rno, set()))
+#            use_src = "manual" if set_man else ("auto" if set_auto else "")
+#            use = set_man if set_man else set_auto
+#            runners = rc.get("runners") or rc.get("entries") or []
+#            for r in runners:
+#                if is_scratched_runner(r): r["scratched"] = True
+#            if use:
+#                if set_man: manual_races += 1
+#                if set_auto: auto_races += 1
+#                for r in runners:
+#                    pr = prg_num(r)
+#                    if pr in use: r["scratched"]=True
+#            before = len(runners)
+#            rc["runners"] = [r for r in runners if not r.get("scratched")]
+#            after = len(rc["runners"])
+#            if use or before!=after:
+#                details.append({"track": track,"race": rno,"source": use_src or ("api" if before!=after and not use else ""),
+#                                "programs": sorted(list(use), key=_prog_sort_key) if use else [],"removed": before - after})
+#    return {"auto_races": auto_races, "manual_races": manual_races}, details
+#
+## ---------- Cards ----------
+#def build_cards(iso_date):
+#    meets = fetch_meets(iso_date).get("meets", [])
+#    cards = {}; auto_lines=[]
+#    def only_digits(s: str) -> str: return re.sub(r"\D", "", s or "")
+#    for m in meets:
+#        track = g(m,"track_name","track","name") or "Track"
+#        if track not in MAJOR_TRACKS: continue
+#        mid = g(m,"meet_id","id","meetId")
+#        if not mid: continue
+#        try:
+#            entries = fetch_entries(mid)
+#            races = entries.get("races") or entries.get("entries") or []
+#            for r_idx, r in enumerate(races, 1):
+#                r["runners"]=r.get("runners") or r.get("entries") or r.get("horses") or r.get("starters") or []
+#                for rr in r["runners"]:
+#                    if is_scratched_runner(rr): rr["scratched"]=True
+#                rno_raw = g(r,"race_number","race","number","raceNo") or r_idx
+#                try: rno = int(re.sub(r"[^\d]","", str(rno_raw)))
+#                except: rno = r_idx
+#                scr_prog=[prg_num(x) for x in r["runners"] if x.get("scratched")]
+#                scr_prog=[n for n in scr_prog if n]
+#                if scr_prog:
+#                    nums_sorted = sorted(scr_prog, key=lambda z: int(only_digits(z) or "0"))
+#                    nums_str = ", ".join(nums_sorted)
+#                    auto_lines.append(f"{track}|{rno}|{nums_str}")
+#            if races: cards[track] = races
+#        except Exception as e:
+#            log(f"Entries fetch failed for {track}: {e}")
+#    if auto_lines:
+#        p = IN_DIR / f"scratches_AUTO_{iso_date}.txt"
+#        p.write_text("# Auto-scratches\n" + "\n".join(auto_lines) + "\n", encoding="utf-8")
+#        log(f"wrote auto scratches -> {p}")
+#    return cards, auto_lines
+#
+#def build_cards_and_scratches(iso_date):
+#    cards, auto_lines = build_cards(iso_date)
+#    save_scratch_template(iso_date, cards)
+#    manual_scr = load_manual_scratches(iso_date)
+#    auto_scr_map = defaultdict(lambda: defaultdict(set))
+#    for line in auto_lines:
+#        try:
+#            track, rno_s, progs = [x.strip() for x in line.split("|", 3)[:3]]
+#            rno = int(re.sub(r"[^\d]","", rno_s))
+#            lst=[p.strip() for p in progs.split(",") if p.strip()]
+#            for pnum in lst: auto_scr_map[track][rno].add(pnum)
+#        except: pass
+#    scr_summary, scr_details = apply_scratches(cards, auto_scr_map, manual_scr)
+#    auto_summary={"auto_count": sum(len(x.split('|')[2].split(',')) for x in auto_lines) if auto_lines else 0}
+#    return cards, scr_summary, auto_summary, scr_details
+#
+## ---------- WHY helpers ----------
+#def safe_mean(xs):
+#    try: return statistics.mean(xs) if xs else 0.0
+#    except: return 0.0
+#
+#def safe_pstdev(xs):
+#    try:
+#        if not xs or len(xs) <= 1: return 1.0
+#        s = statistics.pstdev(xs)
+#        return s if s > 1e-6 else 1.0
+#    except:
+#        return 1.0
+#
+#def zscore_list(xs):
+#    m = safe_mean(xs); s = safe_pstdev(xs)
+#    return [ (x - m) / s for x in xs ]
+#
+#def percentile_from_rank(values, i):
+#    if not values: return 50
+#    n = len(values)
+#    if n == 1: return 50
+#    order = sorted(values)
+#    v = values[i]
+#    k = sum(1 for x in order if x <= v)
+#    pct = int(round(100.0 * (k-0.5) / n))
+#    return max(1, min(99, pct))
+#
+#def arrow_for_pct(p):
+#    if p >= 67: return "↑"
+#    if p >= 55: return "↗"
+#    if p > 45:  return "→"
+#    if p >= 33: return "↘"
+#    return "↓"
+#
+#def why_feature_pack(track: str, rc: dict, runners: list[dict]):
+#    surf = get_surface(rc); yards = get_distance_y(rc)
+#    key  = build_bucket_key(track, surf, yards)
+#    par  = MODEL.get("pars",{}).get(key, {"spd":80.0,"cls":70.0})
+#
+#    speed = [get_speed(r) or 0.0 for r in runners]
+#    klass = [get_class(r) or 0.0 for r in runners]
+#    sf_raw   = [ (sp - par["spd"])/25.0 + (cl - par["cls"])/20.0 for sp,cl in zip(speed,klass) ]
+#    class_raw= [ (cl - par["cls"])/20.0 for cl in klass ]
+#    bias_raw = [ _post_bias(track, surf, yards, prg_num(r)) for r in runners ]
+#
+#    sf_z   = zscore_list(sf_raw)
+#    cls_z  = zscore_list(class_raw)
+#    bias_z = zscore_list(bias_raw)
+#
+#    sf_pct   = [percentile_from_rank(sf_z, i)   for i in range(len(runners))]
+#    cls_pct  = [percentile_from_rank(cls_z, i)  for i in range(len(runners))]
+#    bias_pct = [percentile_from_rank(bias_z, i) for i in range(len(runners))]
+#
+#    why=[]; tips=[]
+#    for i in range(len(runners)):
+#        why.append(f"SpeedForm {arrow_for_pct(sf_pct[i])} ({sf_pct[i]} pct), "
+#                   f"ClassΔ {arrow_for_pct(cls_pct[i])} ({cls_pct[i]} pct), "
+#                   f"Bias {arrow_for_pct(bias_pct[i])} ({bias_pct[i]} pct)")
+#        tips.append(f"SpeedForm {sf_z[i]:+0.2f}σ • ClassΔ {cls_z[i]:+0.2f}σ • Bias {bias_z[i]:+0.2f}σ")
+#    return why, tips
+#
+## ---------- HTML helpers ----------
+#def edge_color(p, dec):
+#    imp = implied_from_dec(dec)
+#    if imp is None: return ""
+#    ed = p - imp
+#    if ed <= 0: return ""
+#    s = max(0.0, min(1.0, ed*100/8.0))
+#    return f"background-color: rgba(40,200,80,{0.10 + 0.15*s:.2f});"
+#
+#def debug_tags_for_runner(r):
+#    tags=[]
+#    if (get_speed(r) or 0)>=95: tags.append("Spd↑")
+#    if (get_class(r) or 0)>=90: tags.append("Cls↑")
+#    if (get_trainer_win(r) or 0)>=18: tags.append("Trn↑")
+#    if (get_jockey_win(r) or 0)>=18: tags.append("Jky↑")
+#    if (get_combo_win(r) or 0)>=20: tags.append("TJ↑")
+#    tags.append(pace_style(r))
+#    return " ".join(tags) or "—"
+#
+#def build_report(cards, iso_date, scr_summary, auto_summary, scr_details=None):
+#    daily_cap_amt = DAILY_EXPOSURE_CAP * BANKROLL
+#    parts=[f"""<!doctype html><html><head><meta charset="utf-8"><title>{VERSION} — {iso_date}</title>
+#<style>
+#body{{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}}
+#table{{border-collapse:collapse;width:100%;margin:12px 0}}
+#th,td{{border:1px solid #ddd;padding:6px 8px;text-align:left;font-size:14px}}
+#th{{background:#f3f3f3}} .mono{{font-variant-numeric:tabular-nums}} .small{{color:#666;font-size:12px}} 
+#.bet{{background:#eef9f0}} .sub{{color:#555}}
+#</style></head><body>"""]
+#    parts.append(f"<h1>{VERSION} <span class='small'>({iso_date})</span></h1>")
+#    parts.append(f"<p class='small'>Scratches — auto races: {scr_summary.get('auto_races',0)}, manual races: {scr_summary.get('manual_races',0)} • Daily cap: ${int(daily_cap_amt):,}</p>")
+#
+#    if scr_details:
+#        parts.append("<h2>Scratch Report</h2>")
+#        parts.append("<table><thead><tr><th>Track</th><th>Race</th><th>Source</th><th>Program #</th><th>Removed</th></tr></thead><tbody>")
+#        for row in sorted(scr_details, key=lambda x:(x['track'].lower(), x['race'])):
+#            progs = ", ".join(row["programs"]) if row["programs"] else "—"
+#            parts.append(f"<tr><td>{html.escape(row['track'])}</td>"
+#                         f"<td>{row['race']}</td>"
+#                         f"<td>{(row['source'] or '—').upper()}</td>"
+#                         f"<td class='mono'>{progs}</td>"
+#                         f"<td class='mono'>{row['removed']}</td></tr>")
+#        parts.append("</tbody></table>")
+#
+#    prime_board=[]; action_board=[]; full_sections=[]
+#    daily_spent = 0.0
+#
+#    for track, races in cards.items():
+#        for idx, rc in enumerate(races,1):
+#            rno=str(race_num(rc, idx))
+#            rid=str(g(rc,"race_id","id","raceId","raceID") or "")
+#
+#            runners = (rc.get("runners") or rc.get("entries") or [])
+#            runners = [r for r in runners if not r.get("scratched") and not is_scratched_runner(r)]
+#            if not runners: continue
+#
+#            cond=fetch_condition(rid) if rid else {"cond":"", "takeout":None}
+#            oh=fetch_odds_history(rid) if rid else {}
+#            wp=fetch_willpays(rid) if rid else {"impl":{}, "win_pool": None}
+#            eq_all=fetch_equipment(rid) if rid else {}
+#            sect=fetch_fractions(rid) if rid else {"pressure":0.0,"meltdown":0.0}
+#            if not sect or sect.get("pressure") is None: sect = pseudo_pace(runners)
+#            exotic = fetch_exotic_signal(rid, runners) if rid else {}
+#
+#            market=[]; market_probs=[]
+#            for r in runners:
+#                pr=prg_num(r)
+#                mkt=(live_decimal(r) if USE_LIVE else None)
+#                implied=wp.get("impl",{}).get(pr,None)
+#                if implied and implied>0:
+#                    dec_from_wp = 1.0/max(0.01,min(0.99, implied))
+#                    mkt = dec_from_wp if not mkt or mkt<=1 else min(mkt, dec_from_wp)
+#                market.append(mkt)
+#                market_probs.append((1.0/mkt) if (mkt and mkt>1) else None)
+#
+#            extras={"cond":cond,"sect":sect,"eq":eq_all,"exotic":exotic,"oh":oh}
+#            p_model = probabilities_from_model_only(track, rc, runners, extras=extras)
+#            m2p = get_minutes_to_post(rc) or 30.0
+#            p_final = blend_with_market_if_present(p_model, market_probs, m2p)
+#
+#            field=get_field_size(rc) or len(runners) 
+#            late_slope = max((v.get("slope10",0.0) for v in oh.values()), default=0.0) if oh else 0.0
+#            var_mean = statistics.mean([v.get("var",0.0) for v in oh.values()]) if oh else 0.0
+#
+#            # Why (per race)
+#            why_strings, why_tips = why_feature_pack(track, rc, runners)
+#
+#            # mini flags
+#            ps = [pace_style(r) for r in runners]
+#            nE = ps.count("E"); nEP = ps.count("EP")
+#            rail = get_rail(rc) or 0.0
+#            surface = get_surface(rc)
+#            is_turf_railwide = ("turf" in surface) and (rail >= 20.0)
+#            pressure = float(sect.get("pressure") or 0.0)
+#            meltdown = float(sect.get("meltdown") or 0.0)
+#
+#            enriched=[]
+#            for idx_r,(r,pM,pF,dec) in enumerate(zip(runners, p_model, p_final, market)):
+#                fair,minp=fair_and_minprice(pF, field=field, takeout=cond.get("takeout"), cond=cond.get("cond"))
+#                imp = implied_from_dec(dec) if dec else None
+#
+#                mf=[ps[idx_r]]
+#                if is_turf_railwide: mf.append("RailWide")
+#                if ps[idx_r]=="E" and nE==1 and nEP<=1: mf.append("LoneE")
+#                if ps[idx_r]=="E" and nE>=3: mf.append("E-Herd")
+#                if ps[idx_r]=="S" and meltdown>=0.25: mf.append("Closer+Meltdown")
+#                if pressure<=0.20 and ps[idx_r] in ("E","EP"): mf.append("SoftPace")
+#                enriched.append({
+#                    "num": prg_num(r) or "",
+#                    "name": horse_name(r),
+#                    "p_model": pM,
+#                    "p_final": pF,
+#                    "fair": fair,
+#                    "minp": minp,
+#                    "market": dec,
+#                    "imp": imp,
+#                    "edge": None,
+#                    "bet": 0.0,
+#                    "board": "",
+#                    "flags": "",
+#                    "mini": " ".join(mf),
+#                    "tags": debug_tags_for_runner(r),
+#                    "why": why_strings[idx_r],
+#                    "why_tip": why_tips[idx_r],
+#                })
+#
+#            # decide stakes (PRIME dutch first, then optional ACTION)
+#            flags_out = {}
+#            stakes = dutch_overlays(
+#                enriched=enriched,
+#                bankroll=BANKROLL,
+#                field_size=field,
+#                late_slope_max=late_slope,
+#                odds_var_mean=var_mean,
+#                m2p=m2p,
+#                kelly_cap=KELLY_CAP,
+#                max_per=MAX_BET_PER_HORSE,
+#                min_stake=MIN_STAKE,
+#                daily_room=(DAILY_EXPOSURE_CAP*BANKROLL - daily_spent),
+#                flags_out=flags_out,
+#            )
+#            if stakes:
+#                for i, st in stakes:
+#                    enriched[i]["bet"] = st
+#                    enriched[i]["board"] = "PRIME"
+#                    if flags_out.get(i):
+#                        enriched[i]["flags"] = flags_out[i]
+#                daily_spent += sum(st for _, st in stakes)
+#
+#            if not stakes and daily_spent < DAILY_EXPOSURE_CAP*BANKROLL:
+#                # single ACTION play if it clears minimums
+#                best_idx = None
+#                best_score = -1.0
+#                for i, it in enumerate(enriched):
+#                    dec = it["market"]; p = it["p_final"]; imp = it.get("imp", None)
+#                    if not dec or dec < it["minp"]: 
+#                        continue
+#                    if p >= ACTION_PCT_FLOOR and it["bet"] <= 0:
+#                        edge_pp = (p - (imp or 0.0))*100.0 if imp is not None else None
+#                        if edge_pp is None or edge_pp < EDGE_PP_MIN_ACTION:
+#                            continue
+#                        ed = overlay_edge(p, dec)
+#                        sc = (ed or 0) * p
+#                        if sc > best_score:
+#                            best_score = sc
+#                            best_idx = i
+#                if best_idx is not None and ACTION_MAX_PER > 0:
+#                    room = max(0.0, DAILY_EXPOSURE_CAP*BANKROLL - daily_spent)
+#                    stake = min(ACTION_MAX_PER, room, 200.0)
+#                    if stake >= 50.0:
+#                        enriched[best_idx]["bet"] = stake
+#                        enriched[best_idx]["board"] = "ACTION"
+#                        daily_spent += stake
+#
+#            # feed PRIME/ACTION boards (top 3 rows per race)
+#            take_rows = sorted(enriched, key=lambda x: (-x["bet"], -x["p_final"]))[:3]
+#            for it in take_rows:
+#                row = {
+#                    "track": track,
+#                    "race": rno,
+#                    "num": it["num"],
+#                    "name": it["name"],
+#                    "p": it["p_final"],
+#                    "imp": it["imp"],
+#                    "edge": (it["p_final"] - (it["imp"] or 0)) if it["imp"] is not None else None,
+#                    "fair": it["fair"],
+#                    "minp": it["minp"],
+#                    "market": it["market"],
+#                    "bet": it["bet"],
+#                    "board": it["board"],
+#                    "flags": it.get("flags", ""),
+#                    "why": it["why"],
+#                    "why_tip": it["why_tip"],
+#                    "mini": it["mini"],
+#                }
+#                if row["board"] == "PRIME":
+#                    prime_board.append(row)
+#                elif row["board"] == "ACTION":
+#                    action_board.append(row)
+#
+#            # ===== Full race table (no ML column) =====
+#            rows = [f"<h3>{html.escape(track)} — Race {html.escape(str(rno))}</h3>"]
+#            rows.append(
+#                "<table><thead><tr>"
+#                "<th>#</th><th>Horse</th><th>Win% (Final)</th><th>Market%</th><th>Edge</th>"
+#                "<th>Fair</th><th>Min Price</th><th>Market</th><th>Flags</th><th>Bet</th>"
+#                "</tr></thead><tbody>"
+#            )
+#            for it in enriched:
+#                style = edge_color(it["p_final"], it["market"])
+#                imp_pct = (it["imp"] * 100.0 if it["imp"] is not None else None)
+#                edge_pp = ((it["p_final"] - (it["imp"] or 0)) * 100.0) if it["imp"] is not None else None
+#                why_html = f"<span class='sub' title='{html.escape(it['why_tip'])}'>{html.escape(it['why'])}</span>"
+#                flags_cell = " ".join(filter(None, [it.get("board",""), it.get("flags",""), it.get("mini","")])) or "—"
+#                rows.append(
+#                    f"<tr{' class=bet' if it['bet']>0 else ''} style='{style}'>"
+#                    f"<td class='mono'>{html.escape(it['num'])}</td>"
+#                    f"<td>{html.escape(it['name'])} <span class='small'>{html.escape(it['tags'])}</span><br>{why_html}</td>"
+#                    f"<td class='mono'><b>{it['p_final']*100:0.1f}%</b></td>"
+#                    f"<td class='mono'>{(imp_pct is not None and f'{imp_pct:0.1f}%') or '—'}</td>"
+#                    f"<td class='mono'>{(edge_pp is not None and f'{edge_pp:+0.1f} pp') or '—'}</td>"
+#                    f"<td class='mono'>{odds_formats(it['fair'])}</td>"
+#                    f"<td class='mono'>{odds_formats(it['minp'])}</td>"
+#                    f"<td class='mono'>{odds_formats(it['market'])}</td>"
+#                    f"<td class='mono'>{html.escape(flags_cell)}</td>"
+#                    f"<td class='mono'>{('$'+format(int(it['bet']),',d')) if it['bet']>0 else '—'}</td>"
+#                    f"</tr>"
+#                )
+#            rows.append("</tbody></table>")
+#            full_sections.append("\n".join(rows))
+#
+#    # ===== Summaries =====
+#    def race_int(x):
+#        try:
+#            return int(re.sub(r"[^\d]", "", str(x)) or "0")
+#        except Exception:
+#            return 0
+#
+#    prime_board.sort(key=lambda x: (x["track"].lower(), race_int(x["race"]), -x["bet"], -x["p"]))
+#    action_board.sort(key=lambda x: (x["track"].lower(), race_int(x["race"]), -x["bet"], -x["p"]))
+#
+#    def render_grouped_board(title, board_rows):
+#        parts.append(f"<h2>{html.escape(title)}</h2>")
+#        buckets = {}
+#        for t in board_rows[:100]:
+#            buckets.setdefault(t["track"], []).append(t)
+#        order = sorted(buckets.items(), key=lambda kv: (-sum(x["bet"] for x in kv[1]), kv[0].lower()))
+#        if not order:
+#            parts.append("<p class='small'>No plays met criteria.</p>")
+#            return
+#        for track_name, rows in order:
+#            parts.append(f"<h3 style='margin:10px 0 6px'>{html.escape(track_name)}</h3>")
+#            parts.append(
+#                "<table><thead><tr>"
+#                "<th>Race</th><th>#</th><th>Horse</th><th>Win%</th>"
+#                "<th>Market%</th><th>Edge</th><th>Fair</th>"
+
+
+# ----------------- SAFE TAIL (autofix) -----------------
+from pathlib import Path
+import datetime
+
+def _implied_from_dec(dec):
+    try:
+        d = float(dec)
+        return 1.0 / d if d > 1.0 else None
+    except Exception:
+        return None
+
+def overlay_edge(p, dec):
+    imp = _implied_from_dec(dec)
+    return None if imp is None else (p - imp)
+
+def kelly_damped(p, dec, field_size, late_slope_max, odds_var_mean, minutes_to_post):
+    """Conservative Kelly with guards; never negative."""
+    try:
+        if not dec or float(dec) <= 1.0:
+            return 0.0
+        b = float(dec) - 1.0
+        p = float(p); q = 1.0 - p
+        f = (p*b - q) / (b if b != 0.0 else 1e-9)
+        if f < 0.0: f = 0.0
+    except Exception:
+        return 0.0
+
+    ent = 1.0
+    try:
+        if field_size and field_size > 8:
+            ent = max(0.6, 1.0 - 0.02 * (field_size - 8))
+    except Exception:
+        pass
+
+    lm = 1.0
+    try:
+        if late_slope_max and late_slope_max > 0.2: lm *= 0.85
+        if odds_var_mean and odds_var_mean > 4.0:   lm *= 0.85
+        if minutes_to_post is not None and minutes_to_post < 5: lm *= 0.90
+    except Exception:
+        pass
+
+    return f * ent * lm
+
+def dutch_overlays(enriched, bankroll, field_size, late_slope_max, odds_var_mean, m2p,
+                   kelly_cap, max_per, min_stake, daily_room, flags_out):
+    """Win-bet allocator (simple, safe). Returns list[(idx, stake)]."""
+    cand = []
+    for i, it in enumerate(enriched):
+        p    = it.get("p_final")
+        dec  = it.get("market")
+        minp = it.get("minp", 0.0)
+        if p is None or dec is None:        continue
+        if p < minp:                         continue
+        ed = overlay_edge(p, dec)
+        if ed is None or ed <= 0:            continue
+        it["edge"] = ed
+        f = kelly_damped(p, dec, field_size, late_slope_max, odds_var_mean, m2p)
+        if f <= 0:                           continue
+        w = (f ** 1.25) * max(0.01, ed)
+        cand.append((i, f, w, p))
+
+    if not cand:
+        return []
+
+    w_sum = sum(w for _,_,w,_ in cand) or 1e-9
+    stakes = []
+    for i, f, w, _ in cand:
+        frac  = (w / w_sum) * float(kelly_cap)
+        stake = float(bankroll) * frac
+        if stake >= float(min_stake):
+            stakes.append((i, min(float(max_per), stake)))
+
+    if not stakes:
+        return []
+
+    planned = sum(st for _, st in stakes)
+    room = max(0.0, float(daily_room))
+    if room > 0 and planned > room:
+        scale = room / planned
+        scaled = [(i, st*scale) for i, st in stakes if st*scale >= float(min_stake)]
+        if scaled:
+            stakes = scaled
+        else:
+            top_i = max(cand, key=lambda t: t[3])[0]
+            stakes = [(top_i, min(room, float(min_stake)))]
+    return stakes
+
+# -------------------- MAIN EXECUTION (autofix) --------------------
+if __name__ == "__main__":
+    try:
+        iso_today = datetime.date.today().isoformat()
+        cards = fetch_cards(iso_today)
+        auto_scr = load_auto_scratches(iso_today) if 'load_auto_scratches' in globals() else {}
+        manual_scr = load_manual_scratches(iso_today) if 'load_manual_scratches' in globals() else {}
+        if 'apply_scratches' in globals():
+            scr_summary, scr_details = apply_scratches(cards, auto_scr, manual_scr)
+        else:
+            scr_summary, scr_details = {}, []
+
+        html_out = build_report(cards, iso_today, scr_summary, auto_scr, scr_details)
+
+        out_dir = Path(BASE_DIR) / "outputs"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{iso_today}_horses_targets+full.html"
+        out_path.write_text(html_out, encoding="utf-8")
+        print(f"[ok] Wrote {out_path}")
+    except Exception as e:
+        print(f"[FATAL] build report failed: {e}")
+        raise

@@ -1,0 +1,8 @@
+[ENV] RUN_DATE=2025-09-20 FAST=1 α=1.30 sharp=1
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 434, in <module>
+    _write_board(di)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 361, in _write_board
+    p3=x["bias_pct"],
+KeyError: 'bias_pct'
+[OK] board: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/latest-board.html

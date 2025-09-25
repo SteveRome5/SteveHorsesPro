@@ -1,0 +1,11 @@
+[launcher] start Tue Sep  9 15:20:07 PDT 2025
+[launcher] BASE:   /Users/stephenjerome/Desktop/SteveHorsesPro
+[launcher] SCRIPT: /Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py
+[launcher] python: /usr/bin/python3
+Python 3.9.6
+5a21ac16905cb8e211eaff5f08b9d036afb5557832bdcde7e57cd81ad601f7df  /Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py
+[launcher] script exit code: 0
+[launcher] output html: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html
+ls: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html: No such file or directory
+The file /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-09_horses_targets+full.html does not exist.
+[launcher] done Tue Sep  9 15:20:07 PDT 2025

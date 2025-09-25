@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorses/steve_horses_board.py", line 68, in <module>
+    KNOWN_TRACK_COORDS={{"Saratoga": (43.083, -73.785),"Del Mar": (32.973, -117.259),"Santa Anita": (34.136, -118.039),"Gulfstream Park": (25.981, -80.143),"Keeneland": (38.040, -84.605)}}
+TypeError: unhashable type: 'dict'

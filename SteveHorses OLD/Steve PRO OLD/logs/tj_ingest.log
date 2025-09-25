@@ -1,0 +1,11 @@
+[2025-09-17 22:47:40] GET fail /v1/north-america/meets/ALB_1757822400000/races/1/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/1/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:47:45] GET fail /v1/north-america/meets/ALB_1757822400000/races/2/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/2/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:47:50] GET fail /v1/north-america/meets/ALB_1757822400000/races/3/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/3/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:47:55] GET fail /v1/north-america/meets/ALB_1757822400000/races/4/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/4/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:48:00] GET fail /v1/north-america/meets/ALB_1757822400000/races/5/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/5/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:48:06] GET fail /v1/north-america/meets/ALB_1757822400000/races/6/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/6/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:48:11] GET fail /v1/north-america/meets/ALB_1757822400000/races/7/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/7/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:48:15] GET fail /v1/north-america/meets/ALB_1757822400000/races/8/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/8/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:48:20] GET fail /v1/north-america/meets/ALB_1757822400000/races/9/results?session=D: GET /v1/north-america/meets/ALB_1757822400000/races/9/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:48:26] GET fail /v1/north-america/meets/ARP_1757822400000/races/1/results?session=D: GET /v1/north-america/meets/ARP_1757822400000/races/1/results?session=D failed: HTTP Error 404: Not Found
+[2025-09-17 22:48:31] GET fail /v1/north-america/meets/ARP_1757822400000/races/2/results?session=D: GET /v1/north-america/meets/ARP_1757822400000/races/2/results?session=D failed: HTTP Error 404: Not Found

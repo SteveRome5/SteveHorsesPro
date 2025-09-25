@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 486, in <module>
+    main()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 483, in main
+    build_html(cards, chosen, factor_cov)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 393, in build_html
+    s, feats, (dec_ml, p_ml) = score_runner(rr, card, CARDS_CTX["stats"])
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 302, in score_runner
+    tr_win = stats["trainer"].get((trainer, track), [0,0]); tr_pct = tr_win[0]/tr_win[1] if tr_win[1]>10 else 0.0
+TypeError: unhashable type: 'dict'

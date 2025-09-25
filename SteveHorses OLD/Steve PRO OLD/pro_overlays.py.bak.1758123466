@@ -1,0 +1,267 @@
+# -*- coding: utf-8 -*-
+"""
+Lightweight overlays for SteveHorsesPro:
+- overlay_trainer_jockey (+ alias overlay_trainer_jockey_pulse)
+- overlay_pace_pressure (also returns race-level pace context)
+- overlay_cycle (no-op soft heuristic)
+- overlay_bias (no-op micro bias bump)
+- overlay_shipper (no-op micro bump)
+- apply_all_overlays() — orchestrates all overlays and returns:
+    (p_final, overlay_flags_per_runner, pace_ctx)
+Env toggles (default ON): TJ_ENABLE, CYCLE_ENABLE, PACE_ENABLE, BIAS_ENABLE, SHIP_ENABLE
+Each overlay applies multiplicative bumps then renormalizes.
+"""
+
+from __future__ import annotations
+import os, re, math, statistics
+from typing import List, Tuple, Dict, Any, Optional
+
+# ---------------- Utilities (self-contained) ----------------
+def g(d:dict, *ks, default=None):
+    for k in ks:
+        if isinstance(d, dict) and k in d and d[k] not in (None, "", "None"):
+            return d[k]
+    return default
+
+def _to_float(v, default=None):
+    try:
+        if v in (None, ""): return default
+        if isinstance(v, (int, float)): return float(v)
+        s = str(v).strip()
+        m = re.fullmatch(r"(\d+)\s*[/\-:]\s*(\d+)", s)
+        if m:
+            num, den = float(m.group(1)), float(m.group(2))
+            if den != 0: return num / den
+        return float(s)
+    except:
+        return default
+
+def prg_num(r)->str:
+    return str(g(r,"program_number","program","number","pp","post_position","horse_number","saddle","saddle_number") or "")
+
+def get_speed(r):      return _to_float(g(r,"speed","spd","best_speed","beyer","fig"), default=None)
+def get_early_pace(r): return _to_float(g(r,"pace","ep","early_pace","quirin","runstyle"), default=None)
+def get_late_pace(r):  return _to_float(g(r,"lp","late_pace","lateSpeed","finishing_kick"), default=None)
+
+def pace_style(r):
+    ep = get_early_pace(r) or 0.0
+    lp = get_late_pace(r)  or 0.0
+    if ep - lp >= 8:   return "E"
+    if ep - lp >= 3:   return "EP"
+    if lp - ep >= 5:   return "S"
+    return "P"
+
+def _renorm(ps: List[float]) -> List[float]:
+    s = sum(ps)
+    return [p/s for p in ps] if s > 0 else ps
+
+def _clip01(x: float) -> float:
+    return max(1e-6, min(0.999, x))
+
+# Safely read win% fields that might come in different shapes
+def _trainer_pct(r) -> float:
+    v = g(r, "trainer_win_pct","trainerWinPct","trainer_win","trainerWin","trainer_win_percent","trainerWinPercent")
+    f = _to_float(v, None)
+    return float(f) if isinstance(f,(int,float)) else 0.0
+
+def _jockey_pct(r) -> float:
+    v = g(r, "jockey_win_pct","jockeyWinPct","jockey_win","jockeyWin","jockey_win_percent","jockeyWinPercent")
+    f = _to_float(v, None)
+    return float(f) if isinstance(f,(int,float)) else 0.0
+
+def _combo_pct(r) -> float:
+    v = g(r, "tj_win","combo_win","trainer_jockey_win_pct","trainerJockeyWinPct")
+    f = _to_float(v, None)
+    return float(f) if isinstance(f,(int,float)) else 0.0
+
+# ---------------- Overlays ----------------
+def overlay_trainer_jockey(track: str, surface: str, rail: float, runners: List[dict], p_in: List[float]) -> Tuple[List[float], List[str]]:
+    """
+    Flags like "TJ: Trn19 Jky22 Combo" and soft bumps for hot combos.
+    Bump recipe (gentle):
+      base = 1 + 0.004*(Tr-14) + 0.003*(Jk-14) + 0.002*(TJ-18), only positive terms used.
+      cap multiplicative bump in [0.97 .. 1.06] to avoid distortions.
+    """
+    if not runners or not p_in: 
+        return p_in, [""] * len(runners)
+
+    out = list(p_in)
+    flags = []
+    mults = []
+    for i, r in enumerate(runners):
+        tr = _trainer_pct(r)
+        jk = _jockey_pct(r)
+        tj = _combo_pct(r)
+
+        # Build flag
+        bits = []
+        if tr: bits.append(f"Trn{int(round(tr))}")
+        if jk: bits.append(f"Jky{int(round(jk))}")
+        if tj: bits.append("Combo")
+        flag = ("TJ: " + " ".join(bits)) if bits else ""
+
+        # Multiplicative bump (only on above-baseline signal)
+        bump = 1.0
+        if tr > 14: bump += 0.004 * (tr - 14)
+        if jk > 14: bump += 0.003 * (jk - 14)
+        if tj > 18: bump += 0.002 * (tj - 18)
+        bump = max(0.97, min(1.06, bump))  # keep gentle
+        mults.append(bump)
+        flags.append(flag)
+
+    # Apply bumps then renormalize
+    out = [_clip01(p * m) for p, m in zip(out, mults)]
+    out = _renorm(out)
+    return out, flags
+
+# Legacy alias used in some older calls
+def overlay_trainer_jockey_pulse(track: str, surface: str, rail: float, runners: List[dict], p_in: List[float]):
+    return overlay_trainer_jockey(track, surface, rail, runners, p_in)
+
+def overlay_pace_pressure(track: str, surface: str, rail: float, runners: List[dict], p_in: List[float]) -> Tuple[List[float], List[str], Dict[str, float]]:
+    """
+    Very stable pace overlay:
+      - Compute simple pressure metric from count of E/EP vs field.
+      - If one clear E (LoneE) and few EP, give E a tiny bump; heavy E-herd -> trim E a tad, nudge closers.
+    Returns (p_out, flags, pace_ctx={pressure, meltdown})
+    """
+    if not runners or not p_in:
+        return p_in, [""] * len(runners), {"pressure": 0.0, "meltdown": 0.0}
+
+    styles = [pace_style(r) for r in runners]
+    n = len(styles)
+    nE  = styles.count("E")
+    nEP = styles.count("EP")
+    pressure = (nE + 0.6*nEP) / max(1, n)  # 0..~2
+    meltdown = max(0.0, (nE - 2)) / max(1, n)  # crude “too many front” flag
+
+    flags = ["" for _ in runners]
+    mults = [1.0] * n
+
+    if nE == 1 and nEP <= 1:
+        # Lone speed — light boost
+        for i, s in enumerate(styles):
+            if s == "E":  mults[i] *= 1.04
+            if s == "S":  mults[i] *= 0.99
+            flags[i] = ((flags[i] + " LoneE").strip())
+    elif nE >= 3:
+        # Speed herd — small trim to pure E, tiny nudge to S
+        for i, s in enumerate(styles):
+            if s == "E": mults[i] *= 0.985
+            if s == "S": mults[i] *= 1.012
+        for i in range(n):
+            flags[i] = ((flags[i] + " E-Herd").strip())
+
+    out = [_clip01(p * m) for p, m in zip(p_in, mults)]
+    out = _renorm(out)
+    return out, flags, {"pressure": float(pressure), "meltdown": float(meltdown)}
+
+def overlay_cycle(track: str, surface: str, rail: float, runners: List[dict], p_in: List[float]) -> Tuple[List[float], List[str]]:
+    """
+    Placeholder cycle angle (days-since-run not always present in overlay scope).
+    Gentle randomness-free adjustment based on speed fig tails.
+    """
+    if not runners or not p_in:
+        return p_in, [""] * len(runners)
+    spd = [get_speed(r) or 0.0 for r in runners]
+    if not any(spd): return p_in, [""] * len(runners)
+    m = statistics.mean(spd); s = statistics.pstdev(spd) or 1.0
+    mults = [1.0 + 0.006*max(-2.0, min(2.0, (x-m)/s)) for x in spd]
+    out = [_clip01(p * mlt) for p, mlt in zip(p_in, mults)]
+    out = _renorm(out)
+    flags = ["Cycle" if abs((x-m)/(s or 1.0)) >= 1.0 else "" for x in spd]
+    return out, flags
+
+def overlay_bias(track: str, surface: str, rail: float, runners: List[dict], p_in: List[float]) -> Tuple[List[float], List[str]]:
+    """
+    Micro bias placeholder:
+      - If turf & rail is very wide (>=20), small nudge to outside posts (we don't have posts here, so tag only).
+    """
+    if not runners or not p_in:
+        return p_in, [""] * len(runners)
+    is_turf = ("turf" in (surface or "").lower())
+    flags = []
+    mults = []
+    for _ in runners:
+        if is_turf and (float(rail or 0.0) >= 20.0):
+            flags.append("RailWide")
+            mults.append(1.005)
+        else:
+            flags.append("")
+            mults.append(1.0)
+    out = [_clip01(p * m) for p, m in zip(p_in, mults)]
+    out = _renorm(out)
+    return out, flags
+
+def overlay_shipper(track: str, surface: str, rail: float, runners: List[dict], p_in: List[float]) -> Tuple[List[float], List[str]]:
+    """
+    Minimal shipper placeholder (no external data): no-op but leaves a tag hook.
+    """
+    return p_in, [""] * len(runners)
+
+# ---------------- Orchestrator ----------------
+def apply_all_overlays(
+    track: str,
+    surface: str,
+    rail: float,
+    runners: List[dict],
+    p_after_horse_db: List[float],
+) -> Tuple[List[float], List[str], Dict[str, float]]:
+    """
+    Runs overlays in sequence and merges flags:
+      p0 -> TJ -> Cycle -> Pace -> Bias -> Shipper
+    Returns (p_final, overlay_flags_per_runner, pace_ctx).
+    Env toggles (default ON unless explicitly "0"):
+      TJ_ENABLE, CYCLE_ENABLE, PACE_ENABLE, BIAS_ENABLE, SHIP_ENABLE
+    """
+    n = len(runners) if runners else 0
+    if n == 0:
+        return p_after_horse_db, [], {"pressure": 0.0, "meltdown": 0.0}
+
+    flags = [""] * n
+    def merge_flags(cur, add):
+        cur = cur.strip()
+        add = add.strip()
+        if not add: return cur
+        if not cur: return add
+        # Avoid duplicates
+        cur_set = set(cur.split())
+        add_set = set(add.split())
+        if add_set.issubset(cur_set): 
+            return cur
+        return (cur + " " + add).strip()
+
+    p = list(p_after_horse_db)
+    pace_ctx = {"pressure": 0.0, "meltdown": 0.0}
+
+    # 1) Trainer/Jockey
+    if (os.getenv("TJ_ENABLE", "1") != "0"):
+        p, tj_flags = overlay_trainer_jockey(track, surface, rail, runners, p)
+        flags = [merge_flags(flags[i], tj_flags[i]) for i in range(n)]
+
+    # 2) Cycle
+    if (os.getenv("CYCLE_ENABLE", "1") != "0"):
+        p, cy_flags = overlay_cycle(track, surface, rail, runners, p)
+        flags = [merge_flags(flags[i], cy_flags[i]) for i in range(n)]
+
+    # 3) Pace pressure (also provides ctx)
+    if (os.getenv("PACE_ENABLE", "1") != "0"):
+        p, pc_flags, ctx = overlay_pace_pressure(track, surface, rail, runners, p)
+        pace_ctx = ctx or pace_ctx
+        flags = [merge_flags(flags[i], pc_flags[i]) for i in range(n)]
+
+    # 4) Bias
+    if (os.getenv("BIAS_ENABLE", "1") != "0"):
+        p, bi_flags = overlay_bias(track, surface, rail, runners, p)
+        flags = [merge_flags(flags[i], bi_flags[i]) for i in range(n)]
+
+    # 5) Shipper
+    if (os.getenv("SHIP_ENABLE", "1") != "0"):
+        p, sh_flags = overlay_shipper(track, surface, rail, runners, p)
+        flags = [merge_flags(flags[i], sh_flags[i]) for i in range(n)]
+
+    # Final clip & renorm
+    p = [_clip01(x) for x in p]
+    p = _renorm(p)
+
+    return p, flags, pace_ctx

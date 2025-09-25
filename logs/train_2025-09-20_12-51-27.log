@@ -1,0 +1,18 @@
+[ENV] date=2025-09-20 majors='Aqueduct Racetrack,Belmont at the Big A,Belmont Park,Saratoga Race Course,Churchill Downs,Keeneland,Gulfstream Park,Santa Anita Park,Del Mar,Oaklawn Park,Fair Grounds,Parx Racing,Woodbine,Monmouth Park,Tampa Bay Downs,Kentucky Downs' minors=0 alpha=1.30
+[horse-db] schema OK
+[train] start (days_back=120, min_rows=160)
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_train.py", line 754, in <module>
+    main()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_train.py", line 732, in main
+    run_harvest(args.days_back, args.harvest_dates, args.all_tracks, backfill=args.backfill)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_train.py", line 712, in run_harvest
+    total += harvest_one_day(d.isoformat(), all_tracks=all_tracks)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_train.py", line 344, in harvest_one_day
+    winners, off_odds = _winners_and_off(rc, rid)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_train.py", line 333, in _winners_and_off
+    for it in (fin.get("finishers") or fin.get("results") or fin.get("runners") or []):
+AttributeError: 'NoneType' object has no attribute 'get'
+[DONE] exit=1
+[MODEL] /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[LIVE ] models/model.json present? yes

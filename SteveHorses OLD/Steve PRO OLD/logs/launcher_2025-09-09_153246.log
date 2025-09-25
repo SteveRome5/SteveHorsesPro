@@ -1,0 +1,5 @@
+[FATAL] build report failed: name 'build_cards_and_scratches' is not defined
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 100, in <module>
+    cards, scr_summary, auto_summary, scr_details = build_cards_and_scratches(iso_today)
+NameError: name 'build_cards_and_scratches' is not defined

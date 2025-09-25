@@ -1,0 +1,18 @@
+==============================================
+ Steve Horses Pro — FAST launcher
+ Started: 2025-09-19 15:10:33
+ Base:    /Users/stephenjerome/Desktop/SteveHorsesPro
+ Log:     /Users/stephenjerome/Desktop/SteveHorsesPro/logs/launch_2025-09-19_15-10-33.log
+==============================================
+
+[OK] Using python: /usr/bin/python3
+
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1734
+    partners = [f\"#{ex['b']}\" for ex in picks if ex.get(\"b\")]
+                                                                ^
+SyntaxError: unexpected character after line continuation character
+
+[DONE] python exit code: 1
+[OK] Report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-19_horses_targets+full.html  (85410 bytes)
+
+[FINISH] 2025-09-19 15:10:33  exit code: 1

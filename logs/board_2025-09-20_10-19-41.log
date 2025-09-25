@@ -1,0 +1,6 @@
+[ENV] RUN_DATE=2025-09-20 FAST=1 α=1.30 sharp=1
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 154
+    .format(
+    ^
+SyntaxError: invalid syntax
+[OK] board: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/latest-board.html

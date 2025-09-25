@@ -1,0 +1,4 @@
+[cwd] /Users/stephenjerome/Desktop/SteveHorsesPro
+[python] /usr/bin/python3
+[RUN] HARVEST start — Sun Sep 14 06:50:59 PDT 2025  days_back=1
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_harvest.py': [Errno 2] No such file or directory

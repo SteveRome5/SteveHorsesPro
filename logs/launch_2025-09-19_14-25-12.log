@@ -1,0 +1,33 @@
+==============================================
+ Steve Horses Pro — FAST launcher
+ Started: 2025-09-19 14:25:12
+ Base:    /Users/stephenjerome/Desktop/SteveHorsesPro
+ Log:     /Users/stephenjerome/Desktop/SteveHorsesPro/logs/launch_2025-09-19_14-25-12.log
+==============================================
+
+[OK] Using python: /usr/bin/python3
+
+[RUN] 2025-09-19 14:25:12  running steve_horses_pro.py (FAST=1)
+[RUN] building for 2025-09-19
+[CARDS] pass1 -> tracks=5 races=46
+[FATAL] build report failed: 'list' object has no attribute 'get'
+[fallback] Last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-19_horses_targets+full.html
+[RUN] building for 2025-09-19
+[CARDS] pass1 -> tracks=5 races=46
+[FATAL] build report failed: 'list' object has no attribute 'get'
+[fallback] Last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-19_horses_targets+full.html
+[RUN] building for 2025-09-19
+[CARDS] pass1 -> tracks=5 races=46
+[FATAL] build report failed: 'list' object has no attribute 'get'
+[fallback] Last good report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-19_horses_targets+full.html
+
+[DONE] python exit code: 0
+
+[OK] Report path: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-19_horses_targets+full.html (size: 201775 bytes)
+[OK] Opening report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-19_horses_targets+full.html
+
+Finished: 2025-09-19 14:26:10
+==============================================
+
+[FINISH] 2025-09-19 14:26:10  exit code: 0
+Log saved to: /Users/stephenjerome/Desktop/SteveHorsesPro/logs/launch_2025-09-19_14-25-12.log

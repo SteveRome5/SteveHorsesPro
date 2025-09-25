@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 439
+    f"<td class='right mono'>{(r['fair_dec'] and f'{r["fair_dec"]:.2f}d') or '—'}</td>"
+                                                       ^
+SyntaxError: f-string: unterminated string

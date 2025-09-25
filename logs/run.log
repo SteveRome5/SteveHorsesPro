@@ -1,0 +1,35 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 376
+    fair_frac, min_frac, fair$, min$ = money_from_prob(p_ours)
+                             ^
+SyntaxError: invalid syntax
+[PF-35] Building for 2025-09-23 ...
+[2025-09-23 21:37:53] [pro] start PRO (safe) 2025-09-23
+[2025-09-23 21:37:53] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-23_horses_targets+full.html
+[PF-35] Failed. See /Users/stephenjerome/Desktop/SteveHorsesPro/logs/run.log
+[pro] no signals for 2025-09-24
+[2025-09-24 08:59:45] [pro] start PRO (safe) 2025-09-24
+[2025-09-24 08:59:45] [pro] no signals found for day; board will be empty
+[2025-09-24 08:59:45] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-24_horses_targets+full.html
+[2025-09-24 09:16:49] [pro] start PRO (safe) 2025-09-24
+[2025-09-24 09:17:03] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-24_horses_targets+full.html
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 467
+    ('—' if r['edge_pp'] is None else f'{r['edge_pp']*100:+.1f}%')
+                                              ^
+SyntaxError: f-string: f-string: unmatched '['
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 354
+    ('—' if r['edge_pp'] is None else f'{r['edge_pp']:+0.1f} pp')
+                                              ^
+SyntaxError: f-string: f-string: unmatched '['
+[2025-09-24 10:59:06] [pro] start PRO (safe) 2025-09-24
+[2025-09-24 10:59:08] [pro] wrote -> /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-24_horses_targets+full.html
+[2025-09-24 11:05:07] [pro] Starting ENHANCED PRO for 2025-09-24
+[2025-09-24 11:05:07] [modules] Available enhancements: db_horses, db_ticks, train, pro_pred, overlays
+[2025-09-24 11:05:07] [api] Fetching race cards...
+[2025-09-24 11:05:08] [http] fail https://api.theracingapi.com/v2/racecards?date=2025-09-24: HTTP Error 404: Not Found
+[2025-09-24 11:05:08] [http] fail https://api.theracingapi.com/v1/racecards?date=2025-09-24: HTTP Error 422: Unprocessable Entity
+[2025-09-24 11:05:08] [http] fail https://api.theracingapi.com/v1/cards?date=2025-09-24: HTTP Error 404: Not Found
+[2025-09-24 11:05:09] [http] fail https://api.theracingapi.com/racecards?date=2025-09-24: HTTP Error 404: Not Found
+[2025-09-24 11:05:09] [http] fail https://api.theracingapi.com/cards?date=2025-09-24: HTTP Error 404: Not Found
+[2025-09-24 11:05:09] [api] Failed after 1.8s, trying signals...
+[2025-09-24 11:05:09] [build_meets] Total time: 1.8s
+[2025-09-24 11:05:09] [pro] SUCCESS: wrote /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-24_horses_targets+full.html in 1.9s

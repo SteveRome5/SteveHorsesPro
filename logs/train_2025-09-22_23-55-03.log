@@ -1,0 +1,134 @@
+[ENV] date=2025-09-22 majors='Aqueduct Racetrack,Belmont at the Big A,Belmont Park,Saratoga Race Course,Churchill Downs,Keeneland,Gulfstream Park,Santa Anita Park,Del Mar,Oaklawn Park,Fair Grounds,Parx Racing,Woodbine,Monmouth Park,Tampa Bay Downs,Kentucky Downs' minors=0 alpha=1.30
+[horse-db] schema OK
+[train] start (days_back=120, min_rows=160)
+[harvest] 2025-05-25 -> 452 rows
+[harvest] 2025-05-26 -> 331 rows
+[harvest] 2025-05-27 -> 59 rows
+[harvest] 2025-05-28 -> 73 rows
+[harvest] 2025-05-29 -> 203 rows
+[harvest] 2025-05-30 -> 233 rows
+[harvest] 2025-05-31 -> 297 rows
+[harvest] 2025-06-01 -> 341 rows
+[harvest] 2025-06-02 -> 75 rows
+[harvest] 2025-06-03 -> 53 rows
+[harvest] 2025-06-04 -> 89 rows
+[harvest] 2025-06-05 -> 197 rows
+[harvest] 2025-06-06 -> 212 rows
+[harvest] 2025-06-07 -> 290 rows
+[harvest] 2025-06-08 -> 326 rows
+[harvest] 2025-06-09 -> 62 rows
+[harvest] 2025-06-10 -> 56 rows
+[harvest] 2025-06-11 -> 77 rows
+[harvest] 2025-06-12 -> 252 rows
+[harvest] 2025-06-13 -> 309 rows
+[harvest] 2025-06-14 -> 278 rows
+[harvest] 2025-06-15 -> 373 rows
+[harvest] 2025-06-16 -> 69 rows
+[harvest] 2025-06-17 -> 67 rows
+[harvest] 2025-06-18 -> 138 rows
+[harvest] 2025-06-19 -> 271 rows
+[harvest] 2025-06-20 -> 372 rows
+[harvest] 2025-06-21 -> 391 rows
+[harvest] 2025-06-22 -> 392 rows
+[api] GET fail /v1/north-america/meets/PRX_1750651200000/results : HTTP Error 404: Not Found
+[harvest] 2025-06-23 -> 65 rows
+[api] GET fail /v1/north-america/meets/PRX_1750737600000/results : HTTP Error 404: Not Found
+[harvest] 2025-06-24 -> 62 rows
+[harvest] 2025-06-25 -> 159 rows
+[harvest] 2025-06-26 -> 268 rows
+[harvest] 2025-06-27 -> 402 rows
+[harvest] 2025-06-28 -> 395 rows
+[harvest] 2025-06-29 -> 436 rows
+[harvest] 2025-06-30 -> 82 rows
+[harvest] 2025-07-01 -> 86 rows
+[harvest] 2025-07-02 -> 79 rows
+[harvest] 2025-07-03 -> 68 rows
+[harvest] 2025-07-04 -> 196 rows
+[harvest] 2025-07-05 -> 172 rows
+[harvest] 2025-07-06 -> 243 rows
+[harvest] 2025-07-07 -> 83 rows
+[harvest] 2025-07-08 -> 87 rows
+[harvest] 2025-07-09 -> 75 rows
+[harvest] 2025-07-10 -> 63 rows
+[harvest] 2025-07-11 -> 198 rows
+[harvest] 2025-07-12 -> 185 rows
+[harvest] 2025-07-13 -> 258 rows
+[harvest] 2025-07-14 -> 63 rows
+[harvest] 2025-07-15 -> 62 rows
+[harvest] 2025-07-16 -> 60 rows
+[harvest] 2025-07-17 -> 63 rows
+[harvest] 2025-07-18 -> 306 rows
+[harvest] 2025-07-19 -> 413 rows
+[harvest] 2025-07-20 -> 365 rows
+[harvest] 2025-07-21 -> 79 rows
+[harvest] 2025-07-22 -> 75 rows
+[harvest] 2025-07-23 -> 78 rows
+[harvest] 2025-07-24 -> 210 rows
+[harvest] 2025-07-25 -> 300 rows
+[harvest] 2025-07-26 -> 264 rows
+[harvest] 2025-07-27 -> 327 rows
+[harvest] 2025-07-28 -> 0 rows
+[harvest] 2025-07-29 -> 0 rows
+[harvest] 2025-07-30 -> 0 rows
+[harvest] 2025-07-31 -> 163 rows
+[harvest] 2025-08-01 -> 308 rows
+[harvest] 2025-08-02 -> 391 rows
+[harvest] 2025-08-03 -> 369 rows
+[harvest] 2025-08-04 -> 0 rows
+[harvest] 2025-08-05 -> 0 rows
+[harvest] 2025-08-06 -> 0 rows
+[harvest] 2025-08-07 -> 137 rows
+[harvest] 2025-08-08 -> 263 rows
+[harvest] 2025-08-09 -> 268 rows
+[harvest] 2025-08-10 -> 316 rows
+[harvest] 2025-08-11 -> 0 rows
+[harvest] 2025-08-12 -> 0 rows
+[harvest] 2025-08-13 -> 0 rows
+[harvest] 2025-08-14 -> 80 rows
+[harvest] 2025-08-15 -> 295 rows
+[harvest] 2025-08-16 -> 276 rows
+[harvest] 2025-08-17 -> 339 rows
+[harvest] 2025-08-18 -> 163 rows
+[harvest] 2025-08-19 -> 118 rows
+[harvest] 2025-08-20 -> 72 rows
+[harvest] 2025-08-21 -> 130 rows
+[harvest] 2025-08-22 -> 297 rows
+[harvest] 2025-08-23 -> 343 rows
+[harvest] 2025-08-24 -> 368 rows
+[harvest] 2025-08-25 -> 58 rows
+[harvest] 2025-08-26 -> 68 rows
+[harvest] 2025-08-27 -> 57 rows
+[harvest] 2025-08-28 -> 225 rows
+[harvest] 2025-08-29 -> 224 rows
+[harvest] 2025-08-30 -> 447 rows
+[harvest] 2025-08-31 -> 498 rows
+[harvest] 2025-09-01 -> 305 rows
+[harvest] 2025-09-02 -> 69 rows
+[harvest] 2025-09-03 -> 60 rows
+[harvest] 2025-09-04 -> 207 rows
+[harvest] 2025-09-05 -> 217 rows
+[harvest] 2025-09-06 -> 539 rows
+[harvest] 2025-09-07 -> 527 rows
+[harvest] 2025-09-08 -> 60 rows
+[harvest] 2025-09-09 -> 66 rows
+[harvest] 2025-09-10 -> 223 rows
+[harvest] 2025-09-11 -> 225 rows
+[harvest] 2025-09-12 -> 327 rows
+[harvest] 2025-09-13 -> 513 rows
+[harvest] 2025-09-14 -> 436 rows
+[harvest] 2025-09-15 -> 69 rows
+[harvest] 2025-09-16 -> 70 rows
+[harvest] 2025-09-17 -> 96 rows
+[harvest] 2025-09-18 -> 213 rows
+[harvest] 2025-09-19 -> 427 rows
+[harvest] 2025-09-20 -> 525 rows
+[harvest] 2025-09-21 -> 324 rows
+[harvest] 2025-09-22 -> 69 rows
+[load] rows=24053 files=377
+[registry] saved model_20250923-000806.json; metrics={'brier': 0.002829493974581831, 'logloss': 0.054659995392554506, 'auc': 0.5, 'n': 24053}
+[registry] best tag -> 20250913-014113; updated model.json
+[signals] wrote 1 meet file(s) for 2025-09-23
+[train] done
+[DONE] exit=0
+[MODEL] /Users/stephenjerome/Desktop/SteveHorsesPro/models/model.json
+[LIVE ] models/model.json present? yes

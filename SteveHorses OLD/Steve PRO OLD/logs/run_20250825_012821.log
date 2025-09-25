@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 457, in <module>
+    main()
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 448, in main
+    html_str = build_html(cards, note)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 347, in build_html
+    f"<td>{html.escape(h.get('name','?'))}</td>"
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/html/__init__.py", line 19, in escape
+    s = s.replace("&", "&amp;") # Must be done first!
+AttributeError: 'NoneType' object has no attribute 'replace'

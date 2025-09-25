@@ -1,0 +1,35 @@
+# =========================================
+# FILE: ~/Desktop/Run_Steve_Horses_Pro.command
+# PURPOSE: Run PRO and auto-open the proper board (Prime/Action + full cards)
+# =========================================
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+BASE="${BASE:-$HOME/Desktop/SteveHorsesPro}"
+OUT="$BASE/outputs"; LOG="$BASE/logs"; PY="${PYTHON:-/usr/bin/python3}"
+mkdir -p "$OUT" "$LOG"
+
+export RUN_DATE="${RUN_DATE:-$(date +%F)}"
+export FAST="${FAST:-1}"
+export PRO_ALPHA="${PRO_ALPHA:-1.30}"
+export PRO_USE_SHARP="${PRO_USE_SHARP:-1}"
+export FAST_TTL="${PRO_FAST_TTL:-60}"
+export MAJOR_TRACKS_ONLY="${MAJOR_TRACKS_ONLY:-Aqueduct Racetrack,Belmont Park,Saratoga Race Course,Churchill Downs,Keeneland,Gulfstream Park,Santa Anita Park,Del Mar,Oaklawn Park,Fair Grounds,Parx Racing,Woodbine,Monmouth Park,Tampa Bay Downs}"
+export ALLOW_MINOR_TRACKS="${ALLOW_MINOR_TRACKS:-0}"
+export AUTO_OPEN="${AUTO_OPEN:-1}"
+
+export PRIME_MIN_P="${PRIME_MIN_P:-0.20}"
+export PRIME_MIN_EDGE_PP="${PRIME_MIN_EDGE_PP:-6}"
+export ACTION_MIN_P="${ACTION_MIN_P:-0.12}"
+export ACTION_MIN_EDGE_PP="${ACTION_MIN_EDGE_PP:-3}"
+
+echo "[ENV] RUN_DATE=$RUN_DATE FAST=$FAST α=$PRO_ALPHA sharp=$PRO_USE_SHARP" | tee -a "$LOG/pro_${RUN_DATE}.log"
+"$PY" "$BASE/steve_horses_pro.py" 2>&1 | tee -a "$LOG/pro_${RUN_DATE}.log" || true
+
+TARGET="$OUT/latest-board.html"; [ -f "$TARGET" ] || TARGET="$OUT/${RUN_DATE}_board.html"
+if [ -f "$TARGET" ] && [ "$AUTO_OPEN" = "1" ]; then
+  if command -v open >/dev/null 2>&1; then open "$TARGET" || true
+  elif command -v xdg-open >/dev/null 2>&1; then xdg-open "$TARGET" >/dev/null 2>&1 || true
+  fi
+fi
+echo "[OK] board: $TARGET" | tee -a "$LOG/pro_${RUN_DATE}.log"

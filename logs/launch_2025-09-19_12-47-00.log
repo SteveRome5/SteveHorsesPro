@@ -1,0 +1,23 @@
+==============================================
+ Steve Horses Pro — launcher
+ Started: 2025-09-19 12:47:00
+ Base:    /Users/stephenjerome/Desktop/SteveHorsesPro
+ Log:     /Users/stephenjerome/Desktop/SteveHorsesPro/logs/launch_2025-09-19_12-47-00.log
+==============================================
+
+[OK] Using python: /usr/bin/python3
+
+[PING] Testing API /meets for today...
+[PING OK] Meets returned: 17
+
+[RUN] 2025-09-19 12:47:01  running steve_horses_pro.py
+
+[DONE] python exit code: 0
+
+[OK] Report path: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-19_horses_targets+full.html (size: 942 bytes)
+[NOTE] Report is very small — likely no races collected.
+[OK] Opening report: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/2025-09-19_horses_targets+full.html
+
+Log saved to: /Users/stephenjerome/Desktop/SteveHorsesPro/logs/launch_2025-09-19_12-47-00.log
+Finished: 2025-09-19 12:47:07
+==============================================

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 405, in main
+    build_html(cards, chosen)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 367, in build_html
+    f"<td class='right mono'>{(r['edge']*100):0.1f}%</td>"
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'

@@ -1,0 +1,9 @@
+[FATAL] build report failed: name 'MODEL' is not defined
+Traceback (most recent call last):
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 1137, in <module>
+    html_out = build_report(cards, iso_today, scr_summary, auto_summary, scr_details)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 929, in build_report
+    why_strings, why_tips = why_feature_pack(track, rc, runners)
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 794, in why_feature_pack
+    par  = MODEL.get("pars",{}).get(key, {"spd":80.0,"cls":70.0})
+NameError: name 'MODEL' is not defined

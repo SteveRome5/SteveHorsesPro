@@ -1,0 +1,731 @@
+# ===========================================
+# FILE: ~/Desktop/SteveHorsesPro/steve_horses_train.py
+# PURPOSE: Harvest + Train + Write signals for Pro (robust & fast)
+# ===========================================
+from __future__ import annotations
+
+import os, ssl, json, csv, math, re, statistics, base64, argparse
+from datetime import date, datetime, timedelta
+from pathlib import Path
+from collections import defaultdict
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode
+
+# ---------- Paths ----------
+HOME   = Path.home()
+BASE   = HOME / "Desktop" / "SteveHorsesPro"
+OUT    = BASE / "outputs"
+LOGS   = BASE / "logs"
+MODELS = BASE / "models"
+HIST   = BASE / "history"
+DATA   = BASE / "data"
+SIGNAL = BASE / "signals"
+for d in (BASE, OUT, LOGS, MODELS, HIST, DATA, SIGNAL):
+    d.mkdir(parents=True, exist_ok=True)
+
+def log(msg: str) -> None:
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        (LOGS / "train.log").open("a", encoding="utf-8").write(f"[{ts}] {msg}\n")
+    except Exception:
+        pass
+    print(msg)
+
+# ---------- Config / ENV ----------
+RUSER    = os.getenv('RACINGAPI_USER', '').strip()
+RPASS    = os.getenv('RACINGAPI_PASS', '').strip()
+API_BASE = os.getenv("RACING_API_BASE", "https://api.theracingapi.com").rstrip("/")
+ALLOW_MINOR = (os.getenv("ALLOW_MINOR_TRACKS", "0").strip().lower() in {"1","true","yes","y","on"})
+ALPHA = float(os.getenv("PRO_ALPHA", "1.30") or "1.30")
+
+MAJOR_TRACKS = [t.strip() for t in os.getenv(
+    "MAJOR_TRACKS_ONLY",
+    "Aqueduct Racetrack,Belmont at the Big A,Belmont Park,Saratoga Race Course,Churchill Downs,Keeneland,Gulfstream Park,Santa Anita Park,Del Mar,Oaklawn Park,Fair Grounds,Parx Racing,Woodbine,Monmouth Park,Tampa Bay Downs,Kentucky Downs"
+).split(",") if t.strip()]
+
+# ---------- API ----------
+CTX = ssl.create_default_context()
+
+def _auth_header() -> str:
+    if not (RUSER and RPASS):
+        return ""
+    tok = base64.b64encode(f"{RUSER}:{RPASS}".encode("utf-8")).decode("ascii")
+    return "Basic " + tok
+
+def _get(path: str, params: dict | None=None):
+    url = API_BASE + path + (("?" + urlencode(params)) if params else "")
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    ah = _auth_header()
+    if ah: req.add_header("Authorization", ah)
+    with urlopen(req, timeout=30, context=CTX) as r:
+        raw = r.read()
+    return json.loads(raw.decode("utf-8", "replace"))
+
+def safe_get(path: str, params: dict | None=None, default=None):
+    try:
+        return _get(path, params)
+    except Exception as e:
+        log(f"[api] GET fail {path} {params or ''}: {e}")
+        return default
+
+EP_MEETS           = "/v1/north-america/meets"
+EP_ENTRIES_BY_MEET = "/v1/north-america/meets/{meet_id}/entries"
+EP_RESULTS_BY_MEET = "/v1/north-america/meets/{meet_id}/results"
+EP_RESULTS_BY_RACE = "/v1/north-america/races/{race_id}/results"
+
+# ---------- Helpers ----------
+def g(d:dict,*ks,default=None):
+    for k in ks:
+        if isinstance(d,dict) and k in d and d[k] not in (None,""):
+            return d[k]
+    return default
+
+def _to_float(v, default=None):
+    try:
+        if v in (None,""): return default
+        if isinstance(v,(int,float)): return float(v)
+        s=str(v).strip()
+        m=re.fullmatch(r"(\d+)\s*[/\-:]\s*(\d+)", s)
+        if m:
+            num, den = float(m.group(1)), float(m.group(2))
+            if den!=0: return num/den
+        return float(s)
+    except:
+        return default
+
+def _to_dec_odds(v, default=None):
+    if v in (None,""): return default
+    if isinstance(v,(int,float)):
+        f=float(v); return f if f>1 else default
+    s=str(v).strip().lower()
+    if s in ("evs","even","evens"): return 2.0
+    m=re.fullmatch(r"(\d+)\s*[/\-:]\s*(\d+)", s)
+    if m:
+        num,den=float(m.group(1)),float(m.group(2))
+        if den>0: return 1.0+num/den
+    try:
+        dec=float(s)
+        return dec if dec>1.0 else default
+    except: return default
+
+def _surface_key(s: str) -> str:
+    s=(s or "").lower()
+    if "turf" in s: return "turf"
+    if any(x in s for x in ("synt","tapeta","poly")): return "synt"
+    return "dirt"
+
+def get_surface(rc): 
+    return str(g(rc,"surface","track_surface","course","courseType","trackSurface","surf") or "").lower()
+
+def get_distance_y(rc):
+    d=g(rc,"distance_yards","distance","dist_yards","yards","distanceYards","distance_y")
+    if d is not None:
+        try: return int(float(d))
+        except: pass
+    m=g(rc,"distance_meters","meters","distanceMeters")
+    if m is not None:
+        try: return int(float(m)*1.09361)
+        except: pass
+    return None
+
+def _dist_bucket_yards(yards: int|None) -> str:
+    if not yards: return "unk"
+    if yards < 1320:  return "<6f"
+    if yards < 1540:  return "6f"
+    if yards < 1760:  return "7f"
+    if yards < 1980:  return "1mi"
+    if yards < 2200:  return "8.5f"
+    if yards < 2420:  return "9f"
+    return "10f+"
+
+def bucket_key(track: str, surface: str, yards: int|None) -> str:
+    return f"{track}|{_surface_key(surface)}|{_dist_bucket_yards(yards)}"
+
+# ---------- PF helpers ----------
+def robust_trimmed_median(xs, trim=0.10):
+    xs=[x for x in xs if x is not None]
+    if not xs: return None
+    xs=sorted(xs); n=len(xs); k=int(n*trim)
+    core = xs[k:n-k] if n-2*k>=1 else xs
+    return statistics.median(core)
+
+def compute_pars(rows):
+    buckets=defaultdict(list)
+    for r in rows:
+        if str(r.get("win","0"))!="1": continue
+        k=bucket_key(r.get("track") or "", r.get("surface") or "", _to_float(r.get("distance_yards"), None))
+        sp=_to_float(r.get("speed"), None); cl=_to_float(r.get("class"), None)
+        if sp is not None and cl is not None:
+            buckets[k].append((sp,cl))
+    pars={}
+    for k,arr in buckets.items():
+        if len(arr)>=12:
+            sp_med=robust_trimmed_median([s for s,_ in arr], 0.12) or 80.0
+            cl_med=robust_trimmed_median([c for _,c in arr], 0.12) or 70.0
+            pars[k]={"spd":sp_med,"cls":cl_med}
+    return pars
+
+def _post_bias(track, surface, yards, post_str):
+    # Why: tiny bias nudges keep ties from flattening
+    try: pp = int(re.sub(r"\D","", str(post_str) or ""))
+    except: pp = None
+    surf=_surface_key(surface)
+    base = 0.0
+    if surf=="turf" and pp and pp>=10: base -= 0.02
+    if surf=="dirt" and pp and pp<=2:  base += 0.01
+    return base
+
+FEATS = [
+    "speed","ep","lp","class","trainer_win","jockey_win","combo_win",
+    "field_size","rail","ml_dec","live_dec","minutes_to_post","last_days","weight",
+    "post_bias","surface_switch","equip_blinker","equip_lasix","pace_fit","class_par_delta"
+]
+
+def build_feature_row(row, pars, pace_prior=0.0):
+    f = lambda k: _to_float(row.get(k) or "", None)
+    speed=(f("speed") or 0.0)
+    ep   =(f("ep") or 0.0)
+    lp   =(f("lp") or 0.0)
+    cls  =(f("class") or 0.0)
+    tr   =(f("trainer_win") or 0.0)
+    jk   =(f("jockey_win") or 0.0)
+    tj   =(f("combo_win") or 0.0)
+    fs   =(f("field_size") or 8.0)
+    rail =(f("rail") or 0.0)
+    ml   = (f("ml_dec") or 0.0)
+    live =(f("live_dec") or 0.0)
+    mtp  =(f("minutes_to_post") or 15.0)
+    dsl  =(f("last_days") or 25.0)
+    wt   =(f("weight") or 120.0)
+
+    track  = row.get("track") or ""
+    surface= row.get("surface") or ""
+    yards  = _to_float(row.get("distance_yards") or "", None)
+    key = bucket_key(track, surface, yards)
+    par = pars.get(key, {"spd":80.0,"cls":70.0})
+
+    class_par_delta = (cls - par["cls"])/20.0 + (speed - par["spd"])/25.0
+    post = row.get("program") or row.get("post") or row.get("number")
+    pbias= _post_bias(track, surface, yards, post)
+    surf_switch = 1.0 if str(row.get("prev_surface") or "").lower() and str(surface or "").lower() and (row.get("prev_surface")!=surface) else 0.0
+    bl = 1.0 if str(row.get("equip_blinker") or "0").lower() in ("1","true","t","yes","y") else 0.0
+    lx = 1.0 if str(row.get("equip_lasix")   or "0").lower() in ("1","true","t","yes","y") else 0.0
+    pace_fit = (ep - 92.0)/20.0 if ep else 0.0
+
+    S=lambda x,a: (x or 0.0)/a
+    return [
+        S(speed,100.0), S(ep,120.0), S(lp,120.0), S(cls,100.0),
+        S(tr,100.0), S(jk,100.0), S(tj,100.0),
+        S(fs,12.0), S(rail,30.0), S(ml,10.0), S(live,10.0), S(mtp,30.0), S(dsl,60.0), S(wt,130.0),
+        pbias, surf_switch, bl, lx, pace_fit, class_par_delta
+    ]
+
+# ---------- Horse DB sidecar (optional) ----------
+HORSE_DB_OK=False
+try:
+    from db_horses import ensure_schema as _horse_ensure_schema, record_runner as _horse_record_runner
+    _horse_ensure_schema()
+    HORSE_DB_OK=True
+    log("[horse-db] schema OK")
+except Exception as _e:
+    log(f"[horse-db] sidecar unavailable: {_e}")
+
+# ---------- Harvest ----------
+def fetch_meets(iso_date): 
+    return safe_get(EP_MEETS, {"start_date": iso_date, "end_date": iso_date}, default={"meets":[]})
+
+def fetch_entries(meet_id): 
+    return safe_get(EP_ENTRIES_BY_MEET.format(meet_id=meet_id), default={"races":[]})
+
+def fetch_results_meet(meet_id): 
+    return safe_get(EP_RESULTS_BY_MEET.format(meet_id=meet_id), default={"races":[]})
+
+def fetch_results_race(race_id): 
+    return safe_get(EP_RESULTS_BY_RACE.format(race_id=race_id), default={"runners":[]})
+
+def _is_true(v) -> bool:
+    if isinstance(v, bool): return v
+    s = str(v).strip().lower()
+    if s in ("1","true","yes","y","on","t"): return True
+    if s in ("0","false","no","n","off","f","", "none", "null"): return False
+    return False
+
+def _has_blinkers(ent) -> bool:
+    cand = [g(ent, "blinkers_on", "blinkers", "bl", "bl_on", "equip_blinkers"), g(ent, "equipment", "equip")]
+    for c in cand:
+        if c is None: 
+            continue
+        if isinstance(c, (bool,int,float)) and _is_true(c): 
+            return True
+        s=str(c).lower()
+        if "blink" in s and "no" not in s:
+            return True
+    return False
+
+def _on_lasix(ent) -> bool:
+    cand = [g(ent, "lasix", "l", "medication", "med", "furosemide", "on_lasix", "lasix_on"), g(ent, "drugs", "meds")]
+    for c in cand:
+        if c is None:
+            continue
+        if isinstance(c, (bool,int,float)) and _is_true(c):
+            return True
+        s=str(c).lower()
+        if any(tok in s for tok in ("lasix","furosemide","l1"," on l"," lasix")):
+            return True
+    return False
+
+def harvest_one_day(iso_date: str, all_tracks=False) -> int:
+    meets = (fetch_meets(iso_date) or {}).get("meets", [])
+    if not meets:
+        log(f"[harvest] no meets {iso_date}")
+        return 0
+    out_csv = HIST / f"history_{iso_date}.csv"
+    nrows=0
+
+    with out_csv.open("w", newline="", encoding="utf-8") as fout:
+        wr = csv.writer(fout)
+        wr.writerow([
+            "track","date","race","program","horse","win",
+            "ml_dec","live_dec","minutes_to_post","field_size",
+            "surface","prev_surface","distance_yards","rail",
+            "speed","ep","lp","class","trainer_win","jockey_win","combo_win",
+            "weight","last_days","equip_blinker","equip_lasix"
+        ])
+
+        for m in meets:
+            track = (g(m,"track_name","track","name") or "").strip()
+            if not track: 
+                continue
+            if (not all_tracks) and (not ALLOW_MINOR) and MAJOR_TRACKS and (track not in MAJOR_TRACKS):
+                continue
+            mid = g(m,"meet_id","id","meetId")
+            if not mid: 
+                continue
+
+            entries = fetch_entries(mid) or {}
+            races = entries.get("races") or entries.get("entries") or []
+            res_meet = fetch_results_meet(mid) or {}
+            res_idx={}
+            for rr in (res_meet.get("races") or res_meet.get("results") or []):
+                rid=str(g(rr,"race_id","id","raceId") or "")
+                if rid: res_idx[rid]=rr
+
+            def _winners_and_off(rid):
+                fin = res_idx.get(rid)
+                if not isinstance(fin, dict):
+                    fin = fetch_results_race(rid) if rid else {}
+                fin = fin or {}
+                arr = fin.get("finishers") or fin.get("results") or fin.get("runners") or []
+                winners,set_off=set(),{}
+                winners=set()
+                off_odds={}
+                for it in arr:
+                    prog=str(g(it,"program_number","program","number","pp","saddle","saddle_number") or "")
+                    pos=_to_float(g(it,"finish_position","position","pos","finish","rank"), None)
+                    lodds=_to_dec_odds(g(it,"final_odds","off_odds","odds","price","decimal_odds"), None)
+                    if prog:
+                        if pos==1: winners.add(prog)
+                        if lodds: off_odds[prog]=lodds
+                return winners, off_odds
+
+            for idx, rc in enumerate(races,1):
+                rid=str(g(rc,"race_id","id","raceId","raceID") or "")
+                winners, off_odds = _winners_and_off(rid)
+
+                field = rc.get("runners") or rc.get("entries") or []
+                field_size=len(field)
+                rno_val = str(g(rc,"race_number","race","number","raceNo") or idx)
+
+                for ent in field:
+                    prog=str(g(ent,"program_number","program","number","pp","saddle","saddle_number") or "")
+                    wr.writerow([
+                        track, iso_date, rno_val, prog,
+                        g(ent,"horse_name","name","runner_name") or "",
+                        1 if prog in winners else 0,
+                        "", off_odds.get(prog) or "",
+                        _to_float(g(rc,"minutes_to_post","mtp","minutesToPost"),0) or 0,
+                        field_size or "",
+                        get_surface(rc) or "", g(ent,"prev_surface","last_surface") or "",
+                        get_distance_y(rc) or "",
+                        _to_float(g(rc,"rail","rail_setting","turf_rail"),0) or 0,
+                        _to_float(g(ent,"speed","spd","last_speed"),None) or "",
+                        _to_float(g(ent,"pace","ep"),None) or "",
+                        _to_float(g(ent,"lp","late_pace"),None) or "",
+                        _to_float(g(ent,"class","cls"),None) or "",
+                        _to_float(g(ent,"trainer_win_pct","trainerWinPct"),None) or "",
+                        _to_float(g(ent,"jockey_win_pct","jockeyWinPct"),None) or "",
+                        _to_float(g(ent,"tj_win","combo_win"),None) or "",
+                        _to_float(g(ent,"weight","carried_weight","assigned_weight","wt","weight_lbs"),None) or "",
+                        _to_float(g(ent,"days_since","dsl","daysSince","layoffDays","last_start_days"),None) or "",
+                        1 if _has_blinkers(ent) else 0,
+                        1 if _on_lasix(ent) else 0,
+                    ])
+                    nrows+=1
+
+                    if HORSE_DB_OK:
+                        try:
+                            _horse_record_runner(track, rno_val, rc, ent, iso_date)
+                        except Exception as e:
+                            log(f"[horse-db] record_runner fail {track} R{rno_val}: {e}")
+
+    log(f"[harvest] {iso_date} -> {nrows} rows")
+    return nrows
+
+# ---------- Train core ----------
+def _sigmoid(z): 
+    z = 50.0 if z>50 else (-50.0 if z<-50 else z)
+    return 1.0/(1.0+math.exp(-z))
+
+def _standardize_fit(X):
+    d=len(X[0]); mu=[0.0]*d; sd=[1.0]*d
+    for j in range(d):
+        col=[x[j] for x in X]
+        m=statistics.mean(col)
+        s=statistics.pstdev(col) if len(col)>1 else 1.0
+        if s<1e-6: s=1.0
+        mu[j]=m; sd[j]=s
+    return {"mu":mu,"sd":sd}
+
+def _apply_standardize(x, stat):
+    mu,sd=stat["mu"],stat["sd"]
+    return [(xi - mu[j])/sd[j] for j,xi in enumerate(x)]
+
+def _train_logistic(X, y, l2=0.5, iters=280, lr=0.07, w=None):
+    n=len(X); d=len(X[0]); wgt=w or [1.0]*n
+    wv=[0.0]*d; b=0.0
+    for _ in range(iters):
+        gb=0.0; gw=[0.0]*d
+        for i in range(n):
+            zi=b+sum(wv[j]*X[i][j] for j in range(d))
+            pi=_sigmoid(zi); di=(pi-y[i]); ww=wgt[i]
+            gb+=ww*di
+            for j in range(d): gw[j]+=ww*di*X[i][j]
+        for j in range(d): gw[j]+=l2*wv[j]     # ridge
+        b-=lr*gb/max(1.0, n)
+        for j in range(d): wv[j]-=lr*gw[j]/max(1.0, n)
+    return {"w":wv,"b":b}
+
+def reliability_curve(y_true, p_pred, bins=12):
+    pairs=sorted(zip(p_pred, y_true), key=lambda t:t[0])
+    n=len(pairs); out=[]
+    if n<max(40,bins): return []
+    for b in range(bins):
+        lo=int(b*n/bins); hi=int((b+1)*n/bins)
+        if hi<=lo: continue
+        chunk=pairs[lo:hi]
+        x=statistics.mean([p for p,_ in chunk])
+        y=sum(t for _,t in chunk)/len(chunk)
+        out.append([x,y])
+    for i in range(1,len(out)):
+        if out[i][1] < out[i-1][1]:
+            out[i][1] = out[i-1][1]
+    return out
+
+def apply_reliability(p, curve):
+    if not curve: return p
+    xs=[c[0] for c in curve]; ys=[c[1] for c in curve]
+    if p<=xs[0]: 
+        return ys[0]*(p/max(1e-6,xs[0]))
+    if p>=xs[-1]:
+        return ys[-1]
+    for i in range(1,len(xs)):
+        if p<=xs[i]:
+            w=(p - xs[i-1])/max(1e-6,(xs[i]-xs[i-1]))
+            return ys[i-1]*(1-w) + ys[i]*w
+    return p
+
+def load_history(days_back=365):
+    cutoff = None
+    if days_back is not None:
+        cutoff = date.today() - timedelta(days=days_back)
+    rows=[]
+    for p in sorted(HIST.glob("history_*.csv")):
+        try: ds = p.stem.split("_")[1]
+        except: continue
+        try: d  = datetime.strptime(ds, "%Y-%m-%d").date()
+        except: d=None
+        if cutoff and d and d < cutoff: 
+            continue
+        with p.open("r", encoding="utf-8") as f:
+            rdr=csv.DictReader(f)
+            rows.extend(r for r in rdr)
+    return rows
+
+def train_models(rows, min_rows_bucket=160, min_rows_global=600):
+    if not rows:
+        log("[train] no rows to train"); 
+        return None
+
+    def key_of(r):
+        return bucket_key(r.get("track") or "", r.get("surface") or "", _to_float(r.get("distance_yards") or "", None))
+
+    pace_prior_by_key=defaultdict(list)
+    for r in rows:
+        ep=_to_float(r.get("ep") or "", None)
+        if ep is not None:
+            pace_prior_by_key[key_of(r)].append(ep)
+    pace_prior={k:(statistics.mean(v)-92.0)/20.0 if v else 0.0 for k,v in pace_prior_by_key.items()}
+
+    pars = compute_pars(rows)
+
+    buckets=defaultdict(list); global_rows=[]
+    for r in rows:
+        track=(r.get("track") or "").strip()
+        if not track: 
+            continue
+        y=1 if str(r.get("win") or "0").strip()=="1" else 0
+        x=build_feature_row(r, pars, pace_prior.get(key_of(r),0.0))
+        buckets[key_of(r)].append((x,y))
+        global_rows.append((x,y))
+
+    MODEL = {"buckets":{}, "global":{}, "pars":pars, "calib":{}, "meta":{"version":"1"}}
+
+    for key, arr in buckets.items():
+        if len(arr) < min_rows_bucket: 
+            continue
+        X=[x for x,_ in arr]; y=[y for _,y in arr]
+        stat=_standardize_fit(X)
+        Xs=[_apply_standardize(x, stat) for x in X]
+        mdl=_train_logistic(Xs,y,l2=0.55,iters=280,lr=0.07)
+        p_hat=[_sigmoid(mdl["b"]+sum(wj*xj for wj,xj in zip(mdl["w"], xs))) for xs in Xs]
+        curve=reliability_curve(y, p_hat, bins=12)
+        MODEL["buckets"][key]={"w":mdl["w"],"b":mdl["b"],"stat":stat,"n":len(arr)}
+        MODEL["calib"][key]=curve
+
+    if len(global_rows) >= min_rows_global:
+        Xg=[x for x,_ in global_rows]; yg=[y for _,y in global_rows]
+        stat=_standardize_fit(Xg)
+        Xgs=[_apply_standardize(x, stat) for x in Xg]
+        mdl=_train_logistic(Xgs, yg, l2=0.5, iters=260, lr=0.07)
+        ph=[_sigmoid(mdl["b"]+sum(wj*xj for wj,xj in zip(mdl["w"], xs))) for xs in Xgs]
+        curve=reliability_curve(yg, ph, bins=12)
+        MODEL["global"]={"w":mdl["w"],"b":mdl["b"],"stat":stat,"n":len(global_rows)}
+        MODEL["calib"]["__global__"]=curve
+    else:
+        MODEL["global"]={"w":[0.0]*len(FEATS),"b":0.0,"stat":{"mu":[0.0]*len(FEATS),"sd":[1.0]*len(FEATS)},"n":len(global_rows)}
+        MODEL["calib"]["__global__"]=[]
+
+    MODEL["meta"]["trained"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    MODEL["meta"]["rows"]    = len(global_rows)
+    return MODEL
+
+def model_path() -> Path:
+    return MODELS / "model.json"
+
+def save_model_atomic(model_dict: dict):
+    ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+    tmp = MODELS / f"model_{ts}.json"
+    live = model_path()
+    tmp.write_text(json.dumps(model_dict, indent=2), encoding="utf-8")
+    registry = MODELS / "registry.json"
+    reg = []
+    if registry.exists():
+        try:
+            reg = json.loads(registry.read_text(encoding="utf-8"))
+        except:
+            reg = []
+    metrics = evaluate_model_snapshot(model_dict)
+    reg.append({"tag": ts, "metrics": metrics, "path": str(tmp.name), "rows": model_dict.get("meta",{}).get("rows",0)})
+    best = sorted(reg, key=lambda r: (round(r["metrics"].get("brier", 9e9), 6), -r.get("rows",0)))[0]
+    registry.write_text(json.dumps(reg, indent=2), encoding="utf-8")
+    live.write_text((MODELS / best["path"]).read_text(encoding="utf-8"), encoding="utf-8")
+    log(f"[registry] saved {tmp.name}; metrics={metrics}")
+    log(f"[registry] best tag -> {best['tag']}; updated model.json")
+
+def evaluate_model_snapshot(model_dict: dict):
+    try:
+        calib = model_dict.get("calib", {})
+        def curve_score(curve):
+            if not curve: return (1e-12, 1e-6)
+            xs=[x for x,_ in curve]; ys=[y for _,y in curve]
+            brier = sum((y-x)*(y-x) for x,y in zip(xs,ys)) / max(1,len(xs))
+            eps=1e-6
+            logloss = -sum((y*math.log(max(eps,x)) + (1-y)*math.log(max(eps,1-x))) for x,y in zip(xs,ys)) / max(1,len(xs))
+            return (brier, logloss)
+        curves = [v for k,v in calib.items() if k!="__global__"] or ([calib["__global__"]] if "__global__" in calib else [])
+        if not curves:
+            return {"brier": 1e-12, "logloss": 1e-6, "auc": 0.5, "n": model_dict.get("meta",{}).get("rows",0)}
+        scores=[curve_score(c) for c in curves]
+        brier = statistics.mean([s[0] for s in scores])
+        logloss= statistics.mean([s[1] for s in scores])
+        return {"brier": brier, "logloss": logloss, "auc": 0.5, "n": model_dict.get("meta",{}).get("rows",0)}
+    except Exception:
+        return {"brier": 1e-12, "logloss": 1e-6, "auc": 0.5, "n": model_dict.get("meta",{}).get("rows",0)}
+
+# ---------- Scoring + signals ----------
+def _score_row(m, x, key):
+    bk = m["buckets"].get(key)
+    if bk:
+        xs=_apply_standardize(x, bk["stat"])
+        z=bk["b"]+sum(w*xi for w,xi in zip(bk["w"], xs))
+        p=_sigmoid(z)
+        p=apply_reliability(p, m["calib"].get(key, []))
+        return p
+    gl = m["global"]
+    xs=_apply_standardize(x, gl["stat"])
+    z=gl["b"]+sum(w*xi for w,xi in zip(gl["w"], xs))
+    p=_sigmoid(z)
+    p=apply_reliability(p, m["calib"].get("__global__", []))
+    return p
+
+def _sharp_dirichlet(ps, alpha=1.30):
+    if not ps: return ps
+    q=[p**alpha for p in ps]
+    s=sum(q) or 1.0
+    return [x/s for x in q]
+
+def write_signals_for_date(model: dict, date_iso: str, all_tracks: bool=False) -> None:
+    meets = (fetch_meets(date_iso) or {}).get("meets", [])
+    if not meets:
+        log(f"[signals] no meets {date_iso}")
+        return
+    pars = model.get("pars", {})
+    wrote=0
+
+    for m in meets:
+        track = (g(m,"track_name","track","name") or "").strip()
+        if not track: 
+            continue
+        if (not all_tracks) and (not ALLOW_MINOR) and MAJOR_TRACKS and (track not in MAJOR_TRACKS):
+            continue
+
+        mid = g(m,"meet_id","id","meetId")
+        if not mid: 
+            continue
+        entries = fetch_entries(mid) or {}
+        races = entries.get("races") or entries.get("entries") or []
+        if not races: 
+            continue
+
+        items=[]
+        for rc in races:
+            rno = str(g(rc,"race_number","race","number","raceNo") or "")
+            surf = get_surface(rc); yards = get_distance_y(rc)
+            key_base = bucket_key(track, surf, yards)
+            field = rc.get("runners") or rc.get("entries") or []
+            if not field: 
+                continue
+
+            # race-level percentiles for WHY text
+            def pct_rank(vals, x):
+                xs=[v for v in vals if v is not None]
+                if not xs: return 50
+                xs=sorted(xs); n=len(xs); i=0
+                while i<n and xs[i] <= (x or 0.0): i+=1
+                return int(round(100.0 * i / max(1,n)))
+            speeds=[_to_float(g(e,"speed","spd","last_speed"), None) for e in field]
+            classes=[_to_float(g(e,"class","cls"), None) for e in field]
+
+            # score
+            rows=[]
+            for ent in field:
+                row={
+                    "track":track,"surface":surf,"distance_yards":yards or "",
+                    "program":str(g(ent,"program_number","program","number","pp") or ""),
+                    "prev_surface":g(ent,"prev_surface","last_surface") or "",
+                    "speed":_to_float(g(ent,"speed","spd","last_speed"),None) or 0.0,
+                    "ep":_to_float(g(ent,"pace","ep"),None) or 0.0,
+                    "lp":_to_float(g(ent,"lp","late_pace"),None) or 0.0,
+                    "class":_to_float(g(ent,"class","cls"),None) or 0.0,
+                    "trainer_win":_to_float(g(ent,"trainer_win_pct","trainerWinPct"),None) or 0.0,
+                    "jockey_win":_to_float(g(ent,"jockey_win_pct","jockeyWinPct"),None) or 0.0,
+                    "combo_win":_to_float(g(ent,"tj_win","combo_win"),None) or 0.0,
+                    "field_size":len(field),
+                    "rail":_to_float(g(rc,"rail","rail_setting","turf_rail"),0) or 0.0,
+                    "minutes_to_post":_to_float(g(rc,"minutes_to_post","mtp","minutesToPost"),0) or 0.0,
+                    "last_days":_to_float(g(ent,"days_since","dsl","daysSince","layoffDays","last_start_days"),None) or 0.0,
+                    "weight":_to_float(g(ent,"weight","carried_weight","assigned_weight","wt","weight_lbs"),None) or 0.0,
+                    "equip_blinker":1 if _has_blinkers(ent) else 0,
+                    "equip_lasix":1 if _on_lasix(ent) else 0,
+                    "ml_dec":_to_dec_odds(g(ent,"morning_line","ml","morningLine","ml_decimal"), None) or 0.0,
+                    "live_dec":0.0
+                }
+                x = build_feature_row(row, pars, 0.0)
+                p = _score_row(model, x, key_base)
+                rows.append((ent, row, p))
+
+            ps=[p for _,_,p in rows]
+            psharp=_sharp_dirichlet(ps, ALPHA)
+
+            for (ent,row,p),psh in zip(rows, psharp):
+                why = f"SpeedForm → ({pct_rank(speeds,row['speed'])} pct), ClassΔ → ({pct_rank(classes,row['class'])} pct), Bias {('↑' if _post_bias(track,surf,yards,row['program'])>0 else ('↓' if _post_bias(track,surf,yards,row['program'])<0 else '→'))}"
+                items.append({
+                    "race": str(rno),
+                    "program": row["program"],
+                    "horse": g(ent,"horse_name","name","runner_name") or "",
+                    "p": round(psh, 6),
+                    "p_model": round(p, 6),
+                    "flags": [],
+                    "why":  why,
+                    "used": True,
+                    "wager": 0.0
+                })
+
+        if items:
+            outp = SIGNAL / f"{date_iso}__{track}.json"
+            outp.write_text(json.dumps(items, indent=2), encoding="utf-8")
+            wrote+=1
+
+    log(f"[signals] wrote {wrote} meet file(s) for {date_iso}")
+
+# ---------- Orchestration ----------
+def date_range(end_inclusive: date, back: int):
+    for i in range(back, -1, -1):
+        yield end_inclusive - timedelta(days=i)
+
+def run_harvest(days_back: int|None, harvest_dates: list[str]|None, all_tracks: bool, backfill: int|None=None):
+    total=0
+    if harvest_dates:
+        for ds in harvest_dates:
+            total += harvest_one_day(ds.strip(), all_tracks=all_tracks)
+        return total
+    today = date.today()
+    if backfill and backfill>0:
+        for i in range(backfill, 0, -1):
+            d = today - timedelta(days=i)
+            total += harvest_one_day(d.isoformat(), all_tracks=all_tracks)
+    if days_back is not None:
+        for d in date_range(today, days_back):
+            total += harvest_one_day(d.isoformat(), all_tracks=all_tracks)
+    return total
+
+def main():
+    ap = argparse.ArgumentParser(description="Steve Horses — TRAIN")
+    ap.add_argument("--days-back", type=int, default=120, help="History window")
+    ap.add_argument("--backfill", type=int, default=0, help="Harvest this many prior days before today")
+    ap.add_argument("--harvest-only", action="store_true", help="Only harvest; skip training")
+    ap.add_argument("--train-only", action="store_true", help="Only train; skip harvesting")
+    ap.add_argument("--harvest-dates", nargs="*", help="Specific YYYY-MM-DD dates")
+    ap.add_argument("--all-tracks", action="store_true", help="Include non-major tracks")
+    ap.add_argument("--min-rows", type=int, default=160, help="Min rows to fit a bucket model")
+    args = ap.parse_args()
+
+    if not (RUSER and RPASS):
+        log("[warn] RACINGAPI_USER / RACINGAPI_PASS not set; API calls will fail")
+
+    log(f"[train] start (days_back={args.days_back}, min_rows={args.min_rows})")
+
+    if not args.train_only:
+        run_harvest(args.days_back, args.harvest_dates, args.all_tracks, backfill=args.backfill)
+    else:
+        log("[train] skipping harvest (train-only)")
+
+    if not args.harvest_only:
+        rows = load_history(days_back=args.days_back if args.days_back is not None else 120)
+        log(f"[load] rows={len(rows)} files={len(list(HIST.glob('history_*.csv')))}")
+        model = train_models(rows, min_rows_bucket=args.min_rows, min_rows_global=max(600, args.min_rows*4))
+        if model:
+            save_model_atomic(model)
+            try:
+                today_iso = date.today().isoformat()
+                write_signals_for_date(model, today_iso, all_tracks=args.all_tracks)
+            except Exception as e:
+                log(f"[signals] failed: {e}")
+            log("[train] done")
+        else:
+            log("[train] nothing to save (no model)")
+    else:
+        log("[train] harvest-only done")
+
+if __name__ == "__main__":
+    main()

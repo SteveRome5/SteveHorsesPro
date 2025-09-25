@@ -1,0 +1,761 @@
+track,date,race,program,horse,win,ml_dec,live_dec,minutes_to_post,field_size,surface,prev_surface,distance_yards,rail,speed,ep,lp,class,trainer_win,jockey_win,combo_win,weight,last_days,equip_blinker,equip_lasix
+Charles Town,2025-03-06,1,1,Hey Boots,0,,,-999.0,6,,,,0,,,,,,,,117.0,,0,0
+Charles Town,2025-03-06,1,2,Optimistic Nate,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,1,3,Ship the Goods,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,1,4,Yangarra,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,1,5,Ellie's Boyfriend,0,,,-999.0,6,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,1,6,Sassy Lad,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,2,1,Little Bit of That,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,2,2,Golden Can,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,2,3,Valid Reason,0,,,-999.0,6,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,2,4,Snowy Juba Cat,0,,,-999.0,6,,,,0,,,,,,,,115.0,,0,0
+Charles Town,2025-03-06,2,5,Upswell,0,,,-999.0,6,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,2,6,Fortes,0,,,-999.0,6,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,3,1,Hey Macarena,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,3,2,Balala,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Charles Town,2025-03-06,3,3,Madam Senator,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,3,4,Heavenly Lady,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,3,5,Uptown Miss,0,,,-999.0,9,,,,0,,,,,,,,111.0,,0,0
+Charles Town,2025-03-06,3,6,Centimorgan,0,,,-999.0,9,,,,0,,,,,,,,118.0,,1,0
+Charles Town,2025-03-06,3,7,Lady Tourist,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,3,8,Tia Mayin,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,3,9,Funny She Fired Me,0,,,-999.0,9,,,,0,,,,,,,,117.0,,0,0
+Charles Town,2025-03-06,4,1,On the Come Up,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,4,2,Josh's Honor,0,,,-999.0,7,,,,0,,,,,,,,115.0,,0,0
+Charles Town,2025-03-06,4,3,Joshy Jak,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,4,4,Emperorofthedark,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,4,5,Claw,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,4,6,Sutton Valley,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,4,7,Company Clown,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,5,1,Coach Rube,0,,,-999.0,8,,,,0,,,,,,,,115.0,,0,0
+Charles Town,2025-03-06,5,2,Whale of a Time,0,,,-999.0,8,,,,0,,,,,,,,117.0,,0,0
+Charles Town,2025-03-06,5,3,Emberly,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,5,4,Cruz in the Castle,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,5,5,River Rewards Rvf,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,5,6,Tiz the Reason,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,5,7,Mad Swann,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,5,8,Playing for Two,0,,,-999.0,8,,,,0,,,,,,,,115.0,,0,0
+Charles Town,2025-03-06,6,1,War Salute,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,6,2,Gericault,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,6,3,Coronation Time,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,6,4,Again We Meet,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,6,5,Brewmaster,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,6,6,Galactic Glory,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,6,7,On the Chill,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,6,8,Gala Star,0,,,-999.0,8,,,,0,,,,,,,,113.0,,0,0
+Charles Town,2025-03-06,7,1,Jungle Beast,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Charles Town,2025-03-06,7,2,Restless,0,,,-999.0,7,,,,0,,,,,,,,115.0,,0,0
+Charles Town,2025-03-06,7,3,Play It Loud,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,7,4,Hammer,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,7,5,Muad'dib,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,7,6,Force of Justice,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,7,7,Byk,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Charles Town,2025-03-06,8,1,Carmelized,0,,,-999.0,11,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,8,2,Runaway Gold,0,,,-999.0,11,,,,0,,,,,,,,118.0,,0,0
+Charles Town,2025-03-06,8,3,Vieste,0,,,-999.0,11,,,,0,,,,,,,,124.0,,0,0
+Charles Town,2025-03-06,8,4,Aim to Please,0,,,-999.0,11,,,,0,,,,,,,,118.0,,0,0
+Charles Town,2025-03-06,8,5,All Aboard,0,,,-999.0,11,,,,0,,,,,,,,118.0,,0,0
+Charles Town,2025-03-06,8,6,Pistol Penny,0,,,-999.0,11,,,,0,,,,,,,,118.0,,0,0
+Charles Town,2025-03-06,8,7,Miss Nine One O,0,,,-999.0,11,,,,0,,,,,,,,118.0,,0,0
+Charles Town,2025-03-06,8,8,Count the Flowers,0,,,-999.0,11,,,,0,,,,,,,,117.0,,0,0
+Charles Town,2025-03-06,8,9,To Honor the Odds,0,,,-999.0,11,,,,0,,,,,,,,118.0,,0,0
+Charles Town,2025-03-06,8,10,Lovely Odds,0,,,-999.0,11,,,,0,,,,,,,,118.0,,0,0
+Charles Town,2025-03-06,8,11,Golden Plunge,0,,,-999.0,11,,,,0,,,,,,,,118.0,,0,0
+Fair Grounds,2025-03-06,1,1,Classic Claire,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Fair Grounds,2025-03-06,1,2,Bella Carmelina,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,1,3,All About Me,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,1,4,Where's the Wine,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,1,5,Jocasta,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,1,6,Bent Halo,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,1,7,Hauntress,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,1,8,Cora's Legacy,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,1,9,Now Yus Cant Leave,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,1,10,Beads,0,,,-999.0,10,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,2,1,Beaudean,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,2,2,Ocean Jackpot,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,2,3,The Fact Is,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,2,4,Name the Time,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,2,5,Josie's Priority,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,2,6,Not Likely,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,2,7,Astrology Wonowon,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,2,8,Computerized,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,3,1,Fitts N Starts,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,3,2,Ann's Storm,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,3,3,Hey Madalyn Claire,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,3,4,Drop Dead Sexy,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Fair Grounds,2025-03-06,3,5,Alexaplayborntorun,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,3,6,Royal O'Haigain,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,3,7,Follow the Saint,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,3,8,One Line Ruler,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Fair Grounds,2025-03-06,3,9,Flawless Takeover,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,4,1,Crawfish Burl,0,,,-999.0,9,,,,0,,,,,,,,114.0,,0,0
+Fair Grounds,2025-03-06,4,2,I'm So Hot,0,,,-999.0,9,,,,0,,,,,,,,114.0,,1,0
+Fair Grounds,2025-03-06,4,3,Oak Hill Seniorita,0,,,-999.0,9,,,,0,,,,,,,,117.0,,0,0
+Fair Grounds,2025-03-06,4,4,Queen of the Moon,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,4,5,Baby Jane,0,,,-999.0,9,,,,0,,,,,,,,117.0,,0,0
+Fair Grounds,2025-03-06,4,6,Artie's Deal,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,4,7,Easy Aces,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,4,8,Chapellete,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,4,9,Costa Lady,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,5,1,Closing Prayer,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,5,2,Give Her Another,0,,,-999.0,9,,,,0,,,,,,,,117.0,,0,0
+Fair Grounds,2025-03-06,5,3,Pointsetmatch,0,,,-999.0,9,,,,0,,,,,,,,117.0,,0,0
+Fair Grounds,2025-03-06,5,4,Reya Sunshine,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,5,5,Perfect Union,0,,,-999.0,9,,,,0,,,,,,,,117.0,,0,0
+Fair Grounds,2025-03-06,5,6,Yume,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,5,7,Izzy Sweet Girl (IRE),0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,5,8,Crank It Up,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,5,9,Myiyla,0,,,-999.0,9,,,,0,,,,,,,,125.0,,0,0
+Fair Grounds,2025-03-06,6,1,He Gots to Go,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,6,2,Rocket Hotshot,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,6,3,Spectrier,0,,,-999.0,11,,,,0,,,,,,,,116.0,,0,0
+Fair Grounds,2025-03-06,6,4,Veracruzin,0,,,-999.0,11,,,,0,,,,,,,,124.0,,0,0
+Fair Grounds,2025-03-06,6,5,My Bariley,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,6,6,Fabled Ruler,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,6,7,River Raft,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,6,8,Cool Quartet,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,6,9,Mischief's Machine,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,6,10,Shortlist,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,6,11,Niles Channel,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,7,1,Sinatra,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,2,Valley of Fire,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,3,One Improbable,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,4,Film At Eleven,0,,,-999.0,13,,,,0,,,,,,,,122.0,,1,0
+Fair Grounds,2025-03-06,7,5,Miracle On Central,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,6,Kunan,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,7,Flick,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,8,Its Paladin Time,0,,,-999.0,13,,,,0,,,,,,,,122.0,,1,0
+Fair Grounds,2025-03-06,7,9,Come On Pop,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,10,Extravagant Prince,0,,,-999.0,13,,,,0,,,,,,,,122.0,,1,0
+Fair Grounds,2025-03-06,7,11,All Rizz,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,12,Frosty Blue,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,7,13,Regained Power,0,,,-999.0,13,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,8,1,Supremely,0,,,-999.0,13,,,,0,,,,,,,,121.0,,1,0
+Fair Grounds,2025-03-06,8,2,Baron of the Nile,0,,,-999.0,13,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,8,3,Chi Town Hustler,0,,,-999.0,13,,,,0,,,,,,,,124.0,,0,0
+Fair Grounds,2025-03-06,8,4,Emerald Express,0,,,-999.0,13,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,8,5,Oncoming Train,0,,,-999.0,13,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,8,6,Flashy Premo,0,,,-999.0,13,,,,0,,,,,,,,113.0,,0,0
+Fair Grounds,2025-03-06,8,7,Crime Spree,0,,,-999.0,13,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,8,8,Huey Duey,0,,,-999.0,13,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,8,9,Top of My Game,0,,,-999.0,13,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,8,10,Onasa,0,,,-999.0,13,,,,0,,,,,,,,121.0,,0,0
+Fair Grounds,2025-03-06,8,11,Stingy,0,,,-999.0,13,,,,0,,,,,,,,124.0,,0,0
+Fair Grounds,2025-03-06,8,12,Order Up,0,,,-999.0,13,,,,0,,,,,,,,118.0,,0,0
+Fair Grounds,2025-03-06,8,13,Military Bearing,0,,,-999.0,13,,,,0,,,,,,,,116.0,,0,0
+Fair Grounds,2025-03-06,9,1,Confidence Game,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,9,2,Out of Deductions,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,9,3,Rock'n a Halo,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,9,4,Accretive,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,9,5,Swiftsure,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,9,6,Another Mystery,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,9,7,Wonderful Justice (GB),0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,9,8,Donegal Momentum,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,9,9,Arro Smash,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Fair Grounds,2025-03-06,10,1,Malibu Rain,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,2,Auto Dial,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,3,Yakety Yak,0,,,-999.0,15,,,,0,,,,,,,,119.0,,0,0
+Fair Grounds,2025-03-06,10,4,Itzcoatl,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,5,Stroller Boy,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,6,Surprise Road Trip,0,,,-999.0,15,,,,0,,,,,,,,117.0,,0,0
+Fair Grounds,2025-03-06,10,7,Triple Trea,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,8,Mr Liam and Alan,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,9,Secession,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,10,Cupid's War,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,11,Love a Fighter,0,,,-999.0,15,,,,0,,,,,,,,117.0,,0,0
+Fair Grounds,2025-03-06,10,12,Zoey's Hippie,0,,,-999.0,15,,,,0,,,,,,,,114.0,,0,0
+Fair Grounds,2025-03-06,10,13,No More Business,0,,,-999.0,15,,,,0,,,,,,,,119.0,,0,0
+Fair Grounds,2025-03-06,10,14,Egor Otay,0,,,-999.0,15,,,,0,,,,,,,,122.0,,0,0
+Fair Grounds,2025-03-06,10,15,Wicked Tough,0,,,-999.0,15,,,,0,,,,,,,,122.0,,1,0
+Gulfstream Park,2025-03-06,1,1,High Strike,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,1,2,Austonian,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,1,3,Sixteen Cigarettes,0,,,-999.0,8,,,,0,,,,,,,,115.0,,0,0
+Gulfstream Park,2025-03-06,1,4,Jigsaw,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,1,5,Improptude,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,1,6,Tapit's Direction,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,1,7,David's Songs,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,1,8,Golden Sombrero,0,,,-999.0,8,,,,0,,,,,,,,115.0,,0,0
+Gulfstream Park,2025-03-06,2,1,Lady River Lily,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,2,Pretty Thing (IRE),0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,3,Miss Banks,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,4,Hit Song,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,5,Majestic Drive,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,6,D'argento Bolt,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,7,C C Girl,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,8,Gulfstream Mary D,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,9,Awesome Campaign,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,2,10,Miss Paola,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,3,1,Bean Machine,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2025-03-06,3,2,Legal Maneuver,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,3,3,River of Time,0,,,-999.0,8,,,,0,,,,,,,,118.0,,1,0
+Gulfstream Park,2025-03-06,3,4,Romero,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,3,5,Swinging Solo,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2025-03-06,3,6,Gemstone Warrior,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2025-03-06,3,7,Premiado,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,3,8,Bandoola,0,,,-999.0,8,,,,0,,,,,,,,125.0,,1,0
+Gulfstream Park,2025-03-06,4,1,Bourbon Outlaw,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2025-03-06,4,2,Amen McLaren,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2025-03-06,4,3,De la Calles,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2025-03-06,4,4,Irish Wish,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2025-03-06,4,5,Devilment,0,,,-999.0,8,,,,0,,,,,,,,125.0,,0,0
+Gulfstream Park,2025-03-06,4,6,Fighting Words,0,,,-999.0,8,,,,0,,,,,,,,118.0,,1,0
+Gulfstream Park,2025-03-06,4,7,Justify's Magic,0,,,-999.0,8,,,,0,,,,,,,,125.0,,1,0
+Gulfstream Park,2025-03-06,4,8,Gold Katz,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,5,1,Husband Material,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,5,2,Kerouac,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,5,3,Breakwater,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,5,4,Alasdair,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,5,5,Tapit Three Times,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,5,6,Remerton,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,5,7,Get Ready to Rock,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,5,8,Sanpirodu,0,,,-999.0,8,,,,0,,,,,,,,122.0,,0,0
+Gulfstream Park,2025-03-06,6,1,Social Triumph,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,6,2,Chitchatchitchat,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,6,3,With Kindness,0,,,-999.0,7,,,,0,,,,,,,,118.0,,1,0
+Gulfstream Park,2025-03-06,6,4,Lindsay Smiles,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,6,5,Smooth Claret,0,,,-999.0,7,,,,0,,,,,,,,118.0,,1,0
+Gulfstream Park,2025-03-06,6,6,Starship Melody,0,,,-999.0,7,,,,0,,,,,,,,118.0,,1,0
+Gulfstream Park,2025-03-06,6,7,Golden Valley,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,7,1,Quinn's Promise,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,7,2,Blueberry Hill,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,7,3,Anna's Promise,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,7,4,Ruth,0,,,-999.0,7,,,,0,,,,,,,,120.0,,1,0
+Gulfstream Park,2025-03-06,7,5,Queen in the Deck,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,7,6,Justinqueso,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,7,7,Pure Beauty,0,,,-999.0,7,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,8,1,Starship Impulsive,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,8,2,You Need Me,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,8,3,Make Haste (GB),0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,8,4,Maddy R,0,,,-999.0,8,,,,0,,,,,,,,113.0,,0,0
+Gulfstream Park,2025-03-06,8,5,Sharedashenanigans,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,8,6,Le Amazonia,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,8,7,Running Rio,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,8,8,Strong Like Sara,0,,,-999.0,8,,,,0,,,,,,,,120.0,,0,0
+Gulfstream Park,2025-03-06,9,1,Dude Ranch,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,9,2,Long Gone Sally,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,9,3,Princess Chloe,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,9,4,Ginger N Speightsy,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,9,5,Geegee's Story,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,9,6,Collective Nation,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,9,7,Mi Mitole Girl,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,9,8,Something Simple,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Gulfstream Park,2025-03-06,9,9,Wild Princess,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Louisiana Downs,2025-03-06,1,1,Aj Freighttrain,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,1,2,Light the Pipe,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,1,3,Wow I Shine,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,1,4,Executive Coronas,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,1,5,Illuminator Z,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,1,6,Jp Jess Valiant,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,1,7,Mateo Osc,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,2,1,One Valiant Milo,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,2,2,Aunt Linda,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,2,3,Cordova Stone,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,2,4,Kiss My Belle,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,2,5,Ec Lil Toxxy,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,2,6,Eagle Secret 45,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,2,7,Remarkable Cowgirl,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,3,1,Mission Sin Dulce,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,3,2,Bm Candi Wish,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,3,3,Runnin Rebell,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,3,4,Pastelillo,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,3,5,Tg Apollitical Uncle,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,3,6,Passed the Bar,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,3,7,Jetblack Corona Chic,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,3,8,Toxic Dynasty,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,4,1,Oppenheimer,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,4,2,San Lorenzo Cowboy,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,4,3,San Vandido,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,4,4,This B Fast,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,4,5,Litenin,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,4,6,Sliden Bye You,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,4,7,Rr Sheza First Perry,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,5,1,Apollitically Kool,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,5,2,Eagle On a June Bug,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,5,3,Kaviar,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,5,4,Teller Spy Mrl,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,5,5,Dr Wasted On You,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,5,6,My Eagle Is Fancy,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,5,7,Defender,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,5,8,Mako Shark Watters,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,6,1,Eagle Revenge,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,6,2,Fearless and Famous,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,6,3,Jess Sippin a Corona,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,6,4,Sistawoman,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,6,5,Valenntino,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,6,6,Efforts Cartel,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,6,7,Sheza a Whirlawaytoo,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,7,1,Apollitical Tool,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,7,2,Shot of Takillya,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,7,3,Chinga Chinga Dash,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,7,4,Good Fire Candy,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,7,5,Di Kvn Waven,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,7,6,The Cowwboy,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Louisiana Downs,2025-03-06,7,7,Paint Me Blu,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,1,1,Line to Gain,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,1,2,Dr Schuster,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,1,3,El Bandido,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,1,4,Arrebato,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,1,5,Montauk Point,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,1,6,Euphoria Star,0,,,-999.0,6,,,,0,,,,,,,,119.0,,0,0
+Mahoning Valley,2025-03-06,2,1,Kadesh,0,,,-999.0,6,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,2,2,Charger,0,,,-999.0,6,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,2,3,Bobby's Gift,0,,,-999.0,6,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,2,4,Digital Footprint,0,,,-999.0,6,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,2,5,Hard Astray,0,,,-999.0,6,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,2,6,Gold Buckle,0,,,-999.0,6,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,3,1,Vicki Rose,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,3,2,Gran Roxy,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,3,3,Antonia's Flowers,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Mahoning Valley,2025-03-06,3,4,Dame Maude Chardin,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,3,5,Little Miss Munny,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,3,6,Lazy Y Legacy,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Mahoning Valley,2025-03-06,3,7,Daisy Jones,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,3,8,Antonacci Girl,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Mahoning Valley,2025-03-06,4,1,Devra Warrior,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,4,2,Think Blue,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,4,3,Snell Flicka,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,4,4,Remember Me,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,4,5,Dreaming of Audrey,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,4,6,Datttsafancyfox,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,4,7,Hot Carol,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,5,1,Feelthebeat,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,2,Unclejackomo,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,3,Rosco P. Coltrane,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,4,Candy Crushem,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,5,Versatile,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,6,Tropic Storm,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,7,The Drake,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,8,Bobby G,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,9,Seeing Red,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,5,10,Fishing for Fun,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,6,1,Watchoutforweaver,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,6,2,Tammy's Toy,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Mahoning Valley,2025-03-06,6,3,Romantic Cowboy,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,6,4,Golden Money,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,6,5,Monster Hunter,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,6,6,Dougs Morning Pick,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,6,7,Spirit of Akron,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,7,1,Gogo Nev's,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,7,2,Miss Six,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,7,3,Maybetheone,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,7,4,Cowgirls Humor,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,7,5,Princess Em,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Mahoning Valley,2025-03-06,7,6,Kozy Night,0,,,-999.0,10,,,,0,,,,,,,,116.0,,0,0
+Mahoning Valley,2025-03-06,7,7,Cousin Minnie,0,,,-999.0,10,,,,0,,,,,,,,116.0,,0,0
+Mahoning Valley,2025-03-06,7,8,Praise N Glory,0,,,-999.0,10,,,,0,,,,,,,,116.0,,0,0
+Mahoning Valley,2025-03-06,7,9,Lil Bit,0,,,-999.0,10,,,,0,,,,,,,,116.0,,0,0
+Mahoning Valley,2025-03-06,7,10,Angel I'm Not,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Mahoning Valley,2025-03-06,8,1,Raven's Honor,0,,,-999.0,7,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,8,2,Bionic Saint,0,,,-999.0,7,,,,0,,,,,,,,118.0,,0,0
+Mahoning Valley,2025-03-06,8,3,River Hustler,0,,,-999.0,7,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,8,4,Shemitebeaporche,0,,,-999.0,7,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,8,5,Mystical Mobil,0,,,-999.0,7,,,,0,,,,,,,,126.0,,0,0
+Mahoning Valley,2025-03-06,8,6,Tapit Volume,0,,,-999.0,7,,,,0,,,,,,,,113.0,,0,0
+Mahoning Valley,2025-03-06,8,7,Bold Zee,0,,,-999.0,7,,,,0,,,,,,,,126.0,,1,0
+Penn National,2025-03-06,1,1,Braccesca,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,1,2,La Macchina Rossa,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,1,3,Pull No Punches,0,,,-999.0,6,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,1,4,Extremely Gruntled,0,,,-999.0,6,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,1,5,Penny Polka,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,1,6,Olivia Dee,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,2,1,Brett's World,0,,,-999.0,5,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,2,2,Souper Fortune,0,,,-999.0,5,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,2,3,Here's Waldo,0,,,-999.0,5,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,2,4,Copperhead Creek,0,,,-999.0,5,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,2,5,Indirectly,0,,,-999.0,5,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,3,1,Early Frost,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,2,Lisa's Palace,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,3,Ladro Di Fichi,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,4,Throwback,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,5,Uptown Seraphina,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,6,London Lady,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,7,Bonita Lassie,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,8,La Lima,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,9,Me Darlin Kathleen,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,10,Scoreboard Lily,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,11,Shinelikeadiamond,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,3,12,Between Dreams,0,,,-999.0,12,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,4,1,It's Not Over Yet,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Penn National,2025-03-06,4,2,Ballad of Warrior,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Penn National,2025-03-06,4,3,Punch It Margaret,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Penn National,2025-03-06,4,4,Preach It Warrior,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Penn National,2025-03-06,4,5,Buzz Adams,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,4,6,Panagiotis,0,,,-999.0,7,,,,0,,,,,,,,123.0,,1,0
+Penn National,2025-03-06,4,7,Quilling,0,,,-999.0,7,,,,0,,,,,,,,119.0,,0,0
+Penn National,2025-03-06,5,1,City of London,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,5,2,Kentucky Reign,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,5,3,Uptown Charly Girl,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,5,4,I Came to Dance,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,5,5,Dancing Chime,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,5,6,When Your Strange,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,5,7,Castaspella,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,6,1,Ten Gauge,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,6,2,Uncle Caesar,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,6,3,Wine Collector,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,6,4,Termsofengagement,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,6,5,My Redemption,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,6,6,Celestial Moon,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,7,1,Boss Holiday,0,,,-999.0,7,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,7,2,Dark Timber,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,7,3,Muni Muni Slew,0,,,-999.0,7,,,,0,,,,,,,,125.0,,0,0
+Penn National,2025-03-06,7,4,Kbcya Later,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,7,5,Don't Losemymoney,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,7,6,Citizen Mack,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,7,7,Father Walsh,0,,,-999.0,7,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,8,1,Purecrazigroove,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,8,2,Destinano,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,8,3,Abby's Spirit,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,8,4,Our Ethan Charles,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,8,5,Grumpy Brooksie,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,8,6,Noble Fish,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,8,7,Raging Bear,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Penn National,2025-03-06,9,1,Milo,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,9,2,Kazmike,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,9,3,Artwell,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,9,4,Sylvia I Am,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,9,5,Bejuco,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,9,6,Banjo,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,9,7,Tiz Marks Spirit,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Penn National,2025-03-06,9,8,Rock Anna Roll,0,,,-999.0,8,,,,0,,,,,,,,123.0,,0,0
+Remington Park,2025-03-06,1,1,Roll Candy Roll,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,1,2,Dance Hawl Gal,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,1,3,Quick Sizzlin Corona,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,1,4,Sr Dark Storm,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,1,5,Eyesa Candy Guy,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,1,6,Chloe for Gold,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,1,7,Cowgirl Mp,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,1,8,My Fancy Heart,0,,,-999.0,8,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,2,1,Pollitical Princess,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,2,Cr Ghost Gift,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,3,Kandy Kassie,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,4,Miss Patricia,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,5,Gold N Ticket,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,6,Iteas Jessy,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,7,Kollys Capi,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,8,The Bees D,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,9,Lightly Painted,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,2,10,Elegant Train B,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,1,A Swift Grip,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,2,Pfr Apollitical Party,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,3,Speedy Molly,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,4,Como Chachingas,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,5,Livewires Miss,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,6,Sexy Ross,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,7,Flight Risk,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,8,Chiseled N Chrome,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,3,9,Turnpike Bandit,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,1,Rp Reckless Wire Too,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,2,Hawk Tuah,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,3,Big Poppy,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,4,Pt Angel,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,5,Sm Jackpots Chick,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,6,Og Sin City,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,7,Southern Turquoise,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,8,Upshot,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,9,Slingshot Engaged,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,4,10,Pretty Lil Poison,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,1,Jt Apollitical Dee,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,2,My Sweet Lilly,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,3,Dtl Ramblin Man,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,4,Harlees Story,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,5,Rojo Chilitos,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,6,Jm Texas Turnpike,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,7,Wf Eye On You,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,8,Turbulent,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,5,9,Mamasletthembecowboys,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,1,Gigis Gucci Glasses,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,2,Mia Chilitos,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,3,Vegas Secrets,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,4,El My Eagle V,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,5,Cuz Eyema Cowboy Baby,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,6,Cardiac Cowgirl,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,7,Livewires Friona,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,8,Shawne Turnpike,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,6,9,Turnpike Jammer,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,1,Cancel Culture,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,2,Wired Cartel,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,3,Zazas Black Pearl,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,4,Hez a Turnpike,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,5,Fourcrossnews,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,6,Pt Glitz,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,7,One Sweet Lady,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,8,Showin You Some Kvn,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,7,9,Pfr Party Crowd,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,1,Run for Miles,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,2,Painted Fury,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,3,Wl Post Malone,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,4,Inner G,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,5,The Babes Babe,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,6,Kiss Me Turnpike,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,7,Old Habits New Tricks,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,8,River Flower,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,8,9,Marvelous Marv,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,1,Royal Chil,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,2,Turnpike Politics,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,3,Wf Good Gracious,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,4,Jess Send Rip,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,5,Livewires Apollo,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,6,L M Country Kool,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,7,Vexing Queen,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,8,Im Primetime Jones,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,9,9,Icy Turnpike,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,10,1,Mr May,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,10,2,Jess a Rednec Cowboy,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,10,3,Major Game,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,10,4,Racys Pilot,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,10,5,Duanes Howd Id Do,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,10,6,Alexandra K,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,10,7,Sheslosthatluvnfeeln,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,10,8,Presido Pete,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Remington Park,2025-03-06,10,9,Okie Power,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Remington Park,2025-03-06,10,10,Striking Breeze,0,,,-999.0,10,,,,0,,,,,,,,126.0,,0,0
+Sunland Park,2025-03-06,1,1,Awesome Account,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,1,2,Royal Money,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,1,3,Sapello Riddler,0,,,-999.0,7,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,1,4,Ringo,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,1,5,Undernumbered,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,1,6,Rapping Rumor,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,1,7,Geebeesbigboy,0,,,-999.0,7,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,2,1,La Jolla Beach,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,2,2,Ms. Pounds,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,2,3,Kentucky Gold,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,2,4,Mo Money Molly,0,,,-999.0,6,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,2,5,Queen Hadassah,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,2,6,Marking's Miracle,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,3,1,Reads Pet Zenon,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,3,2,Arch City,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,3,3,Playthemarker,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,3,4,Indy's Song,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,3,5,Dom Wayne,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,3,6,B a Champion,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,4,1,Smartier,0,,,-999.0,8,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,4,2,Fine Music,0,,,-999.0,8,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,4,3,Holy Bullet,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,4,4,Bertani,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,4,5,Stackers,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,4,6,Compelling Uncle,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,4,7,Blue Ocean Rave,0,,,-999.0,8,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,4,8,Onefortheditch,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,1,Attilas Gal,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,2,Big Blue Note,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,3,Hear Me Roar,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,4,Adios Muchachas,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,5,First Time Player,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,6,Miss Grand Slam,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,7,Rose Girl,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,8,Athena's Storm,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,5,9,Desertrose Oftexas,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,1,Coyster,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,2,Big Creed,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,3,Ministersdon'tlie,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,4,I'm a Cool Cat,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,5,Monarchos Dream,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,6,My Good Good Boy,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,7,Tee Roy,0,,,-999.0,10,,,,0,,,,,,,,124.0,,1,0
+Sunland Park,2025-03-06,6,8,Cyclone Mesa,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,9,Leap Day,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,6,10,Ronchetti,0,,,-999.0,10,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,7,1,Staci's Red Dress,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,7,2,Brand Loyalty,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,7,3,Charlee Mae,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,7,4,What's Crackin,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,7,5,Loana,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,7,6,Raspberry Wine,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,7,7,Dashingly,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,7,8,Foolish Delight,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,1,Delbert Too,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,2,Ar Ya Weegee,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,3,Clue,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,4,Antonios Mark,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,5,Daux,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,6,Diabolical Storm,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,7,Higher Ed,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,8,McThanks,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,8,9,Thunder Dome,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Sunland Park,2025-03-06,9,1,Mysterious Moves,0,,,-999.0,11,,,,0,,,,,,,,121.0,,1,0
+Sunland Park,2025-03-06,9,2,Ulooklikeuloveme,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,9,3,Sapello City Girl,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,9,4,Lincoln County War,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,9,5,Weekendatbernsters,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,9,6,Strike the Senses,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,9,7,Pop's Party,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,9,8,W F American Honey,0,,,-999.0,11,,,,0,,,,,,,,121.0,,1,0
+Sunland Park,2025-03-06,9,9,Nettleinfront,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,9,10,Regal's Charm,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Sunland Park,2025-03-06,9,11,Stormy Rythm,0,,,-999.0,11,,,,0,,,,,,,,121.0,,0,0
+Turfway Park,2025-03-06,1,1,Mom's Cheesecake,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,1,2,Image of Me,0,,,-999.0,9,,,,0,,,,,,,,115.0,,0,0
+Turfway Park,2025-03-06,1,3,Parisian Light,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,1,4,Next Agenda,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,1,5,Free Passage,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,1,6,Take Wings,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,1,7,Ceebee,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,1,8,Kim Possible,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,1,9,Haut Les Coeurs,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,2,1,Team Troy,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,2,2,Saki Bomb,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,2,3,Run Helwig Run,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,2,4,So Grand,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,2,5,Winter Storm,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,2,6,Playing Cupid,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,2,7,Geraldraydaplegray,0,,,-999.0,9,,,,0,,,,,,,,115.0,,0,0
+Turfway Park,2025-03-06,2,8,Baytown Bump,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,2,9,Whisky Reserve,0,,,-999.0,9,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,3,1,Urban Planner,0,,,-999.0,10,,,,0,,,,,,,,117.0,,0,0
+Turfway Park,2025-03-06,3,2,Permit to Carry,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Turfway Park,2025-03-06,3,3,Fast Joker,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,3,4,Conquering Cat,0,,,-999.0,10,,,,0,,,,,,,,118.0,,1,0
+Turfway Park,2025-03-06,3,5,Spirit Rags,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,3,6,Gift Certificate,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Turfway Park,2025-03-06,3,7,Pnutbutter Whiskey,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,3,8,Dr Ruben M,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,3,9,Faber,0,,,-999.0,10,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,3,10,Big Vince,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Turfway Park,2025-03-06,4,1,Handsintheair,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,2,Chandon,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,3,Family,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,4,Maclean's Lullaby,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,5,Aurora's Music,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,6,Fozzer,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,7,Many Mo Kisses,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,8,Nola Louise,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,9,Seeking a Prayer,0,,,-999.0,11,,,,0,,,,,,,,115.0,,0,0
+Turfway Park,2025-03-06,4,10,Don't Call Me Babe,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,4,11,Scarce,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,5,1,Crickenberger,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,2,Raining Sugar,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,3,El Kown,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,4,Stay Lost,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,5,Colonial Rose,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,6,Verbal Geyser (FR),0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,7,Bourbon Serengeti,0,,,-999.0,13,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,5,8,Elle Est Forte,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,9,Befriended,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,10,Heart Spin,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,11,Malawnia,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,12,Faire Plaisir,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,5,13,Harvey's Princess,0,,,-999.0,13,,,,0,,,,,,,,125.0,,0,0
+Turfway Park,2025-03-06,6,1,Thenorthremembers,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,6,2,Liltonytwophones,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,6,3,Unraptured,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,6,4,Indigo Rich,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,6,5,Puttheglassdown,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,6,6,Dragon Drew,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,6,7,Resist the Devil,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,6,8,McVicker,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,6,9,Hijack the Party,0,,,-999.0,11,,,,0,,,,,,,,115.0,,0,0
+Turfway Park,2025-03-06,6,10,Get the Candy,0,,,-999.0,11,,,,0,,,,,,,,115.0,,0,0
+Turfway Park,2025-03-06,6,11,Last Roo,0,,,-999.0,11,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,7,1,Miss Lonelle,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,7,2,Getting After It,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,7,3,Sea Lion,0,,,-999.0,9,,,,0,,,,,,,,117.0,,0,0
+Turfway Park,2025-03-06,7,4,Cachinnation,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,7,5,Brooklyn Can Dance,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Turfway Park,2025-03-06,7,6,Verity,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,7,7,Mezcalifornia,0,,,-999.0,9,,,,0,,,,,,,,118.0,,0,0
+Turfway Park,2025-03-06,7,8,Ultima Grace,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,7,9,Indigo Stunner,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turfway Park,2025-03-06,8,1,Listen and Learn,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,2,Spinning Glory,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,3,Stormy Paradise,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,4,Top,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,5,Black Darter,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,6,Crossing Jordan,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,7,Cheetah Lady,0,,,-999.0,12,,,,0,,,,,,,,115.0,,0,0
+Turfway Park,2025-03-06,8,8,Larksong,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,9,McLaughlin,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,10,McKinzie River,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,11,Ability,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,8,12,Mila Rose,0,,,-999.0,12,,,,0,,,,,,,,120.0,,0,0
+Turfway Park,2025-03-06,9,1,Endless,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,9,2,Bel Aria,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,9,3,King's Legacy,0,,,-999.0,10,,,,0,,,,,,,,118.0,,0,0
+Turfway Park,2025-03-06,9,4,Second Exchange,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,9,5,Gea,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,9,6,Fireside Kitten,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,9,7,I Likem,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,9,8,Skippinjustice,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,9,9,Systematic,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,9,10,Quarterflash,0,,,-999.0,10,,,,0,,,,,,,,123.0,,0,0
+Turfway Park,2025-03-06,10,1,General Issue (FR),0,,,-999.0,12,,,,0,,,,,,,,124.0,,1,0
+Turfway Park,2025-03-06,10,2,Tiz Big Money,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,3,Fire Wire,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,4,El Peligro,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,5,Southern Pass Time,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,6,Xander,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,7,Fly by Night,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,8,Cactus Kevin,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,9,Strike Price,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,10,Dancing Noah,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,11,Son of a Gray,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turfway Park,2025-03-06,10,12,Glyne Beach,0,,,-999.0,12,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,1,1,Wicked Cowgirl Smart,0,,,-999.0,5,,,,0,,,,,,,,128.0,,0,0
+Turf Paradise,2025-03-06,1,2,Double a Eagle,0,,,-999.0,5,,,,0,,,,,,,,128.0,,0,0
+Turf Paradise,2025-03-06,1,3,Heartache Tonite,0,,,-999.0,5,,,,0,,,,,,,,128.0,,0,0
+Turf Paradise,2025-03-06,1,4,Whiskey Wes,0,,,-999.0,5,,,,0,,,,,,,,128.0,,0,0
+Turf Paradise,2025-03-06,1,5,Thats Whats Up,0,,,-999.0,5,,,,0,,,,,,,,128.0,,0,0
+Turf Paradise,2025-03-06,2,1,Golden Affair,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,2,2,Come On Mulitch,0,,,-999.0,6,,,,0,,,,,,,,118.0,,0,0
+Turf Paradise,2025-03-06,2,3,Calorese,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,2,4,Gonzaga,0,,,-999.0,6,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,2,5,Chasin a Dollar,0,,,-999.0,6,,,,0,,,,,,,,118.0,,0,0
+Turf Paradise,2025-03-06,2,6,Pure Cane Sugar,0,,,-999.0,6,,,,0,,,,,,,,119.0,,0,0
+Turf Paradise,2025-03-06,3,1,Spaghetti Tree,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Turf Paradise,2025-03-06,3,2,Dame Lorraine,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,3,3,Divine Gift,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,3,4,Dandy Day,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,3,5,Beautiful Breeze,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Turf Paradise,2025-03-06,3,6,Queen Poppy,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Turf Paradise,2025-03-06,3,7,New West,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,3,8,Oops (GB),0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,4,1,Lord Sterling,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Turf Paradise,2025-03-06,4,2,Freedom Empire,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Turf Paradise,2025-03-06,4,3,Dark Passenger,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Turf Paradise,2025-03-06,4,4,Sand Paynter,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Turf Paradise,2025-03-06,4,5,Just Gotta Shine,0,,,-999.0,9,,,,0,,,,,,,,116.0,,0,0
+Turf Paradise,2025-03-06,4,6,Bob's Decision,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Turf Paradise,2025-03-06,4,7,Midnight Approval,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Turf Paradise,2025-03-06,4,8,Eitherinorintheway,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Turf Paradise,2025-03-06,4,9,Hollywood Impact,0,,,-999.0,9,,,,0,,,,,,,,121.0,,0,0
+Turf Paradise,2025-03-06,5,1,Strength of Autism,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,5,2,Pirate Red,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,5,3,Meant for Me,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,5,4,Tom Bombadil,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,5,5,Midnight Fury,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,5,6,Smiling Goodbye,0,,,-999.0,7,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,5,7,Lite Ranchin Kid,0,,,-999.0,7,,,,0,,,,,,,,117.0,,0,0
+Turf Paradise,2025-03-06,6,1,Warren's Memorable,0,,,-999.0,9,,,,0,,,,,,,,119.0,,0,0
+Turf Paradise,2025-03-06,6,2,Why Behave,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,6,3,Drill Baby Drill,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,6,4,Luvahappyending,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,6,5,Anisette,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,6,6,Mischievous Emma,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,6,7,Bea Mischief,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,6,8,Triple L's Cutter,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,6,9,Miss Accelerate,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,7,1,Fort Langley,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,7,2,Hadlees Honor,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,7,3,Move Over (GB),0,,,-999.0,9,,,,0,,,,,,,,119.0,,0,0
+Turf Paradise,2025-03-06,7,4,The Golden Egg,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,7,5,Cajun Treasure,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,7,6,Creative Bid,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,7,7,Regulation Dazed,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,7,8,Populist,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,7,9,Sunny Spot,0,,,-999.0,9,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,8,1,I'm Telling Mom,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,8,2,Smooching,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,8,3,Manhattan Cherry,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,8,4,Marinas Tina (IRE),0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,8,5,Shin Jidai (GB),0,,,-999.0,9,,,,0,,,,,,,,117.0,,0,0
+Turf Paradise,2025-03-06,8,6,Magic Chrome,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,8,7,Bangie Go,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,8,8,Coastline Hottie,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,8,9,Una Palabra,0,,,-999.0,9,,,,0,,,,,,,,122.0,,0,0
+Turf Paradise,2025-03-06,9,1,Groovy Gray Gal,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,9,2,Stanford Holiday,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0
+Turf Paradise,2025-03-06,9,3,Grazed n' Confused,0,,,-999.0,8,,,,0,,,,,,,,119.0,,0,0
+Turf Paradise,2025-03-06,9,4,Cat On the Run,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,9,5,California Bling,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,9,6,Hot Jammies,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,9,7,Prancing Matilda,0,,,-999.0,8,,,,0,,,,,,,,124.0,,0,0
+Turf Paradise,2025-03-06,9,8,Lula Bella,0,,,-999.0,8,,,,0,,,,,,,,118.0,,0,0

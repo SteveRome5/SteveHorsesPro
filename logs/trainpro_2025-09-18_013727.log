@@ -1,0 +1,5 @@
+[horse-db] schema OK
+[train] start
+[harvest] 2025-09-17 -> 877 rows
+[harvest] 2025-09-18 -> 955 rows
+[train] harvest-only done

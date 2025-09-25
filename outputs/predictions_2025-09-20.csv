@@ -1,0 +1,9 @@
+track,race,program,horse,sf_z,cd_z,bias_z,db_runs,tj_z,ml_prob,market_prob,p_model,p_sharp,flags
+Gulfstream Park,1,1,Demo One,0.0,0.0,0.0,0,0.0,0.26,,0.170071,0.18421,SF:+0.00 CD:+0.00 Bias:+0.00 TJ:+0.00 DB:0
+Gulfstream Park,1,2,Demo Two,0.0,0.0,0.0,0,0.0,0.18,,0.149532,0.15583,SF:+0.00 CD:+0.00 Bias:+0.00 TJ:+0.00 DB:0
+Gulfstream Park,1,3,Demo Three,0.0,0.0,0.0,0,0.0,0.16,,0.143493,0.147698,SF:+0.00 CD:+0.00 Bias:+0.00 TJ:+0.00 DB:0
+Gulfstream Park,1,4,Demo Four,0.0,0.0,0.0,0,0.0,0.14,,0.136941,0.138992,SF:+0.00 CD:+0.00 Bias:+0.00 TJ:+0.00 DB:0
+Gulfstream Park,1,5,Demo Five,0.0,0.0,0.0,0,0.0,0.12,,0.129748,0.129577,SF:+0.00 CD:+0.00 Bias:+0.00 TJ:+0.00 DB:0
+Gulfstream Park,1,6,Demo Six,0.0,0.0,0.0,0,0.0,0.08,,0.112582,0.107748,SF:+0.00 CD:+0.00 Bias:+0.00 TJ:+0.00 DB:0
+Gulfstream Park,1,7,Demo Seven,0.0,0.0,0.0,0,0.0,0.04,,0.08833,0.078603,SF:+0.00 CD:+0.00 Bias:+0.00 TJ:+0.00 DB:0
+Gulfstream Park,1,8,Demo Eight,0.0,0.0,0.0,0,0.0,0.02,,0.069303,0.057342,SF:+0.00 CD:+0.00 Bias:+0.00 TJ:+0.00 DB:0

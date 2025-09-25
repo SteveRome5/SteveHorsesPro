@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 172
+    label = f\"#{prog} {name}\" if (SHOW_NUMBERS and prog) else name
+                                                                   ^
+SyntaxError: unexpected character after line continuation character

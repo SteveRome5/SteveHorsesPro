@@ -1,0 +1,38 @@
+#!/bin/zsh
+set -e
+
+# ---- Embedded env (edit here if creds change) ----
+export RACINGAPI_USER="WQaKSMwgmG8GnbkHgvRRCT0V"
+export RACINGAPI_PASS="McYBoQViXSPvlNcvxQi1Z1py"
+export RACING_API_BASE="https://api.theracingapi.com"
+
+# speed/behavior knobs
+export FAST=1
+export PRO_NO_AUDIT=1
+export PRO_ALPHA=1.30
+export BANKROLL=20000
+export KELLY_CAP=0.12
+export MAX_BET_PER_HORSE=1500
+export MIN_STAKE=50
+
+# majors only (exact set you requested)
+export MAJOR_TRACKS_ONLY="Saratoga,Del Mar,Santa Anita,Santa Anita Park,Gulfstream Park,Keeneland,Churchill Downs,Belmont at the Big A,Woodbine,Kentucky Downs,Parx Racing,Monmouth Park,Fair Grounds,Oaklawn Park,Tampa Bay Downs"
+
+BASE="$HOME/Desktop/SteveHorsesPro"
+OUT="$BASE/outputs"
+
+mkdir -p "$OUT"
+
+# run PRO and open the result
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+/usr/bin/python3 "$BASE/steve_horses_pro.py" || {
+  echo "[PF-35] Python run failed; see $BASE/logs/pro.err.log"
+  exit 1
+}
+
+TARGET="$OUT/$(date +%F)_horses_targets+full.html"
+if [ -f "$TARGET" ]; then
+  open "$TARGET"
+else
+  echo "[PF-35] output missing at $TARGET"
+fi

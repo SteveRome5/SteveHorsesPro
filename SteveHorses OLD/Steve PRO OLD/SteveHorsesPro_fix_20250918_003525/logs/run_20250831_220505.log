@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 197
+    parts.append("<div class='sub'>Tracks: " + ", ".join(TRACKS) + ". Data via The Racing API. " + "".join(f\"<span class='badge'>{b}</span>\" for b in badges) + "</div>")
+                                                                                                                                                                          ^
+SyntaxError: unexpected character after line continuation character

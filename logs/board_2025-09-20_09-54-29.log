@@ -1,0 +1,6 @@
+[ENV] RUN_DATE=2025-09-20 FAST=1 α=1.30 sharp=1
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 363
+    f"Bias {'↑' if x['bz']>0 else ('→' if abs(x['bz'])<1e-6 else '↓'} ({x['bias_pct']} pct)</span>"
+                                                                                                         ^
+SyntaxError: f-string: closing parenthesis '}' does not match opening parenthesis '('
+[OK] board: /Users/stephenjerome/Desktop/SteveHorsesPro/outputs/latest-board.html

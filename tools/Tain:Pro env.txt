@@ -1,0 +1,13 @@
+# once per Terminal session (or put into ~/Desktop/SteveHorsesPro/env.sh and 'source' it)
+export RACINGAPI_USER="WQaKSMwgmG8GnbkHgvRRCT0V"
+export RACINGAPI_PASS="McYBoQViXSPvlNcvxQi1Z1py"
+export RACING_API_BASE="https://api.theracingapi.com"
+
+# speed knobs (same as you’ve been using)
+export FAST=1
+export PRO_NO_AUDIT=1
+export PRO_FAST_TTL=60
+export PRO_ALPHA=1.30
+export PRO_USE_SHARP=1
+export BANKROLL=20000 KELLY_CAP=0.12 MAX_BET_PER_HORSE=1500 MIN_STAKE=50
+export MAJOR_TRACKS_ONLY="Aqueduct Racetrack,Belmont at the Big A,Belmont Park,Saratoga Race Course,Churchill Downs,Keeneland,Gulfstream Park,Santa Anita Park,Del Mar,Oaklawn Park,Fair Grounds,Parx Racing,Woodbine,Monmouth Park,Tampa Bay Downs,Kentucky Downs"

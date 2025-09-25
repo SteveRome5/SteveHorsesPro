@@ -1,0 +1,4 @@
+  File "/Users/stephenjerome/Desktop/SteveHorsesPro/steve_horses_pro.py", line 219
+    "<td class='right mono'>"+(f\"{100*p:.1f}%\" if p>0 else \"—\")+"</td>"
+                                                                            ^
+SyntaxError: unexpected character after line continuation character

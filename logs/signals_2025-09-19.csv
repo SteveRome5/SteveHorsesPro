@@ -1,0 +1,1339 @@
+date,track,race,program,p,used,flags,why
+2025-09-19,Albuquerque,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,1,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,1,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,1,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,1,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,1,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,1,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,1,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,1,10,1e-06,False,,Model score
+2025-09-19,Albuquerque,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,2,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,2,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,2,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,2,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,2,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,2,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,2,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,2,10,1e-06,False,,Model score
+2025-09-19,Albuquerque,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,3,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,3,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,3,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,3,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,3,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,3,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,3,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,3,10,1e-06,False,,Model score
+2025-09-19,Albuquerque,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,4,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,4,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,4,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,4,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,4,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,4,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,4,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,4,10,1e-06,False,,Model score
+2025-09-19,Albuquerque,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,5,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,5,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,5,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,5,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,5,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,5,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,5,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,6,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,6,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,6,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,6,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,6,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,6,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,6,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,7,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,7,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,7,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,7,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,7,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,7,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,7,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,8,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,8,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,8,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,8,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,8,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,8,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,8,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,8,10,1e-06,False,,Model score
+2025-09-19,Albuquerque,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,9,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,9,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,9,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,9,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,9,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,9,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,9,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,10,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,10,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,10,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,10,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,10,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,10,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,10,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,10,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,10,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,11,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,11,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,11,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,11,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,11,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,11,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,11,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,11,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,11,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,11,10,1e-06,False,,Model score
+2025-09-19,Albuquerque,12,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,12,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,12,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,12,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,12,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,12,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,12,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,12,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,12,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,13,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,13,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,13,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,13,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,13,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,13,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,13,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,13,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,13,9,1e-06,False,,Model score
+2025-09-19,Albuquerque,14,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Albuquerque,14,2,1e-06,False,Train2,Model second pick
+2025-09-19,Albuquerque,14,3,1e-06,False,,Model score
+2025-09-19,Albuquerque,14,4,1e-06,False,,Model score
+2025-09-19,Albuquerque,14,5,1e-06,False,,Model score
+2025-09-19,Albuquerque,14,6,1e-06,False,,Model score
+2025-09-19,Albuquerque,14,7,1e-06,False,,Model score
+2025-09-19,Albuquerque,14,8,1e-06,False,,Model score
+2025-09-19,Albuquerque,14,9,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Arapahoe Park,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Arapahoe Park,1,3,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,1,4,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Arapahoe Park,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Arapahoe Park,2,3,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,2,4,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Arapahoe Park,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Arapahoe Park,3,3,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,3,4,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,3,5,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Arapahoe Park,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Arapahoe Park,4,3,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,4,4,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,4,5,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,4,6,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,4,7,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Arapahoe Park,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Arapahoe Park,5,3,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,5,4,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Arapahoe Park,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Arapahoe Park,6,3,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,6,4,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,6,5,1e-06,False,,Model score
+2025-09-19,Arapahoe Park,6,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,1,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,1,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,1,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,1,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,1,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,2,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,8,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,9,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,10,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,11,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,12,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,2,13,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,3,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,3,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,3,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,3,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,3,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,4,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,4,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,4,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,4,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,4,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,4,8,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,5,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,8,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,9,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,10,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,11,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,5,12,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,6,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,6,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,6,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,6,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,6,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,6,8,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,6,9,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,7,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,7,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,7,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,7,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,7,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,7,8,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,7,9,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,8,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,8,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,9,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,10,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,11,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,12,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,13,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,14,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,15,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,8,16,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belmont at the Big A,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belmont at the Big A,9,3,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,4,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,5,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,6,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,7,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,8,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,9,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,10,1e-06,False,,Model score
+2025-09-19,Belmont at the Big A,9,11,1e-06,False,,Model score
+2025-09-19,Belterra Park,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belterra Park,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belterra Park,1,3,1e-06,False,,Model score
+2025-09-19,Belterra Park,1,4,1e-06,False,,Model score
+2025-09-19,Belterra Park,1,5,1e-06,False,,Model score
+2025-09-19,Belterra Park,1,6,1e-06,False,,Model score
+2025-09-19,Belterra Park,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belterra Park,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belterra Park,2,3,1e-06,False,,Model score
+2025-09-19,Belterra Park,2,4,1e-06,False,,Model score
+2025-09-19,Belterra Park,2,5,1e-06,False,,Model score
+2025-09-19,Belterra Park,2,6,1e-06,False,,Model score
+2025-09-19,Belterra Park,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belterra Park,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belterra Park,3,3,1e-06,False,,Model score
+2025-09-19,Belterra Park,3,4,1e-06,False,,Model score
+2025-09-19,Belterra Park,3,5,1e-06,False,,Model score
+2025-09-19,Belterra Park,3,6,1e-06,False,,Model score
+2025-09-19,Belterra Park,3,7,1e-06,False,,Model score
+2025-09-19,Belterra Park,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belterra Park,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belterra Park,4,3,1e-06,False,,Model score
+2025-09-19,Belterra Park,4,4,1e-06,False,,Model score
+2025-09-19,Belterra Park,4,5,1e-06,False,,Model score
+2025-09-19,Belterra Park,4,6,1e-06,False,,Model score
+2025-09-19,Belterra Park,4,7,1e-06,False,,Model score
+2025-09-19,Belterra Park,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belterra Park,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belterra Park,5,3,1e-06,False,,Model score
+2025-09-19,Belterra Park,5,4,1e-06,False,,Model score
+2025-09-19,Belterra Park,5,5,1e-06,False,,Model score
+2025-09-19,Belterra Park,5,6,1e-06,False,,Model score
+2025-09-19,Belterra Park,5,7,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belterra Park,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belterra Park,6,3,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,4,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,5,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,6,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,7,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,8,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,9,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,10,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,11,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,12,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,13,1e-06,False,,Model score
+2025-09-19,Belterra Park,6,14,1e-06,False,,Model score
+2025-09-19,Belterra Park,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belterra Park,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belterra Park,7,3,1e-06,False,,Model score
+2025-09-19,Belterra Park,7,4,1e-06,False,,Model score
+2025-09-19,Belterra Park,7,5,1e-06,False,,Model score
+2025-09-19,Belterra Park,7,6,1e-06,False,,Model score
+2025-09-19,Belterra Park,7,7,1e-06,False,,Model score
+2025-09-19,Belterra Park,7,8,1e-06,False,,Model score
+2025-09-19,Belterra Park,7,9,1e-06,False,,Model score
+2025-09-19,Belterra Park,7,10,1e-06,False,,Model score
+2025-09-19,Belterra Park,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Belterra Park,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Belterra Park,8,3,1e-06,False,,Model score
+2025-09-19,Belterra Park,8,4,1e-06,False,,Model score
+2025-09-19,Belterra Park,8,5,1e-06,False,,Model score
+2025-09-19,Belterra Park,8,6,1e-06,False,,Model score
+2025-09-19,Belterra Park,8,7,1e-06,False,,Model score
+2025-09-19,Belterra Park,8,8,1e-06,False,,Model score
+2025-09-19,Belterra Park,8,9,1e-06,False,,Model score
+2025-09-19,Churchill Downs,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,1,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,1,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,1,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,1,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,1,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,1,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,2,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,2,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,2,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,2,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,2,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,3,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,3,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,3,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,3,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,3,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,3,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,4,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,4,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,4,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,4,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,4,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,4,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,4,9,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,5,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,9,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,10,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,11,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,12,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,13,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,14,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,15,1e-06,False,,Model score
+2025-09-19,Churchill Downs,5,16,1e-06,False,,Model score
+2025-09-19,Churchill Downs,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,6,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,6,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,6,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,6,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,6,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,6,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,7,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,7,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,7,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,7,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,7,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,7,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,7,9,1e-06,False,,Model score
+2025-09-19,Churchill Downs,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,8,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,8,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,8,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,8,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,8,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,8,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,9,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,9,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,10,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,11,1e-06,False,,Model score
+2025-09-19,Churchill Downs,9,12,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Churchill Downs,10,2,1e-06,False,Train2,Model second pick
+2025-09-19,Churchill Downs,10,3,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,4,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,5,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,6,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,7,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,8,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,9,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,10,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,11,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,12,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,13,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,14,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,15,1e-06,False,,Model score
+2025-09-19,Churchill Downs,10,16,1e-06,False,,Model score
+2025-09-19,Charles Town,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Charles Town,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Charles Town,1,3,1e-06,False,,Model score
+2025-09-19,Charles Town,1,4,1e-06,False,,Model score
+2025-09-19,Charles Town,1,5,1e-06,False,,Model score
+2025-09-19,Charles Town,1,6,1e-06,False,,Model score
+2025-09-19,Charles Town,1,7,1e-06,False,,Model score
+2025-09-19,Charles Town,1,8,1e-06,False,,Model score
+2025-09-19,Charles Town,1,9,1e-06,False,,Model score
+2025-09-19,Charles Town,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Charles Town,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Charles Town,2,3,1e-06,False,,Model score
+2025-09-19,Charles Town,2,4,1e-06,False,,Model score
+2025-09-19,Charles Town,2,5,1e-06,False,,Model score
+2025-09-19,Charles Town,2,6,1e-06,False,,Model score
+2025-09-19,Charles Town,2,7,1e-06,False,,Model score
+2025-09-19,Charles Town,2,8,1e-06,False,,Model score
+2025-09-19,Charles Town,2,9,1e-06,False,,Model score
+2025-09-19,Charles Town,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Charles Town,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Charles Town,3,3,1e-06,False,,Model score
+2025-09-19,Charles Town,3,4,1e-06,False,,Model score
+2025-09-19,Charles Town,3,5,1e-06,False,,Model score
+2025-09-19,Charles Town,3,6,1e-06,False,,Model score
+2025-09-19,Charles Town,3,7,1e-06,False,,Model score
+2025-09-19,Charles Town,3,8,1e-06,False,,Model score
+2025-09-19,Charles Town,3,9,1e-06,False,,Model score
+2025-09-19,Charles Town,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Charles Town,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Charles Town,4,3,1e-06,False,,Model score
+2025-09-19,Charles Town,4,4,1e-06,False,,Model score
+2025-09-19,Charles Town,4,5,1e-06,False,,Model score
+2025-09-19,Charles Town,4,6,1e-06,False,,Model score
+2025-09-19,Charles Town,4,7,1e-06,False,,Model score
+2025-09-19,Charles Town,4,8,1e-06,False,,Model score
+2025-09-19,Charles Town,4,9,1e-06,False,,Model score
+2025-09-19,Charles Town,4,10,1e-06,False,,Model score
+2025-09-19,Charles Town,4,11,1e-06,False,,Model score
+2025-09-19,Charles Town,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Charles Town,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Charles Town,5,3,1e-06,False,,Model score
+2025-09-19,Charles Town,5,4,1e-06,False,,Model score
+2025-09-19,Charles Town,5,5,1e-06,False,,Model score
+2025-09-19,Charles Town,5,6,1e-06,False,,Model score
+2025-09-19,Charles Town,5,7,1e-06,False,,Model score
+2025-09-19,Charles Town,5,8,1e-06,False,,Model score
+2025-09-19,Charles Town,5,9,1e-06,False,,Model score
+2025-09-19,Charles Town,5,10,1e-06,False,,Model score
+2025-09-19,Charles Town,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Charles Town,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Charles Town,6,3,1e-06,False,,Model score
+2025-09-19,Charles Town,6,4,1e-06,False,,Model score
+2025-09-19,Charles Town,6,5,1e-06,False,,Model score
+2025-09-19,Charles Town,6,6,1e-06,False,,Model score
+2025-09-19,Charles Town,6,7,1e-06,False,,Model score
+2025-09-19,Charles Town,6,8,1e-06,False,,Model score
+2025-09-19,Charles Town,6,9,1e-06,False,,Model score
+2025-09-19,Charles Town,6,10,1e-06,False,,Model score
+2025-09-19,Charles Town,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Charles Town,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Charles Town,7,3,1e-06,False,,Model score
+2025-09-19,Charles Town,7,4,1e-06,False,,Model score
+2025-09-19,Charles Town,7,5,1e-06,False,,Model score
+2025-09-19,Charles Town,7,6,1e-06,False,,Model score
+2025-09-19,Charles Town,7,7,1e-06,False,,Model score
+2025-09-19,Charles Town,7,8,1e-06,False,,Model score
+2025-09-19,Charles Town,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Charles Town,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Charles Town,8,3,1e-06,False,,Model score
+2025-09-19,Charles Town,8,4,1e-06,False,,Model score
+2025-09-19,Charles Town,8,5,1e-06,False,,Model score
+2025-09-19,Charles Town,8,6,1e-06,False,,Model score
+2025-09-19,Charles Town,8,7,1e-06,False,,Model score
+2025-09-19,Charles Town,8,8,1e-06,False,,Model score
+2025-09-19,Charles Town,8,9,1e-06,False,,Model score
+2025-09-19,Charles Town,8,10,1e-06,False,,Model score
+2025-09-19,Fairmount Park,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Fairmount Park,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Fairmount Park,1,3,1e-06,False,,Model score
+2025-09-19,Fairmount Park,1,4,1e-06,False,,Model score
+2025-09-19,Fairmount Park,1,5,1e-06,False,,Model score
+2025-09-19,Fairmount Park,1,6,1e-06,False,,Model score
+2025-09-19,Fairmount Park,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Fairmount Park,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Fairmount Park,2,3,1e-06,False,,Model score
+2025-09-19,Fairmount Park,2,4,1e-06,False,,Model score
+2025-09-19,Fairmount Park,2,5,1e-06,False,,Model score
+2025-09-19,Fairmount Park,2,6,1e-06,False,,Model score
+2025-09-19,Fairmount Park,2,7,1e-06,False,,Model score
+2025-09-19,Fairmount Park,2,8,1e-06,False,,Model score
+2025-09-19,Fairmount Park,2,9,1e-06,False,,Model score
+2025-09-19,Fairmount Park,2,10,1e-06,False,,Model score
+2025-09-19,Fairmount Park,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Fairmount Park,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Fairmount Park,3,3,1e-06,False,,Model score
+2025-09-19,Fairmount Park,3,4,1e-06,False,,Model score
+2025-09-19,Fairmount Park,3,5,1e-06,False,,Model score
+2025-09-19,Fairmount Park,3,6,1e-06,False,,Model score
+2025-09-19,Fairmount Park,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Fairmount Park,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Fairmount Park,4,3,1e-06,False,,Model score
+2025-09-19,Fairmount Park,4,4,1e-06,False,,Model score
+2025-09-19,Fairmount Park,4,5,1e-06,False,,Model score
+2025-09-19,Fairmount Park,4,6,1e-06,False,,Model score
+2025-09-19,Fairmount Park,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Fairmount Park,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Fairmount Park,5,3,1e-06,False,,Model score
+2025-09-19,Fairmount Park,5,4,1e-06,False,,Model score
+2025-09-19,Fairmount Park,5,5,1e-06,False,,Model score
+2025-09-19,Fairmount Park,5,6,1e-06,False,,Model score
+2025-09-19,Fairmount Park,5,7,1e-06,False,,Model score
+2025-09-19,Fairmount Park,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Fairmount Park,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Fairmount Park,6,3,1e-06,False,,Model score
+2025-09-19,Fairmount Park,6,4,1e-06,False,,Model score
+2025-09-19,Fairmount Park,6,5,1e-06,False,,Model score
+2025-09-19,Fairmount Park,6,6,1e-06,False,,Model score
+2025-09-19,Fairmount Park,6,7,1e-06,False,,Model score
+2025-09-19,Fairmount Park,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Fairmount Park,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Fairmount Park,7,3,1e-06,False,,Model score
+2025-09-19,Fairmount Park,7,4,1e-06,False,,Model score
+2025-09-19,Fairmount Park,7,5,1e-06,False,,Model score
+2025-09-19,Fairmount Park,7,6,1e-06,False,,Model score
+2025-09-19,Fairmount Park,7,7,1e-06,False,,Model score
+2025-09-19,Fairmount Park,7,8,1e-06,False,,Model score
+2025-09-19,Fairmount Park,7,9,1e-06,False,,Model score
+2025-09-19,Fairmount Park,7,10,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Fairmount Park,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Fairmount Park,8,3,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,4,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,5,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,6,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,7,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,8,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,9,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,10,1e-06,False,,Model score
+2025-09-19,Fairmount Park,8,11,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,1,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,1,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,1,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,1,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,1,7,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,2,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,2,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,2,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,2,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,2,7,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,2,8,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,2,9,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,2,10,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,3,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,3,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,3,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,3,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,3,7,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,3,8,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,4,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,4,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,4,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,4,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,5,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,5,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,5,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,5,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,5,7,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,5,8,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,5,9,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,5,10,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,6,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,6,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,6,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,6,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,6,7,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,6,8,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,7,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,7,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,7,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,7,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,7,7,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,8,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,8,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,8,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,8,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,8,7,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,8,8,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Gulfstream Park,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Gulfstream Park,9,3,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,9,4,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,9,5,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,9,6,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,9,7,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,9,8,1e-06,False,,Model score
+2025-09-19,Gulfstream Park,9,9,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,1,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,1,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,1,5,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,1,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,1,7,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,2,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,2,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,2,5,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,2,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,2,7,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,2,8,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,3,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,3,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,3,5,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,3,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,3,7,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,3,8,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,3,9,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,4,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,4,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,4,5,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,4,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,4,7,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,4,8,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,4,9,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,5,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,5,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,5,5,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,5,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,5,7,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,5,8,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,5,9,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,6,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,6,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,6,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,6,8,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,7,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,7,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,7,5,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,7,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,7,7,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,7,8,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,7,9,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,8,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,8,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,8,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,8,7,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,8,8,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,8,9,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Los Alamitos Race Course,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Los Alamitos Race Course,9,3,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,9,4,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,9,5,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,9,6,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,9,7,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,9,8,1e-06,False,,Model score
+2025-09-19,Los Alamitos Race Course,9,9,1e-06,False,,Model score
+2025-09-19,Laurel Park,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,1,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,1,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,1,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,1,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,1,7,1e-06,False,,Model score
+2025-09-19,Laurel Park,1,8,1e-06,False,,Model score
+2025-09-19,Laurel Park,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,2,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,2,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,2,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,2,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,3,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,7,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,8,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,9,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,10,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,11,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,12,1e-06,False,,Model score
+2025-09-19,Laurel Park,3,13,1e-06,False,,Model score
+2025-09-19,Laurel Park,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,4,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,4,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,4,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,4,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,4,7,1e-06,False,,Model score
+2025-09-19,Laurel Park,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,5,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,5,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,5,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,5,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,5,7,1e-06,False,,Model score
+2025-09-19,Laurel Park,5,8,1e-06,False,,Model score
+2025-09-19,Laurel Park,5,9,1e-06,False,,Model score
+2025-09-19,Laurel Park,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,6,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,6,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,6,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,6,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,6,7,1e-06,False,,Model score
+2025-09-19,Laurel Park,6,8,1e-06,False,,Model score
+2025-09-19,Laurel Park,6,9,1e-06,False,,Model score
+2025-09-19,Laurel Park,6,10,1e-06,False,,Model score
+2025-09-19,Laurel Park,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,7,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,7,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,7,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,7,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,7,7,1e-06,False,,Model score
+2025-09-19,Laurel Park,7,8,1e-06,False,,Model score
+2025-09-19,Laurel Park,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,8,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,8,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,8,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,8,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,8,7,1e-06,False,,Model score
+2025-09-19,Laurel Park,8,8,1e-06,False,,Model score
+2025-09-19,Laurel Park,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Laurel Park,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Laurel Park,9,3,1e-06,False,,Model score
+2025-09-19,Laurel Park,9,4,1e-06,False,,Model score
+2025-09-19,Laurel Park,9,5,1e-06,False,,Model score
+2025-09-19,Laurel Park,9,6,1e-06,False,,Model score
+2025-09-19,Laurel Park,9,7,1e-06,False,,Model score
+2025-09-19,Laurel Park,9,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,1,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,1,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,1,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,1,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,1,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,1,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,1,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,1,10,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,2,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,10,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,11,1e-06,False,,Model score
+2025-09-19,Lone Star Park,2,12,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,3,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,10,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,11,1e-06,False,,Model score
+2025-09-19,Lone Star Park,3,12,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,4,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,10,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,11,1e-06,False,,Model score
+2025-09-19,Lone Star Park,4,12,1e-06,False,,Model score
+2025-09-19,Lone Star Park,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,5,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,5,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,5,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,5,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,5,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,5,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,5,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,6,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,6,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,6,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,6,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,6,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,6,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,6,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,6,10,1e-06,False,,Model score
+2025-09-19,Lone Star Park,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,7,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,7,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,7,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,7,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,7,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,7,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,7,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,8,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,10,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,11,1e-06,False,,Model score
+2025-09-19,Lone Star Park,8,12,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Lone Star Park,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Lone Star Park,9,3,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,4,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,5,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,6,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,7,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,8,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,9,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,10,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,11,1e-06,False,,Model score
+2025-09-19,Lone Star Park,9,12,1e-06,False,,Model score
+2025-09-19,Meadowlands,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Meadowlands,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Meadowlands,1,3,1e-06,False,,Model score
+2025-09-19,Meadowlands,1,4,1e-06,False,,Model score
+2025-09-19,Meadowlands,1,5,1e-06,False,,Model score
+2025-09-19,Meadowlands,1,6,1e-06,False,,Model score
+2025-09-19,Meadowlands,1,7,1e-06,False,,Model score
+2025-09-19,Meadowlands,1,8,1e-06,False,,Model score
+2025-09-19,Meadowlands,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Meadowlands,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Meadowlands,2,3,1e-06,False,,Model score
+2025-09-19,Meadowlands,2,4,1e-06,False,,Model score
+2025-09-19,Meadowlands,2,5,1e-06,False,,Model score
+2025-09-19,Meadowlands,2,6,1e-06,False,,Model score
+2025-09-19,Meadowlands,2,7,1e-06,False,,Model score
+2025-09-19,Meadowlands,2,8,1e-06,False,,Model score
+2025-09-19,Meadowlands,2,9,1e-06,False,,Model score
+2025-09-19,Meadowlands,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Meadowlands,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Meadowlands,3,3,1e-06,False,,Model score
+2025-09-19,Meadowlands,3,4,1e-06,False,,Model score
+2025-09-19,Meadowlands,3,5,1e-06,False,,Model score
+2025-09-19,Meadowlands,3,6,1e-06,False,,Model score
+2025-09-19,Meadowlands,3,7,1e-06,False,,Model score
+2025-09-19,Meadowlands,3,8,1e-06,False,,Model score
+2025-09-19,Meadowlands,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Meadowlands,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Meadowlands,4,3,1e-06,False,,Model score
+2025-09-19,Meadowlands,4,4,1e-06,False,,Model score
+2025-09-19,Meadowlands,4,5,1e-06,False,,Model score
+2025-09-19,Meadowlands,4,6,1e-06,False,,Model score
+2025-09-19,Meadowlands,4,7,1e-06,False,,Model score
+2025-09-19,Meadowlands,4,8,1e-06,False,,Model score
+2025-09-19,Meadowlands,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Meadowlands,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Meadowlands,5,3,1e-06,False,,Model score
+2025-09-19,Meadowlands,5,4,1e-06,False,,Model score
+2025-09-19,Meadowlands,5,5,1e-06,False,,Model score
+2025-09-19,Meadowlands,5,6,1e-06,False,,Model score
+2025-09-19,Meadowlands,5,7,1e-06,False,,Model score
+2025-09-19,Meadowlands,5,8,1e-06,False,,Model score
+2025-09-19,Meadowlands,5,9,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Meadowlands,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Meadowlands,6,3,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,4,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,5,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,6,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,7,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,8,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,9,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,10,1e-06,False,,Model score
+2025-09-19,Meadowlands,6,11,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,1,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,1,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,1,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,1,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,2,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,2,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,2,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,2,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,2,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,2,8,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,3,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,3,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,3,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,3,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,3,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,3,8,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,4,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,4,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,4,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,4,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,4,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,4,8,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,4,9,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,5,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,5,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,5,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,5,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,5,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,6,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,6,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,6,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,6,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,6,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,6,8,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,6,9,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,6,10,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,7,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,7,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,7,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,7,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,7,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,7,8,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,7,9,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,7,10,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,8,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,8,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,9,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,10,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,11,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,12,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,8,13,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,9,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,8,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,9,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,10,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,11,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,12,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,9,13,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Presque Isle Downs,10,2,1e-06,False,Train2,Model second pick
+2025-09-19,Presque Isle Downs,10,3,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,4,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,5,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,6,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,7,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,8,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,9,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,10,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,11,1e-06,False,,Model score
+2025-09-19,Presque Isle Downs,10,12,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,1,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,1,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,1,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,2,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,2,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,2,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,2,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,2,7,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,3,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,3,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,3,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,3,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,3,7,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,4,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,4,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,4,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,4,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,5,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,5,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,5,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,5,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,6,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,6,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,6,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,6,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,6,7,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,7,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,7,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,7,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,7,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,7,7,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,8,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,8,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,8,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,8,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,8,7,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,8,8,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,8,9,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,9,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,9,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,9,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,9,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,9,7,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,10,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Prairie Meadows,10,2,1e-06,False,Train2,Model second pick
+2025-09-19,Prairie Meadows,10,3,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,10,4,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,10,5,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,10,6,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,10,7,1e-06,False,,Model score
+2025-09-19,Prairie Meadows,10,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,1,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,9,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,10,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,11,1e-06,False,,Model score
+2025-09-19,Parx Racing,1,12,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,2,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,9,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,10,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,11,1e-06,False,,Model score
+2025-09-19,Parx Racing,2,12,1e-06,False,,Model score
+2025-09-19,Parx Racing,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,3,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,3,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,3,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,3,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,3,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,3,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,4,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,4,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,4,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,4,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,4,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,4,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,4,9,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,5,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,9,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,10,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,11,1e-06,False,,Model score
+2025-09-19,Parx Racing,5,12,1e-06,False,,Model score
+2025-09-19,Parx Racing,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,6,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,6,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,6,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,6,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,6,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,7,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,9,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,10,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,11,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,12,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,13,1e-06,False,,Model score
+2025-09-19,Parx Racing,7,14,1e-06,False,,Model score
+2025-09-19,Parx Racing,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,8,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,8,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,8,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,8,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,8,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,8,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,9,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,9,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,9,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,9,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,9,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,9,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,10,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,10,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,10,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,10,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,10,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,10,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,10,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,10,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Parx Racing,11,2,1e-06,False,Train2,Model second pick
+2025-09-19,Parx Racing,11,3,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,4,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,5,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,6,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,7,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,8,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,9,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,10,1e-06,False,,Model score
+2025-09-19,Parx Racing,11,11,1e-06,False,,Model score
+2025-09-19,Remington Park,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,1,3,1e-06,False,,Model score
+2025-09-19,Remington Park,1,4,1e-06,False,,Model score
+2025-09-19,Remington Park,1,5,1e-06,False,,Model score
+2025-09-19,Remington Park,1,6,1e-06,False,,Model score
+2025-09-19,Remington Park,1,7,1e-06,False,,Model score
+2025-09-19,Remington Park,1,8,1e-06,False,,Model score
+2025-09-19,Remington Park,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,2,3,1e-06,False,,Model score
+2025-09-19,Remington Park,2,4,1e-06,False,,Model score
+2025-09-19,Remington Park,2,5,1e-06,False,,Model score
+2025-09-19,Remington Park,2,6,1e-06,False,,Model score
+2025-09-19,Remington Park,2,7,1e-06,False,,Model score
+2025-09-19,Remington Park,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,3,3,1e-06,False,,Model score
+2025-09-19,Remington Park,3,4,1e-06,False,,Model score
+2025-09-19,Remington Park,3,5,1e-06,False,,Model score
+2025-09-19,Remington Park,3,6,1e-06,False,,Model score
+2025-09-19,Remington Park,3,7,1e-06,False,,Model score
+2025-09-19,Remington Park,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,4,3,1e-06,False,,Model score
+2025-09-19,Remington Park,4,4,1e-06,False,,Model score
+2025-09-19,Remington Park,4,5,1e-06,False,,Model score
+2025-09-19,Remington Park,4,6,1e-06,False,,Model score
+2025-09-19,Remington Park,4,7,1e-06,False,,Model score
+2025-09-19,Remington Park,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,5,3,1e-06,False,,Model score
+2025-09-19,Remington Park,5,4,1e-06,False,,Model score
+2025-09-19,Remington Park,5,5,1e-06,False,,Model score
+2025-09-19,Remington Park,5,6,1e-06,False,,Model score
+2025-09-19,Remington Park,5,7,1e-06,False,,Model score
+2025-09-19,Remington Park,5,8,1e-06,False,,Model score
+2025-09-19,Remington Park,5,9,1e-06,False,,Model score
+2025-09-19,Remington Park,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,6,3,1e-06,False,,Model score
+2025-09-19,Remington Park,6,4,1e-06,False,,Model score
+2025-09-19,Remington Park,6,5,1e-06,False,,Model score
+2025-09-19,Remington Park,6,6,1e-06,False,,Model score
+2025-09-19,Remington Park,6,7,1e-06,False,,Model score
+2025-09-19,Remington Park,6,8,1e-06,False,,Model score
+2025-09-19,Remington Park,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,7,3,1e-06,False,,Model score
+2025-09-19,Remington Park,7,4,1e-06,False,,Model score
+2025-09-19,Remington Park,7,5,1e-06,False,,Model score
+2025-09-19,Remington Park,7,6,1e-06,False,,Model score
+2025-09-19,Remington Park,7,7,1e-06,False,,Model score
+2025-09-19,Remington Park,7,8,1e-06,False,,Model score
+2025-09-19,Remington Park,8,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,8,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,8,3,1e-06,False,,Model score
+2025-09-19,Remington Park,8,4,1e-06,False,,Model score
+2025-09-19,Remington Park,8,5,1e-06,False,,Model score
+2025-09-19,Remington Park,8,6,1e-06,False,,Model score
+2025-09-19,Remington Park,8,7,1e-06,False,,Model score
+2025-09-19,Remington Park,8,8,1e-06,False,,Model score
+2025-09-19,Remington Park,8,9,1e-06,False,,Model score
+2025-09-19,Remington Park,9,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,9,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,9,3,1e-06,False,,Model score
+2025-09-19,Remington Park,9,4,1e-06,False,,Model score
+2025-09-19,Remington Park,9,5,1e-06,False,,Model score
+2025-09-19,Remington Park,9,6,1e-06,False,,Model score
+2025-09-19,Remington Park,10,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Remington Park,10,2,1e-06,False,Train2,Model second pick
+2025-09-19,Remington Park,10,3,1e-06,False,,Model score
+2025-09-19,Remington Park,10,4,1e-06,False,,Model score
+2025-09-19,Remington Park,10,5,1e-06,False,,Model score
+2025-09-19,Remington Park,10,6,1e-06,False,,Model score
+2025-09-19,Remington Park,10,7,1e-06,False,,Model score
+2025-09-19,Remington Park,10,8,1e-06,False,,Model score
+2025-09-19,Woodbine,1,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Woodbine,1,2,1e-06,False,Train2,Model second pick
+2025-09-19,Woodbine,1,3,1e-06,False,,Model score
+2025-09-19,Woodbine,1,4,1e-06,False,,Model score
+2025-09-19,Woodbine,1,5,1e-06,False,,Model score
+2025-09-19,Woodbine,1,6,1e-06,False,,Model score
+2025-09-19,Woodbine,1,7,1e-06,False,,Model score
+2025-09-19,Woodbine,2,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Woodbine,2,2,1e-06,False,Train2,Model second pick
+2025-09-19,Woodbine,2,3,1e-06,False,,Model score
+2025-09-19,Woodbine,2,4,1e-06,False,,Model score
+2025-09-19,Woodbine,2,5,1e-06,False,,Model score
+2025-09-19,Woodbine,2,6,1e-06,False,,Model score
+2025-09-19,Woodbine,2,7,1e-06,False,,Model score
+2025-09-19,Woodbine,3,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Woodbine,3,2,1e-06,False,Train2,Model second pick
+2025-09-19,Woodbine,3,3,1e-06,False,,Model score
+2025-09-19,Woodbine,3,4,1e-06,False,,Model score
+2025-09-19,Woodbine,3,5,1e-06,False,,Model score
+2025-09-19,Woodbine,3,6,1e-06,False,,Model score
+2025-09-19,Woodbine,3,7,1e-06,False,,Model score
+2025-09-19,Woodbine,4,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Woodbine,4,2,1e-06,False,Train2,Model second pick
+2025-09-19,Woodbine,4,3,1e-06,False,,Model score
+2025-09-19,Woodbine,4,4,1e-06,False,,Model score
+2025-09-19,Woodbine,4,5,1e-06,False,,Model score
+2025-09-19,Woodbine,4,6,1e-06,False,,Model score
+2025-09-19,Woodbine,4,7,1e-06,False,,Model score
+2025-09-19,Woodbine,5,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Woodbine,5,2,1e-06,False,Train2,Model second pick
+2025-09-19,Woodbine,5,3,1e-06,False,,Model score
+2025-09-19,Woodbine,5,4,1e-06,False,,Model score
+2025-09-19,Woodbine,5,5,1e-06,False,,Model score
+2025-09-19,Woodbine,5,6,1e-06,False,,Model score
+2025-09-19,Woodbine,5,7,1e-06,False,,Model score
+2025-09-19,Woodbine,6,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Woodbine,6,2,1e-06,False,Train2,Model second pick
+2025-09-19,Woodbine,6,3,1e-06,False,,Model score
+2025-09-19,Woodbine,6,4,1e-06,False,,Model score
+2025-09-19,Woodbine,6,5,1e-06,False,,Model score
+2025-09-19,Woodbine,6,6,1e-06,False,,Model score
+2025-09-19,Woodbine,6,7,1e-06,False,,Model score
+2025-09-19,Woodbine,6,8,1e-06,False,,Model score
+2025-09-19,Woodbine,7,1,1e-06,False,TrainTop,Model top pick
+2025-09-19,Woodbine,7,2,1e-06,False,Train2,Model second pick
+2025-09-19,Woodbine,7,3,1e-06,False,,Model score
+2025-09-19,Woodbine,7,4,1e-06,False,,Model score
+2025-09-19,Woodbine,7,5,1e-06,False,,Model score
+2025-09-19,Woodbine,7,6,1e-06,False,,Model score
+2025-09-19,Woodbine,7,7,1e-06,False,,Model score
+2025-09-19,Woodbine,7,8,1e-06,False,,Model score
+2025-09-19,Woodbine,7,9,1e-06,False,,Model score

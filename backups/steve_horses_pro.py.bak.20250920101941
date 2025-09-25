@@ -1,0 +1,442 @@
+# -*- coding: utf-8 -*-
+"""
+PF-35 Mach++ PRO board writer.
+- Restores the old board layout with PRIME/ACTION on top.
+- Parses display-lite HTML for PF lines; converts pct→z with sign.
+- Reads Simple Bets for live Market%; falls back to ML if available.
+- Uses TJ/DB modules if present; soft-fails to PRO only.
+"""
+from __future__ import annotations
+import os, re, math, csv, json, html, webbrowser as _wb
+from pathlib import Path
+from datetime import datetime as _dt
+
+# --------- config/env ----------
+BASE = Path(os.getenv("HOME") or ".") / "Desktop" / "SteveHorsesPro"
+OUT  = BASE / "outputs"; OUT.mkdir(parents=True, exist_ok=True)
+
+def _env_bool(k: str, default=False) -> bool:
+    v = (os.getenv(k) or "").strip().lower()
+    return default if not v else v in {"1","true","yes","on","y"}
+
+def _env_float(k: str, default: float) -> float:
+    try: return float(os.getenv(k, str(default)))
+    except Exception: return default
+
+ALPHA       = _env_float("PRO_ALPHA", 1.30)
+USE_SHARP   = _env_bool("PRO_USE_SHARP", True)
+PRIOR_W     = _env_float("PRO_PRIOR_W", 0.90)
+ML_POWER    = _env_float("PRO_PRIOR_ML_B", 1.00)
+MIN_MULT    = _env_float("PRO_MIN_ODDS_MULT", 1.30)
+
+PRIME_P_MIN = _env_float("PRO_PRIME_P_MIN", 0.22)
+PRIME_EDGE  = _env_float("PRO_PRIME_EDGE_MIN_PP", 7.5)
+ACT_P_MIN   = _env_float("PRO_ACTION_P_MIN", 0.14)
+ACT_EDGE    = _env_float("PRO_ACTION_EDGE_MIN_PP", 4.0)
+
+# weights, override via PRO_WEIGHTS_JSON if you want
+W = {"b0":0.00,"sf":1.50,"cd":1.20,"bias":0.80,"tj":0.55,"train":0.70,"db":0.25}
+try: W.update(json.loads(os.getenv("PRO_WEIGHTS_JSON","{}")))
+except Exception: pass
+
+# optional DBs
+try: import db_tj as DBTJ
+except Exception: DBTJ=None
+try: import db_horses as DBH
+except Exception: DBH=None
+
+# --------- helpers ----------
+def _today_iso() -> str:
+    return os.getenv("RUN_DATE") or _dt.now().strftime("%Y-%m-%d")
+
+def _canon_track(t: str) -> str:
+    k = re.sub(r"[^a-z0-9]+"," ",str(t or "").lower()).strip()
+    if "belmont" in k and ("big a" in k or "aqueduct" in k): return "Aqueduct Racetrack"
+    if "aqueduct" in k: return "Aqueduct Racetrack"
+    if "belmont park" in k: return "Belmont Park"
+    if "saratoga" in k: return "Saratoga Race Course"
+    if "churchill" in k: return "Churchill Downs"
+    if "keeneland" in k: return "Keeneland"
+    if "gulfstream" in k: return "Gulfstream Park"
+    if "santa anita" in k: return "Santa Anita Park"
+    if "del mar" in k: return "Del Mar"
+    if "oaklawn" in k: return "Oaklawn Park"
+    if "fair grounds" in k: return "Fair Grounds"
+    if "parx" in k: return "Parx Racing"
+    if "woodbine" in k: return "Woodbine"
+    if "monmouth" in k: return "Monmouth Park"
+    if "tampa" in k: return "Tampa Bay Downs"
+    if "laurel" in k: return "Laurel Park"
+    return str(t or "").strip()
+
+def _majors() -> set[str]:
+    env = (os.getenv("MAJOR_TRACKS_ONLY") or "").strip()
+    default = {"Aqueduct Racetrack","Belmont Park","Saratoga Race Course","Churchill Downs","Keeneland",
+               "Gulfstream Park","Santa Anita Park","Del Mar","Oaklawn Park","Fair Grounds",
+               "Parx Racing","Woodbine","Monmouth Park","Tampa Bay Downs"}
+    return {_canon_track(x) for x in (env.split(",") if env else default)}
+
+def _is_major(track: str) -> bool:
+    if (os.getenv("ALLOW_MINOR_TRACKS") or "").strip().lower() in {"1","true","yes","on","y"}:
+        return True
+    return _canon_track(track) in _majors()
+
+def _logit(p): p=max(1e-6,min(1-1e-6,p)); return math.log(p/(1-p))
+def _softmax(xs):
+    if not xs: return []
+    m=max(xs); es=[math.exp(x-m) for x in xs]; s=sum(es) or 1.0
+    return [e/s for e in es]
+
+def _norm_ppf(p: float) -> float:
+    # Acklam approximation
+    p = min(1-1e-12, max(1e-12, p))
+    a=[-3.969683028665376e+01,2.209460984245205e+02,-2.759285104469687e+02,1.383577518672690e+02,-3.066479806614716e+01,2.506628277459239e+00]
+    b=[-5.447609879822406e+01,1.615858368580409e+02,-1.556989798598866e+02,6.680131188771972e+01,-1.328068155288572e+01]
+    c=[-7.784894002430293e-03,-3.223964580411365e-01,-2.400758277161838e+00,-2.549732539343734e+00,4.374664141464968e+00,2.938163982698783e+00]
+    d=[7.784695709041462e-03,3.224671290700398e-01,2.445134137142996e+00,3.754408661907416e+00]
+    pl=0.02425
+    if p<pl:
+        q=math.sqrt(-2*math.log(p)); return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1)
+    if p>1-pl:
+        q=math.sqrt(-2*math.log(1-p)); return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1)
+    q=p-0.5; r=q*q
+    return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1)
+
+def _tj_z_mark(trainer, jockey, track):
+    if DBTJ is None: return 0.0, ""
+    try:
+        rec = DBTJ.lookup_combo(trainer or "", jockey or "", track or "", None, None) or {}
+        wr = float(rec.get("win_pct") or 0.0); n = int(rec.get("starts") or 0)
+        z  = max(-3.5, min(3.5, (wr - 50.0)/8.33))
+        return z, (f"TJ {wr:.0f}%/{n}" if n>=40 else "")
+    except Exception:
+        return 0.0, ""
+
+def _horse_hist_n(horse):
+    if DBH is None or not horse: return 0
+    try: return int(DBH.count_hist(horse))
+    except Exception: return 0
+
+# --------- inputs ----------
+def _pred_csv(date_iso: str) -> Path|None:
+    for name in (f"{date_iso}_horses_predictions.csv", f"{date_iso}_predictions.csv", f"predictions_{date_iso}.csv"):
+        p = OUT / name
+        if p.exists(): return p
+    return None
+
+def _find_display_lite(date_iso: str) -> Path|None:
+    for name in (f"{date_iso}_horses_targets+full.html","latest.html"):
+        p=OUT/name
+        if p.exists(): return p
+    cands = sorted(OUT.glob("*_horses_targets+full.html"))
+    return cands[-1] if cands else None
+
+def _find_simple_bets(date_iso: str) -> Path|None:
+    for name in (f"{date_iso}_simple_bets.html","latest-simple.html"):
+        p=OUT/name
+        if p.exists(): return p
+    cands = sorted(OUT.glob("*_simple_bets.html"))
+    return cands[-1] if cands else None
+
+def _load_rows_from_csv(p: Path) -> list[dict]:
+    with p.open("r", encoding="utf-8", newline="") as fh:
+        return list(csv.DictReader(fh))
+
+def _parse_display_lite(ht: str) -> list[dict]:
+    # Designed around your display-lite markup. (See example files.)   PF lines under name
+    rows=[]
+    sect = re.compile(r"<h3>([^<]+)\s+—\s+Race\s+(\d+)</h3>", re.I)
+    row  = re.compile(r"<tr[^>]*>\s*<td[^>]*class=['\"]mono['\"][^>]*>(?P<prog>[^<]+)</td>\s*<td>(?P<h>.*?)</td>", re.I|re.S)
+    sub  = re.compile(r"SpeedForm\s*([↑↗→↘↓])\s*\((\d+)\s*pct\).*?ClassΔ\s*([↑↗→↘↓])\s*\((\d+)\s*pct\).*?Bias\s*([↑↗→↘↓])\s*\((\d+)\s*pct\)", re.I|re.S)
+    title= re.compile(r"title=['\"]([^'\"]+)['\"]", re.I|re.S)
+
+    pos=0
+    while True:
+        m=sect.search(ht,pos)
+        if not m: break
+        track, race = m.group(1).strip(), m.group(2).strip()
+        pos=m.end()
+        nxt=sect.search(ht,pos)
+        block=ht[pos:(nxt.start() if nxt else len(ht))]
+        for rm in row.finditer(block):
+            prog = re.sub(r"[^\dA-Za-z]+","", rm.group("prog")).strip()
+            horse_html = rm.group("h")
+            horse = re.sub(r"<.*?>","", horse_html).strip()
+
+            sf=cd=bz=0.0; sfp=cdp=bzp=50
+            sm = sub.search(rm.group(0))
+            if sm:
+                arrows = (sm.group(1), sm.group(3), sm.group(5))
+                pcts   = (int(sm.group(2)), int(sm.group(4)), int(sm.group(6)))
+                sfp, cdp, bzp = pcts
+                z = [_norm_ppf(p/100.0) for p in pcts]
+                def sgn(a): return 0 if a=="→" else (1 if a in {"↑","↗"} else -1)
+                s = [sgn(a) for a in arrows]
+                sf, cd, bz = abs(z[0])* (1 if s[0]>=0 else -1), abs(z[1])* (1 if s[1]>=0 else -1), abs(z[2])* (1 if s[2]>=0 else -1)
+
+            tt = title.search(rm.group(0))
+            if tt:
+                m2 = re.search(r"SpeedForm\s+([+\-]?\d+(?:\.\d+)?)σ.*?ClassΔ\s+([+\-]?\d+(?:\.\d+)?)σ.*?Bias\s+([+\-]?\d+(?:\.\d+)?)σ", tt.group(1), re.I|re.S)
+                if m2:
+                    try:
+                        v = [float(m2.group(i)) for i in (1,2,3)]
+                        if abs(v[0])>abs(sf): sf=v[0]
+                        if abs(v[1])>abs(cd): cd=v[1]
+                        if abs(v[2])>abs(bz): bz=v[2]
+                    except Exception:
+                        pass
+
+            rows.append({"track":track,"race":race,"program":prog,"horse":horse,
+                         "sf_z":sf,"cd_z":cd,"bias_z":bz,
+                         "sf_pct":sfp,"cd_pct":cdp,"bias_pct":bzp})
+    return rows
+
+def _parse_simple_bets(ht: str) -> dict[tuple[str,str,str], dict]:
+    # rows with Prog, Horse, p, mkt…; build map keyed by (track,race,prog)
+    out={}
+    sect = re.compile(r"<h2>([^<]+)\s+—\s+([^<]+)</h2>", re.I)  # Track — Race X
+    row  = re.compile(r"<tr[^>]*>\s*<td[^>]*class=['\"]mono['\"][^>]*>(\d+)</td>\s*<td>(.*?)</td>\s*<td[^>]*>([\d.]+)</td>\s*<td[^>]*>([\d.]+)</td>", re.I|re.S)
+    pos=0
+    while True:
+        m=sect.search(ht,pos)
+        if not m: break
+        track, rlabel = m.group(1).strip(), m.group(2).strip()
+        race = re.sub(r"[^\d]","", rlabel) or rlabel
+        pos=m.end()
+        nxt=sect.search(ht,pos)
+        block=ht[pos:(nxt.start() if nxt else len(ht))]
+        for rm in row.finditer(block):
+            prog=rm.group(1).strip()
+            p = float(rm.group(3))
+            mk= float(rm.group(4))
+            out[(track,race,prog)] = {"p":p, "market":mk}
+    return out
+
+def _load_rows(date_iso: str) -> list[dict]:
+    p = _pred_csv(date_iso)
+    if p:
+        try: return _load_rows_from_csv(p)
+        except Exception: pass
+    h = _find_display_lite(date_iso)
+    if h and h.exists():
+        return _parse_display_lite(h.read_text(encoding="utf-8", errors="ignore"))
+    return []
+
+def _load_markets(date_iso: str) -> dict:
+    m = _find_simple_bets(date_iso)
+    if m and m.exists():
+        return _parse_simple_bets(m.read_text(encoding="utf-8", errors="ignore"))
+    return {}
+
+def _ml_to_prob(s) -> float|None:
+    if s is None: return None
+    t = str(s).strip().replace(" ","").split("•")[0]
+    if not t: return None
+    if t.lower() in {"even","ev","e"}: return 0.5
+    m = re.match(r"^(\d+(?:\.\d+)?)[/-](\d+(?:\.\d+)?)$", t)
+    if m:
+        num, den = float(m.group(1)), float(m.group(2))
+        return max(1e-6, min(0.99, 1.0/(1.0 + num/den)))
+    try:
+        dec = float(t)
+        if dec > 1.0: return max(1e-6, min(0.99, 1.0/dec))
+    except Exception:
+        pass
+    return None
+
+def _prior_prob(r: dict, n: int, market_map: dict) -> float:
+    key = (r.get("track",""), str(r.get("race","")), str(r.get("program","")))
+    mm = market_map.get(key, {})
+    mkt = mm.get("market")
+    if mkt is not None and mkt>0: return max(1e-6, min(0.99, mkt))
+    # ML fields if available in CSV later
+    for k in ("ml","ml_odds","morning_line","ml_frac","ml_dec"):
+        p = _ml_to_prob(r.get(k))
+        if p is not None: return p
+    return 1.0/max(1, n)
+
+def _prior_dot(p): 
+    p=max(1e-6,min(0.999999,p**ML_POWER))
+    return PRIOR_W * _logit(p)
+
+def _fmt_price(dec: float) -> str:
+    dec=max(1.01, dec)
+    return "${:.2f}".format(dec)
+
+# --------- board ----------
+def _write_board(date_iso: str):
+    rows = _load_rows(date_iso)           # PF etc. from display-lite if no CSV
+    market_map = _load_markets(date_iso)  # live market from Simple Bets
+
+    parts=[]
+    parts.append("<!doctype html><html><head><meta charset='utf-8'><title>PF-35 Mach++ v3.12-pro-stable — "+date_iso+"</title>")
+    parts.append("<style>body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}"
+                 "table{border-collapse:collapse;width:100%;margin:12px 0}"
+                 "th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;font-size:14px}"
+                 "th{background:#f3f3f3}.mono{font-variant-numeric:tabular-nums}.small{color:#666;font-size:12px}"
+                 ".badge{display:inline-block;background:#eef;border:1px solid #dde;border-radius:3px;padding:1px 6px;margin:0 2px}"
+                 ".badge.pro{background:#eaffea}.badge.train{background:#e6f4ff}"
+                 ".yes{background:#eef9f0}.no{background:#f9efef}</style></head><body>")
+    parts.append("<h1>PF-35 Mach++ v3.12-pro-stable <span class='small'>("+date_iso+")</span></h1>")
+
+    if not rows:
+        parts.append("<p class='small'>No data in outputs/. Run TRAIN then PRO.</p></body></html>")
+        html_out="\n".join(parts)
+        (OUT/"latest-board.html").write_text(html_out, encoding="utf-8")
+        (OUT/(date_iso+"_board.html")).write_text(html_out, encoding="utf-8")
+        return
+
+    # group majors
+    groups={}
+    for r in rows:
+        trk=r.get("track","")
+        if not _is_major(trk): continue
+        key=(_canon_track(trk), str(r.get("race","")))
+        groups.setdefault(key, []).append(r)
+
+    plays_prime=[]; plays_action=[]; cards=[]
+
+    for (track, race), arr in sorted(groups.items(), key=lambda kv: (kv[0][0].lower(), int(re.sub(r"[^\d]","", kv[0][1]) or "0"))):
+        n=len(arr); scored=[]
+        for r in arr:
+            prog=str(r.get("program") or "")
+            horse=str(r.get("horse") or "")
+            sf=float(r.get("sf_z") or 0.0)
+            cd=float(r.get("cd_z") or 0.0)
+            bz=float(r.get("bias_z") or 0.0)
+            sf_pct=int(r.get("sf_pct") or 50)
+            cd_pct=int(r.get("cd_pct") or 50)
+            bz_pct=int(r.get("bias_pct") or 50)
+
+            tr=r.get("trainer") or r.get("trainer_name")
+            jk=r.get("jockey") or r.get("jockey_name")
+            tj_z, tj_mark = _tj_z_mark(tr, jk, track)
+            db_n = _horse_hist_n(horse)
+
+            prior = _prior_prob({"track":track,"race":race,"program":prog, **r}, n, market_map)
+            train_used = bool(r.get("train_used", False))
+
+            score = (W["b0"] + W["sf"]*sf + W["cd"]*cd + W["bias"]*bz +
+                     W["tj"]*tj_z + W["train"]*(1.0 if train_used else 0.0) +
+                     W["db"]*math.log1p(db_n) + _prior_dot(prior))
+
+            market = market_map.get((track,str(race),prog),{}).get("market")
+            scored.append({"program":prog,"horse":horse,"sf":sf,"cd":cd,"bz":bz,
+                           "sf_pct":sf_pct,"cd_pct":cd_pct,"bz_pct":bz_pct,
+                           "tj_z":tj_z,"tj_mark":tj_mark,"db_n":db_n,
+                           "prior":prior,"score":score,"market_pct":market,"train_used":train_used})
+
+        pm = _softmax([x["score"] for x in scored])
+        if abs(ALPHA-1.0)<1e-6:
+            pu=pm[:]
+        else:
+            pw=[max(1e-12,p)**ALPHA for p in pm]; s=sum(pw) or 1.0; pu=[p/s for p in pw]
+        for x,pmi,pui in zip(scored,pm,pu): x["pm"],x["pu"]=pmi,pui
+
+        for x in scored:
+            p_use = x["pu"] if USE_SHARP else x["pm"]
+            refm  = x["market_pct"]
+            edge_pp = (p_use - (refm if refm is not None else 0.0))*100.0
+            entry = (track, race, x["program"], x["horse"], p_use, refm, edge_pp, x)
+            if p_use>=PRIME_P_MIN and edge_pp>=PRIME_EDGE: plays_prime.append(entry)
+            elif p_use>=ACT_P_MIN and edge_pp>=ACT_EDGE:  plays_action.append(entry)
+
+        # rows sorted by p
+        rows_out=[]
+        for x in sorted(scored, key=lambda z: (z["pu"] if USE_SHARP else z["pm"]), reverse=True):
+            p_use = x["pu"] if USE_SHARP else x["pm"]
+            fair  = 1.0/max(1e-9,p_use)
+            minp  = fair*MIN_MULT
+            refm  = x["market_pct"]
+            edge  = (p_use - (refm if refm is not None else 0.0))*100.0
+            src   = "PRO"
+            if x["db_n"]>0: src += "+DB"
+            if x.get("train_used"): src += "+TRAIN"
+            sub = "P<br><span class='small'>SpeedForm {a1} ({p1} pct), ClassΔ {a2} ({p2} pct), Bias {a3} ({p3} pct)</span>".format(
+                a1=("↑" if x["sf"]>0 else ("→" if abs(x["sf"])<1e-6 else "↓")),
+                p1=x["sf_pct"],
+                a2=("↑" if x["cd"]>0 else ("→" if abs(x["cd"])<1e-6 else "↓")),
+                p2=x["cd_pct"],
+                a3=("↑" if x["bz"]>0 else ("→" if abs(x["bz"])<1e-6 else "↓")),
+                p3=x["bias_pct"],
+            )
+            flags = ("SpeedForm {a1} ({p1} pct), ClassΔ {a2} ({p2} pct), Bias {a3} ({p3} pct) • DB:{db}r"
+         .format(
+             a1=('↑' if x.get('sf',0)>0 else ('→' if abs(x.get('sf',0))<1e-6 else '↓')), p1=x.get('sf_pct',50),
+             a2=('↑' if x.get('cd',0)>0 else ('→' if abs(x.get('cd',0))<1e-6 else '↓')), p2=x.get('cd_pct',50),
+             a3=('↑' if x.get('bz',0)>0 else ('→' if abs(x.get('bz',0))<1e-6 else '↓')), p3=x.get('bias_pct',50),
+             db=x.get('db_n',0)))
+                a1=("↑" if x["sf"]>0 else ("→" if abs(x["sf"])<1e-6 else "↓")), p1=x["sf_pct"],
+                a2=("↑" if x["cd"]>0 else ("→" if abs(x["cd"])<1e-6 else "↓")), p2=x["cd_pct"],
+                a3=("↑" if x["bz"]>0 else ("→" if abs(x["bz"])<1e-6 else "↓")), p3=x["bias_pct"], db=x["db_n"]
+            )
+            if x["tj_mark"]: flags += " • " + x["tj_mark"]
+            rows_out.append({
+                "prog":x["program"],"horse":x["horse"],"sub":sub,
+                "p":p_use,"mkt":refm,"edge":edge,"fair":fair,"min":minp,
+                "flags": flags, "src":src
+            })
+        cards.append({"track":track,"race":race,"rows":rows_out})
+
+    # plays
+    def _render_play_table(title: str, arr: list[tuple]):
+        parts.append("<h2>"+html.escape(title)+" Board</h2>")
+        if not arr:
+            parts.append("<p class='small'>No plays today.</p>")
+            return
+        parts.append("<table><thead><tr><th>#</th><th>Horse</th>"
+                     "<th class='mono'>Win% (Final)</th><th class='mono'>Market%</th><th class='mono'>Edge</th>"
+                     "<th class='mono'>Fair</th><th class='mono'>Min Price</th><th class='mono'>Market</th>"
+                     "<th>Source</th><th class='mono'>Bet</th></tr></thead><tbody>")
+        for track,race,prog,horse,p,refm,edge,x in sorted(arr, key=lambda k: (k[6],k[4]), reverse=True):
+            parts.append("<tr>"
+                         "<td class='mono'>"+html.escape(str(prog))+"</td>"
+                         "<td>"+html.escape(horse)+"<div class='small'>P</div></td>"
+                         "<td class='mono'>{:.2f}%</td>".format(p*100.0) +
+                         "<td class='mono'>"+("—" if refm is None else "{:.1f}%".format(refm*100.0))+"</td>"
+                         "<td class='mono'>{:+.1f}</td>".format(edge) +
+                         "<td class='mono'>"+_fmt_price(1.0/max(1e-9,p))+"</td>"
+                         "<td class='mono'>"+_fmt_price(1.0/max(1e-9,p)*MIN_MULT)+"</td>"
+                         "<td class='mono'>"+("—" if refm is None else "{:.2f}".format(1.0/max(1e-9,refm)))+"</td>"
+                         "<td><span class='badge "+("train" if "+TRAIN" in "PRO" else "pro")+"'>"+("PRO+DB" if x.get('db_n',0)>0 else "PRO")+"</span></td>"
+                         "<td class='mono'>—</td></tr>")
+        parts.append("</tbody></table>")
+
+    _render_play_table("PRIME", plays_prime)
+    _render_play_table("ACTION", plays_action)
+
+    # race cards
+    for card in cards:
+        parts.append("<h2>"+html.escape(card['track'])+" — Race "+html.escape(str(card['race']))+"</h2>")
+        parts.append("<table><thead><tr><th>#</th><th>Horse</th>"
+                     "<th class='mono'>Win% (Final)</th><th class='mono'>Market%</th><th class='mono'>Edge</th>"
+                     "<th class='mono'>Fair</th><th class='mono'>Min Price</th><th class='mono'>Market</th>"
+                     "<th>Flags</th><th>Source</th><th class='mono'>Bet</th></tr></thead><tbody>")
+        for r in card["rows"]:
+            parts.append("<tr>"
+                         "<td class='mono'>"+html.escape(str(r['prog']))+"</td>"
+                         "<td>"+html.escape(r['horse'])+"<div class='small'>"+r['sub']+"</div></td>"
+                         "<td class='mono'>{:.2f}%</td>".format(r['p']*100.0) +
+                         "<td class='mono'>"+("—" if r['mkt'] is None else "{:.1f}%".format(r['mkt']*100.0))+"</td>"
+                         "<td class='mono'>{:+.1f}</td>".format(r['edge']) +
+                         "<td class='mono'>"+_fmt_price(r['fair'])+"</td>"
+                         "<td class='mono'>"+_fmt_price(r['min'])+"</td>"
+                         "<td class='mono'>"+("—" if r['mkt'] is None else "{:.2f}".format(1.0/max(1e-9,r['mkt'])))+"</td>"
+                         "<td>"+html.escape(r['flags'])+"</td>"
+                         "<td><span class='badge "+("train" if "+TRAIN" in r['src'] else "pro")+"'>"+r['src']+"</span></td>"
+                         "<td class='mono'>—</td></tr>")
+        parts.append("</tbody></table>")
+
+    parts.append("<p class='small'>PF‑35 + TRAIN + TJ/DB + Market/ML prior • α="+str(ALPHA)+" • sharp="+str(USE_SHARP)+"</p>")
+    parts.append("</body></html>")
+    html_out="\n".join(parts)
+    (OUT/"latest-board.html").write_text(html_out, encoding="utf-8")
+    (OUT/(date_iso+"_board.html")).write_text(html_out, encoding="utf-8")
+
+# --------- main ----------
+if __name__=="__main__":
+    di=_today_iso()
+    _write_board(di)
+    if _env_bool("AUTO_OPEN", True):
+        try: _wb.open((OUT/"latest-board.html").as_uri())
+        except Exception: pass

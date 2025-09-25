@@ -1,0 +1,362 @@
+# ======================================================================
+# FILE: steve_horses_pro.py
+# PURPOSE: Fast Old Board + Simple HTML using PF-35 + TRAIN + TJ/Horse DB
+#          with Market% live and ML fallback. Majors-only gate.
+# ======================================================================
+from __future__ import annotations
+import os as _os, re as _re, math as _math, csv as _csv, json as _json, webbrowser as _wb
+from pathlib import Path as _Path
+from datetime import datetime as _dt
+import html as _html
+
+_BASE = _Path(_os.getenv("HOME") or ".") / "Desktop" / "SteveHorsesPro"
+OUT_DIR = _BASE / "outputs"
+DATA_DIR = _BASE / "data"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+(DATA_DIR / "signals").mkdir(parents=True, exist_ok=True)
+
+def _env_bool(k: str, default: bool=False) -> bool:
+    v = (_os.getenv(k) or "").strip().lower()
+    return default if not v else v in {"1","true","yes","on","y"}
+
+def _env_float(k: str, default: float) -> float:
+    try: return float(_os.getenv(k, str(default)))
+    except Exception: return default
+
+def _today_iso() -> str:
+    return _os.getenv("RUN_DATE") or _dt.now().strftime("%Y-%m-%d")
+
+def _canon_track(t: str) -> str:
+    k = _re.sub(r"[^a-z0-9]+"," ",str(t or "").lower()).strip()
+    if "belmont" in k and ("big a" in k or "aqueduct" in k): return "Aqueduct Racetrack"
+    if "aqueduct" in k: return "Aqueduct Racetrack"
+    if "belmont park" in k: return "Belmont Park"
+    if "saratoga" in k: return "Saratoga Race Course"
+    if "churchill" in k: return "Churchill Downs"
+    if "keeneland" in k: return "Keeneland"
+    if "gulfstream" in k: return "Gulfstream Park"
+    if "santa anita" in k: return "Santa Anita Park"
+    if "del mar" in k: return "Del Mar"
+    if "oaklawn" in k: return "Oaklawn Park"
+    if "fair grounds" in k: return "Fair Grounds"
+    if "parx" in k: return "Parx Racing"
+    if "woodbine" in k: return "Woodbine"
+    if "monmouth" in k: return "Monmouth Park"
+    if "tampa" in k: return "Tampa Bay Downs"
+    if "laurel park" in k: return "Laurel Park"
+    return str(t or "").strip()
+
+def _majors_set() -> set[str]:
+    env = (_os.getenv("MAJOR_TRACKS_ONLY") or "").strip()
+    default = {"Aqueduct Racetrack","Belmont Park","Saratoga Race Course","Churchill Downs","Keeneland",
+               "Gulfstream Park","Santa Anita Park","Del Mar","Oaklawn Park","Fair Grounds",
+               "Parx Racing","Woodbine","Monmouth Park","Tampa Bay Downs"}
+    return {_canon_track(x) for x in (env.split(",") if env else default)}
+
+def _is_major(track: str) -> bool:
+    if (_os.getenv("ALLOW_MINOR_TRACKS") or "").strip().lower() in {"1","true","yes","on","y"}:
+        return True
+    return _canon_track(track) in _majors_set()
+
+def _pred_csv(date_iso: str) -> _Path:
+    for name in (f"{date_iso}_horses_predictions.csv", f"{date_iso}_predictions.csv", f"predictions_{date_iso}.csv"):
+        p = OUT_DIR / name
+        if p.exists(): return p
+    return OUT_DIR / f"{date_iso}_horses_predictions.csv"
+
+def _load_rows(date_iso: str) -> list[dict]:
+    p = _pred_csv(date_iso)
+    if not p.exists(): return []
+    with p.open("r", encoding="utf-8", newline="") as fh:
+        return list(_csv.DictReader(fh))
+
+def _to_f(x, d=None):
+    try:
+        if x in (None,""): return d
+        return float(x)
+    except Exception: return d
+
+def _ml_str_to_prob(s) -> float|None:
+    if s is None: return None
+    t = str(s).strip().replace(" ","")
+    if not t: return None
+    t = t.split("•")[0]
+    if t.lower() in {"even","ev","e"}: return 0.5
+    m = _re.match(r"^(\d+(?:\.\d+)?)[/-](\d+(?:\.\d+)?)$", t)
+    if m:
+        num, den = float(m.group(1)), float(m.group(2))
+        dec = 1.0 + (num/den)
+        return max(1e-6, min(0.99, 1.0/dec))
+    try:
+        dec = float(t)
+        if dec > 1.0: return max(1e-6, min(0.99, 1.0/dec))
+    except Exception: pass
+    return None
+
+def _prob_from_market_or_ml(row: dict, n: int) -> float:
+    mkt = _to_f(row.get("market_pct"), None)
+    if mkt is not None and mkt > 0: return max(1e-6, min(0.99, mkt))
+    for key in ("ml","ml_odds","morning_line","morning_line_odds","ml_frac","ml_dec"):
+        v = row.get(key)
+        if v not in (None,""):
+            p = _ml_str_to_prob(v)
+            if p is not None: return max(1e-6, min(0.99, p))
+            try:
+                x = float(v)
+                if 0 < x < 1: return max(1e-6, min(0.99, x))
+            except Exception: pass
+    return max(1e-6, min(0.99, 1.0/max(1,n)))
+
+def _pct_to_z(p):
+    try:
+        p = float(p)
+        if p <= 0 or p >= 100: return 0.0 if p == 50 else (3.0 if p > 50 else -3.0)
+        p /= 100.0
+        z = _math.log((p+1e-6)/(1-p+1e-6))*0.5513
+        return max(-3.5, min(3.5, z))
+    except Exception: return 0.0
+
+def _get_sf_z(r: dict) -> float:
+    for k in ("speed_z","sf_z","speedform_z","SpeedFormZ","speed_pct","SpeedFormPct"):
+        v = r.get(k)
+        if v not in (None,""): return _pct_to_z(v) if "pct" in k.lower() else (_to_f(v,0.0) or 0.0)
+    return 0.0
+
+def _get_cd_z(r: dict) -> float:
+    for k in ("class_z","class_delta_z","ClassDeltaZ","class_pct","ClassDeltaPct"):
+        v = r.get(k)
+        if v not in (None,""): return _pct_to_z(v) if "pct" in k.lower() else (_to_f(v,0.0) or 0.0)
+    return 0.0
+
+def _get_bias_z(r: dict) -> float:
+    for k in ("bias_z","BiasZ","bias_sigma","bias_pct"):
+        v = r.get(k)
+        if v not in (None,""): return _pct_to_z(v) if "pct" in k.lower() else (_to_f(v,0.0) or 0.0)
+    return 0.0
+
+# Optional DBs
+try: import db_tj as _db_tj
+except Exception: _db_tj = None
+try: import db_horses as _db_horses
+except Exception: _db_horses = None
+
+def _tj_z_and_mark(trainer, jockey, track):
+    if _db_tj is None: return 0.0, ""
+    try:
+        rec = _db_tj.lookup_combo(trainer or "", jockey or "", track or "", None, None) or {}
+        wr = float(rec.get("win_pct") or 0.0); n = int(rec.get("starts") or 0)
+        z  = _pct_to_z(min(99.9, max(0.1, wr)))
+        return z, (f"TJ {wr:.0f}%/{n}" if n >= 40 else "")
+    except Exception:
+        return 0.0, ""
+
+def _db_count_horse(horse):
+    if _db_horses is None or not horse: return 0
+    try: return int(_db_horses.count_hist(horse))
+    except Exception: return 0
+
+# TRAIN signals
+_SIG_CACHE = {}
+def _load_signals_for(track, date_iso):
+    key = (track, date_iso)
+    if key in _SIG_CACHE: return _SIG_CACHE[key]
+    p = DATA_DIR / "signals" / f"{track}|{date_iso}.json"
+    try: arr = _json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
+    except Exception: arr = []
+    _SIG_CACHE[key] = arr
+    return arr
+
+def _sig_used(track, race, program, date_iso):
+    try:
+        arr = _load_signals_for(track, date_iso)
+        rr = int(_re.sub(r"[^\d]","", str(race) or "0") or 0); pg = str(program or "").strip()
+        for row in arr:
+            if str(row.get("program","")).strip()==pg and int(row.get("race") or 0)==rr:
+                return bool(row.get("used"))
+    except Exception: pass
+    return False
+
+def _group_by_race(rows):
+    by = {}
+    for r in rows:
+        t = r.get("track","")
+        if not _is_major(t): continue
+        by.setdefault((t, str(r.get("race",""))), []).append(r)
+    return by
+
+def _logit(p): p=max(1e-6,min(1-1e-6,p)); return _math.log(p/(1-p))
+def _softmax(xs):
+    if not xs: return []
+    m=max(xs); es=[_math.exp(x-m) for x in xs]; s=sum(es) or 1.0
+    return [e/s for e in es]
+
+# Weights and knobs
+_W = {"b0":0.00,"sf":1.50,"cd":1.20,"bias":0.80,"tj":0.55,"train":0.70,"db":0.25}
+try: _W.update(_json.loads(_os.getenv("PRO_WEIGHTS_JSON","{}")))
+except Exception: pass
+_PRO_ALPHA   = _env_float("PRO_ALPHA", 1.30)
+_USE_SHARP   = _env_bool("PRO_USE_SHARP", True)
+_PRIOR_W     = _env_float("PRO_PRIOR_W", 0.90)
+_PRIOR_ML_B  = _env_float("PRO_PRIOR_ML_B", 1.00)
+_EDGE_FLOOR  = _env_float("EDGE_WIN_PCT_FLOOR", 0.20)
+_EDGE_PP_MIN = _env_float("EDGE_PP_MIN_PRIME", 3.0)
+
+def _PRIORDOT(pr): return _PRIOR_W * _logit(pr)
+
+def _score_runner(track, race, r, n, di):
+    sf=_get_sf_z(r); cd=_get_cd_z(r); bz=_get_bias_z(r)
+    tr=r.get("trainer") or r.get("trainer_name"); jk=r.get("jockey") or r.get("jockey_name")
+    tjz,tjm=_tj_z_and_mark(tr,jk,track); prog=str(r.get("program") or r.get("prog") or "")
+    used=_sig_used(track,race,prog,di); ndb=_db_count_horse(r.get("horse"))
+    prior=_prob_from_market_or_ml(r,n)**_PRIOR_ML_B
+    score=(_W["b0"]+_W["sf"]*sf+_W["cd"]*cd+_W["bias"]*bz+_W["tj"]*tjz+_W["train"]*(1.0 if used else 0.0)+_W["db"]*_math.log1p(ndb)+_PRIORDOT(prior))
+    return {"sf":sf,"cd":cd,"bz":bz,"tj_z":tjz,"tj_mark":tjm,"train_used":used,"db_n":int(ndb),
+            "prior":prior,"program":prog,"horse":r.get("horse",""),"score":score,"pm":0.0,"pu":0.0,
+            "market_pct":_to_f(r.get("market_pct"),None),
+            "mlp":_ml_str_to_prob(r.get("ml") or r.get("ml_odds") or r.get("morning_line") or r.get("morning_line_odds"))}
+
+def _race_probs(scored):
+    raw=[x["score"] for x in scored]
+    pm=_softmax(raw)
+    if abs(_PRO_ALPHA-1.0)<1e-6: pu=pm[:]
+    else:
+        pw=[max(1e-12,p)**_PRO_ALPHA for p in pm]; s=sum(pw) or 1.0; pu=[p/s for p in pw]
+    return pm,pu
+
+def _write_old_board_html(di: str):
+    rows=_load_rows(di)
+    if not rows: return
+    groups=_group_by_race(rows)
+    parts=[]
+    parts.append("<!doctype html><html><head><meta charset='utf-8'>")
+    parts.append("<title>PRO Old Board — "+di+"</title>")
+    parts.append("<style>body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}"
+                 "table{border-collapse:collapse;width:100%;margin:12px 0}"
+                 "th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;font-size:13px}"
+                 "th{background:#f3f3f3}.yes{background:#e7f7ea}.no{background:#f7e7e7}.mono{font-variant-numeric:tabular-nums}"
+                 ".small{font-size:12px;color:#666}</style></head><body>")
+    parts.append("<h1>Old Board <span class='small'>("+di+")</span></h1>")
+    parts.append("<p class='small mono'>PF-35 + TRAIN + DB + Market/ML. α="+str(_PRO_ALPHA)+" use_sharp="+str(bool(_USE_SHARP))+"</p>")
+
+    def _num(s):
+        try: return int(_re.sub(r"[^\d]","", str(s)) or "0")
+        except Exception: return 0
+
+    for (track,race), arr in sorted(groups.items(), key=lambda kv: (_canon_track(kv[0][0]).lower(), _num(kv[0][1]))):
+        n=len(arr)
+        scored=[_score_runner(track,race,r,n,di) for r in arr]
+        pm,pu=_race_probs(scored)
+        for x,pmi,pui in zip(scored,pm,pu): x["pm"],x["pu"]=pmi,pui
+        parts.append("<h2>{} — Race {} <span class='small mono'>(n={}, Σp={:.3f})</span></h2>".format(
+            track,race,n, sum(x["pu"] if _USE_SHARP else x["pm"] for x in scored)
+        ))
+        parts.append("".join([
+            "<table><thead><tr>",
+            "<th>Prog</th><th>Horse</th>",
+            "<th class='mono'>p_model</th>",
+            "<th class='mono'>p_sharp</th>" if _USE_SHARP else "",
+            "<th class='mono'>Fair</th>",
+            "<th class='mono'>Market%</th><th class='mono'>ML%</th>",
+            "<th class='mono'>Overlay(pp)</th>",
+            "<th>Flags</th>",
+            "<th class='mono'>Bet?</th>",
+            "</tr></thead><tbody>",
+        ]))
+        def _fair(p): return 1.0/max(1e-9,p)
+        def _overlay(p,m): return (p-(m if m is not None else 0.0))*100.0
+        enriched=[]
+        for x in scored:
+            p_use=x["pu"] if _USE_SHARP else x["pm"]
+            fair=_fair(p_use)
+            refm = x["market_pct"] if x["market_pct"] is not None else x["mlp"]
+            ov=_overlay(p_use, refm)
+            flags="PF: SF{:+.2f} CD{:+.2f} Bias{:+.2f} | TRAIN:{} | {} | DB:{}".format(
+                x["sf"],x["cd"],x["bz"],("Y" if x["train_used"] else "—"),(x["tj_mark"] if x["tj_mark"] else "TJ—"),x["db_n"]
+            )
+            dec="YES" if (p_use>=_EDGE_FLOOR and ov>=_EDGE_PP_MIN) else "NO"
+            enriched.append((ov,-p_use,x,fair,dec,flags))
+        enriched.sort(reverse=True)
+        for _,__,x,fair,dec,flags in enriched:
+            parts.append("".join([
+                "<tr class='",("yes" if dec=="YES" else "no"),"'>",
+                "<td class='mono'>",_html.escape(x["program"]),"</td>",
+                "<td>",_html.escape(x["horse"]),"</td>",
+                "<td class='mono'>","{:.3f}".format(x["pm"]),"</td>",
+                ("<td class='mono'>"+("{:.3f}".format(x["pu"]))+"</td>" if _USE_SHARP else ""),
+                "<td class='mono'>","{:.2f}".format(fair if fair<999 else 999.0),"</td>",
+                "<td class='mono'>","{:.3f}".format(x["market_pct"] if x["market_pct"] is not None else 0.0),"</td>",
+                "<td class='mono'>","{:.3f}".format(x["mlp"] if x["mlp"] is not None else 0.0),"</td>",
+                "<td class='mono'>","{:+.1f}".format(_overlay(x["pu"] if _USE_SHARP else x["pm"], x["market_pct"] if x["market_pct"] is not None else x["mlp"])),"</td>",
+                "<td>",flags,"</td>",
+                "<td class='mono'><b>",dec,"</b></td>",
+                "</tr>"
+            ]))
+        parts.append("</tbody></table>")
+    parts.append("<p class='small'>Generated "+_dt.now().strftime('%Y-%m-%d %H:%M:%S')+
+                 " | α="+str(_PRO_ALPHA)+" | majors_only="+("no" if (_os.getenv("ALLOW_MINOR_TRACKS") or "").strip().lower() in {'1','true','yes','on','y'} else "yes")+
+                 "</p></body></html>")
+    html="\n".join(parts)
+    (OUT_DIR/"latest-board.html").write_text(html,encoding="utf-8")
+    (OUT_DIR/(di+"_board.html")).write_text(html,encoding="utf-8")
+
+def _write_simple_bets_html(di: str):
+    rows=_load_rows(di)
+    if not rows: return
+    groups=_group_by_race(rows)
+    parts=[]
+    parts.append("<!doctype html><html><head><meta charset='utf-8'>")
+    parts.append("<title>PRO Simple Bets — "+di+"</title>")
+    parts.append("<style>body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}"
+                 "table{border-collapse:collapse;width:100%;margin:12px 0}"
+                 "th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;font-size:14px}"
+                 "th{background:#f3f3f3}.yes{background:#e7f7ea}.no{background:#f7e7e7}.mono{font-variant-numeric:tabular-nums}</style></head><body>")
+    parts.append("<h1>Bet Decisions <span style='font-size:12px;color:#666'>("+di+")</span></h1>")
+    parts.append("<p class='mono' style='color:#666'>PF-35 + TRAIN + DB; Market% or ML fallback.</p>")
+    def _num(s):
+        try: return int(_re.sub(r"[^\d]","", str(s)) or "0")
+        except Exception: return 0
+    for (track,race),arr in sorted(groups.items(), key=lambda kv: (_canon_track(kv[0][0]).lower(), _num(kv[0][1]))):
+        n=len(arr)
+        scored=[_score_runner(track,race,r,n,di) for r in arr]
+        pm,pu=_race_probs(scored)
+        for x,pmi,pui in zip(scored,pm,pu): x["pm"],x["pu"]=pmi,pui
+        parts.append("<h2>{} — Race {}</h2>".format(track,race))
+        parts.append("<table><thead><tr><th>Prog</th><th>Horse</th><th>p</th><th>mkt/ML</th><th>edge(pp)</th><th>Flags</th><th>Bet?</th></tr></thead><tbody>")
+        enriched=[]
+        for x in scored:
+            p_use=x["pu"] if _USE_SHARP else x["pm"]
+            ref = x["market_pct"] if x["market_pct"] is not None else x["mlp"]
+            ref = ref if ref is not None else 0.0
+            edge_pp=(p_use-ref)*100.0
+            flags="PF SF{:+.2f} CD{:+.2f} B{:+.2f} | TRAIN:{} | {} | DB:{}".format(
+                x["sf"],x["cd"],x["bz"], ("Y" if x["train_used"] else "—"), (x["tj_mark"] if x["tj_mark"] else "TJ—"), x["db_n"]
+            )
+            dec="YES" if (p_use>=_EDGE_FLOOR and edge_pp>=_EDGE_PP_MIN) else "NO"
+            enriched.append((edge_pp,-p_use,x,p_use,ref,dec,flags))
+        enriched.sort(reverse=True)
+        for _,__,x,p_use,ref,dec,flags in enriched:
+            cls="yes" if dec=="YES" else "no"
+            parts.append("".join([
+                "<tr class='",cls,"'>",
+                "<td class='mono'>",_html.escape(x["program"]),"</td>",
+                "<td>",_html.escape(x["horse"]),"</td>",
+                "<td class='mono'>","{:.3f}".format(p_use),"</td>",
+                "<td class='mono'>","{:.3f}".format(ref),"</td>",
+                "<td class='mono'>","{:+.1f}".format((p_use-ref)*100.0),"</td>",
+                "<td class='mono'>",_html.escape(flags),"</td>",
+                "<td class='mono'><b>",dec,"</b></td>",
+                "</tr>"
+            ]))
+        parts.append("</tbody></table>")
+    parts.append("</body></html>")
+    html="\n".join(parts)
+    (OUT_DIR/"latest-simple.html").write_text(html,encoding="utf-8")
+    (OUT_DIR/(di+"_simple_bets.html")).write_text(html,encoding="utf-8")
+
+if __name__=="__main__":
+    di=_today_iso()
+    _write_old_board_html(di)
+    _write_simple_bets_html(di)
+    if _env_bool("AUTO_OPEN", True):
+        try: _wb.open((OUT_DIR/"latest-board.html").as_uri())
+        except Exception: pass
